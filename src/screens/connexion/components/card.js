@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {ReactComponent as Icon} from "../../../../assets/logoProtools.svg";
-import {Colors} from "../../../../values/colors";
-import Input from "../../../../components/input";
+import {ReactComponent as Icon} from "../../../assets/logoProtools.svg";
+import {Colors} from "../../../values/colors";
 import validator from 'validator'
-import {Button} from "@mui/material";
+import './connexion.css'
+import {Button, Checkbox, FormControlLabel} from "@mui/material";
 
 const cardStyles = {
     container: {
@@ -15,7 +15,7 @@ const cardStyles = {
     },
     containerHeader: {
         display: "flex",
-        margin: "4.5vw",
+        margin: "3.5vw",
         alignItems: "middle"
     },
     header: {
@@ -43,23 +43,13 @@ const cardStyles = {
         fontSize: 16,
     },
     inputTitle: {
-        paddingTop: "1rem",
+        paddingTop: "0.5rem",
         paddingLeft: "2.5rem",
         fontSize : '20px',
         fontFamily: 'Helvetica',
         color: Colors.mainText,
         fontWeight: 'bold',
         textAlign: "left"
-    },
-    buttonConexion: {
-        padding: ".8rem 1.1rem 0.8rem 1.1rem",
-        borderRadius: "18px",
-        height : "3.2rem",
-        backgroundColor: Colors.secondGreen,
-        border: 0,
-        fontSize : "1.2em",
-        fontWeight : "bold",
-        color : "#FFF",
     }
 };
 const Card = ({height,length}) => {
@@ -103,10 +93,16 @@ const Card = ({height,length}) => {
                    value={password}
                    onChange={(e) => setPassword(e.target.value)}
             />
-
-            <button style={cardStyles.buttonConexion} onClick={() =>handleSubmit()}>
+            <div style={{display:"flex"}}>
+                <div><FormControlLabel control={<Checkbox />} label="Se souvenir de moi" /></div>
+                <div className="text-3">Mot de passe oublié</div>
+            </div>
+            <br/>
+            <Button variant="contained"
+                    disableElevation
+                    onClick={()=> handleSubmit()}>
                 Se connecter
-            </button>
+            </Button>
 
         </div>
     )

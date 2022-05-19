@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "./components/Cards/card";
+import Card from "./components/card";
 import logoProtools from '../../assets/logoProtools.svg';
 
 const connexionStyles = {
