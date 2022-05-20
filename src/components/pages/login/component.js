@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import SideBar from "components/shared/sidepanel"
 import { makeStyles } from "tss-react/mui"
 import {
@@ -41,7 +41,8 @@ const useStyles = makeStyles()(theme => {
       alignItems: "left",
       fontSize: 18,
       fontWeight: "bold",
-      paddingBottom: 10,
+      marginBottom: 10,
+      paddingTop: 10,
     },
     boutonConnexion: {
       backgroundColor: palette.secondary.main,
@@ -53,12 +54,20 @@ const useStyles = makeStyles()(theme => {
 })
 const Login = () => {
   const { classes } = useStyles()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  function handleSubmit(event) {
+    console.log("Connexion attempt")
+    console.log("email:", email)
+  }
   return (
     <>
-      <SideBar />
       <CustomCard className={classes.card}>
         <CardContent>
-          <Grid spacing={2} sx={{ marginTop: 3, marginBottom: 5 }}>
+          <Grid
+            spacing={2}
+            sx={{ marginTop: 3, marginBottom: 5, alignContent: "center" }}
+          >
             <Logo className={classes.logo} />
             <span className={classes.titleCard}>Connexion</span>
           </Grid>
@@ -66,26 +75,35 @@ const Login = () => {
             direction="column"
             spacing={3}
             sx={{ marginTop: 3, marginBottom: 3 }}
-            xs={4}
           >
-            <span className={classes.inputTitle}>Email</span>
+            <span className={classes.inputTitle}>
+              Email: <br />
+            </span>
             <CustomTextField
               className={classes.TextField}
-              variant="outlined"
+              id="email"
+              variant="standard"
               label="Adresse Email"
+              type="email"
+              onChange={e => setEmail(e.target.value)}
             />
-            <span className={classes.inputTitle}>Mot de passe</span>
+            <span className={classes.inputTitle}>
+              Mot de passe: <br />
+            </span>
             <CustomTextField
               className={classes.TextField}
-              variant="outlined"
+              id="password"
+              variant="standard"
               label="Mot de passe"
               type="password"
+              onChange={e => setPassword(e.target.value)}
             />
           </Grid>
           <Button
             variant="contained"
             disableElevation
-            sx={classes.boutonConnexion}
+            className={classes.boutonConnexion}
+            onClick={() => handleSubmit()}
           >
             Connexion
           </Button>
