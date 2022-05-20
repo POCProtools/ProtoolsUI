@@ -1,14 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import logoProtools from './assets/logoProtools.svg';
-import Connexion from "./screens/connexion/connexion";
+import logo from "./logo.svg"
+import "./App.css"
+import logoProtools from "./assets/logoProtools.svg"
+import Connexion from "./screens/connexion/connexion"
 
 function App() {
-  return (
-    <div className="App">
-        <Connexion/>
-    </div>
-  );
+  return <div className="App">Hello</div>
 }
 
-export default App;
+export default App
