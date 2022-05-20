@@ -1,10 +1,8 @@
-import logo from "./logo.svg"
+import Home from "components/pages/home/component"
 import "./App.css"
-import logoProtools from "./assets/logoProtools.svg"
-import Connexion from "./screens/connexion/connexion"
 
 function App() {
-  return <div className="App">Hello</div>
+  return <Home />
 }
 
 export default App

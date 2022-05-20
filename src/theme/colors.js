@@ -11,8 +11,11 @@ const SECONDARY = {
 
 const palette = {
   common: { black: "#000", white: "#fff" },
-  primary: { ...PRIMARY },
-  secondary: { ...SECONDARY },
+  primary: { main: PRIMARY.mainText },
+  secondary: { main: SECONDARY.secondGreen },
+  background: {
+    default: PRIMARY.background,
+  },
   // Definir couleur alertes erreurs etc...
 }
 
