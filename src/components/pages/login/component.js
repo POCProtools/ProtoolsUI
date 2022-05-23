@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 // @ts-ignore
 import SideBar from "components/shared/sidepanel"
 import { makeStyles } from "tss-react/mui"
+import { GlobalStyles } from "tss-react"
 import {
   Grid,
   // @ts-ignore
@@ -69,6 +70,9 @@ const useStyles = makeStyles()(theme => {
       fontSize: "14px",
       marginTop: 20,
       backgroundColor: palette.secondary.main,
+      "&:hover": {
+        backgroundColor: palette.secondary.main,
+      },
       fontWeight: "bold",
       borderRadius: 15,
     },
@@ -100,6 +104,13 @@ const Login = () => {
   }
   return (
     <>
+      <GlobalStyles
+        styles={{
+          body: {
+            backgroundColor: palette.background.main,
+          },
+        }}
+      />
       <Header />
       <SideBar />
       <Grid container justify="center">
@@ -173,10 +184,23 @@ const Login = () => {
                 sx={{ width: "120%" }}
               >
                 <Grid item>
-                  <Checkbox size="small" sx={{ padding: 0 }} />
+                  <Checkbox
+                    sx={{
+                      color: palette.secondary.main,
+                      "&.Mui-checked": {
+                        color: palette.secondary.main,
+                      },
+                      padding: 0.5,
+                    }}
+                    size="small"
+                  />
                   <span className={classes.remindsMe}>Se souvenir de moi</span>
                 </Grid>
-                <Link to="/reset-password" className={classes.remindsMe}>
+                <Link
+                  to="/reset-password"
+                  className={classes.remindsMe}
+                  color={palette.secondary.main}
+                >
                   Mot de passe oublié
                 </Link>
               </Grid>

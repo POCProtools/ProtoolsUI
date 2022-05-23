@@ -42,7 +42,7 @@ const Header = () => {
         <Grid
           container
           spacing={8}
-          alignItems="center-start"
+          alignItems="baseline"
           className={classes.gridContainer}
           justifyContent="flex-end"
         >
