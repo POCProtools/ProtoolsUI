@@ -8,11 +8,16 @@ import {
   CardContent,
   TextField,
   Button,
+  Box,
+  InputAdornment,
+  IconButton,
 } from "@mui/material"
 import CustomCard from "components/shared/card"
 import CustomTextField from "components/shared/textfield"
 import Logo from "components/shared/logo"
 import palette from "theme/colors"
+import Header from "components/shared/headers"
+import { FiEye, FiEyeOff } from "react-icons/fi"
 
 const useStyles = makeStyles()(theme => {
   return {
@@ -21,13 +26,19 @@ const useStyles = makeStyles()(theme => {
       alignItems: "center",
       justifyContent: "center",
       width: "30%",
+      margin: 10,
+    },
+    TitleHeader: {
+      //margin: 5,
+      marginBottom: 20,
+      position: "relative",
     },
     logo: {
-      padding: 20,
-      marginLeft: 20,
+      verticalAlign: "middle",
     },
     titleCard: {
-      display: "inline-block",
+      position: "absolute",
+      top: "25%",
       marginLeft: 10,
       fontSize: 24,
       fontWeight: "bold",
@@ -35,20 +46,18 @@ const useStyles = makeStyles()(theme => {
     },
     TextField: {
       height: "10%",
-      width: "90%",
     },
     inputTitle: {
       alignItems: "left",
       fontSize: 18,
       fontWeight: "bold",
-      marginBottom: 10,
-      paddingTop: 10,
+      marginTop: 20,
     },
     boutonConnexion: {
       backgroundColor: palette.secondary.main,
-      padding: "18px 36px",
       justifyContent: "center",
       fontSize: "18px",
+      margin: 10,
     },
   }
 })
@@ -56,30 +65,37 @@ const Login = () => {
   const { classes } = useStyles()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
   function handleSubmit(event) {
     console.log("Connexion attempt")
     console.log("email:", email)
   }
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+  const handleMouseDownPassword = event => {
+    event.preventDefault()
+  }
   return (
     <>
+      <Header />
       <CustomCard className={classes.card}>
         <CardContent>
-          <Grid
-            spacing={2}
-            sx={{ marginTop: 3, marginBottom: 5, alignContent: "center" }}
-          >
+          <div className={classes.TitleHeader}>
             <Logo className={classes.logo} />
             <span className={classes.titleCard}>Connexion</span>
-          </Grid>
-          <Grid
-            direction="column"
-            spacing={3}
-            sx={{ marginTop: 3, marginBottom: 3 }}
+          </div>
+          <Box
+            sx={{
+              marginTop: 2,
+              border: "1px dashed red",
+              width: "140%",
+            }}
           >
-            <span className={classes.inputTitle}>
-              Email: <br />
-            </span>
+            <span className={classes.inputTitle}>Email:</span>
+            <br />
             <CustomTextField
+              fullWidth
               className={classes.TextField}
               id="email"
               variant="standard"
@@ -87,18 +103,33 @@ const Login = () => {
               type="email"
               onChange={e => setEmail(e.target.value)}
             />
+          </Box>
+          <Box sx={{ marginTop: 2, marginBottom: 3 }}>
             <span className={classes.inputTitle}>
               Mot de passe: <br />
             </span>
             <CustomTextField
+              fullWidth
               className={classes.TextField}
               id="password"
               variant="standard"
               label="Mot de passe"
-              type="password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <FiEyeOff /> : <FiEye />}
+                  </IconButton>
+                </InputAdornment>
+              }
               onChange={e => setPassword(e.target.value)}
             />
-          </Grid>
+          </Box>
           <Button
             variant="contained"
             disableElevation

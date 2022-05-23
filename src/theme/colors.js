@@ -14,7 +14,7 @@ const palette = {
   primary: { main: PRIMARY.mainText },
   secondary: { main: SECONDARY.secondGreen },
   background: {
-    default: PRIMARY.background,
+    main: PRIMARY.background,
   },
   // Definir couleur alertes erreurs etc...
 }
