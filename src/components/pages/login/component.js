@@ -32,7 +32,8 @@ const useStyles = makeStyles()(theme => {
       alignItems: "center",
       justifyContent: "center",
       width: "30%",
-      margin: 10,
+      marginLeft: "45%",
+      marginTop: "10%",
     },
     TitleHeader: {
       //margin: 5,
@@ -100,101 +101,104 @@ const Login = () => {
   return (
     <>
       <Header />
-      <CustomCard className={classes.card}>
-        <CardContent>
-          <div className={classes.TitleHeader}>
-            <Logo
-              // @ts-ignore
-              className={classes.logo}
-            />
-            <span className={classes.titleCard}>Connexion</span>
-          </div>
-          <Stack spacing={3} alignItems="center">
-            <Box
-              sx={{
-                marginTop: 2,
-                width: "120%",
-              }}
-            >
-              <span className={classes.inputTitle}>Email:</span>
-              <br />
-              <TextField
-                fullWidth
-                className={classes.TextField}
-                id="email"
-                variant="standard"
-                label="Adresse Email"
-                type="email"
-                sx={{
-                  "& label.Mui-focused": {
-                    display: "none",
-                  },
-                  "& legend": {
-                    display: "none",
-                  },
-                }}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </Box>
-            <Box sx={{ marginTop: 2, marginBottom: 6, width: "120%" }}>
-              <span className={classes.inputTitle}>
-                Mot de passe: <br />
-              </span>
-              <TextField
-                fullWidth
-                className={classes.TextField}
-                id="password"
-                variant="standard"
-                label="Mot de passe"
-                type={showPassword ? "text" : "password"}
+      <SideBar />
+      <Grid container justify="center">
+        <CustomCard className={classes.card}>
+          <CardContent>
+            <div className={classes.TitleHeader}>
+              <Logo
                 // @ts-ignore
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <FiEyeOff /> : <FiEye />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                onChange={e => setPassword(e.target.value)}
+                className={classes.logo}
               />
-            </Box>
-            <Grid
-              container
-              alignItems="baseline"
-              justifyContent="space-between"
-              sx={{ width: "120%" }}
-            >
-              <Grid item>
-                <Checkbox size="small" sx={{ padding: 0 }} />
-                <span className={classes.remindsMe}>Se souvenir de moi</span>
+              <span className={classes.titleCard}>Connexion</span>
+            </div>
+            <Stack spacing={3} alignItems="center">
+              <Box
+                sx={{
+                  marginTop: 2,
+                  width: "120%",
+                }}
+              >
+                <span className={classes.inputTitle}>Email:</span>
+                <br />
+                <TextField
+                  fullWidth
+                  className={classes.TextField}
+                  id="email"
+                  variant="standard"
+                  label="Adresse Email"
+                  type="email"
+                  sx={{
+                    "& label.Mui-focused": {
+                      display: "none",
+                    },
+                    "& legend": {
+                      display: "none",
+                    },
+                  }}
+                  onChange={e => setEmail(e.target.value)}
+                />
+              </Box>
+              <Box sx={{ marginTop: 2, marginBottom: 6, width: "120%" }}>
+                <span className={classes.inputTitle}>
+                  Mot de passe: <br />
+                </span>
+                <TextField
+                  fullWidth
+                  className={classes.TextField}
+                  id="password"
+                  variant="standard"
+                  label="Mot de passe"
+                  type={showPassword ? "text" : "password"}
+                  // @ts-ignore
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <FiEyeOff /> : <FiEye />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </Box>
+              <Grid
+                container
+                alignItems="baseline"
+                justifyContent="space-between"
+                sx={{ width: "120%" }}
+              >
+                <Grid item>
+                  <Checkbox size="small" sx={{ padding: 0 }} />
+                  <span className={classes.remindsMe}>Se souvenir de moi</span>
+                </Grid>
+                <Link to="/reset-password" className={classes.remindsMe}>
+                  Mot de passe oublié
+                </Link>
               </Grid>
-              <Link to="/reset-password" className={classes.remindsMe}>
-                Mot de passe oublié
-              </Link>
-            </Grid>
-          </Stack>
-          <Box textAlign="center">
-            <Button
-              disableElevation
-              variant="contained"
-              className={classes.boutonConnexion}
-              onClick={() => handleSubmit()}
-              sx={{
-                justifyContent: "center",
-                paddingLeft: 3,
-                paddingRight: 3,
-              }}
-            >
-              Connexion
-            </Button>
-          </Box>
-        </CardContent>
-      </CustomCard>
+            </Stack>
+            <Box textAlign="center">
+              <Button
+                disableElevation
+                variant="contained"
+                className={classes.boutonConnexion}
+                onClick={() => handleSubmit()}
+                sx={{
+                  justifyContent: "center",
+                  paddingLeft: 3,
+                  paddingRight: 3,
+                }}
+              >
+                Connexion
+              </Button>
+            </Box>
+          </CardContent>
+        </CustomCard>
+      </Grid>
     </>
   )
 }

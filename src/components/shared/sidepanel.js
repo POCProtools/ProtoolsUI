@@ -1,5 +1,12 @@
 import React, { useState } from "react"
-import { Grid, Typography, Link, CardContent, Button } from "@mui/material"
+import {
+  Grid,
+  Typography,
+  Link,
+  CardContent,
+  Button,
+  Drawer,
+} from "@mui/material"
 import { makeStyles } from "tss-react/mui"
 import { FiHome, FiList, FiBarChart2, FiCpu } from "react-icons/fi"
 
@@ -36,24 +43,36 @@ const useStyles = makeStyles()(theme => {
   }
 })
 
+const drawerWidth = 240
+
 const SideBar = () => {
   const { classes } = useStyles()
   //TODO : Gestion state page actuelle
   return (
-    <>
-      <Typography color="primary" noWrap>
-        <Grid spacing={2} sx={{ marginTop: 3, marginBottom: 5 }}>
-          <Logo
-            // @ts-ignore
-            className={classes.logo}
-          />
-          <span className={classes.titleSidebar}>
-            Protools <br />
-            Dashboard
-          </span>
-        </Grid>
-      </Typography>
-      <Grid direction="column" spacing={3} sx={{ marginTop: 3 }} xs={4}>
+    <Drawer
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: drawerWidth,
+          boxSizing: "border-box",
+        },
+      }}
+      variant="permanent"
+      anchor="left"
+    >
+      <Grid spacing={2} sx={{ marginTop: 3, marginBottom: 5, marginLeft: 2 }}>
+        <Logo
+          // @ts-ignore
+          className={classes.logo}
+        />
+        <span className={classes.titleSidebar}>
+          Protools <br />
+          Dashboard
+        </span>
+      </Grid>
+
+      <Grid direction="column" spacing={3} sx={{ marginLeft: 2 }} xs={4}>
         <Link to="/" className={classes.link}>
           <Grid sx={{ marginTop: 2 }}>
             <FiHome className={classes.icon} />
@@ -79,7 +98,7 @@ const SideBar = () => {
           </Grid>
         </Link>
       </Grid>
-    </>
+    </Drawer>
   )
 }
 

@@ -8,8 +8,8 @@ const CustomCard = styled(Card)(({ theme }) => ({
   color: palette.primary.main,
   borderRadius: 20,
   boxShadow: 3,
-  position: "relative",
-  zIndex: 0,
+  //position: "relative",
+  //zIndex: 0,
 }))
 
 export default CustomCard
