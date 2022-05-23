@@ -11,6 +11,7 @@ import {
   Box,
   InputAdornment,
   IconButton,
+  Stack,
 } from "@mui/material"
 import CustomCard from "components/shared/card"
 import CustomTextField from "components/shared/textfield"
@@ -30,6 +31,7 @@ const useStyles = makeStyles()(theme => {
     },
     TitleHeader: {
       //margin: 5,
+      marginTop: 5,
       marginBottom: 20,
       position: "relative",
     },
@@ -54,9 +56,9 @@ const useStyles = makeStyles()(theme => {
       marginTop: 20,
     },
     boutonConnexion: {
-      backgroundColor: palette.secondary.main,
+      color: "#89B0AE",
       justifyContent: "center",
-      fontSize: "18px",
+      fontSize: "12px",
       margin: 10,
     },
   }
@@ -85,56 +87,67 @@ const Login = () => {
             <Logo className={classes.logo} />
             <span className={classes.titleCard}>Connexion</span>
           </div>
-          <Box
-            sx={{
-              marginTop: 2,
-              border: "1px dashed red",
-              width: "140%",
-            }}
-          >
-            <span className={classes.inputTitle}>Email:</span>
-            <br />
-            <CustomTextField
-              fullWidth
-              className={classes.TextField}
-              id="email"
-              variant="standard"
-              label="Adresse Email"
-              type="email"
-              onChange={e => setEmail(e.target.value)}
-            />
-          </Box>
-          <Box sx={{ marginTop: 2, marginBottom: 3 }}>
-            <span className={classes.inputTitle}>
-              Mot de passe: <br />
-            </span>
-            <CustomTextField
-              fullWidth
-              className={classes.TextField}
-              id="password"
-              variant="standard"
-              label="Mot de passe"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <FiEyeOff /> : <FiEye />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              onChange={e => setPassword(e.target.value)}
-            />
-          </Box>
+          <Stack spacing={2} alignItems="center">
+            <Box
+              sx={{
+                marginTop: 2,
+                width: "140%",
+              }}
+            >
+              <span className={classes.inputTitle}>Email:</span>
+              <br />
+              <CustomTextField
+                fullWidth
+                className={classes.TextField}
+                id="email"
+                variant="standard"
+                label="Adresse Email"
+                type="email"
+                onChange={e => setEmail(e.target.value)}
+              />
+            </Box>
+            <Box sx={{ marginTop: 2, marginBottom: 3, width: "140%" }}>
+              <span className={classes.inputTitle}>
+                Mot de passe: <br />
+              </span>
+              <CustomTextField
+                fullWidth
+                className={classes.TextField}
+                id="password"
+                variant="standard"
+                label="Mot de passe"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <FiEyeOff /> : <FiEye />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                onChange={e => setPassword(e.target.value)}
+              />
+            </Box>{" "}
+          </Stack>
           <Button
-            variant="contained"
             disableElevation
+            variant="contained"
             className={classes.boutonConnexion}
             onClick={() => handleSubmit()}
+            sx={{
+              backgroundColor: palette.secondary.main,
+              justifyContent: "center",
+              fontSize: "14px",
+              fontWeight: "bold",
+              borderRadius: 2.3,
+              paddingLeft: 3,
+              paddingRight: 3,
+              margin: 4,
+            }}
           >
             Connexion
           </Button>
