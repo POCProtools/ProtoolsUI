@@ -40,10 +40,13 @@ const SideBar = () => {
   const { classes } = useStyles()
   //TODO : Gestion state page actuelle
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Typography color="primary" noWrap>
         <Grid spacing={2} sx={{ marginTop: 3, marginBottom: 5 }}>
-          <Logo className={classes.logo} />
+          <Logo
+            // @ts-ignore
+            className={classes.logo}
+          />
           <span className={classes.titleSidebar}>
             Protools <br />
             Dashboard
@@ -76,7 +79,7 @@ const SideBar = () => {
           </Grid>
         </Link>
       </Grid>
-    </ThemeProvider>
+    </>
   )
 }
 

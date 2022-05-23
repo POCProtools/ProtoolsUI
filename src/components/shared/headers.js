@@ -46,11 +46,11 @@ const Header = () => {
           className={classes.gridContainer}
           justifyContent="flex-end"
         >
-          <Grid item xs={2} className={classes.gridItem}>
+          <Grid item xs={2}>
             <FiMoon className={classes.iconsHeader} />
             <span className={classes.textHeader}>Mode Sombre</span>
           </Grid>
-          <Grid item xs={2} className={classes.gridItem}>
+          <Grid item xs={2}>
             <Link to="/documentation" underline="none">
               <FiBook className={classes.iconsHeader} />
               <span className={classes.textHeader}>Documentation</span>
