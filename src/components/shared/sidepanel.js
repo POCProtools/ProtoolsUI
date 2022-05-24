@@ -14,6 +14,7 @@ const useStyles = makeStyles()(theme => {
     drawerPaper: {
       "&&": {
         width: drawerWidth,
+        backgroundColor: theme.palette.background.default,
       },
     },
     logo: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles()(theme => {
       marginLeft: 10,
       fontSize: 24,
       fontWeight: "bold",
-      color: "primary",
+      color: theme.palette.primary.main,
     },
 
     textSidebar: {
@@ -33,17 +34,18 @@ const useStyles = makeStyles()(theme => {
       marginLeft: 10,
       fontSize: 20,
       fontWeight: "bold",
-      color: "primary",
+      color: theme.palette.primary.main,
     },
     icon: {
       marginLeft: 20,
-      color: "primary",
+      color: theme.palette.primary.main,
     },
     boutonConnexion: {
       fontSize: "14px",
-      marginTop: 20,
-      borderColor: "secondary",
-      color: "primary",
+      marginTop: 10,
+      marginLeft: 20,
+      borderColor: theme.palette.primary.main,
+      color: theme.palette.primary.main,
       fontWeight: "bold",
       borderRadius: 15,
       borderWidth: 2,

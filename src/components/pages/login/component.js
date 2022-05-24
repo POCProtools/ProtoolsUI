@@ -21,10 +21,18 @@ import CustomCard from "components/shared/card"
 import Logo from "components/shared/logo"
 import Header from "components/shared/headers"
 import { FiEye, FiEyeOff } from "react-icons/fi"
+import { GlobalStyles } from "tss-react"
+import { theme } from "theme"
+import { ThemeContext } from "@emotion/react"
 
 // @ts-ignore
 const useStyles = makeStyles()(theme => {
   return {
+    root: {
+      body: {
+        backgroundColor: theme.palette.background.default,
+      },
+    },
     card: {
       display: "flex",
       alignItems: "center",
@@ -45,14 +53,15 @@ const useStyles = makeStyles()(theme => {
     titleCard: {
       position: "absolute",
       top: "25%",
+      left: "25%",
       marginLeft: 10,
       fontSize: 24,
       fontWeight: "bold",
-      color: "primary",
+      color: theme.palette.primary.main,
     },
     TextField: {
       height: "10%",
-      color: "primary",
+      color: theme.palette.primary.main,
       background: "#fcfdfe",
       borderRadius: 20,
       fontSize: 10,
@@ -62,13 +71,14 @@ const useStyles = makeStyles()(theme => {
       fontSize: 18,
       fontWeight: "bold",
       marginTop: 20,
+      color: theme.palette.primary.main,
     },
     boutonConnexion: {
       fontSize: "14px",
       marginTop: 20,
-      backgroundColor: "secondary",
+      backgroundColor: theme.palette.secondary.main,
       "&:hover": {
-        backgroundColor: "secondary",
+        backgroundColor: theme.palette.secondary.main,
       },
       fontWeight: "bold",
       borderRadius: 15,
@@ -101,6 +111,13 @@ const Login = () => {
   }
   return (
     <>
+      <GlobalStyles
+        styles={{
+          body: {
+            backgroundColor: "#F9FAFC",
+          },
+        }}
+      />
       <Header />
       <SideBar />
       <Grid container justify="center">

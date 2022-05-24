@@ -18,11 +18,11 @@ const useStyles = makeStyles()(theme => {
       fontSize: 14,
       fontWeight: "normal",
       margin: 7,
-      color: "primary",
+      color: theme.palette.primary.main,
     },
     iconsHeader: {
       flex: 1,
-      color: "primary",
+      color: theme.palette.primary.main,
     },
   }
 })
