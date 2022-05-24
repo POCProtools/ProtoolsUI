@@ -49,6 +49,9 @@ const useStyles = makeStyles()(theme => {
       fontWeight: "bold",
       borderRadius: 15,
       borderWidth: 2,
+      "&:hover": {
+        borderWidth: 2,
+      },
     },
   }
 })
@@ -111,7 +114,7 @@ const SideBar = () => {
           <Grid spacing={1} sx={{ marginTop: 2 }}>
             <Button
               variant="outlined"
-              href="#login"
+              href="/login"
               className={classes.boutonConnexion}
             >
               Connexion
