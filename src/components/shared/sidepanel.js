@@ -1,20 +1,10 @@
 import React, { useState } from "react"
-import {
-  Grid,
-  Typography,
-  Link,
-  CardContent,
-  Button,
-  Drawer,
-} from "@mui/material"
+import { Grid, Link, Button, Drawer } from "@mui/material"
 import { makeStyles } from "tss-react/mui"
-import { GlobalStyles } from "tss-react"
+
 import { FiHome, FiList, FiBarChart2, FiCpu } from "react-icons/fi"
 
 import Logo from "./logo"
-import { ThemeProvider } from "@mui/private-theming"
-import theme from "theme"
-import palette from "theme/colors"
 
 const useStyles = makeStyles()(theme => {
   return {
@@ -24,7 +14,6 @@ const useStyles = makeStyles()(theme => {
     drawerPaper: {
       "&&": {
         width: drawerWidth,
-        backgroundColor: palette.background.main,
       },
     },
     logo: {
@@ -36,7 +25,7 @@ const useStyles = makeStyles()(theme => {
       marginLeft: 10,
       fontSize: 24,
       fontWeight: "bold",
-      color: palette.primary.main,
+      color: "primary",
     },
 
     textSidebar: {
@@ -44,11 +33,20 @@ const useStyles = makeStyles()(theme => {
       marginLeft: 10,
       fontSize: 20,
       fontWeight: "bold",
-      color: palette.primary.main,
+      color: "primary",
     },
     icon: {
       marginLeft: 20,
-      color: palette.primary.main,
+      color: "primary",
+    },
+    boutonConnexion: {
+      fontSize: "14px",
+      marginTop: 20,
+      borderColor: "secondary",
+      color: "primary",
+      fontWeight: "bold",
+      borderRadius: 15,
+      borderWidth: 2,
     },
   }
 })
@@ -60,13 +58,6 @@ const SideBar = () => {
   //TODO : Gestion state page actuelle
   return (
     <>
-      <GlobalStyles
-        styles={{
-          body: {
-            backgroundColor: palette.background.main,
-          },
-        }}
-      />
       <Drawer
         sx={{
           flexShrink: 0,
@@ -115,6 +106,15 @@ const SideBar = () => {
               <span className={classes.textSidebar}>Admin</span>
             </Grid>
           </Link>
+          <Grid spacing={1} sx={{ marginTop: 2 }}>
+            <Button
+              variant="outlined"
+              href="#login"
+              className={classes.boutonConnexion}
+            >
+              Connexion
+            </Button>
+          </Grid>
         </Grid>
       </Drawer>
     </>

@@ -1,11 +1,10 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
-import { Card, Typography, CardContent } from "@mui/material"
-import { alpha, styled } from "@mui/material/styles"
-import palette from "theme/colors"
+import { Card } from "@mui/material"
+import { styled } from "@mui/material/styles"
 
 const CustomCard = styled(Card)(({ theme }) => ({
-  color: palette.primary.main,
+  color: "primary",
   borderRadius: 20,
   boxShadow: 3,
   //position: "relative",

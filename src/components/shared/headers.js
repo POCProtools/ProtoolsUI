@@ -1,7 +1,6 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
 
-import palette from "theme/colors"
 import { AppBar, Toolbar, Grid, Link } from "@mui/material"
 import { FiMoon, FiBook } from "react-icons/fi"
 
@@ -11,7 +10,6 @@ const useStyles = makeStyles()(theme => {
       position: "relative",
       boxShadow: "none",
       elevation: 0,
-      //color: palette.background.main,
     },
     gridContainer: {},
 
@@ -20,11 +18,11 @@ const useStyles = makeStyles()(theme => {
       fontSize: 14,
       fontWeight: "normal",
       margin: 7,
-      color: palette.primary.main,
+      color: "primary",
     },
     iconsHeader: {
       flex: 1,
-      color: palette.primary.main,
+      color: "primary",
     },
   }
 })
