@@ -39,16 +39,16 @@ const Header = () => {
       <Toolbar>
         <Grid
           container
-          spacing={8}
+          spacing={2}
           alignItems="baseline"
           className={classes.gridContainer}
           justifyContent="flex-end"
         >
-          <Grid item xs={2}>
+          <Grid item xs={1.5}>
             <FiMoon className={classes.iconsHeader} />
             <span className={classes.textHeader}>Mode Sombre</span>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={1.5}>
             <Link to="/documentation" underline="none">
               <FiBook className={classes.iconsHeader} />
               <span className={classes.textHeader}>Documentation</span>
