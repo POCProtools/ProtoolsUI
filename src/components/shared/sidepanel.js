@@ -87,25 +87,26 @@ const SideBar = () => {
         </Grid>
 
         <Grid direction="column" spacing={3} sx={{ marginLeft: 2 }} xs={4}>
-          <Link to="/" className={classes.link}>
+          <Link href="/" underline="none">
             <Grid sx={{ marginTop: 2 }}>
               <FiHome className={classes.icon} />
               <span className={classes.textSidebar}>Home</span>
             </Grid>
           </Link>
-          <Link to="/processes" className={classes.link}>
+
+          <Link href="/processes" underline="none">
             <Grid spacing={1} sx={{ marginTop: 2 }}>
               <FiList className={classes.icon} />
               <span className={classes.textSidebar}>Processes</span>
             </Grid>
           </Link>
-          <Link to="/logs" className={classes.link}>
+          <Link href="/logs" underline="none">
             <Grid spacing={1} sx={{ marginTop: 2 }}>
               <FiBarChart2 className={classes.icon} />
               <span className={classes.textSidebar}>Logs</span>
             </Grid>
           </Link>
-          <Link to="/admin" className={classes.link}>
+          <Link href="/admin" underline="none">
             <Grid spacing={1} sx={{ marginTop: 2 }}>
               <FiCpu className={classes.icon} />
               <span className={classes.textSidebar}>Admin</span>
