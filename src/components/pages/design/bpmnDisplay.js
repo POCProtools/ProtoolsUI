@@ -1,19 +1,27 @@
-import BpmnViewer from 'bpmn-js';
-import casUsageTest from 'assets/casUsage.bpmn20/xml';
+import ReactBpmn from 'react-bpmn';
+import casUsageTest from 'assets/casUsageTest.bpmn20.xml';
 
-var viewer = new BpmnViewer({
-	container: '#canvas',
-});
+const Display = () => {
+	function onShown() {
+		console.log('diagram shown');
+	}
 
-viewer
-	.importXML(casUsageTest)
-	.then(function (result) {
-		const { warnings } = result;
-		console.log('success!', warnings);
-		viewer.get('canvas').zoom('fit-viewport');
-	})
-	.catch(function (err) {
-		const { warnings, message } = err;
+	function onLoading() {
+		console.log('diagram loading');
+	}
 
-		console.log('something went wrong:', warnings, message);
-	});
+	function onError(err) {
+		console.log('failed to show diagram');
+	}
+
+	return (
+		<ReactBpmn
+			url={casUsageTest}
+			onShown={onShown}
+			onLoading={onLoading}
+			onError={onError}
+		/>
+	);
+};
+
+export default Display;
