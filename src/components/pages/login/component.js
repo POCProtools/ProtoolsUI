@@ -1,5 +1,5 @@
 // @ts-ignore
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import {
 	Grid,
@@ -19,7 +19,6 @@ import CustomCard from 'components/shared/card';
 import Logo from 'components/shared/logo';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { GlobalStyles } from 'tss-react';
-import { theme } from 'theme';
 
 // @ts-ignore
 const useStyles = makeStyles()((theme) => {
@@ -98,6 +97,7 @@ const Login = () => {
 	function handleSubmit(event) {
 		console.log('Connexion attempt');
 		console.log('email:', email);
+		console.log('password', password);
 	}
 	const handleClickShowPassword = () => {
 		setShowPassword(!showPassword);
