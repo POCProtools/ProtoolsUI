@@ -40,7 +40,7 @@ const useStyles = makeStyles()(theme => {
       marginLeft: 20,
       color: theme.palette.primary.main,
     },
-    boutonConnexion: {
+    loginButton: {
       fontSize: "14px",
       marginTop: 10,
       marginLeft: 20,
@@ -116,7 +116,7 @@ const SideBar = () => {
             <Button
               variant="outlined"
               href="/login"
-              className={classes.boutonConnexion}
+              className={classes.loginButton}
             >
               Connexion
             </Button>
