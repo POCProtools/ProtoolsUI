@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/system"
 import theme from "theme"
 import { CacheProvider } from "@emotion/react"
 import createCache from "@emotion/cache"
+import RoutesWeb from "routes/routes"
 
 export const muiCache = createCache({
   key: "mui",
@@ -13,7 +14,7 @@ function App() {
   return (
     <CacheProvider value={muiCache}>
       <ThemeProvider theme={theme}>
-        <Home />
+        <RoutesWeb />
       </ThemeProvider>
     </CacheProvider>
   )

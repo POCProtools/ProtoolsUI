@@ -57,12 +57,9 @@ const Home = () => {
           },
         }}
       />
-      <Header />
-      <SideBar />
       <Grid justifyContent="center">
         <CustomCard className={classes.card}>
-          <span className={classes.titleCard}>Random Word:</span>
-          <span>{word}</span>
+          <span className={classes.titleCard}>Random Word: {word}</span>
         </CustomCard>
       </Grid>
     </>

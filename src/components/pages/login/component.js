@@ -118,8 +118,6 @@ const Login = () => {
           },
         }}
       />
-      <Header />
-      <SideBar />
       <Grid container justify="center">
         <CustomCard className={classes.card}>
           <CardContent>
