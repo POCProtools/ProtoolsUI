@@ -39,6 +39,7 @@ const useStyles = makeStyles()((theme) => {
 });
 
 const Design = () => {
+	// TODO : add file selector
 	const { classes } = useStyles();
 	useEffect(() => {
 		console.log('Loading design page');
