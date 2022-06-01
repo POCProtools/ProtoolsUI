@@ -3,7 +3,7 @@ import React from 'react';
 import Display from './bpmnDisplay';
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-import { Grid } from '@mui/material';
+// import { Grid } from '@mui/material';
 import CustomCard from 'components/shared/card';
 import { useEffect } from 'react';
 
@@ -19,7 +19,6 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			width: '70%',
-			height: '80%',
 			marginLeft: '25%',
 			marginTop: '10%',
 		},
@@ -33,7 +32,8 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 		},
 		display: {
-			width: '50%',
+			width: '40%',
+			height: '80%',
 		},
 	};
 });
@@ -52,12 +52,9 @@ const Design = () => {
 					},
 				}}
 			/>
-			<Grid justifyContent='center'>
-				<CustomCard className={classes.card}>
-					<span className={classes.titleCard}>BPMN Modeler: </span>
-					<Display className={classes.display} />
-				</CustomCard>
-			</Grid>
+			<span className={classes.titleCard}>BPMN Modeler: </span>
+
+			<Display className={classes.display} />
 		</>
 	);
 };
