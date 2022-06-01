@@ -6,6 +6,11 @@ import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo';
 import DonutChartCustom from './donutChart';
 //import { PieChart } from 'react-minimal-pie-chart';
+import {
+	processChartdata,
+	TaskChartdata,
+	IncidentChartdata,
+} from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -21,6 +26,7 @@ const useStyles = makeStyles()((theme) => {
 			width: '75%',
 			marginLeft: '22%',
 			marginTop: '1%',
+			//paddingLeft: '2%',
 		},
 		title: {
 			position: 'absolute',
@@ -46,14 +52,11 @@ const useStyles = makeStyles()((theme) => {
 		logo: {
 			verticalAlign: 'middle',
 		},
+		gridItemProcessList: {
+			textAlign: 'center',
+		},
 	};
 });
-const processChartdata = [
-	{ label: 'One', value: 10, color: '#FEC89A' },
-	{ label: 'Two', value: 15, color: '#B56576' },
-	{ label: 'Three', value: 20, color: '#98C1D9' },
-	{ label: 'Four', value: 20, color: '#84A98C' },
-];
 
 const Home = () => {
 	const { classes } = useStyles();
@@ -87,16 +90,23 @@ const Home = () => {
 
 				<CustomCard className={classes.card}>
 					<CardContent>
-						<Grid container spacing={2} justifyContent='space-around'>
-							<Grid item xs={4}>
-								<span className={classes.titleCard}>Processus</span>
+						<Grid
+							container
+							spacing={10}
+							justifyContent='space-between'
+							alignItems='baseline'
+						>
+							<Grid item xs={4} className={classes.gridItemProcessList}>
+								<span className={classes.titleCard}>Processus déployés</span>
 								<DonutChartCustom data={processChartdata} />
 							</Grid>
-							<Grid item xs={4}>
-								<span className={classes.titleCard}>Taches manuelles</span>
+							<Grid item xs={4} className={classes.gridItemProcessList}>
+								<span className={classes.titleCard}>Tâches manuelles</span>
+								<DonutChartCustom data={TaskChartdata} />
 							</Grid>
-							<Grid item xs={4}>
-								<span className={classes.titleCard}>Incidents</span>
+							<Grid item xs={4} className={classes.gridItemProcessList}>
+								<span className={classes.titleCard}>Incidents en cours</span>
+								<DonutChartCustom data={IncidentChartdata} />
 							</Grid>
 						</Grid>
 					</CardContent>
