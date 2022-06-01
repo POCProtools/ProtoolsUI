@@ -3,8 +3,7 @@ import React from 'react';
 import Display from './bpmnDisplay';
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-// import { Grid } from '@mui/material';
-import CustomCard from 'components/shared/card';
+// import { Grid } from '@mui/material'
 import { useEffect } from 'react';
 
 const useStyles = makeStyles()((theme) => {
@@ -31,10 +30,6 @@ const useStyles = makeStyles()((theme) => {
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
-		display: {
-			width: '40%',
-			height: '80%',
-		},
 	};
 });
 
@@ -53,8 +48,7 @@ const Design = () => {
 				}}
 			/>
 			<span className={classes.titleCard}>BPMN Modeler: </span>
-
-			<Display className={classes.display} />
+			<Display />
 		</>
 	);
 };
