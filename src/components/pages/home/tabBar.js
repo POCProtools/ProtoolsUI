@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Tab, CardContent } from '@mui/material';
-
+import { CardContent } from '@mui/material';
+import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel';
-import { StyledTab } from 'components/shared/stylesComponents/tabs';
-import { StyledTabs } from '../../shared/stylesComponents/tabs';
 import EnhancedTable from './tableGrid';
+import theme from 'theme';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -32,19 +31,13 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: '0.5%',
 		},
 		cardContent: {
-			padding: 20,
+			padding: 0,
+			'&:last-child': {
+				paddingBottom: 0,
+			},
 		},
-		MuiTab: {
-			root: {
-				'&:hover': {
-					backgroundColor: theme.palette.secondary.pressed,
-					color: theme.palette.primary.main,
-				},
-			},
-			selected: {
-				backgroundColor: theme.palette.secondary.pressed,
-				color: theme.palette.primary.main,
-			},
+		cardContentTable: {
+			padding: 20,
 		},
 	};
 });
@@ -59,19 +52,24 @@ const TabBarDashboard = () => {
 		<>
 			<CustomCard className={classes.card}>
 				<CardContent className={classes.cardContent}>
-					<StyledTabs value={value} onChange={handleChange}>
+					<StyledTabs
+						value={value}
+						textColor={theme.palette.primary.main}
+						indicatorColor={theme.palette.secondary.main}
+						onChange={handleChange}
+					>
 						<StyledTab
 							label='Processus'
 							{...tabPropIndex(0)}
 							className={classes.MuiTab}
 						/>
 
-						<Tab
+						<StyledTab
 							label='Tâches manuelles'
 							{...tabPropIndex(1)}
 							className={classes.MuiTab}
 						/>
-						<Tab
+						<StyledTab
 							label='Incidents'
 							{...tabPropIndex(2)}
 							className={classes.MuiTab}
@@ -80,7 +78,7 @@ const TabBarDashboard = () => {
 				</CardContent>
 			</CustomCard>
 			<CustomCard className={classes.cardTab}>
-				<CardContent className={classes.cardContent}>
+				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
 						<EnhancedTable />
 					</TabPanel>

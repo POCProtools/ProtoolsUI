@@ -16,8 +16,8 @@ const DonutChartCustom = (props) => {
 	});
 	return (
 		<DonutChart
-			width={150}
-			height={150}
+			width={180}
+			height={180}
 			//onMouseEnter={(item) => reactDonutChartOnMouseEnter(item)}
 			strokeColor='#FFFF'
 			data={props.data}

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 const CustomCard = styled(Card)(({ theme }) => ({
 	color: 'primary',
 	borderRadius: 20,
-	boxShadow: 3,
+	boxShadow: 4,
 	//position: "relative",
 	//zIndex: 0,
 }));

@@ -54,27 +54,10 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 20,
-					boxShadow: 2,
+					boxShadow: 3,
 					position: 'relative',
 					zIndex: 0,
 				},
-			},
-		},
-		MuiTabs: {
-			indicator: {
-				backgroundColor: PRIMARY.mainText,
-			},
-		},
-		MuiTab: {
-			root: {
-				'&:hover': {
-					backgroundColor: SECONDARY.pressedGrey,
-					color: PRIMARY.mainText,
-				},
-			},
-			selected: {
-				backgroundColor: SECONDARY.secondGreen,
-				color: PRIMARY.mainText,
 			},
 		},
 	},
