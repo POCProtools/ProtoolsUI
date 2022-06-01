@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Link, Button, Drawer } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-import { FiHome, FiList, FiBarChart2, FiCpu } from 'react-icons/fi';
+import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
 
 import Logo from './logo';
 
@@ -114,7 +114,7 @@ const SideBar = () => {
 					</Link>
 					<Link href='/design' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
-							<FiCpu className={classes.icon} />
+							<FiEdit className={classes.icon} />
 							<span className={classes.textSidebar}>Design</span>
 						</Grid>
 					</Link>

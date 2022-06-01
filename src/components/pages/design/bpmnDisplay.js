@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import ReactBpmn from 'react-bpmn';
-import casUsageTest from 'assets/casUsageTest.bpmn20.xml';
+import axios from 'axios';
 import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
@@ -9,10 +9,14 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => {
 	return {
 		modelerStyle: {
-			border: '1px solid #000000',
-			height: '75vh',
-			width: '75vw',
-			marginLeft: 295,
+			backgroundColor: '#FFFF',
+			border: `1px solid ${theme.palette.primary.main}`,
+			height: '78vh',
+			width: '77vw',
+			//marginLeft: 295,
+			position: 'absolute',
+			top: '20%',
+			left: '20%',
 		},
 	};
 });
@@ -21,20 +25,18 @@ const Display = () => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
 	const container = document.getElementById('container');
-	// function onShown() {
-	// 	console.log('diagram shown');
-	// }
-
-	// function onLoading() {
-	// 	console.log('diagram loading');
-	// }
-
-	// function onError(err) {
-	// 	console.log('failed to show diagram');
-	// }
 	useEffect(() => {
 		if (diagram.length === 0) {
-			setDiagram(casUsageTest); // A changer
+			axios
+				.get(
+					'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml'
+				)
+				.then((r) => {
+					setDiagram(r.data);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
 		}
 	}, [diagram]);
 
