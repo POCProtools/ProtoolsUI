@@ -6,6 +6,7 @@ import CustomCard from 'components/shared/stylesComponents/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel';
 import { StyledTab } from 'components/shared/stylesComponents/tabs';
 import { StyledTabs } from '../../shared/stylesComponents/tabs';
+import EnhancedTable from './tableGrid';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -20,21 +21,18 @@ const useStyles = makeStyles()((theme) => {
 			justifyContent: 'center',
 			width: '75%',
 			marginLeft: '22%',
-			marginTop: '2%',
+			marginTop: '1%',
 		},
 		cardTab: {
 			display: 'flex',
 			alignItems: 'center',
-			justifyContent: 'center',
+			justifyContent: 'left',
 			width: '75%',
 			marginLeft: '22%',
-			marginTop: '1%',
+			marginTop: '0.5%',
 		},
 		cardContent: {
-			padding: 0,
-			'&:last-child': {
-				paddingBottom: 0,
-			},
+			padding: 20,
 		},
 		MuiTab: {
 			root: {
@@ -84,7 +82,7 @@ const TabBarDashboard = () => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContent}>
 					<TabPanel value={value} index={0}>
-						Item One
+						<EnhancedTable />
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						Item Two

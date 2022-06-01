@@ -33,7 +33,7 @@ const theme = createTheme({
 	palette: {
 		common: { black: '#343a40', white: '#fff' },
 		primary: { main: PRIMARY.mainText },
-		secondary: { main: SECONDARY.secondGreen },
+		secondary: { main: SECONDARY.secondGreen, pressed: SECONDARY.pressedGrey },
 		background: {
 			default: PRIMARY.background,
 		},

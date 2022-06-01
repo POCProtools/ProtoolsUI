@@ -77,7 +77,6 @@ const Home = () => {
 					<span className={classes.title}>Tableau de bord</span>
 				</div>
 				<ProcessOverview />
-
 				<TabBarDashboard />
 			</Grid>
 		</>

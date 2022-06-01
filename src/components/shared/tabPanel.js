@@ -1,10 +1,21 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 import PropTypes from 'prop-types';
+import { makeStyles } from 'tss-react/mui';
 
+const useStyles = makeStyles()((theme) => {
+	return {
+		table: {
+			display: 'flex',
+			height: 300,
+			width: '700%',
+		},
+	};
+});
 export const TabPanel = (props) => {
 	const { children, value, index, ...other } = props;
 
+	const { classes } = useStyles();
 	return (
 		<Typography
 			component='div'
@@ -14,7 +25,7 @@ export const TabPanel = (props) => {
 			aria-labelledby={`scrollable-auto-tab-${index}`}
 			{...other}
 		>
-			<Box p={3}>{children}</Box>
+			<Box className={classes.table}>{children}</Box>
 		</Typography>
 	);
 };

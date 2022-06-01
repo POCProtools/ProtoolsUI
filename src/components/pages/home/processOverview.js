@@ -27,7 +27,7 @@ const useStyles = makeStyles()((theme) => {
 			//paddingLeft: '2%',
 		},
 		titleCard: {
-			marginLeft: 10,
+			//marginLeft: 10,
 			fontSize: 20,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
