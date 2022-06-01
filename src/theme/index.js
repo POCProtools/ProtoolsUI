@@ -60,6 +60,23 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiTabs: {
+			indicator: {
+				backgroundColor: PRIMARY.mainText,
+			},
+		},
+		MuiTab: {
+			root: {
+				'&:hover': {
+					backgroundColor: SECONDARY.pressedGrey,
+					color: PRIMARY.mainText,
+				},
+			},
+			selected: {
+				backgroundColor: SECONDARY.secondGreen,
+				color: PRIMARY.mainText,
+			},
+		},
 	},
 });
 export default theme;
