@@ -1,4 +1,5 @@
 import React from 'react';
+//import { useState, useEffect } from 'react';
 //import { makeStyles } from 'tss-react/mui';
 import DataTable, { createTheme } from 'react-data-table-component';
 import { columns, rows } from 'utils/mockData';
@@ -26,9 +27,9 @@ createTheme('customTheme', {
 	},
 });
 const customStyles = {
-	headRow: {
+	table: {
 		style: {
-			//border: 'none',
+			//maxHeight: 300,
 		},
 	},
 	headCells: {
@@ -55,8 +56,27 @@ const customStyles = {
 		},
 	},
 };
+
 const EnhancedTable = () => {
 	//const { classes } = useStyles();
+	// const [totalRows, setTotalRows] = useState(0);
+	// const [perPage, setPerPage] = useState(5);
+	// const [item, setItem] = useState([]);
+	// useEffect(() => {
+	// 	fetchData(1, perPage);
+	// }, [perPage]); // Overkill ici, transformer quand j'aurai les api
+	// const fetchData = async (page, per_page) => {
+	// 	setItem(rows.slice(0, per_page));
+	// 	setTotalRows(item.length);
+	// 	console.log(item.length);
+	// };
+	// const handlePageChange = (page) => {
+	// 	fetchData(page, perPage);
+	// };
+
+	// const handlePerRowsChange = async (newPerPage, page) => {
+	// 	setPerPage(newPerPage);
+	// };
 	return (
 		<DataTable
 			data={rows}
@@ -67,6 +87,11 @@ const EnhancedTable = () => {
 			highlightOnHover
 			pointerOnHover
 			pagination
+
+			//paginationServer
+			//paginationTotalRows={totalRows}
+			//onChangePage={handlePageChange}
+			//onChangeRowsPerPage={handlePerRowsChange}
 		/>
 	);
 };

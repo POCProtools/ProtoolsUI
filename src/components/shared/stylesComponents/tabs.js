@@ -2,21 +2,45 @@ import { styled } from '@mui/material/styles';
 import { Tabs, Tab } from '@material-ui/core';
 
 export const StyledTabs = styled(Tabs)(({ theme }) => ({
-	borderBottom: '1px solid #e8e8e8',
+	borderBottom: null,
+	'& .MuiTabs-selected': {
+		backgroundColor: theme.palette.secondary.main,
+	},
 	'& .MuiTabs-indicator': {
-		backgroundColor: '#1890ff',
+		backgroundColor: theme.palette.secondary.main,
 	},
 }));
 
 export const StyledTab = styled(Tab)(({ theme }) => ({
-	root: {
-		'&:hover': {
-			backgroundColor: theme.palette.secondary.pressed,
-			color: theme.palette.primary.main,
-		},
+	textTransform: 'none',
+	minWidth: 0,
+	[theme.breakpoints.up('sm')]: {
+		minWidth: 0,
 	},
-	selected: {
-		backgroundColor: theme.palette.secondary.pressed,
+	fontWeight: 'bold',
+	marginRight: theme.spacing(1),
+	color: 'rgba(0, 0, 0, 0.85)',
+	fontFamily: [
+		'-apple-system',
+		'BlinkMacSystemFont',
+		'"Segoe UI"',
+		'Roboto',
+		'"Helvetica Neue"',
+		'Arial',
+		'sans-serif',
+		'"Apple Color Emoji"',
+		'"Segoe UI Emoji"',
+		'"Segoe UI Symbol"',
+	].join(','),
+	'&:hover': {
 		color: theme.palette.primary.main,
+		opacity: 0.8,
+	},
+	'&.Mui-selected': {
+		color: theme.palette.primary.main,
+		fontWeight: 'bold',
+	},
+	'&.Mui-focusVisible': {
+		backgroundColor: '#d1eaff',
 	},
 }));

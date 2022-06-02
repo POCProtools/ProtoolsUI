@@ -1,5 +1,14 @@
 import DonutChart from 'react-donut-chart';
-
+import { makeStyles } from 'tss-react/mui';
+const useStyles = makeStyles((theme) => ({
+	donutChart: {
+		'&:-innertext': {
+			'&:-innertext-label': {
+				fontSize: '0.8em',
+			},
+		},
+	},
+}));
 const reactDonutChartInnerRadius = 0.38;
 const reactDonutChartOuterRadius = 0.7;
 const reactDonutChartSelectedOffset = 0.01;
@@ -11,6 +20,7 @@ const reactDonutChartHandleClick = (item, toggled) => {
 const reactDonutChartFormat = (values) => `${values}`;
 
 const DonutChartCustom = (props) => {
+	const classes = useStyles();
 	const reactDonutChartBackgroundColor = props.data.map(function (data) {
 		return data.color;
 	});
@@ -28,6 +38,7 @@ const DonutChartCustom = (props) => {
 			formatValues={reactDonutChartFormat}
 			legend={false}
 			onClick={(item, toggled) => reactDonutChartHandleClick(item, toggled)}
+			className={classes.donutChart}
 		/>
 	);
 };

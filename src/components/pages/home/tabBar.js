@@ -3,7 +3,7 @@ import { CardContent } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
-import { tabPropIndex, TabPanel } from 'components/shared/tabPanel';
+import { tabPropIndex, TabPanel } from 'components/pages/home/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
 
@@ -38,15 +38,17 @@ const useStyles = makeStyles()((theme) => {
 		},
 		cardContentTable: {
 			padding: 20,
-		},
-		TabPanel: {
-			width: '75%',
+			'&:last-child': {
+				paddingBottom: 10,
+				paddingTop: 10,
+			},
+			overflow: 'scroll',
 		},
 	};
 });
 const TabBarDashboard = () => {
 	const { classes } = useStyles();
-	const [value, setValue] = useState('0');
+	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -83,7 +85,7 @@ const TabBarDashboard = () => {
 
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
-					<TabPanel value={value} index={0} className={classes.tablePanel}>
+					<TabPanel value={value} index={0}>
 						<EnhancedTable />
 					</TabPanel>
 					<TabPanel value={value} index={1}>

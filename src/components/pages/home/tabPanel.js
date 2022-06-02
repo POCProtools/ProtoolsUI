@@ -7,8 +7,12 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		table: {
 			display: 'flex',
-			height: 300,
-			width: '700%',
+			//height: 300,
+			width: '132%',
+			overflow: 'scroll',
+		},
+		typo: {
+			overflow: 'scroll',
 		},
 	};
 });
@@ -23,6 +27,7 @@ export const TabPanel = (props) => {
 			hidden={value !== index}
 			id={`scrollable-auto-tabpanel-${index}`}
 			aria-labelledby={`scrollable-auto-tab-${index}`}
+			className={classes.typo}
 			{...other}
 		>
 			<Box className={classes.table}>{children}</Box>
