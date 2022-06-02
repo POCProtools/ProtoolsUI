@@ -5,6 +5,7 @@ import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import { makeStyles } from 'tss-react/mui';
+import { Box, Button } from '@mui/material';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -20,6 +21,18 @@ const useStyles = makeStyles()((theme) => {
 		},
 	};
 });
+
+export const exportDiagram = () => {
+	var modeler = new Modeler({ container: '#canvas' });
+	modeler
+		.saveXML({ format: true }, function (err, xml) {
+			if (err) {
+				return console.error('could not save BPMN 2.0 diagram', err);
+			}
+		})
+		.then((xml) => console.log(xml));
+};
+//TODO : Remove export + integrate button in modeler
 
 const Display = () => {
 	const { classes } = useStyles();
@@ -65,7 +78,12 @@ const Display = () => {
 			});
 	}
 
-	return <div id='container' className={classes.modelerStyle} />;
+	return (
+		<Box>
+			<div id='container' className={classes.modelerStyle} />
+			<Button onClick={exportDiagram}>Export</Button>
+		</Box>
+	);
 };
 
 export default Display;
