@@ -39,6 +39,9 @@ const useStyles = makeStyles()((theme) => {
 		cardContentTable: {
 			padding: 20,
 		},
+		TabPanel: {
+			width: '75%',
+		},
 	};
 });
 const TabBarDashboard = () => {
@@ -77,9 +80,10 @@ const TabBarDashboard = () => {
 					</StyledTabs>
 				</CardContent>
 			</CustomCard>
+
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
-					<TabPanel value={value} index={0}>
+					<TabPanel value={value} index={0} className={classes.tablePanel}>
 						<EnhancedTable />
 					</TabPanel>
 					<TabPanel value={value} index={1}>

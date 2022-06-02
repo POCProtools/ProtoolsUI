@@ -1,28 +1,72 @@
 import React from 'react';
 //import { makeStyles } from 'tss-react/mui';
-import { DataGrid } from '@mui/x-data-grid';
-//import { Box } from '@mui/material';
+import DataTable, { createTheme } from 'react-data-table-component';
 import { columns, rows } from 'utils/mockData';
+import theme from 'theme';
 
-// const useStyles = makeStyles()((theme) => {
-// 	return {
-// 		table: {
-// 			display: 'flex',
-// 			height: 300,
-// 			width: '575%',
-// 		},
-// 	};
-// });
+createTheme('customTheme', {
+	text: {
+		primary: '#374957',
+		secondary: theme.palette.primary.main,
+	},
+	background: {
+		default: theme.palette.secondary.pressed,
+	},
+	context: {
+		background: theme.palette.secondary.pressed,
+		text: '#FFFFFF',
+	},
+	divider: {
+		default: '#073642',
+	},
+	action: {
+		button: 'rgba(0,0,0,.54)',
+		hover: 'rgba(0,0,0,.08)',
+		disabled: 'rgba(0,0,0,.12)',
+	},
+});
+const customStyles = {
+	headRow: {
+		style: {
+			//border: 'none',
+		},
+	},
+	headCells: {
+		style: {
+			color: theme.palette.primary.main,
+			fontSize: '16px',
+			fontWeight: 'bold',
+		},
+	},
+	rows: {
+		style: {
+			backgroundColor: theme.palette.secondary.pressed,
+		},
+		highlightOnHoverStyle: {
+			backgroundColor: 'rgb(230, 244, 244)',
+			borderBottomColor: '#FFFFFF',
+			borderRadius: '10px',
+			outline: '1px solid #FFFFFF',
+		},
+	},
+	pagination: {
+		style: {
+			border: 'none',
+		},
+	},
+};
 const EnhancedTable = () => {
 	//const { classes } = useStyles();
 	return (
-		<DataGrid
-			rows={rows}
+		<DataTable
+			data={rows}
 			columns={columns}
-			pageSize={3}
-			rowsPerPageOptions={[3]}
-			checkboxSelection
-			disableSelectionOnClick
+			responsive
+			//theme='customTheme'
+			customStyles={customStyles}
+			highlightOnHover
+			pointerOnHover
+			pagination
 		/>
 	);
 };
