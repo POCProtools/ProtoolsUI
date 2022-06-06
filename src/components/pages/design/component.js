@@ -21,19 +21,15 @@ const useStyles = makeStyles()((theme) => {
 			marginLeft: '25%',
 			marginTop: '10%',
 		},
-		titleCard: {
-			position: 'absolute',
-			top: '14%',
-			left: '20%',
-			//marginLeft: 10,
-			fontSize: 24,
-			fontWeight: 'bold',
-			color: theme.palette.primary.main,
-		},
 		display: {
 			position: 'absolute',
 			top: '25%',
 			left: '25%',
+		},
+		menu: {
+			position: 'absolute',
+			left: '50%',
+			top: '10%',
 		},
 	};
 });
@@ -53,7 +49,6 @@ const Design = () => {
 					},
 				}}
 			/>
-			<span className={classes.titleCard}>BPMN Modeler: </span>
 			<Display className={classes.display} />
 		</>
 	);

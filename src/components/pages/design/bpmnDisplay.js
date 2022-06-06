@@ -5,7 +5,8 @@ import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import { makeStyles } from 'tss-react/mui';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
+import SelectBPMN from './selectBPMN';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -18,6 +19,11 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '20%',
 			left: '20%',
+		},
+		menu: {
+			position: 'absolute',
+			left: '50%',
+			top: '10%',
 		},
 	};
 });
@@ -37,7 +43,6 @@ export const exportDiagram = () => {
 const Display = () => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
-	const container = document.getElementById('container');
 	useEffect(() => {
 		if (diagram.length === 0) {
 			axios
@@ -55,10 +60,7 @@ const Display = () => {
 
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
-			container,
-			keyboard: {
-				bindTo: document,
-			},
+			container: '#containerBPMN',
 		});
 		modeler
 			.importXML(diagram)
@@ -80,8 +82,8 @@ const Display = () => {
 
 	return (
 		<Box>
-			<div id='container' className={classes.modelerStyle} />
-			<Button onClick={exportDiagram}>Export</Button>
+			<SelectBPMN className={classes.menu} />
+			<div id='containerBPMN' className={classes.modelerStyle} />
 		</Box>
 	);
 };
