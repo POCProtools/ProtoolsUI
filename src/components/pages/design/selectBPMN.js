@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
-import { makeStyles } from 'tss-react/mui';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-
-const useStyles = makeStyles()((theme) => {
-	return {
-		menu: {
-			position: 'absolute',
-			left: '20%',
-			top: '10%',
-		},
-	};
-});
+import {
+	FormControl,
+	InputLabel,
+	Select,
+	MenuItem,
+	Button,
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const getUrl = (selected) => {
 	switch (selected) {
-		case 'Empty':
+		case 'empty':
 			return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';
-		case 'Camunda':
+		case 'camunda':
 			return 'https://raw.githubusercontent.com/Stage2022/ProtoolsCamundaTest/main/src/main/resources/process.bpmn';
-		case 'Flowable':
+		case 'flowable':
 			return 'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml';
 		default:
 			console.log('Error: BPMN file not found');
@@ -26,22 +22,23 @@ export const getUrl = (selected) => {
 };
 
 const SelectBPMN = () => {
-	const classes = useStyles();
-	const [selected, setSelected] = useState('Empty');
-	const [url, setUrl] = useState('');
-
+	//const classes = useStyles();
+	const [selected, setSelected] = useState('empty');
+	const navigate = useNavigate();
+	const [url, setUrl] = useState(getUrl(selected));
 	const handleChange = (event) => {
 		setSelected(event.target.value);
-		console.log('New selected : ' + selected);
-		setUrl(getUrl(selected));
+		const urlNew = getUrl(selected);
+		setUrl(urlNew);
+		console.log('New selected : ' + url);
+	};
+	const navigationHandler = () => {
+		console.log('Navigate to bpmn file');
 		console.log(url);
-		console.log(classes);
+		navigate('/display', { state: { selected: url } });
 	};
 	return (
-		<FormControl
-			size='small'
-			sx={{ position: 'absolute', left: '20%', top: '10%' }}
-		>
+		<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
 			<InputLabel id='demo-simple-select-label'>Select BPMN</InputLabel>
 			<Select
 				labelId='demo-simple-select-label'
@@ -50,10 +47,11 @@ const SelectBPMN = () => {
 				label='Select BPMN'
 				onChange={handleChange}
 			>
-				<MenuItem value={'Camunda'}>Camunda POC</MenuItem>
-				<MenuItem value={'Flowable'}>Flowable POC</MenuItem>
-				<MenuItem value={'Empty'}>Empty</MenuItem>
+				<MenuItem value={'camunda'}>Camunda POC</MenuItem>
+				<MenuItem value={'flowable'}>Flowable POC</MenuItem>
+				<MenuItem value={'empty'}>Empty File</MenuItem>
 			</Select>
+			<Button onClick={navigationHandler}>Let's go</Button>
 		</FormControl>
 	);
 };

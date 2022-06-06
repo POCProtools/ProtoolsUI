@@ -1,10 +1,11 @@
 import React from 'react';
 
-import Display from './bpmnDisplay';
+//import Display from './bpmnDisplay';
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-// import { Grid } from '@mui/material'
-import { useEffect } from 'react';
+import { Grid, CardContent } from '@mui/material';
+import SelectBPMN from './selectBPMN';
+import CustomCard from 'components/shared/stylesComponents/card';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -17,19 +18,16 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '70%',
-			marginLeft: '25%',
+			width: '30%',
+			marginLeft: '45%',
 			marginTop: '10%',
+			padding: 10,
 		},
-		display: {
-			position: 'absolute',
-			top: '25%',
-			left: '25%',
-		},
-		menu: {
-			position: 'absolute',
-			left: '50%',
-			top: '10%',
+
+		titleCard: {
+			fontSize: 20,
+			fontWeight: 'bold',
+			color: theme.palette.primary.main,
 		},
 	};
 });
@@ -37,9 +35,6 @@ const useStyles = makeStyles()((theme) => {
 const Design = () => {
 	// TODO : add file selector
 	const { classes } = useStyles();
-	useEffect(() => {
-		console.log('Loading design page');
-	}, []);
 	return (
 		<>
 			<GlobalStyles
@@ -49,7 +44,16 @@ const Design = () => {
 					},
 				}}
 			/>
-			<Display className={classes.display} />
+			<Grid container justify='center'>
+				<CustomCard className={classes.card}>
+					<CardContent>
+						<span className={classes.titleCard}>
+							Selectionner un protocole:
+						</span>
+						<SelectBPMN sx={{ margin: 10 }} />
+					</CardContent>
+				</CustomCard>
+			</Grid>
 		</>
 	);
 };

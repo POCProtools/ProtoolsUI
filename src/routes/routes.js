@@ -5,6 +5,7 @@ import Login from 'components/pages/login/component';
 import SideBar from 'components/shared/sidepanel';
 import Header from 'components/shared/headers';
 import Design from 'components/pages/design/component';
+import Display from '../components/pages/design/bpmnDisplay';
 const RoutesWeb = () => {
 	return (
 		<Router>
@@ -14,6 +15,7 @@ const RoutesWeb = () => {
 				<Route path={'/'} exact element={<Home />} />
 				<Route path={'/login'} element={<Login />} />
 				<Route path={'/design'} element={<Design />} />
+				<Route path={'/display'} element={<Display />} />
 			</Routes>
 		</Router>
 	);

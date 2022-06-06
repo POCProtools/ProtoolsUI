@@ -6,7 +6,8 @@ import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import { makeStyles } from 'tss-react/mui';
 import { Box } from '@mui/material';
-import SelectBPMN from './selectBPMN';
+import { useLocation } from 'react-router-dom';
+import { GlobalStyles } from 'tss-react';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -19,44 +20,34 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '20%',
 			left: '20%',
-		},
-		menu: {
-			position: 'absolute',
-			left: '50%',
-			top: '10%',
+			zIndex: 1,
 		},
 	};
 });
 
-export const exportDiagram = () => {
-	var modeler = new Modeler({ container: '#canvas' });
-	modeler
-		.saveXML({ format: true }, function (err, xml) {
-			if (err) {
-				return console.error('could not save BPMN 2.0 diagram', err);
-			}
-		})
-		.then((xml) => console.log(xml));
-};
-//TODO : Remove export + integrate button in modeler
-
-const Display = () => {
+const Display = (props) => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
+	const params = useLocation();
+	const url = params.state.selected;
+
+	const fetchDiagram = () => {
+		console.log(params.state);
+		console.log(url);
+
+		axios
+			.get(url)
+			.then((r) => {
+				setDiagram(r.data);
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+	};
+
 	useEffect(() => {
-		if (diagram.length === 0) {
-			axios
-				.get(
-					'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml'
-				)
-				.then((r) => {
-					setDiagram(r.data);
-				})
-				.catch((e) => {
-					console.log(e);
-				});
-		}
-	}, [diagram]);
+		fetchDiagram();
+	}, []);
 
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
@@ -79,10 +70,15 @@ const Display = () => {
 				console.log('error', err);
 			});
 	}
-
 	return (
 		<Box>
-			<SelectBPMN className={classes.menu} />
+			<GlobalStyles
+				styles={{
+					body: {
+						backgroundColor: '#F9FAFC',
+					},
+				}}
+			/>
 			<div id='containerBPMN' className={classes.modelerStyle} />
 		</Box>
 	);
