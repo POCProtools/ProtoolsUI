@@ -64,9 +64,6 @@ const theme = createTheme({
 	components: {
 		MUIDataTable: {
 			styleOverrides: {
-				root: {
-					fontSize: '20px',
-				},
 				paper: {
 					boxShadow: 'none',
 				},
@@ -76,8 +73,11 @@ const theme = createTheme({
 			styleOverrides: {
 				sortAction: {
 					'& path': {
-						color: 'white', // or whatever you need
+						fontSize: '20px',
 					},
+				},
+				root: {
+					fontSize: '20px',
 				},
 			},
 		},

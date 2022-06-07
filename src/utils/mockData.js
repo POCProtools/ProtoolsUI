@@ -1,5 +1,6 @@
-import { FiMoreVertical, FiXCircle, FiCheck } from 'react-icons/fi';
+import { FiChevronRight, FiXCircle, FiCheck } from 'react-icons/fi';
 import theme from 'theme';
+import { Link } from '@mui/material';
 export const processChartdata = {
 	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
 	datasets: [
@@ -74,7 +75,7 @@ export const columns = [
 	},
 	{
 		name: 'state',
-		label: 'Status',
+		label: 'Statut',
 		options: {
 			sort: true,
 			draggable: true,
@@ -87,11 +88,17 @@ export const columns = [
 		},
 	},
 	{
-		name: 'Action',
+		name: 'action',
+		label: 'Action',
 		options: {
 			empty: true,
 			draggable: true,
-			customBodyRender: (value) => <FiMoreVertical />,
+			customBodyRender: (value) => (
+				<Link href={`/process/${value}`} underline='none'>
+					<FiChevronRight />
+				</Link>
+			),
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
 		},
 	},
 ];
@@ -102,66 +109,77 @@ export const data = [
 		state: true,
 		name: 'protools-camunda-test-process',
 		date: '04/02/2022-10:20:45',
+		action: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
 	},
 	{
 		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
 		state: false,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
 	},
 	{
 		id: '[IDProcessus]',
 		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '[IDProcessus]',
 		state: false,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
 		state: true,
 		name: 'protools-camunda-test-process',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
 		state: false,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '[IDProcessus]',
 		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
 		state: true,
 		name: 'protools-camunda-test-process',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
 		state: false,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '[IDProcessus]',
 		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 	{
 		id: '[IDProcessus]',
 		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
+		action: 'linkProcessus',
 	},
 ];
 
@@ -195,12 +213,12 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px', fontSize: '16' } }),
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
 		},
 	},
 	{
 		name: 'state',
-		label: 'Status',
+		label: 'Statut',
 		options: {
 			sort: true,
 			draggable: true,
@@ -217,7 +235,8 @@ export const columnsManu = [
 		options: {
 			empty: true,
 			draggable: true,
-			customBodyRender: (value) => <FiMoreVertical />,
+			customBodyRender: (value) => <FiChevronRight />,
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
 		},
 	},
 ];

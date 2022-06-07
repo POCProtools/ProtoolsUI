@@ -21,7 +21,7 @@ const DoughnutChart = (props) => {
 					height = chart.height,
 					ctx = chart.ctx;
 				ctx.restore();
-				var fontSize = 1.7;
+				var fontSize = (height / 85).toFixed(2);
 				ctx.font = fontSize + 'em sans-serif';
 
 				ctx.textBaseline = 'top';
