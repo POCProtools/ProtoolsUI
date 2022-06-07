@@ -15,13 +15,11 @@ export const muiCache = createCache({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<React.StrictMode>
-		<CacheProvider value={muiCache}>
-			<ThemeProvider theme={theme}>
-				<RoutesWeb />
-			</ThemeProvider>
-		</CacheProvider>
-	</React.StrictMode>
+	<CacheProvider value={muiCache}>
+		<ThemeProvider theme={theme}>
+			<RoutesWeb />
+		</ThemeProvider>
+	</CacheProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -30,7 +30,7 @@ const SelectBPMN = () => {
 		setSelected(event.target.value);
 		const urlNew = getUrl(selected);
 		setUrl(urlNew);
-		console.log('New selected : ' + url);
+		console.log('New selected : ' + selected + url);
 	};
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
