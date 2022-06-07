@@ -1,7 +1,7 @@
 import { FiMoreVertical, FiXCircle, FiCheck } from 'react-icons/fi';
 import theme from 'theme';
 export const processChartdata = {
-	labels: ['Orange', 'Red', 'Blue', 'Green'],
+	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
 	datasets: [
 		{
 			label: 'processus',
@@ -14,10 +14,10 @@ export const processChartdata = {
 };
 
 export const TaskChartdata = {
-	labels: ['Orange', 'Red', 'Blue', 'Green'],
+	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
 	datasets: [
 		{
-			label: 'processus',
+			label: 'taches',
 			data: [9, 4, 3, 5],
 			backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
 			borderColor: [theme.palette.background.default],
@@ -30,7 +30,7 @@ export const IncidentChartdata = {
 	labels: ['Services', 'Interne', 'Warning'],
 	datasets: [
 		{
-			label: 'processus',
+			label: 'incidents',
 			data: [3, 3, 2],
 			backgroundColor: ['#F25C54', '#F48A66', '#FEDC86', '#84A98C'],
 			borderColor: [theme.palette.background.default],
