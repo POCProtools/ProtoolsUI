@@ -42,7 +42,9 @@ const useStyles = makeStyles()((theme) => {
 				paddingBottom: 10,
 				paddingTop: 10,
 			},
-			overflow: 'scroll',
+		},
+		table: {
+			width: '180%',
 		},
 	};
 });
@@ -86,7 +88,7 @@ const TabBarDashboard = () => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
-						<EnhancedTable />
+						<EnhancedTable className={classes.table} />
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						Item Two

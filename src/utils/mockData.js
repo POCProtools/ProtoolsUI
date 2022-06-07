@@ -26,50 +26,68 @@ export const IncidentChartdata = [
 
 export const columns = [
 	{
-		name: 'Nom',
-		selector: (row) => row.name,
-		sortable: true,
-		maxWidth: '200px',
+		name: 'name',
+		label: 'Nom',
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
+		},
 	},
 	{
-		name: 'ID',
-		selector: (row) => row.id,
-		sortable: true,
-		maxWidth: '300px',
+		name: 'id',
+		label: 'ID',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '300px' } }),
+		},
 	},
 	{
-		name: 'État',
-		cell: (row) =>
-			row.state ? (
-				<FiCheck size={20} color='#17C3B2' />
-			) : (
-				<FiXCircle size={20} color='#F25C54' />
-			),
-		maxWidth: '200px',
+		name: 'date',
+		label: 'Date début',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
+		},
 	},
 	{
-		name: 'Date début',
-		selector: (row) => row.date,
-		sortable: true,
-		maxWidth: '200px',
+		name: 'state',
+		label: 'Status',
+		options: {
+			sort: true,
+			draggable: true,
+			customBodyRender: (value) =>
+				value ? (
+					<FiCheck size={20} color='#17C3B2' />
+				) : (
+					<FiXCircle size={20} color='#F25C54' />
+				),
+		},
 	},
 	{
 		name: 'Action',
-		button: true,
-		cell: (row) => <FiMoreVertical />,
-		maxWidth: '100px',
+		options: {
+			empty: true,
+			draggable: true,
+			customBodyRender: (value) => <FiMoreVertical />,
+		},
 	},
 ];
 
-export const rows = [
+export const data = [
 	{
-		id: '[IDProcessus1]',
+		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
 		state: true,
-		name: '[NomProcessus]',
+		name: 'protools-camunda-test-process',
 		date: '04/02/2022-10:20:45',
 	},
 	{
-		id: '[IDProcessus]',
+		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
 		state: false,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
@@ -83,74 +101,6 @@ export const rows = [
 	{
 		id: '[IDProcessus]',
 		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{ id: '[IDProcessus]', state: true, name: '[NomProcessus]', date: null },
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus1]',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus2]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{ id: '[IDProcessus5]', state: true, name: '[NomProcessus]', date: null },
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
 	},

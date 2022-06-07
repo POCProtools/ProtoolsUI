@@ -8,8 +8,6 @@ const useStyles = makeStyles()((theme) => {
 		table: {
 			display: 'flex',
 			//height: 300,
-			width: '132%',
-			overflow: 'scroll',
 		},
 		typo: {
 			overflow: 'scroll',

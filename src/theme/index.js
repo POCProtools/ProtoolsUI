@@ -61,5 +61,14 @@ const theme = createTheme({
 			},
 		},
 	},
+	components: {
+		MUIDataTableBodyCell: {
+			styleOverrides: {
+				root: {
+					backgroundColor: SECONDARY.pressedGrey,
+				},
+			},
+		},
+	},
 });
 export default theme;
