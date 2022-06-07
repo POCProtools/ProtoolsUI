@@ -32,7 +32,9 @@ export const columns = [
 			filter: true,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
+			setCellProps: () => ({
+				style: { minWidth: '250px' },
+			}),
 		},
 	},
 	{
@@ -52,7 +54,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
+			setCellProps: () => ({ style: { minWidth: '200px', fontSize: '16' } }),
 		},
 	},
 	{
@@ -101,6 +103,42 @@ export const data = [
 	{
 		id: '[IDProcessus]',
 		state: false,
+		name: '[NomProcessus]',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
+		state: true,
+		name: 'protools-camunda-test-process',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
+		state: false,
+		name: '[NomProcessus]',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: '[IDProcessus]',
+		state: true,
+		name: '[NomProcessus]',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
+		state: true,
+		name: 'protools-camunda-test-process',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
+		state: false,
+		name: '[NomProcessus]',
+		date: '04/02/2022-10:20:45',
+	},
+	{
+		id: '[IDProcessus]',
+		state: true,
 		name: '[NomProcessus]',
 		date: '04/02/2022-10:20:45',
 	},

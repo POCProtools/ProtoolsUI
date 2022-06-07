@@ -39,8 +39,8 @@ const useStyles = makeStyles()((theme) => {
 		cardContentTable: {
 			padding: 20,
 			'&:last-child': {
-				paddingBottom: 10,
-				paddingTop: 10,
+				paddingBottom: 20,
+				paddingTop: 3,
 			},
 		},
 		table: {
