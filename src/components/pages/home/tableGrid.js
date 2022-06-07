@@ -1,6 +1,5 @@
 import React from 'react';
 import MUIDataTable from 'mui-datatables';
-import { data, columns } from 'utils/mockData';
 import { makeStyles } from 'tss-react/mui';
 //import { FiSearch } from 'react-icons/fi';
 
@@ -10,7 +9,9 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const EnhancedTable = () => {
+const EnhancedTable = (props) => {
+	const data = props.data;
+	const columns = props.columns;
 	const { classes } = useStyles();
 	const options = {
 		filterType: 'checkbox',

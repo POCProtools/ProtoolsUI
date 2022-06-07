@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Link, Button, Drawer } from '@mui/material';
+import { Grid, Link, Drawer } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
@@ -118,7 +118,7 @@ const SideBar = () => {
 							<span className={classes.textSidebar}>Design</span>
 						</Grid>
 					</Link>
-					<Grid spacing={1} sx={{ marginTop: 2 }}>
+					{/* <Grid spacing={1} sx={{ marginTop: 2 }}>
 						<Button
 							variant='outlined'
 							href='/login'
@@ -126,7 +126,7 @@ const SideBar = () => {
 						>
 							Connexion
 						</Button>
-					</Grid>
+					</Grid> */}
 				</Grid>
 			</Drawer>
 		</>

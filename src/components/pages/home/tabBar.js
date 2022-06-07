@@ -6,6 +6,7 @@ import CustomCard from 'components/shared/stylesComponents/card';
 import { tabPropIndex, TabPanel } from 'components/pages/home/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
+import { data, columns, dataManu, columnsManu } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -88,13 +89,21 @@ const TabBarDashboard = () => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
-						<EnhancedTable className={classes.table} />
+						<EnhancedTable
+							className={classes.table}
+							data={data}
+							columns={columns}
+						/>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
-						Item Two
+						<EnhancedTable
+							className={classes.table}
+							data={dataManu}
+							columns={columnsManu}
+						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						Item Three
+						<EnhancedTable className={classes.table} />
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
