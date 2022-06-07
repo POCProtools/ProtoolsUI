@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 // import ReactBpmn from 'react-bpmn';
 import axios from 'axios';
 import Modeler from 'bpmn-js/lib/Modeler';
@@ -31,7 +31,7 @@ const Display = (props) => {
 	const params = useLocation();
 	const url = params.state.selected;
 
-	const fetchDiagram = () => {
+	const fetchDiagram = useCallback(() => {
 		console.log(params.state);
 		console.log(url);
 
@@ -43,11 +43,11 @@ const Display = (props) => {
 			.catch((e) => {
 				console.log(e);
 			});
-	};
+	}, [params.state, url]);
 
 	useEffect(() => {
 		fetchDiagram();
-	}, []);
+	}, [fetchDiagram]);
 
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
