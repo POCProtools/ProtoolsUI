@@ -1,28 +1,43 @@
 import { FiMoreVertical, FiXCircle, FiCheck } from 'react-icons/fi';
-export const processChartdata = [
-	{ label: 'One', value: 10, color: '#FEC89A' },
-	{ label: 'Two', value: 15, color: '#B56576' },
-	{ label: 'Three', value: 20, color: '#98C1D9' },
-	{ label: 'Four', value: 20, color: '#84A98C' },
-];
+import theme from 'theme';
+export const processChartdata = {
+	labels: ['Orange', 'Red', 'Blue', 'Green'],
+	datasets: [
+		{
+			label: 'processus',
+			data: [12, 19, 3, 5],
+			backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
+			borderColor: [theme.palette.background.default],
+			borderWidth: 2,
+		},
+	],
+};
 
-export const TaskChartdata = [
-	{ label: 'One', value: 10, color: '#FEC89A' },
-	{ label: 'Two', value: 15, color: '#B56576' },
-	{ label: 'Three', value: 9, color: '#98C1D9' },
-	{ label: 'Four', value: 28, color: '#84A98C' },
-	{
-		label: 'Five',
-		value: 5,
-		color: '#758ECD',
-	},
-];
+export const TaskChartdata = {
+	labels: ['Orange', 'Red', 'Blue', 'Green'],
+	datasets: [
+		{
+			label: 'processus',
+			data: [9, 4, 3, 5],
+			backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
+			borderColor: [theme.palette.background.default],
+			borderWidth: 2,
+		},
+	],
+};
 
-export const IncidentChartdata = [
-	{ label: 'Services', value: 3, color: '#F25C54' },
-	{ label: 'Interne', value: 3, color: '#F48A66' },
-	{ label: 'Warning', value: 3, color: '#FEDC86' },
-];
+export const IncidentChartdata = {
+	labels: ['Services', 'Interne', 'Warning'],
+	datasets: [
+		{
+			label: 'processus',
+			data: [3, 3, 2],
+			backgroundColor: ['#F25C54', '#F48A66', '#FEDC86', '#84A98C'],
+			borderColor: [theme.palette.background.default],
+			borderWidth: 2,
+		},
+	],
+};
 
 export const columns = [
 	{
