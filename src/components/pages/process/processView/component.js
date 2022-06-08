@@ -7,9 +7,28 @@ import { makeStyles } from 'tss-react/mui';
 import { Box, Breadcrumbs, Link, Typography } from '@mui/material';
 import { GlobalStyles } from 'tss-react';
 import { useLocation } from 'react-router-dom';
+import Logo from 'components/shared/logo';
+import TabBarWorkflow from './tabBar';
 
 const useStyles = makeStyles()((theme) => {
 	return {
+		title: {
+			marginLeft: 10,
+			fontSize: 30,
+			fontWeight: 'bold',
+			color: theme.palette.primary.main,
+		},
+		TitleHeader: {
+			//margin: 5,
+			marginTop: 5,
+			//marginBottom: 20,
+			position: 'absolute',
+			top: '2%',
+			left: '20%',
+		},
+		logo: {
+			verticalAlign: 'middle',
+		},
 		viewerStyle: {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
@@ -22,7 +41,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		bread: {
 			position: 'absolute',
-			top: '10%',
+			top: '12%',
 			left: '20%',
 			color: theme.palette.primary.main,
 			opacity: 0.8,
@@ -30,7 +49,7 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const BPMNViewer = (props) => {
+const BPMNViewer = () => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
 	const params = useLocation();
@@ -74,7 +93,7 @@ const BPMNViewer = (props) => {
 			});
 	}
 	return (
-		<Box>
+		<Box justifyContent='center'>
 			<GlobalStyles
 				styles={{
 					body: {
@@ -82,6 +101,11 @@ const BPMNViewer = (props) => {
 					},
 				}}
 			/>
+
+			<div className={classes.TitleHeader}>
+				<Logo className={classes.logo} />
+				<span className={classes.title}>Workflows</span>
+			</div>
 			<Breadcrumbs
 				separator='›'
 				aria-label='breadcrumb'
@@ -96,6 +120,7 @@ const BPMNViewer = (props) => {
 				<Typography color='text.primary'>Workflow : {name}</Typography>
 			</Breadcrumbs>
 			<div id='containerBPMN' className={classes.viewerStyle} />
+			<TabBarWorkflow />
 		</Box>
 	);
 };

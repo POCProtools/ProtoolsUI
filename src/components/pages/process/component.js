@@ -35,8 +35,8 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: 5,
 			//marginBottom: 20,
 			position: 'absolute',
-			top: '5%',
-			left: '22%',
+			top: '2%',
+			left: '20%',
 		},
 		logo: {
 			verticalAlign: 'middle',
@@ -50,7 +50,7 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const ProcessViewer = () => {
+const ProcessSelect = () => {
 	const { classes } = useStyles();
 	// TODO : add remplacer par les processus disponibles
 	return (
@@ -79,4 +79,4 @@ const ProcessViewer = () => {
 		</>
 	);
 };
-export default ProcessViewer;
+export default ProcessSelect;
