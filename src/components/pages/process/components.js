@@ -6,6 +6,7 @@ import { GlobalStyles } from 'tss-react';
 import { Grid, CardContent } from '@mui/material';
 import SelectProcess from './selectProcess';
 import CustomCard from 'components/shared/stylesComponents/card';
+import Logo from 'components/shared/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -23,6 +24,23 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: '10%',
 			padding: 10,
 		},
+		title: {
+			marginLeft: 10,
+			fontSize: 30,
+			fontWeight: 'bold',
+			color: theme.palette.primary.main,
+		},
+		TitleHeader: {
+			//margin: 5,
+			marginTop: 5,
+			//marginBottom: 20,
+			position: 'absolute',
+			top: '5%',
+			left: '22%',
+		},
+		logo: {
+			verticalAlign: 'middle',
+		},
 
 		titleCard: {
 			fontSize: 20,
@@ -33,8 +51,8 @@ const useStyles = makeStyles()((theme) => {
 });
 
 const ProcessViewer = () => {
-	// TODO : add file selector
 	const { classes } = useStyles();
+	// TODO : add remplacer par les processus disponibles
 	return (
 		<>
 			<GlobalStyles
@@ -45,6 +63,10 @@ const ProcessViewer = () => {
 				}}
 			/>
 			<Grid container justify='center'>
+				<div className={classes.TitleHeader}>
+					<Logo className={classes.logo} />
+					<span className={classes.title}>Workflows</span>
+				</div>
 				<CustomCard className={classes.card}>
 					<CardContent>
 						<span className={classes.titleCard}>

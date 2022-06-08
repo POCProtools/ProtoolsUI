@@ -6,6 +6,7 @@ import Header from 'components/shared/headers';
 import Design from 'components/pages/design/component';
 import Display from '../components/pages/design/bpmnDisplay';
 import ProcessViewer from 'components/pages/process/components';
+import BPMNViewer from 'components/pages/process/bpmnViewer';
 const RoutesWeb = () => {
 	return (
 		<Router>
@@ -14,6 +15,7 @@ const RoutesWeb = () => {
 			<Routes>
 				<Route path={'/'} exact element={<Home />} />
 				<Route path={'/process'} element={<ProcessViewer />} />
+				<Route path={'/processview'} element={<BPMNViewer />} />
 				<Route path={'/design'} element={<Design />} />
 				<Route path={'/display'} element={<Display />} />
 			</Routes>

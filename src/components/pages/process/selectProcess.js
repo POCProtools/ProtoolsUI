@@ -35,8 +35,9 @@ const SelectProcess = () => {
 
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
-		navigate('/process', {
-			state: { selected: getUrl(selected, hasFinished) },
+		console.log('Variables : ' + selected);
+		navigate('/processview', {
+			state: { selected: getUrl(selected, hasFinished), name: selected },
 		});
 	};
 
