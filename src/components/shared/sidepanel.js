@@ -94,7 +94,7 @@ const SideBar = () => {
 						</Grid>
 					</Link>
 
-					<Link href='/processes' underline='none'>
+					<Link href='/process' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
 							<FiList className={classes.icon} />
 							<span className={classes.textSidebar}>Processes</span>

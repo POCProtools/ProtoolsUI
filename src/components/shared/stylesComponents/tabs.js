@@ -19,7 +19,8 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 	},
 	fontWeight: 'bold',
 	marginRight: theme.spacing(1),
-	color: 'rgba(0, 0, 0, 0.85)',
+	color: theme.palette.primary.main,
+	opacity: 0.5,
 	fontFamily: [
 		'-apple-system',
 		'BlinkMacSystemFont',
@@ -34,11 +35,12 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 	].join(','),
 	'&:hover': {
 		color: theme.palette.primary.main,
-		opacity: 0.8,
+		opacity: 0.9,
 	},
 	'&.Mui-selected': {
 		color: theme.palette.primary.main,
 		fontWeight: 'bold',
+		opacity: 1,
 	},
 	'&.Mui-focusVisible': {
 		backgroundColor: '#d1eaff',
