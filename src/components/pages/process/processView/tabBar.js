@@ -4,7 +4,7 @@ import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
 import { tabPropIndex, TabPanel } from 'components/pages/home/tabPanel';
-import EnhancedTable from 'components/pages/home/tableGrid';
+import EnhancedTable from 'components/shared/stylesComponents/tableGrid';
 import theme from 'theme';
 import { data, columns, dataManu, columnsManu } from 'utils/mockData';
 

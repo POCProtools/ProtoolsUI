@@ -46,6 +46,11 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 			opacity: 0.8,
 		},
+		highlight: {
+			backgroundColor: theme.palette.secondary.main,
+			opacity: 0.8,
+			pointerevents: null,
+		},
 	};
 });
 
@@ -82,7 +87,15 @@ const BPMNViewer = () => {
 			.importXML(diagram)
 			.then(() => {
 				viewer.get('canvas').zoom('fit-viewport');
-			})
+				const overlays = viewer.get('overlays');
+				overlays.add('StartEvent_1', 'note', {
+					position: {
+						bottom: 0,
+						right: 0,
+					},
+					html: '<div class="diagram-note">Hello Im an overlay</div>',
+				});
+			}) //Remplacer par un call API une fois branchée sur protools
 			.then(({ warnings }) => {
 				if (warnings.length) {
 					console.log('Warnings', warnings);
@@ -92,6 +105,7 @@ const BPMNViewer = () => {
 				console.log('error', err);
 			});
 	}
+	//Potentiellement ajouter boutons de zooms
 	return (
 		<Box justifyContent='center'>
 			<GlobalStyles

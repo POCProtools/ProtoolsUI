@@ -53,7 +53,6 @@ const SelectProcess = () => {
 			>
 				<MenuItem value={'camunda'}>Camunda POC</MenuItem>
 				<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-				<MenuItem value={'empty'}>Empty File</MenuItem>
 			</Select>
 			<Button onClick={navigationHandler}>Let's go</Button>
 		</FormControl>
