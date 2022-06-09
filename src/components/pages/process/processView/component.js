@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import Viewer from 'bpmn-js/lib/Viewer';
+import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import { makeStyles } from 'tss-react/mui';
@@ -33,7 +33,7 @@ const useStyles = makeStyles()((theme) => {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
 			height: '40%',
-			width: '77%',
+			width: '75%',
 			position: 'absolute',
 			top: '15%',
 			left: '20%',
@@ -75,7 +75,7 @@ const BPMNViewer = () => {
 	}, [fetchDiagram]);
 
 	if (diagram.length > 0) {
-		const viewer = new Viewer({
+		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
 		});
 		viewer

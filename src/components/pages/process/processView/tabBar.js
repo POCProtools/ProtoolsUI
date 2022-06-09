@@ -117,7 +117,11 @@ const TabBarWorkflow = () => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<EnhancedTable className={classes.table} />
+						<EnhancedTable
+							className={classes.table}
+							data={dataManu}
+							columns={columnsManu}
+						/>
 					</TabPanel>
 					<TabPanel value={value} index={3}>
 						<EnhancedTable className={classes.table} />

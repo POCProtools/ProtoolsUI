@@ -25,8 +25,8 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: 5,
 			//marginBottom: 20,
 			position: 'absolute',
-			top: '5%',
-			left: '22%',
+			top: '2%',
+			left: '20%',
 		},
 		logo: {
 			verticalAlign: 'middle',
