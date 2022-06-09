@@ -19,6 +19,7 @@
 		"axios": "^0.27.2",
 		"bpmn-js": "^9.1.0",
 		"chart.js": "^3.8.0",
+		"diagram-js-minimap": "^2.1.1",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-plugin-prettier": "^4.0.0",
 		"mui-datatables": "^4.2.2",

@@ -3,6 +3,8 @@ import axios from 'axios';
 import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
+import minimapModule from 'diagram-js-minimap';
+import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 import { makeStyles } from 'tss-react/mui';
 import { Box, Breadcrumbs, Link, Typography } from '@mui/material';
 import { GlobalStyles } from 'tss-react';
@@ -17,6 +19,7 @@ const useStyles = makeStyles()((theme) => {
 			fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
+			verticalAlign: 'middle',
 		},
 		TitleHeader: {
 			position: 'absolute',
@@ -78,11 +81,13 @@ const BPMNViewer = () => {
 	if (diagram.length > 0) {
 		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
+			additionalModules: [minimapModule],
 		});
 		viewer
 			.importXML(diagram)
 			.then(() => {
 				viewer.get('canvas').zoom('fit-viewport');
+
 				const overlays = viewer.get('overlays');
 				overlays.add('StartEvent_1', 'note', {
 					position: {

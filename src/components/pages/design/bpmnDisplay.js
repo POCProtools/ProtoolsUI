@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-// import ReactBpmn from 'react-bpmn';
+import minimapModule from 'diagram-js-minimap';
+import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 import axios from 'axios';
 import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
@@ -52,6 +53,7 @@ const Display = (props) => {
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
 			container: '#containerBPMN',
+			additionalModules: [minimapModule],
 		});
 		modeler
 			.importXML(diagram)
@@ -65,6 +67,7 @@ const Display = (props) => {
 					stroke: 'green',
 					fill: 'yellow',
 				});
+				modeler.get('minimap').open();
 			})
 			.catch((err) => {
 				console.log('error', err);
