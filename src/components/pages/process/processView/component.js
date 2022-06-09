@@ -25,6 +25,8 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '2%',
 			left: '20%',
+			display: 'flex',
+			alignItems: 'center',
 		},
 		logo: {
 			verticalAlign: 'middle',
@@ -120,10 +122,10 @@ const BPMNViewer = () => {
 				}}
 			/>
 
-			<div className={classes.TitleHeader}>
+			<Box className={classes.TitleHeader}>
 				<Logo className={classes.logo} />
 				<span className={classes.title}>Workflows</span>
-			</div>
+			</Box>
 			<Breadcrumbs
 				separator='›'
 				aria-label='breadcrumb'

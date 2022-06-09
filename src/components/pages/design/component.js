@@ -3,7 +3,7 @@ import React from 'react';
 //import Display from './bpmnDisplay';
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-import { Grid, CardContent } from '@mui/material';
+import { Grid, CardContent, Box } from '@mui/material';
 import SelectBPMN from './selectBPMN';
 import CustomCard from 'components/shared/stylesComponents/card';
 import Logo from 'components/shared/logo';
@@ -34,6 +34,8 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '2%',
 			left: '20%',
+			display: 'flex',
+			alignItems: 'center',
 		},
 		logo: {
 			verticalAlign: 'middle',
@@ -60,10 +62,10 @@ const Design = () => {
 				}}
 			/>
 			<Grid container justify='center'>
-				<div className={classes.TitleHeader}>
+				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
-					<span className={classes.title}>Modeler</span>
-				</div>
+					<span className={classes.title}>Designer</span>
+				</Box>
 				<CustomCard className={classes.card}>
 					<CardContent>
 						<span className={classes.titleCard}>

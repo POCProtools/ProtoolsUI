@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalStyles } from 'tss-react';
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 
 import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo';
@@ -24,6 +24,8 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '2%',
 			left: '20%',
+			display: 'flex',
+			alignItems: 'center',
 		},
 		logo: {
 			verticalAlign: 'middle',
@@ -69,10 +71,10 @@ const Home = () => {
 				}}
 			/>
 			<Grid justifyContent='center'>
-				<div className={classes.TitleHeader}>
+				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
 					<span className={classes.title}>Tableau de bord</span>
-				</div>
+				</Box>
 				<ProcessOverview />
 				<TabBarDashboard />
 			</Grid>

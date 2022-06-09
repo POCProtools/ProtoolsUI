@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
-import { AppBar, Toolbar, Grid, Link } from '@mui/material';
+import { AppBar, Toolbar, Grid, Link, Box } from '@mui/material';
 import { FiMoon, FiBook } from 'react-icons/fi';
 
 const useStyles = makeStyles()((theme) => {
@@ -11,13 +11,16 @@ const useStyles = makeStyles()((theme) => {
 			boxShadow: 'none',
 			elevation: 0,
 		},
-		gridContainer: {},
+		gridContainer: {
+			display: 'flex',
+			alignItems: 'center',
+		},
 
 		textHeader: {
 			flex: 1,
 			fontSize: 14,
 			fontWeight: 'normal',
-			margin: 7,
+			//margin: 5,
 			color: theme.palette.primary.main,
 		},
 		iconsHeader: {
@@ -41,17 +44,20 @@ const Header = () => {
 					container
 					spacing={2}
 					alignItems='baseline'
-					className={classes.gridContainer}
 					justifyContent='flex-end'
 				>
-					<Grid item xs={1.5}>
-						<FiMoon className={classes.iconsHeader} />
-						<span className={classes.textHeader}>Mode Sombre</span>
+					<Grid item xs={1}>
+						<Box className={classes.gridContainer}>
+							<FiMoon className={classes.iconsHeader} />
+							<span className={classes.textHeader}>DarkMode</span>
+						</Box>
 					</Grid>
-					<Grid item xs={1.5}>
+					<Grid item xs={1.25}>
 						<Link to='/documentation' underline='none'>
-							<FiBook className={classes.iconsHeader} />
-							<span className={classes.textHeader}>Documentation</span>
+							<Box className={classes.gridContainer}>
+								<FiBook className={classes.iconsHeader} />
+								<span className={classes.textHeader}>Documentation</span>
+							</Box>
 						</Link>
 					</Grid>
 				</Grid>

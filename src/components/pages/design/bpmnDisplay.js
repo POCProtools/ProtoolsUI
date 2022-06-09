@@ -9,6 +9,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { GlobalStyles } from 'tss-react';
+import Logo from 'components/shared/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -22,6 +23,22 @@ const useStyles = makeStyles()((theme) => {
 			top: '20%',
 			left: '20%',
 			zIndex: 1,
+		},
+		title: {
+			marginLeft: 10,
+			fontSize: 30,
+			fontWeight: 'bold',
+			color: theme.palette.primary.main,
+		},
+		TitleHeader: {
+			position: 'absolute',
+			top: '2%',
+			left: '20%',
+			display: 'flex',
+			alignItems: 'center',
+		},
+		logo: {
+			verticalAlign: 'middle',
 		},
 	};
 });
@@ -82,6 +99,10 @@ const Display = (props) => {
 					},
 				}}
 			/>
+			<Box className={classes.TitleHeader}>
+				<Logo className={classes.logo} />
+				<span className={classes.title}>Designer</span>
+			</Box>
 			<div id='containerBPMN' className={classes.modelerStyle} />
 		</Box>
 	);
