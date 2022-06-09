@@ -3,9 +3,12 @@ kind: Service
 metadata:
   name: maquette-protools
 spec:
-  ports:
-    - name: http
-      targetPort: 8080
-      port: 8080
+  #type of the service
+  type: NodePort
   selector:
     app: maquette-protools
+  ports:
+    - port: 3050
+      targetPort: 3000
+      protocol: TCP
+      nodePort: 31000
