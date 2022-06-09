@@ -7,7 +7,7 @@ import {
 	TaskChartdata,
 	IncidentChartdata,
 } from 'utils/mockData';
-import DoughnutChart from './donutTest';
+import DoughnutChart from './donutChart';
 
 const useStyles = makeStyles()((theme) => {
 	return {

@@ -19,9 +19,6 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 		},
 		TitleHeader: {
-			//margin: 5,
-			marginTop: 5,
-			//marginBottom: 20,
 			position: 'absolute',
 			top: '2%',
 			left: '20%',
@@ -64,7 +61,6 @@ const BPMNViewer = () => {
 	const fetchDiagram = useCallback(() => {
 		console.log(params.state);
 		console.log(url);
-
 		axios
 			.get(url)
 			.then((r) => {

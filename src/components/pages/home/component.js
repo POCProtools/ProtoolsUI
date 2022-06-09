@@ -21,9 +21,6 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 		},
 		TitleHeader: {
-			//margin: 5,
-			marginTop: 5,
-			//marginBottom: 20,
 			position: 'absolute',
 			top: '2%',
 			left: '20%',
