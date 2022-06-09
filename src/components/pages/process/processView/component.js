@@ -90,10 +90,13 @@ const BPMNViewer = () => {
 				const overlays = viewer.get('overlays');
 				overlays.add('StartEvent_1', 'note', {
 					position: {
-						bottom: 0,
-						right: 0,
+						bottom: 18,
+						right: 10,
 					},
-					html: '<div class="diagram-note">Hello Im an overlay</div>',
+					scale: {
+						min: 0.9,
+					},
+					html: '<div class="diagram-note">🦊</div>',
 				});
 			}) //Remplacer par un call API une fois branchée sur protools
 			.then(({ warnings }) => {

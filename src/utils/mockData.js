@@ -1,6 +1,6 @@
 import { FiChevronRight, FiXCircle, FiCheck } from 'react-icons/fi';
 import theme from 'theme';
-import { Link } from '@mui/material';
+import { Link, Box } from '@mui/material';
 export const processChartdata = {
 	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
 	datasets: [
@@ -81,9 +81,13 @@ export const columns = [
 			draggable: true,
 			customBodyRender: (value) =>
 				value ? (
-					<FiCheck size={20} color='#17C3B2' />
+					<Box display='flex' alignItems='center' justifyContent='center'>
+						<FiCheck size={20} color='#17C3B2' />
+					</Box>
 				) : (
-					<FiXCircle size={20} color='#F25C54' />
+					<Box display='flex' alignItems='center' justifyContent='center'>
+						<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+					</Box>
 				),
 		},
 	},

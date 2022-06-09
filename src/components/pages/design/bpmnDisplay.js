@@ -47,7 +47,7 @@ const Display = (props) => {
 
 	useEffect(() => {
 		fetchDiagram();
-	}, [fetchDiagram]);
+	}, []);
 
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
