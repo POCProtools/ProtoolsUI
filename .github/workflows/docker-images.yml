@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # install applicaion dependencies
+      # install applicaion dependencies (force for MUI)
       - name: Install dependencies
         run: |
           npm install --force
@@ -29,7 +29,6 @@ jobs:
       - name: build
         run: |
           npm run build
-          npm test
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
