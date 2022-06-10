@@ -1,13 +1,14 @@
-FROM node:16 AS builder
+FROM node:18-alpine AS development
+ENV NODE_ENV development
+# Add a work directory
 WORKDIR /app
-COPY package.json ./
-RUN npm install --force
+# Cache and Install dependencies
+COPY package*.json ./
 
-COPY . ./
-RUN npm run build
-
-FROM nginx:1.19.0
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/build .
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+RUN npm install
+# Copy app files
+COPY . .
+# Expose port
+EXPOSE 3000
+# Start the app
+CMD [ "npm", "start" ]
