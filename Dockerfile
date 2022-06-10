@@ -1,14 +1,5 @@
-FROM node:18-alpine AS development
-ENV NODE_ENV development
-# Add a work directory
-WORKDIR /app
-# Cache and Install dependencies
-COPY package*.json ./
-
-RUN npm install --force
-# Copy app files
-COPY . .
-# Expose port
-EXPOSE 3000
-# Start the app
-CMD [ "npm", "start" ]
+FROM nginx
+COPY build /usr/share/nginx/html
+RUN rm etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf etc/nginx/conf.d/
+CMD ["nginx", "-g", "daemon off;"]
