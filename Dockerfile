@@ -5,7 +5,7 @@ WORKDIR /app
 # Cache and Install dependencies
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --force
 # Copy app files
 COPY . .
 # Expose port
