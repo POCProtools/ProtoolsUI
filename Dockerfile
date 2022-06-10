@@ -1,14 +1,10 @@
-FROM node:14-alpine AS development
-ENV NODE_ENV development
-# Add a work directory
-WORKDIR /app
-# Cache and Install dependencies
-COPY package*.json ./
+FROM nginx
+COPY build /usr/share/nginx/html
+RUN rm etc/nginx/conf.d/default.conf
+COPY nginx.conf etc/nginx/conf.d/
 
-RUN npm install
-# Copy app files
-COPY . .
-# Expose port
-EXPOSE 3000
-# Start the app
-CMD [ "npm", "start" ]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD ["nginx", "-g", "daemon off;"]
