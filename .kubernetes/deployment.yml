@@ -15,5 +15,4 @@ spec:
       containers:
         - name: maquette-protools
           image: mailinenguyen/maquette-protools:latest
-          ports:
-            - containerPort: 80
+          imagePullPolicy: Always
