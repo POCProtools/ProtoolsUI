@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CardContent } from '@mui/material';
+import { CardContent, Typography } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
@@ -103,7 +103,7 @@ const TabBarDashboard = () => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<EnhancedTable className={classes.table} />
+						<Typography>Temporary data </Typography>
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
