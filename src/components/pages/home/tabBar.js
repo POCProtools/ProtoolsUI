@@ -6,7 +6,7 @@ import CustomCard from 'components/shared/stylesComponents/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
-import { data, columns, dataManu, columnsManu } from 'utils/mockData';
+import { columns, columnsManu } from 'utils/mockData';
 import {
 	fetchProcessData,
 	fetchTaskData,
@@ -103,21 +103,21 @@ const TabBarDashboard = () => {
 					<TabPanel value={value} index={0}>
 						<EnhancedTable
 							className={classes.table}
-							data={data}
+							data={dataProcess}
 							columns={columns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						<EnhancedTable
 							className={classes.table}
-							data={dataManu}
+							data={dataTask}
 							columns={columnsManu}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
 						<EnhancedTable
 							className={classes.table}
-							//data={dataUrl}
+							data={dataProcess}
 							columns={columns}
 						/>
 					</TabPanel>

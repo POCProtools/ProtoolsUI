@@ -196,7 +196,7 @@ export const columnsManu = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { minWidth: '180px' },
 			}),
 		},
 	},
@@ -207,11 +207,11 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '300px' } }),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 	{
-		name: 'date',
+		name: 'createTime',
 		label: 'Date début',
 		options: {
 			filter: false,
@@ -221,26 +221,23 @@ export const columnsManu = [
 		},
 	},
 	{
-		name: 'state',
-		label: 'Statut',
+		name: 'processInstance',
+		label: 'Process Instance',
 		options: {
+			filter: false,
 			sort: true,
 			draggable: true,
-			customBodyRender: (value) =>
-				value ? (
-					<FiCheck size={20} color='#17C3B2' />
-				) : (
-					<FiXCircle size={20} color='#F25C54' />
-				),
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
 		},
 	},
+
 	{
 		name: 'Action',
 		options: {
 			empty: true,
 			draggable: true,
 			customBodyRender: (value) => <FiChevronRight />,
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
+			setCellProps: () => ({ style: { minWidth: '50px' } }),
 		},
 	},
 ];
