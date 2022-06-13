@@ -60,7 +60,7 @@ const TabBarDashboard = () => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
 	const [dataUrl, setDataUrl] = useState({});
-	const urlEndpoint = 'tasks/';
+	const urlEndpoint = 'processInstances/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
