@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CardContent } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
@@ -7,7 +7,10 @@ import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
 import { data, columns, dataManu, columnsManu } from 'utils/mockData';
-import { fetcherGet } from '../../../core/fetchData/fetchData';
+import {
+	fetchProcessData,
+	fetchTaskData,
+} from 'utils/dataHomepage/fetchDataHomepage';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -53,47 +56,18 @@ const useStyles = makeStyles()((theme) => {
 const TabBarDashboard = () => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
-	const [dataUrl, setDataUrl] = useState([]);
-	const urlEndpoint = 'processInstances/';
-	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
-	const [processLoading, setProcessLoading] = useState(true);
+	const [dataProcess, setDataProcess] = useState([]);
+	const [dataTask, setDataTask] = useState([]);
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-	const fetchProcessData = useCallback(() => {
-		if (dataUrl.length === 0) {
-			fetcherGet(apiUrl)
-				.then((r) => {
-					const datatmp = r.data.processes;
-					console.log(r.data);
-					for (let i = 0; i < datatmp.length; i++) {
-						setDataUrl(
-							dataUrl.push({
-								id: datatmp[i].id,
-								state: true,
-								name: datatmp[i].processKey,
-								date: datatmp[i].startTime,
-								action: datatmp[i].id,
-							})
-						);
-					}
-					console.log('dataUrl : ', dataUrl);
-				})
-				.then(() => {
-					setTimeout(() => {
-						setProcessLoading(false);
-					}, 8000);
-					console.log('Loading ', processLoading);
-				})
-				.catch((e) => {
-					console.log(e);
-				});
-		}
-	}, [apiUrl, dataUrl, processLoading]);
+
 	useEffect(() => {
-		fetchProcessData();
-	}, [fetchProcessData]);
-	console.log('good data : ', data);
+		setDataProcess(fetchProcessData());
+		setDataTask(fetchTaskData());
+		console.log('dataProcess : ', dataProcess);
+		console.log('dataTask : ', dataTask);
+	}, []);
 	return (
 		<>
 			<CustomCard className={classes.card}>
@@ -141,17 +115,11 @@ const TabBarDashboard = () => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<div>
-							{processLoading ? (
-								'loading...'
-							) : (
-								<EnhancedTable
-									className={classes.table}
-									//data={dataUrl}
-									columns={columns}
-								/>
-							)}
-						</div>
+						<EnhancedTable
+							className={classes.table}
+							//data={dataUrl}
+							columns={columns}
+						/>
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
