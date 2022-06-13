@@ -15,7 +15,7 @@ const EnhancedTable = (props) => {
 	const { classes } = useStyles();
 	const options = {
 		filterType: 'checkbox',
-		selectableRows: false,
+		selectableRows: 'none',
 		resizableColumns: true,
 		rowsPerPageOptions: [3, 5, 10, 15],
 		rowsPerPage: 3,

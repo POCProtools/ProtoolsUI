@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { CardContent, Typography } from '@mui/material';
+import { CardContent } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
@@ -59,32 +59,51 @@ const useStyles = makeStyles()((theme) => {
 const TabBarDashboard = () => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
-	const [dataUrl, setDataUrl] = useState({});
+	const [dataUrl, setDataUrl] = useState([]);
 	const urlEndpoint = 'processInstances/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
+	const [processLoading, setProcessLoading] = useState(true);
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-	const fetchDiagram = useCallback(() => {
-		console.log(apiUrl);
-
-		axios
-			.get(apiUrl, {
-				mode: 'cors',
-				headers: headers,
-			})
-			.then((r) => {
-				console.log(r);
-				setDataUrl(r.data);
-				console.log(dataUrl);
-			})
-			.catch((e) => {
-				console.log(e);
-			});
-	}, [apiUrl, dataUrl]);
+	const fetchProcessData = useCallback(() => {
+		if (dataUrl.length === 0) {
+			axios
+				.get(apiUrl, {
+					mode: 'cors',
+					headers: headers,
+				})
+				.then((r) => {
+					const datatmp = r.data.processes;
+					console.log(r.data);
+					for (let i = 0; i < datatmp.length; i++) {
+						setDataUrl(
+							dataUrl.push({
+								id: datatmp[i].id,
+								state: true,
+								name: datatmp[i].processKey,
+								date: datatmp[i].startTime,
+								action: datatmp[i].id,
+							})
+						);
+					}
+					console.log(dataUrl);
+				})
+				.then(() => {
+					setTimeout(() => {
+						setProcessLoading(false);
+					}, 8000);
+					console.log('Loading ', processLoading);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}
+	}, [apiUrl, dataUrl, processLoading]);
 	useEffect(() => {
-		fetchDiagram();
-	}, [fetchDiagram]);
+		fetchProcessData();
+	}, [fetchProcessData]);
+	console.log('good data : ', data);
 	return (
 		<>
 			<CustomCard className={classes.card}>
@@ -132,7 +151,17 @@ const TabBarDashboard = () => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<Typography>`Temporary data : `</Typography>
+						<div>
+							{processLoading ? (
+								'loading...'
+							) : (
+								<EnhancedTable
+									className={classes.table}
+									data={dataUrl}
+									columns={columns}
+								/>
+							)}
+						</div>
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
