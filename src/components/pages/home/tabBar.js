@@ -81,7 +81,7 @@ const TabBarDashboard = () => {
 			.catch((e) => {
 				console.log(e);
 			});
-	}, [apiUrl]);
+	}, [apiUrl, dataUrl]);
 	useEffect(() => {
 		fetchDiagram();
 	}, [fetchDiagram]);
