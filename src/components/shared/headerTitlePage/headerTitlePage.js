@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
-import Logo from './logo';
+import Logo from '../logo/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {

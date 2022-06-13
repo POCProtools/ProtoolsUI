@@ -3,18 +3,12 @@ import { CardContent } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/stylesComponents/card';
-import { tabPropIndex, TabPanel } from 'components/shared/tabPanel';
+import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
 import { data, columns, dataManu, columnsManu } from 'utils/mockData';
-import axios from 'axios';
+import { fetcherGet } from '../../../core/fetchData/fetchData';
 
-const headers = {
-	'Content-Type': 'application/json;charset=UTF-8',
-	'Access-Control-Allow-Origin': '*',
-	'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-	'Access-Control-Allow-Headers': '*',
-};
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
@@ -68,11 +62,7 @@ const TabBarDashboard = () => {
 	};
 	const fetchProcessData = useCallback(() => {
 		if (dataUrl.length === 0) {
-			axios
-				.get(apiUrl, {
-					mode: 'cors',
-					headers: headers,
-				})
+			fetcherGet(apiUrl)
 				.then((r) => {
 					const datatmp = r.data.processes;
 					console.log(r.data);
@@ -87,7 +77,7 @@ const TabBarDashboard = () => {
 							})
 						);
 					}
-					console.log(dataUrl);
+					console.log('dataUrl : ', dataUrl);
 				})
 				.then(() => {
 					setTimeout(() => {
@@ -157,7 +147,7 @@ const TabBarDashboard = () => {
 							) : (
 								<EnhancedTable
 									className={classes.table}
-									data={dataUrl}
+									//data={dataUrl}
 									columns={columns}
 								/>
 							)}

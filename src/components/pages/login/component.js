@@ -16,7 +16,7 @@ import {
 	Checkbox,
 } from '@mui/material';
 import CustomCard from 'components/shared/stylesComponents/card';
-import Logo from 'components/shared/logo';
+import Logo from 'components/shared/logo/logo';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { GlobalStyles } from 'tss-react';
 

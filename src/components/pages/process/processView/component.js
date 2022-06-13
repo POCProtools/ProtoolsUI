@@ -9,7 +9,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Box, Breadcrumbs, Link, Typography } from '@mui/material';
 import { GlobalStyles } from 'tss-react';
 import { useLocation } from 'react-router-dom';
-import Logo from 'components/shared/logo';
+import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
 
 const useStyles = makeStyles()((theme) => {

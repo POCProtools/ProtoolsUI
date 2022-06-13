@@ -9,7 +9,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { GlobalStyles } from 'tss-react';
-import Logo from 'components/shared/logo';
+import Logo from 'components/shared/logo/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {

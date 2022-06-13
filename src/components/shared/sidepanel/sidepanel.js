@@ -4,7 +4,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
 
-import Logo from './logo';
+import Logo from '../logo/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {

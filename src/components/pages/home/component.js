@@ -3,7 +3,7 @@ import { GlobalStyles } from 'tss-react';
 import { Grid, Box } from '@mui/material';
 
 import { makeStyles } from 'tss-react/mui';
-import Logo from 'components/shared/logo';
+import Logo from 'components/shared/logo/logo';
 import ProcessOverview from './processOverview';
 import TabBarDashboard from './tabBar';
 

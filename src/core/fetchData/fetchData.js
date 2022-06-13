@@ -1,20 +1,14 @@
-export const fetcher = (url, method, body) => {
-	const headers = {
-		Accept: 'application/json, text/plain, */*',
-		'Content-Type': 'application/json',
-	};
-	return fetch(url, {
+import axios from 'axios';
+
+const headers = {
+	'Content-Type': 'application/json;charset=UTF-8',
+	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+	'Access-Control-Allow-Headers': '*',
+};
+export const fetcherGet = (url) => {
+	return axios.get(url, {
+		mode: 'cors',
 		headers: headers,
-		method,
-		body: body ? JSON.stringify(body) : null,
-	})
-		.then((r) => {
-			console.log(r);
-			if (r.ok) return r.json();
-			throw new Error('API failed');
-		})
-		.catch((e) => {
-			console.log(e);
-			throw new Error(`Fetch error for ${url}`);
-		});
+	});
 };
