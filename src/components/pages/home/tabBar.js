@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { CardContent, Typography } from '@mui/material';
 import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
 import { makeStyles } from 'tss-react/mui';
@@ -7,7 +7,14 @@ import { tabPropIndex, TabPanel } from 'components/shared/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
 import { data, columns, dataManu, columnsManu } from 'utils/mockData';
+import axios from 'axios';
 
+const headers = {
+	'Content-Type': 'application/json;charset=UTF-8',
+	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+	'Access-Control-Allow-Headers': '*',
+};
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
@@ -52,10 +59,32 @@ const useStyles = makeStyles()((theme) => {
 const TabBarDashboard = () => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
-
+	const [dataUrl, setDataUrl] = useState({});
+	const urlEndpoint = 'tasks/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
+	const fetchDiagram = useCallback(() => {
+		console.log(apiUrl);
+
+		axios
+			.get(apiUrl, {
+				mode: 'cors',
+				headers: headers,
+			})
+			.then((r) => {
+				console.log(r);
+				setDataUrl(r.data);
+				console.log(dataUrl);
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+	}, [apiUrl]);
+	useEffect(() => {
+		fetchDiagram();
+	}, [fetchDiagram]);
 	return (
 		<>
 			<CustomCard className={classes.card}>
@@ -103,7 +132,7 @@ const TabBarDashboard = () => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<Typography>Temporary data </Typography>
+						<Typography>`Temporary data : `</Typography>
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
