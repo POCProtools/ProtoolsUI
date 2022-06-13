@@ -63,11 +63,16 @@ const TabBarDashboard = () => {
 	};
 
 	useEffect(() => {
-		setDataProcess(fetchProcessData());
-		setDataTask(fetchTaskData());
+		if (dataTask.length === 0) {
+			setDataTask(fetchTaskData());
+		}
+		if (dataProcess.length === 0) {
+			setDataProcess(fetchProcessData());
+		}
+
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
-	}, []);
+	}, [dataProcess, dataTask]);
 	return (
 		<>
 			<CustomCard className={classes.card}>
