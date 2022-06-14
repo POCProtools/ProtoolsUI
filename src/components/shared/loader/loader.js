@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CardContent, Grid, LinearProgress, Box } from '@mui/material';
-import CustomCard from '../../shared/styledComponents/card/card';
+import { CardContent, Grid, LinearProgress } from '@mui/material';
+import CustomCard from '../styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
-import Logo from 'components/shared/logo/logo';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -66,10 +65,6 @@ const Loader = () => {
 	}, []);
 	return (
 		<>
-			<Box className={classes.TitleHeader}>
-				<Logo className={classes.logo} />
-				<span className={classes.title}>Tableau de bord</span>
-			</Box>
 			<CustomCard className={classes.card}>
 				<CardContent>
 					<Grid

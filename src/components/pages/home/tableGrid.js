@@ -1,8 +1,6 @@
 import React from 'react';
 import MUIDataTable from 'mui-datatables';
 import { makeStyles } from 'tss-react/mui';
-//import { FiSearch } from 'react-icons/fi';
-
 const useStyles = makeStyles()((theme) => {
 	return {
 		table: {},

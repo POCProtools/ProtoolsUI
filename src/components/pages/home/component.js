@@ -10,7 +10,7 @@ import {
 	fetchProcessData,
 	fetchTaskData,
 } from 'utils/dataHomepage/fetchDataHomepage';
-import Loader from './loader';
+import Loader from '../../shared/loader/loader';
 //import theme from 'theme';
 
 const useStyles = makeStyles()((theme) => {
@@ -100,7 +100,12 @@ const Home = () => {
 						},
 					}}
 				/>
+
 				<Grid justifyContent='center'>
+					<Box className={classes.TitleHeader}>
+						<Logo className={classes.logo} />
+						<span className={classes.title}>Tableau de bord</span>
+					</Box>
 					<Loader />
 				</Grid>
 			</>

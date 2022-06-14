@@ -1,31 +1,6 @@
 import { FiChevronRight, FiXCircle, FiCheck } from 'react-icons/fi';
 import theme from 'theme';
 import { Link, Box } from '@mui/material';
-export const processChartdata = {
-	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
-	datasets: [
-		{
-			label: 'processus',
-			data: [12, 19, 3, 5],
-			backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
-			borderColor: [theme.palette.background.default],
-			borderWidth: 2,
-		},
-	],
-};
-
-export const TaskChartdata = {
-	labels: ['Conception', 'Collecte', 'Traitement', 'IDK'],
-	datasets: [
-		{
-			label: 'taches',
-			data: [9, 4, 3, 5],
-			backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
-			borderColor: [theme.palette.background.default],
-			borderWidth: 2,
-		},
-	],
-};
 
 export const IncidentChartdata = {
 	labels: ['Services', 'Interne', 'Warning'],

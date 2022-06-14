@@ -28,7 +28,7 @@ export const fetchProcessData = () => {
 					state: true,
 					name: datatmp[i].processKey,
 					date: datatmp[i].startTime,
-					action: datatmp[i].id,
+					action: datatmp[i].processKey + '/' + datatmp[i].id,
 				});
 			}
 

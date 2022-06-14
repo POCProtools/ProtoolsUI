@@ -15,7 +15,7 @@ const RoutesWeb = () => {
 			<Routes>
 				<Route path={'/'} exact element={<Home />} />
 				<Route path={'/process'} element={<ProcessSelect />} />
-				<Route path={'/processview'} element={<BPMNViewer />} />
+				<Route path={'/process/:processKey/:id'} element={<BPMNViewer />} />
 				<Route path={'/design'} element={<Design />} />
 				<Route path={'/display'} element={<Display />} />
 			</Routes>

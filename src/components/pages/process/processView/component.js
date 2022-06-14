@@ -1,16 +1,22 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
 import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import minimapModule from 'diagram-js-minimap';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
+
 import { makeStyles } from 'tss-react/mui';
-import { Box, Breadcrumbs, Link, Typography } from '@mui/material';
 import { GlobalStyles } from 'tss-react';
-import { useLocation } from 'react-router-dom';
+import { Box, Breadcrumbs, Link, Typography, Grid } from '@mui/material';
+
 import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
+import Loader from 'components/shared/loader/loader';
+
+import { getUrlBPMNByProcessName } from 'utils/dataProcess/fetchDataProcess';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -59,26 +65,30 @@ const useStyles = makeStyles()((theme) => {
 const BPMNViewer = () => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
-	const params = useLocation();
-	const url = params.state.selected;
-	const name = params.state.name;
-
-	const fetchDiagram = useCallback(() => {
-		console.log(params.state);
-		console.log(url);
-		axios
-			.get(url)
-			.then((r) => {
-				setDiagram(r.data);
-			})
-			.catch((e) => {
-				console.log(e);
-			});
-	}, [params.state, url]);
+	const [loading, setLoading] = useState(true);
+	//const url = params.state.selected;
+	//const name = params.state.name;
+	const { processKey, id } = useParams();
 
 	useEffect(() => {
-		fetchDiagram();
-	}, [fetchDiagram]);
+		console.log('id: ', id);
+		console.log('name: ', processKey);
+		const url = getUrlBPMNByProcessName(processKey);
+		console.log('BPMN url', url);
+		setTimeout(() => {
+			axios
+				.get(url)
+				.then((r) => {
+					setDiagram(r.data);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+			setLoading(false);
+		}, 1000);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	if (diagram.length > 0) {
 		const viewer = new NavigatedViewer({
@@ -111,38 +121,59 @@ const BPMNViewer = () => {
 				console.log('error', err);
 			});
 	}
-	//Potentiellement ajouter boutons de zooms
-	return (
-		<Box justifyContent='center'>
-			<GlobalStyles
-				styles={{
-					body: {
-						backgroundColor: '#F9FAFC',
-					},
-				}}
-			/>
+	if (loading) {
+		return (
+			<>
+				<GlobalStyles
+					styles={{
+						body: {
+							backgroundColor: '#F9FAFC',
+						},
+					}}
+				/>
 
-			<Box className={classes.TitleHeader}>
-				<Logo className={classes.logo} />
-				<span className={classes.title}>Workflows</span>
+				<Grid justifyContent='center'>
+					<Box className={classes.TitleHeader}>
+						<Logo className={classes.logo} />
+						<span className={classes.title}>Workflows</span>
+					</Box>
+					<Loader />
+				</Grid>
+			</>
+		);
+	} else {
+		return (
+			<Box justifyContent='center'>
+				<GlobalStyles
+					styles={{
+						body: {
+							backgroundColor: '#F9FAFC',
+						},
+					}}
+				/>
+
+				<Box className={classes.TitleHeader}>
+					<Logo className={classes.logo} />
+					<span className={classes.title}>Workflows</span>
+				</Box>
+				<Breadcrumbs
+					separator='›'
+					aria-label='breadcrumb'
+					className={classes.bread}
+				>
+					<Link underline='hover' color='inherit' href='/'>
+						Home
+					</Link>
+					<Link underline='hover' color='inherit' href='/process'>
+						Processes
+					</Link>
+					<Typography color='text.primary'>Workflow : {processKey}</Typography>
+				</Breadcrumbs>
+				<div id='containerBPMN' className={classes.viewerStyle} />
+				<TabBarWorkflow />
 			</Box>
-			<Breadcrumbs
-				separator='›'
-				aria-label='breadcrumb'
-				className={classes.bread}
-			>
-				<Link underline='hover' color='inherit' href='/'>
-					Home
-				</Link>
-				<Link underline='hover' color='inherit' href='/process'>
-					Processes
-				</Link>
-				<Typography color='text.primary'>Workflow : {name}</Typography>
-			</Breadcrumbs>
-			<div id='containerBPMN' className={classes.viewerStyle} />
-			<TabBarWorkflow />
-		</Box>
-	);
+		);
+	}
 };
 
 export default BPMNViewer;
