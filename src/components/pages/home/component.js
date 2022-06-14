@@ -88,6 +88,7 @@ const Home = () => {
 		}, 1000);
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	if (loading) {
 		return (
