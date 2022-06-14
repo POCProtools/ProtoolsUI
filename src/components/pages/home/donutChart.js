@@ -12,8 +12,7 @@ const DoughnutChart = (props) => {
 		(partialSum, a) => partialSum + a,
 		0
 	);
-	console.log(dataNumber);
-	//const classes = useStyles();
+
 	const plugins = [
 		{
 			beforeDraw: function (chart) {

@@ -2,11 +2,7 @@ import React from 'react';
 import { Grid, CardContent } from '@mui/material';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
-import {
-	processChartdata,
-	TaskChartdata,
-	IncidentChartdata,
-} from 'utils/mockData';
+import { IncidentChartdata } from 'utils/mockData';
 import DoughnutChart from './donutChart';
 
 const useStyles = makeStyles()((theme) => {
@@ -37,7 +33,9 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const ProcessOverview = () => {
+const ProcessOverview = (props) => {
+	const pieProcessdata = props.pieProcessdata;
+	const pieTaskdata = props.pieTaskdata;
 	const { classes } = useStyles();
 	return (
 		<CustomCard className={classes.card}>
@@ -50,11 +48,11 @@ const ProcessOverview = () => {
 				>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
 						<span className={classes.titleCard}>Processus en cours</span>
-						<DoughnutChart data={processChartdata} />
+						<DoughnutChart data={pieProcessdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
 						<span className={classes.titleCard}>Tâches manuelles</span>
-						<DoughnutChart data={TaskChartdata} />
+						<DoughnutChart data={pieTaskdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
 						<span className={classes.titleCard}>Incidents en cours</span>

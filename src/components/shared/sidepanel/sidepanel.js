@@ -75,7 +75,11 @@ const SideBar = () => {
 				anchor='left'
 				classes={{ paper: classes.drawerPaper, root: classes.drawerRoot }}
 			>
-				<Grid spacing={2} sx={{ marginTop: 3, marginBottom: 5, marginLeft: 2 }}>
+				<Grid
+					container
+					spacing={2}
+					sx={{ marginTop: 3, marginBottom: 5, marginLeft: 2 }}
+				>
 					<Logo
 						// @ts-ignore
 						className={classes.logo}
@@ -86,7 +90,7 @@ const SideBar = () => {
 					</span>
 				</Grid>
 
-				<Grid direction='column' spacing={3} sx={{ marginLeft: 2 }} xs={4}>
+				<Grid container direction='column' spacing={3} sx={{ marginLeft: 2 }}>
 					<Link href='/' underline='none'>
 						<Grid sx={{ marginTop: 2 }}>
 							<FiHome className={classes.icon} />

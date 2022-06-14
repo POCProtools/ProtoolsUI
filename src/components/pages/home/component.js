@@ -10,6 +10,7 @@ import {
 	fetchProcessData,
 	fetchTaskData,
 } from 'utils/dataHomepage/fetchDataHomepage';
+//import theme from 'theme';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -64,38 +65,72 @@ const useStyles = makeStyles()((theme) => {
 
 const Home = () => {
 	const { classes } = useStyles();
+	const [pieProcessdata, setPieProcessdata] = useState({});
+	const [pieTaskdata, setPieTaskdata] = useState({});
+	const [loading, setLoading] = useState(true);
 	const [dataProcess, setDataProcess] = useState([]);
 	const [dataTask, setDataTask] = useState([]);
 	useEffect(() => {
 		if (dataTask.length === 0) {
-			setDataTask(fetchTaskData());
+			const result = fetchTaskData();
+			setDataTask(result[0]);
+			setPieTaskdata(result[1]);
 		}
 		if (dataProcess.length === 0) {
-			setDataProcess(fetchProcessData());
+			const result = fetchProcessData();
+			setDataProcess(result[0]);
+			setPieProcessdata(result[1]);
+			console.log('loading: ', loading);
 		}
-
+		setTimeout(() => {
+			setLoading(false);
+		}, 5000);
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
 	}, []);
-	return (
-		<>
-			<GlobalStyles
-				styles={{
-					body: {
-						backgroundColor: '#F9FAFC',
-					},
-				}}
-			/>
-			<Grid justifyContent='center'>
-				<Box className={classes.TitleHeader}>
-					<Logo className={classes.logo} />
-					<span className={classes.title}>Tableau de bord</span>
-				</Box>
-				<ProcessOverview />
-				<TabBarDashboard dataTask={dataTask} dataProcess={dataProcess} />
-			</Grid>
-		</>
-	);
+	if (loading) {
+		return (
+			<>
+				<GlobalStyles
+					styles={{
+						body: {
+							backgroundColor: '#F9FAFC',
+						},
+					}}
+				/>
+				<Grid justifyContent='center'>
+					<Box className={classes.TitleHeader}>
+						<Logo className={classes.logo} />
+						<span className={classes.title}>Tableau de bord --Loading...</span>
+					</Box>
+				</Grid>
+			</>
+		);
+	} else {
+		return (
+			<>
+				<GlobalStyles
+					styles={{
+						body: {
+							backgroundColor: '#F9FAFC',
+						},
+					}}
+				/>
+
+				<Grid justifyContent='center'>
+					<Box className={classes.TitleHeader}>
+						<Logo className={classes.logo} />
+						<span className={classes.title}>Tableau de bord</span>
+					</Box>
+					<ProcessOverview
+						pieProcessdata={pieProcessdata}
+						pieTaskdata={pieTaskdata}
+					/>
+					<TabBarDashboard dataTask={dataTask} dataProcess={dataProcess} />
+				</Grid>
+			</>
+		);
+	}
 };
 
 export default Home;

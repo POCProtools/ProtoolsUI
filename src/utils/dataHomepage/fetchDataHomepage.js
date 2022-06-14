@@ -1,9 +1,23 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
+import theme from 'theme';
 
 export const fetchProcessData = () => {
 	const urlEndpoint = 'processInstances/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
+	var pieProcessdata = {
+		labels: ['Conception (Connected)', 'Collecte', 'Traitement', 'IDK'],
+		datasets: [
+			{
+				label: 'processus',
+				data: [0, 19, 3, 5],
+				backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
+				borderColor: [theme.palette.background.default],
+				borderWidth: 2,
+			},
+		],
+	};
+
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data.processes;
@@ -17,17 +31,31 @@ export const fetchProcessData = () => {
 					action: datatmp[i].id,
 				});
 			}
+
+			pieProcessdata.datasets[0].data = [datatmp.length, 1, 2, 3];
 		})
 		.catch((e) => {
 			console.log(e);
 		});
-	return dataUrl;
+	return [dataUrl, pieProcessdata];
 };
 
 export const fetchTaskData = () => {
 	const urlEndpoint = 'tasks/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
+	var pieProcessdata = {
+		labels: ['Conception (Connected)', 'Collecte', 'Traitement', 'IDK'],
+		datasets: [
+			{
+				label: 'processus',
+				data: [0, 19, 3, 5],
+				backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
+				borderColor: [theme.palette.background.default],
+				borderWidth: 2,
+			},
+		],
+	};
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
@@ -40,10 +68,10 @@ export const fetchTaskData = () => {
 					createTime: datatmp[i].createTime,
 				});
 			}
-			console.log('dataUrl : ', dataUrl);
+			pieProcessdata.datasets[0].data = [datatmp.length, 4, 2, 1];
 		})
 		.catch((e) => {
 			console.log(e);
 		});
-	return dataUrl;
+	return [dataUrl, pieProcessdata];
 };
