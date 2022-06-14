@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { CardContent } from '@mui/material';
-import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
+import {
+	StyledTabs,
+	StyledTab,
+} from 'components/shared/styledComponents/tabs/tabs';
 import { makeStyles } from 'tss-react/mui';
-import CustomCard from 'components/shared/stylesComponents/card';
+import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from 'components/pages/home/tableGrid';
 import theme from 'theme';

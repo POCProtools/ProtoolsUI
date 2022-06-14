@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CardContent } from '@mui/material';
-import { StyledTabs, StyledTab } from 'components/shared/stylesComponents/tabs';
+import {
+	StyledTabs,
+	StyledTab,
+} from 'components/shared/styledComponents/tabs/tabs';
 import { makeStyles } from 'tss-react/mui';
-import CustomCard from 'components/shared/stylesComponents/card';
+import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from './tableGrid';
 import theme from 'theme';
 import { columns, columnsManu } from 'utils/mockData';
-import {
-	fetchProcessData,
-	fetchTaskData,
-} from 'utils/dataHomepage/fetchDataHomepage';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -53,26 +52,16 @@ const useStyles = makeStyles()((theme) => {
 		},
 	};
 });
-const TabBarDashboard = () => {
+const TabBarDashboard = (props) => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
-	const [dataProcess, setDataProcess] = useState([]);
-	const [dataTask, setDataTask] = useState([]);
+	const dataProcess = props.dataProcess;
+	const dataTask = props.dataTask;
+
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
-	useEffect(() => {
-		if (dataTask.length === 0) {
-			setDataTask(fetchTaskData());
-		}
-		if (dataProcess.length === 0) {
-			setDataProcess(fetchProcessData());
-		}
-
-		console.log('dataProcess : ', dataProcess);
-		console.log('dataTask : ', dataTask);
-	}, [dataProcess, dataTask]);
 	return (
 		<>
 			<CustomCard className={classes.card}>

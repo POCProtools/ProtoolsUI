@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, CardContent } from '@mui/material';
-import CustomCard from '../../shared/stylesComponents/card';
+import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
 import {
 	processChartdata,

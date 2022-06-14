@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GlobalStyles } from 'tss-react';
 import { Grid, Box } from '@mui/material';
 
@@ -6,6 +6,10 @@ import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
 import ProcessOverview from './processOverview';
 import TabBarDashboard from './tabBar';
+import {
+	fetchProcessData,
+	fetchTaskData,
+} from 'utils/dataHomepage/fetchDataHomepage';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -60,7 +64,19 @@ const useStyles = makeStyles()((theme) => {
 
 const Home = () => {
 	const { classes } = useStyles();
+	const [dataProcess, setDataProcess] = useState([]);
+	const [dataTask, setDataTask] = useState([]);
+	useEffect(() => {
+		if (dataTask.length === 0) {
+			setDataTask(fetchTaskData());
+		}
+		if (dataProcess.length === 0) {
+			setDataProcess(fetchProcessData());
+		}
 
+		console.log('dataProcess : ', dataProcess);
+		console.log('dataTask : ', dataTask);
+	}, []);
 	return (
 		<>
 			<GlobalStyles
@@ -76,7 +92,7 @@ const Home = () => {
 					<span className={classes.title}>Tableau de bord</span>
 				</Box>
 				<ProcessOverview />
-				<TabBarDashboard />
+				<TabBarDashboard dataTask={dataTask} dataProcess={dataProcess} />
 			</Grid>
 		</>
 	);

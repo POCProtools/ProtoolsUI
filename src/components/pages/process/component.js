@@ -5,7 +5,7 @@ import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
 import { Grid, CardContent, Box } from '@mui/material';
 import SelectProcess from './selectProcess';
-import CustomCard from 'components/shared/stylesComponents/card';
+import CustomCard from 'components/shared/styledComponents/card/card';
 import Logo from 'components/shared/logo/logo';
 
 const useStyles = makeStyles()((theme) => {
