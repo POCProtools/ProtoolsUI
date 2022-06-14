@@ -14,19 +14,17 @@ const SelectProcess = () => {
 	const getUrl = (selected, callback) => {
 		switch (selected) {
 			case 'empty':
-				return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';
+				return '';
 			case 'camunda':
-				return 'https://raw.githubusercontent.com/Stage2022/ProtoolsCamundaTest/main/src/main/resources/process.bpmn';
+				return '';
 			case 'flowable':
-				return 'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml';
+				return 'CasUtilisationPOC';
 			default:
 				console.log('Error: BPMN file not found');
 		}
 		callback();
 	};
-	const hasFinished = () => {
-		console.log('finished');
-	};
+
 	//const [url, setUrl] = useState(getUrl(selected));
 	const handleChange = (event) => {
 		console.log('event: ' + event.target.value);
@@ -36,9 +34,7 @@ const SelectProcess = () => {
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
 		console.log('Variables : ' + selected);
-		navigate('/processview', {
-			state: { selected: getUrl(selected, hasFinished), name: selected },
-		});
+		navigate('/process/' + getUrl(selected) + '/noID');
 	};
 
 	return (

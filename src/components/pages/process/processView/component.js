@@ -85,7 +85,7 @@ const BPMNViewer = () => {
 					console.log(e);
 				});
 			setLoading(false);
-		}, 1000);
+		}, 400);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
