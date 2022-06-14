@@ -1,5 +1,5 @@
-import React from 'react';
-import { CardContent, Grid, CircularProgress, Box } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { CardContent, Grid, LinearProgress, Box } from '@mui/material';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
@@ -48,6 +48,22 @@ const useStyles = makeStyles()((theme) => {
 
 const Loader = () => {
 	const { classes } = useStyles();
+	const [progress, setProgress] = useState(0);
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setProgress((oldProgress) => {
+				if (oldProgress === 100) {
+					return 0;
+				}
+				const diff = Math.random() * 10;
+				return Math.min(oldProgress + diff, 100);
+			});
+		}, 50);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
 	return (
 		<>
 			<Box className={classes.TitleHeader}>
@@ -63,7 +79,11 @@ const Loader = () => {
 						alignItems='center'
 					>
 						<Grid item xs={12} className={classes.gridItemProcessList}>
-							<CircularProgress sx={{ marginTop: 2 }} />
+							<LinearProgress
+								variant='determinate'
+								value={progress}
+								sx={{ marginTop: 2 }}
+							/>
 						</Grid>
 						<Grid item xs={12} className={classes.gridItemProcessList}>
 							<span className={classes.titleCard}>Chargement des données</span>
