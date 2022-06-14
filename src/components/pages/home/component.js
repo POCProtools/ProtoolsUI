@@ -10,6 +10,7 @@ import {
 	fetchProcessData,
 	fetchTaskData,
 } from 'utils/dataHomepage/fetchDataHomepage';
+import Loader from './loader';
 //import theme from 'theme';
 
 const useStyles = makeStyles()((theme) => {
@@ -84,7 +85,7 @@ const Home = () => {
 		}
 		setTimeout(() => {
 			setLoading(false);
-		}, 5000);
+		}, 1000);
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
 	}, []);
@@ -99,10 +100,7 @@ const Home = () => {
 					}}
 				/>
 				<Grid justifyContent='center'>
-					<Box className={classes.TitleHeader}>
-						<Logo className={classes.logo} />
-						<span className={classes.title}>Tableau de bord --Loading...</span>
-					</Box>
+					<Loader />
 				</Grid>
 			</>
 		);
