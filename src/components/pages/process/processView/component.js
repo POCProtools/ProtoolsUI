@@ -16,7 +16,10 @@ import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
 import Loader from 'components/shared/loader/loader';
 
-import { getUrlBPMNByProcessName } from 'utils/dataProcess/fetchDataProcess';
+import {
+	getUrlBPMNByProcessName,
+	getCurrentActivityName,
+} from 'utils/dataProcess/fetchDataProcess';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -66,15 +69,13 @@ const BPMNViewer = () => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
 	const [loading, setLoading] = useState(true);
-	//const url = params.state.selected;
-	//const name = params.state.name;
 	const { processKey, id } = useParams();
 
 	useEffect(() => {
 		console.log('id: ', id);
-		console.log('name: ', processKey);
 		const url = getUrlBPMNByProcessName(processKey);
-		console.log('BPMN url', url);
+		const result = getCurrentActivityName(id);
+		console.log('result: ', result);
 		setTimeout(() => {
 			axios
 				.get(url)
