@@ -72,10 +72,11 @@ const BPMNViewer = () => {
 	const { processKey, id } = useParams();
 
 	useEffect(() => {
-		console.log('id: ', id);
+		//console.log('id: ', id);
 		const url = getUrlBPMNByProcessName(processKey);
+		// eslint-disable-next-line no-unused-vars
 		const result = getCurrentActivityName(id);
-		console.log('result: ', result);
+		//console.log('result: ', result);
 		setTimeout(() => {
 			axios
 				.get(url)

@@ -10,52 +10,66 @@ export const getUrlBPMNByProcessName = (selected) => {
 };
 
 export const getAvailableTasks = (id) => {
-	const urlEndpoint = 'tasksProcess/';
+	const urlEndpoint = 'tasksProcessID/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
 	const dataUrl = [];
-
+	const listName = [];
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
-			console.log(r.data);
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
 					id: datatmp[i].id,
 					name: datatmp[i].name,
 					processInstance: datatmp[i].processInstance,
 					createTime: datatmp[i].createTime,
+					processDefinitionID: datatmp[i].processDefinitionID,
 				});
+				listName.push(datatmp[i].name);
 			}
-			console.log('Available tasks: ' + dataUrl);
 		})
 		.catch((e) => {
-			console.log(e);
+			console.log('error', e);
 		});
-	return dataUrl;
+	return [dataUrl, listName];
 };
 
-export const getBPMNInfo = (id) => {
+export const getBPMNInfo = (id, listName) => {
 	const urlEndpoint = 'bpmnInfo/';
-	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + '/' + id;
-	const dataBpmnResponse = {};
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+	//console.log('apiUrlBPMNinfo: ', apiUrl);
 	fetcherGet(apiUrl)
 		.then((r) => {
-			const datatmp = r.data;
-			console.log(r.data);
-			for (let i = 0; i < datatmp.length; i++) {
-				dataBpmnResponse.push({
-					idElement: datatmp[i],
-				});
-			}
-			console.log(dataBpmnResponse);
+			return r.data;
+		})
+		.then((dataBpmnResponse) => {
+			console.log('BpmnElement: ', dataBpmnResponse);
+			const response = getCorrespondingBpmnElement(dataBpmnResponse, listName);
+			console.log('BPMN Correspondance: ', response);
+			return response;
 		})
 		.catch((e) => {
-			console.log(e);
+			console.log('error', e);
 		});
-	return dataBpmnResponse;
+};
+
+export const getProcessDefinitionID = async (id) => {
+	const urlEndpoint = 'processDefinition/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+	fetcherGet(apiUrl)
+		.then((r) => {
+			console.log('getProcessDefinitionID r.data', r.data);
+			return r.data;
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+	//console.log('ProcessDefinitionId', result);
 };
 
 export const getCorrespondingBpmnElement = (BpmnResponse, liste) => {
+	//console.log('BpmnResponse: ', BpmnResponse);
+	console.log('liste: ', liste);
 	const obj = Object.entries(BpmnResponse).reduce(
 		(acc, [key, val]) =>
 			liste.filter((name) => name === val.name).length > 0
@@ -68,15 +82,22 @@ export const getCorrespondingBpmnElement = (BpmnResponse, liste) => {
 };
 
 export const getCurrentActivityName = (id) => {
-	const taskData = getAvailableTasks(id);
-	const listName = [];
-	for (let i = 0; i < taskData.length; i++) {
-		listName.push(taskData[i].name);
-	}
-	const ProcessDefinitionId = taskData[0].ProcessDefinitionId;
-	const BpmnElement = getBPMNInfo(ProcessDefinitionId);
-	const response = getCorrespondingBpmnElement(BpmnElement, listName);
-	console.log(listName);
-	console.log(response);
-	return response;
+	const [taskData, listName] = getAvailableTasks(id);
+
+	console.log('taskData: ', taskData);
+	console.log('listName: ', listName);
+	const urlEndpoint = 'processDefinition/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+	fetcherGet(apiUrl)
+		.then((r) => {
+			return r.data;
+		})
+		.then((result) => {
+			console.log('processDefinitionId: ', result);
+
+			return getBPMNInfo(result, listName);
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
 };
