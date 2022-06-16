@@ -33,32 +33,12 @@ export const getAvailableTasks = (id) => {
 		});
 	return [dataUrl, listName];
 };
-
-export const getBPMNInfo = (id, listName) => {
-	const urlEndpoint = 'bpmnInfo/';
-	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
-	//console.log('apiUrlBPMNinfo: ', apiUrl);
-	fetcherGet(apiUrl)
-		.then((r) => {
-			return r.data;
-		})
-		.then((dataBpmnResponse) => {
-			console.log('BpmnElement: ', dataBpmnResponse);
-			const response = getCorrespondingBpmnElement(dataBpmnResponse, listName);
-			console.log('BPMN Correspondance: ', response);
-			return response;
-		})
-		.catch((e) => {
-			console.log('error', e);
-		});
-};
-
 export const getProcessDefinitionID = async (id) => {
 	const urlEndpoint = 'processDefinition/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
 	fetcherGet(apiUrl)
 		.then((r) => {
-			console.log('getProcessDefinitionID r.data', r.data);
+			//console.log('getProcessDefinitionID r.data', r.data);
 			return r.data;
 		})
 		.catch((e) => {
@@ -66,38 +46,67 @@ export const getProcessDefinitionID = async (id) => {
 		});
 	//console.log('ProcessDefinitionId', result);
 };
-
 export const getCorrespondingBpmnElement = (BpmnResponse, liste) => {
 	//console.log('BpmnResponse: ', BpmnResponse);
-	console.log('liste: ', liste);
+	//console.log('liste: ', liste);
 	const obj = Object.entries(BpmnResponse).reduce(
 		(acc, [key, val]) =>
 			liste.filter((name) => name === val.name).length > 0
-				? { ...acc, [val.name]: key }
+				? { ...acc, key }
 				: { ...acc },
 
 		{}
 	);
+	console.log('obj: ', obj);
 	return obj;
 };
 
-export const getCurrentActivityName = (id) => {
-	const [taskData, listName] = getAvailableTasks(id);
-
-	console.log('taskData: ', taskData);
-	console.log('listName: ', listName);
-	const urlEndpoint = 'processDefinition/';
+export const getBPMNInfo = (id, listName) => {
+	const urlEndpoint = 'bpmnInfo/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+	//console.log('apiUrlBPMNinfo: ', apiUrl);
+	let response = {};
 	fetcherGet(apiUrl)
 		.then((r) => {
-			return r.data;
-		})
-		.then((result) => {
-			console.log('processDefinitionId: ', result);
-
-			return getBPMNInfo(result, listName);
+			response = getCorrespondingBpmnElement(r.data, listName);
+			console.log('getBPMNInfo: ', response);
+			return response;
 		})
 		.catch((e) => {
 			console.log('error', e);
 		});
+};
+
+export const getCurrentActivityName = (id) => {
+	const listName = getAvailableTasks(id)[1];
+
+	//console.log('taskData: ', taskData);
+	//console.log('listName: ', listName);
+	const urlEndpoint = 'processDefinition/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+
+	const RAAAAAAAH = fetcherGet(apiUrl)
+		.then((r) => {
+			const urlEndpointBPMN = 'bpmnInfo/';
+			const apiUrlBPMN =
+				process.env.REACT_APP_API_URL + urlEndpointBPMN + r.data;
+			//console.log('apiUrlBPMNinfo: ', apiUrl);
+			const correspondingElements = fetcherGet(apiUrlBPMN)
+				.then((r) => {
+					const response = getCorrespondingBpmnElement(r.data, listName);
+					console.log('getBPMNInfo: ', response);
+					return response;
+				})
+				.catch((e) => {
+					console.log('error', e);
+				});
+			return correspondingElements.then((r) => {
+				console.log('correspondingElements Value: ', r);
+				return r;
+			});
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+	return RAAAAAAAH;
 };

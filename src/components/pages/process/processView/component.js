@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -70,13 +71,15 @@ const BPMNViewer = () => {
 	const [diagram, setDiagram] = useState('');
 	const [loading, setLoading] = useState(true);
 	const { processKey, id } = useParams();
-
+	const [activities, setActivities] = useState([]);
 	useEffect(() => {
-		//console.log('id: ', id);
 		const url = getUrlBPMNByProcessName(processKey);
-		// eslint-disable-next-line no-unused-vars
-		const result = getCurrentActivityName(id);
-		//console.log('result: ', result);
+		const pls = getCurrentActivityName(id).then((res) => {
+			setActivities(res);
+			console.log('activities: ', activities);
+			console.log('activities Values ', Object.values(activities));
+		});
+
 		setTimeout(() => {
 			axios
 				.get(url)
@@ -87,7 +90,7 @@ const BPMNViewer = () => {
 					console.log(e);
 				});
 			setLoading(false);
-		}, 400);
+		}, 1000);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -103,22 +106,19 @@ const BPMNViewer = () => {
 				viewer.get('canvas').zoom('fit-viewport');
 
 				const overlays = viewer.get('overlays');
-				overlays.add('StartEvent_1', 'note', {
-					position: {
-						bottom: 18,
-						right: 10,
-					},
-					scale: {
-						min: 0.9,
-					},
-					html: '<div class="diagram-note">🦊</div>',
-				});
-			}) //Remplacer par un call API une fois branchée sur protools
-			.then(({ warnings }) => {
-				if (warnings.length) {
-					console.log('Warnings', warnings);
+				for (let i = 0; i < Object.values(activities).length; i++) {
+					overlays.add(Object.values(activities)[i], 'note', {
+						position: {
+							bottom: 18,
+							right: 10,
+						},
+						scale: {
+							min: 0.9,
+						},
+						html: '<div class="diagram-note">🦊</div>',
+					});
 				}
-			})
+			}) //Remplacer par un call API une fois branchée sur protools
 			.catch((err) => {
 				console.log('error', err);
 			});
