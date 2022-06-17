@@ -71,6 +71,8 @@ const Home = () => {
 	const [loading, setLoading] = useState(true);
 	const [dataProcess, setDataProcess] = useState([]);
 	const [dataTask, setDataTask] = useState([]);
+
+	// Retrieving all data during the component's mounting -> //TODO : Remove loading screen once linked to Keyloack
 	useEffect(() => {
 		if (dataTask.length === 0) {
 			const result = fetchTaskData();
@@ -85,7 +87,7 @@ const Home = () => {
 		}
 		setTimeout(() => {
 			setLoading(false);
-		}, 400);
+		}, 500);
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
 		// eslint-disable-next-line react-hooks/exhaustive-deps

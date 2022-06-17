@@ -1,6 +1,7 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
 import theme from 'theme';
 
+// Retrive all process currently running
 export const fetchProcessData = () => {
 	const urlEndpoint = 'processInstances/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
@@ -40,6 +41,7 @@ export const fetchProcessData = () => {
 	return [dataUrl, pieProcessdata];
 };
 
+// Retrieve all available tasks
 export const fetchTaskData = () => {
 	const urlEndpoint = 'tasks/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;

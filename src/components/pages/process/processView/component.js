@@ -1,22 +1,23 @@
 /* eslint-disable no-unused-vars */
+// React dependencies
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+// BPMN dependencies
 import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import minimapModule from 'diagram-js-minimap';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
-
+// Visual dependencies
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
 import { Box, Breadcrumbs, Link, Typography, Grid } from '@mui/material';
-
+// Custom Components
 import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
 import Loader from 'components/shared/loader/loader';
-
+// Data retrieve functions
 import {
 	getUrlBPMNByProcessName,
 	getCurrentActivityName,
@@ -96,15 +97,17 @@ const BPMNViewer = () => {
 	}, []);
 
 	if (diagram.length > 0) {
+		// Define BPMN Viewer
 		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
 			additionalModules: [minimapModule],
 		});
+		// Import BPMN diagram into the viewer
 		viewer
 			.importXML(diagram)
 			.then(() => {
 				viewer.get('canvas').zoom('fit-viewport');
-
+				// add visual token to the diagram
 				const overlays = viewer.get('overlays');
 				for (let i = 0; i < Object.values(activities).length; i++) {
 					overlays.add(Object.values(activities)[i], 'note', {
@@ -118,7 +121,7 @@ const BPMNViewer = () => {
 						html: '<div class="diagram-note">🦊</div>',
 					});
 				}
-			}) //Remplacer par un call API une fois branchée sur protools
+			})
 			.catch((err) => {
 				console.log('error', err);
 			});

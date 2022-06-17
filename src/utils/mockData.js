@@ -2,6 +2,7 @@ import { FiChevronRight, FiXCircle, FiCheck } from 'react-icons/fi';
 import theme from 'theme';
 import { Link, Box } from '@mui/material';
 
+// Mock data incident pie
 export const IncidentChartdata = {
 	labels: ['Services', 'Interne', 'Warning'],
 	datasets: [
@@ -14,7 +15,7 @@ export const IncidentChartdata = {
 		},
 	],
 };
-
+// Mock data column process list
 export const columns = [
 	{
 		name: 'name',
@@ -82,6 +83,7 @@ export const columns = [
 	},
 ];
 
+// Mock data for process list
 export const data = [
 	{
 		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
@@ -162,6 +164,7 @@ export const data = [
 	},
 ];
 
+// Mock column name userTask
 export const columnsManu = [
 	{
 		name: 'name',
@@ -217,6 +220,7 @@ export const columnsManu = [
 	},
 ];
 
+// Modck data for available usertasks
 export const dataManu = [
 	{
 		id: 'TaskID1',
@@ -232,5 +236,6 @@ export const dataManu = [
 	},
 ];
 
+// Empty BPMN xlm file
 export const emptyBPMN =
 	'<?xml version="1.0" encoding="UTF-8"?> <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_11nxm0o" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="9.1.0"><bpmn:process id="Process_021yyke" isExecutable="false"><bpmn:startEvent id="StartEvent_12bhofd" /></bpmn:process><bpmndi:BPMNDiagram id="BPMNDiagram_1"><bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_021yyke"><bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_12bhofd"><dc:Bounds x="156" y="81" width="36" height="36" /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>';

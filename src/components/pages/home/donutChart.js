@@ -3,8 +3,8 @@ import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Box } from '@mui/material';
 import theme from 'theme';
-//import { makeStyles } from 'tss-react/mui';
 
+// Donut Chart Component using ChartJS library
 const DoughnutChart = (props) => {
 	const data = props.data;
 	ChartJS.register(ArcElement, Tooltip);
