@@ -239,3 +239,52 @@ export const dataManu = [
 // Empty BPMN xlm file
 export const emptyBPMN =
 	'<?xml version="1.0" encoding="UTF-8"?> <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="Definitions_11nxm0o" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="9.1.0"><bpmn:process id="Process_021yyke" isExecutable="false"><bpmn:startEvent id="StartEvent_12bhofd" /></bpmn:process><bpmndi:BPMNDiagram id="BPMNDiagram_1"><bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_021yyke"><bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_12bhofd"><dc:Bounds x="156" y="81" width="36" height="36" /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>';
+
+export const processVariablesColumns = [
+	{
+		name: 'name',
+		label: 'Nom',
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({
+				style: { minWidth: '250px' },
+			}),
+		},
+	},
+	{
+		name: 'type',
+		label: 'Type',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '300px' } }),
+		},
+	},
+	{
+		name: 'value',
+		label: 'Valeur',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '200px', fontSize: '16' } }),
+		},
+	},
+	{
+		name: 'action',
+		label: 'Action',
+		options: {
+			empty: true,
+			draggable: true,
+			customBodyRender: (value) => (
+				<Link href={`/process/${value}`} underline='none'>
+					<FiChevronRight />
+				</Link>
+			),
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
+		},
+	},
+];

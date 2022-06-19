@@ -113,3 +113,26 @@ export const getCurrentActivityName = (id) => {
 		});
 	return RAAAAAAAH;
 };
+
+export const getVariables = (processInstanceID) => {
+	const urlEndpoint = 'variables/';
+	const apiUrl =
+		process.env.REACT_APP_API_URL + urlEndpoint + processInstanceID;
+	const dataUrl = [];
+	fetcherGet(apiUrl)
+		.then((r) => {
+			const datatmp = r.data;
+			console.log(r.data);
+			for (const variable in datatmp) {
+				dataUrl.push({
+					name: variable,
+					type: typeof datatmp[variable],
+					value: datatmp[variable],
+				});
+			}
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+	return dataUrl;
+};

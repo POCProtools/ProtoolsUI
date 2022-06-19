@@ -21,6 +21,7 @@ import Loader from 'components/shared/loader/loader';
 import {
 	getUrlBPMNByProcessName,
 	getCurrentActivityName,
+	getVariables,
 } from 'utils/dataProcess/fetchDataProcess';
 
 const useStyles = makeStyles()((theme) => {
@@ -73,6 +74,7 @@ const BPMNViewer = () => {
 	const [loading, setLoading] = useState(true);
 	const { processKey, id } = useParams();
 	const [activities, setActivities] = useState([]);
+	const [variables, setVariables] = useState([]);
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -80,6 +82,8 @@ const BPMNViewer = () => {
 			console.log('activities: ', activities);
 			console.log('activities Values ', Object.values(activities));
 		});
+		setVariables(getVariables(id));
+		console.log(variables);
 
 		setTimeout(() => {
 			axios
@@ -175,7 +179,7 @@ const BPMNViewer = () => {
 					<Typography color='text.primary'>Workflow : {processKey}</Typography>
 				</Breadcrumbs>
 				<div id='containerBPMN' className={classes.viewerStyle} />
-				<TabBarWorkflow />
+				<TabBarWorkflow variables={variables} />
 			</Box>
 		);
 	}

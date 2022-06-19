@@ -9,7 +9,13 @@ import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from 'components/pages/home/tableGrid';
 import theme from 'theme';
-import { data, columns, dataManu, columnsManu } from 'utils/mockData';
+import {
+	data,
+	columns,
+	dataManu,
+	columnsManu,
+	processVariablesColumns,
+} from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -56,9 +62,10 @@ const useStyles = makeStyles()((theme) => {
 		},
 	};
 });
-const TabBarWorkflow = () => {
+const TabBarWorkflow = (props) => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
+	const dataVariables = props.variables;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -80,7 +87,7 @@ const TabBarWorkflow = () => {
 						/>
 
 						<StyledTab
-							label='Métadonnées'
+							label='Variables'
 							{...tabPropIndex(1)}
 							className={classes.MuiTab}
 						/>
@@ -115,8 +122,8 @@ const TabBarWorkflow = () => {
 					<TabPanel value={value} index={1}>
 						<EnhancedTable
 							className={classes.table}
-							data={dataManu}
-							columns={columnsManu}
+							data={dataVariables}
+							columns={processVariablesColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
