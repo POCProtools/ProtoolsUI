@@ -22,8 +22,9 @@ import {
 	getUrlBPMNByProcessName,
 	getCurrentActivityName,
 	getVariables,
+	getManualTasks,
 } from 'utils/dataProcess/fetchDataProcess';
-import { defaultDataVariables } from 'utils/mockData';
+import { defaultDataVariables, defaultDataManualTask } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -76,6 +77,7 @@ const BPMNViewer = () => {
 	const { processKey, id } = useParams();
 	const [activities, setActivities] = useState([]);
 	const [variables, setVariables] = useState([]);
+	const [manualTasks, setManualTasks] = useState([]);
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -84,7 +86,7 @@ const BPMNViewer = () => {
 			console.log('activities Values ', Object.values(activities));
 		});
 		setVariables(getVariables(id));
-		console.log('variables lenght: ', variables.length);
+		setManualTasks(getManualTasks(id));
 
 		setTimeout(() => {
 			axios
@@ -182,6 +184,9 @@ const BPMNViewer = () => {
 				<div id='containerBPMN' className={classes.viewerStyle} />
 				<TabBarWorkflow
 					variables={variables.length > 0 ? variables : defaultDataVariables}
+					manualTasks={
+						manualTasks.length > 0 ? manualTasks : defaultDataManualTask
+					}
 				/>
 			</Box>
 		);

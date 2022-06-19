@@ -293,3 +293,56 @@ export const defaultDataVariables = [
 		action: '',
 	},
 ];
+
+export const processManualTasksColumns = [
+	{
+		name: 'name',
+		label: 'Nom',
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({
+				style: { minWidth: '250px' },
+			}),
+		},
+	},
+	{
+		name: 'id',
+		label: 'Task ID',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
+		},
+	},
+	{
+		name: 'createTime',
+		label: 'Date de création',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
+		},
+	},
+	{
+		name: 'action',
+		label: 'Action',
+		options: {
+			empty: true,
+			draggable: true,
+			customBodyRender: (value) => <FiEdit3 />,
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
+		},
+	},
+];
+export const defaultDataManualTask = [
+	{
+		name: '[NomTask]',
+		createTime: '[Ddd Mmm Jj HH:MM:SS UTC YYYY]',
+		taskId: 'Pas de taches manuelles trouvée',
+		action: '',
+	},
+];

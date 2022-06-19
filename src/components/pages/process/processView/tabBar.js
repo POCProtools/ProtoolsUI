@@ -12,9 +12,8 @@ import theme from 'theme';
 import {
 	data,
 	columns,
-	dataManu,
-	columnsManu,
 	processVariablesColumns,
+	processManualTasksColumns,
 } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
@@ -66,6 +65,7 @@ const TabBarWorkflow = (props) => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
 	const dataVariables = props.variables;
+	const dataManualTasks = props.manualTasks;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -129,8 +129,8 @@ const TabBarWorkflow = (props) => {
 					<TabPanel value={value} index={2}>
 						<EnhancedTable
 							className={classes.table}
-							data={dataManu}
-							columns={columnsManu}
+							data={dataManualTasks}
+							columns={processManualTasksColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={3}>

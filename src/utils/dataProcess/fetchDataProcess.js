@@ -136,3 +136,26 @@ export const getVariables = (processInstanceID) => {
 		});
 	return dataUrl;
 };
+
+export const getManualTasks = (processInstanceID) => {
+	const urlEndpoint = 'tasksProcessID/';
+	const apiUrl =
+		process.env.REACT_APP_API_URL + urlEndpoint + processInstanceID;
+	const dataUrl = [];
+	fetcherGet(apiUrl)
+		.then((r) => {
+			const datatmp = r.data;
+
+			for (let i = 0; i < datatmp.length; i++) {
+				dataUrl.push({
+					id: datatmp[i].id,
+					name: datatmp[i].name,
+					createTime: datatmp[i].createTime,
+				});
+			}
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+	return dataUrl;
+};
