@@ -346,3 +346,75 @@ export const defaultDataManualTask = [
 		action: '',
 	},
 ];
+
+export const processBPMNElementColumn = [
+	{
+		name: 'name',
+		label: 'Nom',
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({
+				style: { minWidth: '200px' },
+			}),
+		},
+	},
+	{
+		name: 'description',
+		label: 'Description',
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
+		},
+	},
+	{
+		name: 'implementationType',
+		label: 'Implémentation',
+		options: {
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
+		},
+	},
+	{
+		name: 'asynchronous',
+		label: "Type d'exécution",
+		options: {
+			filter: false,
+			sort: true,
+			draggable: true,
+			customBodyRender: (value) =>
+				value ? (
+					<Box display='flex' alignItems='center' justifyContent='center'>
+						<FiCheck size={20} color='#17C3B2' />
+					</Box>
+				) : (
+					<Box display='flex' alignItems='center' justifyContent='center'>
+						<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+					</Box>
+				),
+		},
+	},
+
+	{
+		name: 'action',
+		label: 'Action',
+		options: {
+			empty: true,
+			draggable: true,
+			customBodyRender: (value) => <FiEdit3 />,
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
+		},
+	},
+];
+export const defaultBpmnElement = [
+	{
+		name: '[NomElement]',
+		description: 'Brief description of the task',
+		implementationType: 'Whether the task is a delegate or not',
+		asynchronous: true,
+	},
+];

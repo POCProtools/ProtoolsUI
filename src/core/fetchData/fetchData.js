@@ -6,6 +6,8 @@ const headers = {
 	'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
 	'Access-Control-Allow-Headers': '*',
 };
+
+// Send a GET request to the API defined in the env variable
 export const fetcherGet = (url) => {
 	return axios.get(url, {
 		mode: 'cors',

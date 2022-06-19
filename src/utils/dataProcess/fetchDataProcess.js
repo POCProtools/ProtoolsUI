@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { fetcherGet } from 'core/fetchData/fetchData';
 export const getUrlBPMNByProcessName = (selected) => {
 	switch (selected) {
@@ -72,7 +73,7 @@ export const getBPMNInfo = (id, listName) => {
 	fetcherGet(apiUrl)
 		.then((r) => {
 			response = getCorrespondingBpmnElement(r.data, listName);
-			console.log('getBPMNInfo: ', response);
+			//console.log('getBPMNInfo: ', response);
 			return response;
 		})
 		.catch((e) => {
@@ -97,14 +98,14 @@ export const getCurrentActivityName = (id) => {
 			const correspondingElements = fetcherGet(apiUrlBPMN)
 				.then((r) => {
 					const response = getCorrespondingBpmnElement(r.data, listName);
-					console.log('getBPMNInfo: ', response);
+					//console.log('getBPMNInfo: ', response);
 					return response;
 				})
 				.catch((e) => {
 					console.log('error', e);
 				});
 			return correspondingElements.then((r) => {
-				console.log('correspondingElements Value: ', r);
+				//console.log('correspondingElements Value: ', r);
 				return r;
 			});
 		})
@@ -122,7 +123,7 @@ export const getVariables = (processInstanceID) => {
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
-			console.log('datatmpL: ', r.data);
+			console.log('datatmp : ', r.data);
 			for (const variable in datatmp) {
 				dataUrl.push({
 					name: variable,
@@ -158,4 +159,37 @@ export const getManualTasks = (processInstanceID) => {
 			console.log('error', e);
 		});
 	return dataUrl;
+};
+
+export const getAllTasksProcess = (id) => {
+	//TODO : Refactor cette fonction pour ne faire qu'une requête pour les deux usages
+	const urlEndpoint = 'processDefinition/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
+
+	const ILFAITCHO = fetcherGet(apiUrl)
+		.then((r) => {
+			const urlEndpoint2 = 'bpmnInfo/';
+			const apiUrl2 = process.env.REACT_APP_API_URL + urlEndpoint2 + r.data;
+			fetcherGet(apiUrl2).then((r) => {
+				const dataUrl = [];
+				const datatmp = r.data;
+				for (const [idTaskBox, content] of Object.entries(datatmp)) {
+					dataUrl.push({
+						name: content.name,
+						description: content.documentation,
+						implementationType: content.implementationType,
+						asynchronous: content.asynchronous,
+					});
+
+					//TODO : Demander quelles variables récupérer pour chaque tâche
+				}
+				const response = dataUrl.filter((obj) => obj.name !== null);
+				console.log('All element bpmn : ', response);
+				return response;
+			});
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+	return ILFAITCHO;
 };

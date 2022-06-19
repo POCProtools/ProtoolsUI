@@ -23,8 +23,14 @@ import {
 	getCurrentActivityName,
 	getVariables,
 	getManualTasks,
+	getAllTasksProcess,
+	getProcessDefinitionID,
 } from 'utils/dataProcess/fetchDataProcess';
-import { defaultDataVariables, defaultDataManualTask } from 'utils/mockData';
+import {
+	defaultDataVariables,
+	defaultDataManualTask,
+	defaultBpmnElement,
+} from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -78,15 +84,17 @@ const BPMNViewer = () => {
 	const [activities, setActivities] = useState([]);
 	const [variables, setVariables] = useState([]);
 	const [manualTasks, setManualTasks] = useState([]);
+	const [allTasks, setAllTasks] = useState([]);
+	const [processDefinitionID, setProcessDefinitionID] = useState('');
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
 			setActivities(res);
-			console.log('activities: ', activities);
-			console.log('activities Values ', Object.values(activities));
 		});
 		setVariables(getVariables(id));
 		setManualTasks(getManualTasks(id));
+		setAllTasks(getAllTasksProcess(id));
+		console.log(allTasks);
 
 		setTimeout(() => {
 			axios
@@ -120,10 +128,10 @@ const BPMNViewer = () => {
 					overlays.add(Object.values(activities)[i], 'note', {
 						position: {
 							bottom: 18,
-							right: 10,
+							right: 18,
 						},
 						scale: {
-							min: 0.9,
+							min: 1.2,
 						},
 						html: '<div class="diagram-note">🦊</div>',
 					});
@@ -163,7 +171,6 @@ const BPMNViewer = () => {
 						},
 					}}
 				/>
-
 				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
 					<span className={classes.title}>Workflows</span>
@@ -182,11 +189,13 @@ const BPMNViewer = () => {
 					<Typography color='text.primary'>Workflow : {processKey}</Typography>
 				</Breadcrumbs>
 				<div id='containerBPMN' className={classes.viewerStyle} />
+
 				<TabBarWorkflow
 					variables={variables.length > 0 ? variables : defaultDataVariables}
 					manualTasks={
 						manualTasks.length > 0 ? manualTasks : defaultDataManualTask
 					}
+					bpmnElement={allTasks.length > 0 ? allTasks : defaultBpmnElement}
 				/>
 			</Box>
 		);

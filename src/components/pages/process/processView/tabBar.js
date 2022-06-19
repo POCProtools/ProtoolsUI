@@ -14,6 +14,7 @@ import {
 	columns,
 	processVariablesColumns,
 	processManualTasksColumns,
+	processBPMNElementColumn,
 } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
@@ -66,6 +67,7 @@ const TabBarWorkflow = (props) => {
 	const [value, setValue] = useState(0);
 	const dataVariables = props.variables;
 	const dataManualTasks = props.manualTasks;
+	const dataBpmnElements = props.bpmnElements;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -97,7 +99,7 @@ const TabBarWorkflow = (props) => {
 							className={classes.MuiTab}
 						/>
 						<StyledTab
-							label='Taches de services'
+							label='Éléments BPMN'
 							{...tabPropIndex(3)}
 							className={classes.MuiTab}
 						/>
@@ -134,7 +136,11 @@ const TabBarWorkflow = (props) => {
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={3}>
-						<EnhancedTable className={classes.table} />
+						<EnhancedTable
+							className={classes.table}
+							data={dataBpmnElements}
+							columns={processBPMNElementColumn}
+						/>
 					</TabPanel>
 					<TabPanel value={value} index={4}>
 						<EnhancedTable className={classes.table} />
