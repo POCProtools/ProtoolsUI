@@ -23,6 +23,7 @@ import {
 	getCurrentActivityName,
 	getVariables,
 } from 'utils/dataProcess/fetchDataProcess';
+import { defaultDataVariables } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -83,7 +84,7 @@ const BPMNViewer = () => {
 			console.log('activities Values ', Object.values(activities));
 		});
 		setVariables(getVariables(id));
-		console.log(variables);
+		console.log('variables lenght: ', variables.length);
 
 		setTimeout(() => {
 			axios
@@ -179,7 +180,9 @@ const BPMNViewer = () => {
 					<Typography color='text.primary'>Workflow : {processKey}</Typography>
 				</Breadcrumbs>
 				<div id='containerBPMN' className={classes.viewerStyle} />
-				<TabBarWorkflow variables={variables} />
+				<TabBarWorkflow
+					variables={variables.length > 0 ? variables : defaultDataVariables}
+				/>
 			</Box>
 		);
 	}

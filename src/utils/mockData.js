@@ -1,4 +1,4 @@
-import { FiChevronRight, FiXCircle, FiCheck } from 'react-icons/fi';
+import { FiChevronRight, FiXCircle, FiCheck, FiEdit3 } from 'react-icons/fi';
 import theme from 'theme';
 import { Link, Box } from '@mui/material';
 
@@ -260,7 +260,7 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '300px' } }),
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
 		},
 	},
 	{
@@ -270,7 +270,7 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px', fontSize: '16' } }),
+			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
 		},
 	},
 	{
@@ -279,12 +279,17 @@ export const processVariablesColumns = [
 		options: {
 			empty: true,
 			draggable: true,
-			customBodyRender: (value) => (
-				<Link href={`/process/${value}`} underline='none'>
-					<FiChevronRight />
-				</Link>
-			),
+			customBodyRender: (value) => <FiEdit3 />,
 			setCellProps: () => ({ style: { minWidth: '90px' } }),
 		},
+	},
+];
+
+export const defaultDataVariables = [
+	{
+		name: '[NomVariable]',
+		type: '[TypeVariable (string, bool, etc..)]',
+		value: 'Pas de variables trouvée',
+		action: '',
 	},
 ];

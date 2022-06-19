@@ -122,7 +122,7 @@ export const getVariables = (processInstanceID) => {
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
-			console.log(r.data);
+			console.log('datatmpL: ', r.data);
 			for (const variable in datatmp) {
 				dataUrl.push({
 					name: variable,
