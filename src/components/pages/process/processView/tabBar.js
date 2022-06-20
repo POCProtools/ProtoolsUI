@@ -67,7 +67,7 @@ const TabBarWorkflow = (props) => {
 	const [value, setValue] = useState(0);
 	const dataVariables = props.variables;
 	const dataManualTasks = props.manualTasks;
-	const dataBpmnElements = props.bpmnElements;
+	const dataBpmnElements = props.bpmnElement;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);

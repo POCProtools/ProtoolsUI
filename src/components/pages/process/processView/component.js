@@ -93,8 +93,9 @@ const BPMNViewer = () => {
 		});
 		setVariables(getVariables(id));
 		setManualTasks(getManualTasks(id));
-		setAllTasks(getAllTasksProcess(id));
-		console.log(allTasks);
+		const pls2 = getAllTasksProcess(id).then((res) => {
+			setAllTasks(res);
+		});
 
 		setTimeout(() => {
 			axios
@@ -162,6 +163,8 @@ const BPMNViewer = () => {
 			</>
 		);
 	} else {
+		console.log('manualTasks', manualTasks);
+		console.log('allTasks', allTasks);
 		return (
 			<Box justifyContent='center'>
 				<GlobalStyles

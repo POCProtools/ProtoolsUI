@@ -132,9 +132,11 @@ export const getVariables = (processInstanceID) => {
 				});
 			}
 		})
+
 		.catch((e) => {
 			console.log('error', e);
 		});
+
 	return dataUrl;
 };
 
@@ -158,6 +160,7 @@ export const getManualTasks = (processInstanceID) => {
 		.catch((e) => {
 			console.log('error', e);
 		});
+	console.log('manual tasks :', dataUrl);
 	return dataUrl;
 };
 
@@ -170,7 +173,7 @@ export const getAllTasksProcess = (id) => {
 		.then((r) => {
 			const urlEndpoint2 = 'bpmnInfo/';
 			const apiUrl2 = process.env.REACT_APP_API_URL + urlEndpoint2 + r.data;
-			fetcherGet(apiUrl2).then((r) => {
+			const HELPME = fetcherGet(apiUrl2).then((r) => {
 				const dataUrl = [];
 				const datatmp = r.data;
 				for (const [idTaskBox, content] of Object.entries(datatmp)) {
@@ -184,8 +187,11 @@ export const getAllTasksProcess = (id) => {
 					//TODO : Demander quelles variables récupérer pour chaque tâche
 				}
 				const response = dataUrl.filter((obj) => obj.name !== null);
-				console.log('All element bpmn : ', response);
+				//console.log('All element bpmn : ', response);
 				return response;
+			});
+			return HELPME.then((r) => {
+				return r;
 			});
 		})
 		.catch((e) => {

@@ -25,7 +25,7 @@ export const columns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { minWidth: '400px' },
 			}),
 		},
 	},
@@ -36,7 +36,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '300px' } }),
+			setCellProps: () => ({ style: { minWidth: '400px' } }),
 		},
 	},
 	{
@@ -46,7 +46,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px', fontSize: '16' } }),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 	{
@@ -55,6 +55,7 @@ export const columns = [
 		options: {
 			sort: true,
 			draggable: true,
+			setCellProps: () => ({ style: { minWidth: '100px' } }),
 			customBodyRender: (value) =>
 				value ? (
 					<Box display='flex' alignItems='center' justifyContent='center'>
@@ -174,7 +175,7 @@ export const columnsManu = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '180px' },
+				style: { minWidth: '325px' },
 			}),
 		},
 	},
@@ -185,7 +186,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
+			setCellProps: () => ({ style: { minWidth: '325px' } }),
 		},
 	},
 	{
@@ -195,7 +196,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 	{
@@ -205,7 +206,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 
@@ -249,7 +250,7 @@ export const processVariablesColumns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { minWidth: '450px' },
 			}),
 		},
 	},
@@ -260,7 +261,7 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 	{
@@ -270,7 +271,7 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
+			setCellProps: () => ({ style: { minWidth: '450px', fontSize: '16' } }),
 		},
 	},
 	{
@@ -280,7 +281,7 @@ export const processVariablesColumns = [
 			empty: true,
 			draggable: true,
 			customBodyRender: (value) => <FiEdit3 />,
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
+			setCellProps: () => ({ style: { minWidth: '100px' } }),
 		},
 	},
 ];
@@ -303,7 +304,7 @@ export const processManualTasksColumns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { minWidth: '400px' },
 			}),
 		},
 	},
@@ -314,7 +315,7 @@ export const processManualTasksColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
+			setCellProps: () => ({ style: { minWidth: '420px' } }),
 		},
 	},
 	{
@@ -356,7 +357,7 @@ export const processBPMNElementColumn = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '200px' },
+				style: { minWidth: '350px' },
 			}),
 		},
 	},
@@ -364,10 +365,10 @@ export const processBPMNElementColumn = [
 		name: 'description',
 		label: 'Description',
 		options: {
-			filter: false,
+			filter: true,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
+			setCellProps: () => ({ style: { minWidth: '500px', fontSize: '16' } }),
 		},
 	},
 	{
@@ -416,5 +417,6 @@ export const defaultBpmnElement = [
 		description: 'Brief description of the task',
 		implementationType: 'Whether the task is a delegate or not',
 		asynchronous: true,
+		action: '',
 	},
 ];
