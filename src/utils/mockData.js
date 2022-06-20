@@ -408,7 +408,7 @@ export const processBPMNElementColumn = [
 	},
 	{
 		name: 'asynchronous',
-		label: "Type d'exécution",
+		label: 'Execution asynchrone',
 		options: {
 			filter: false,
 			sort: true,
