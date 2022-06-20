@@ -18,8 +18,8 @@ export const IncidentChartdata = {
 // Mock data column process list
 export const columns = [
 	{
-		name: 'name',
-		label: 'Nom',
+		name: 'documentation',
+		label: 'Description',
 		options: {
 			filter: true,
 			sort: true,
