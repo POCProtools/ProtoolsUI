@@ -43,6 +43,6 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 		opacity: 1,
 	},
 	'&.Mui-focusVisible': {
-		backgroundColor: '#d1eaff',
+		backgroundColor: theme.white,
 	},
 }));

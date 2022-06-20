@@ -179,6 +179,7 @@ export const getAllTasksProcess = (id) => {
 				for (const [idTaskBox, content] of Object.entries(datatmp)) {
 					dataUrl.push({
 						name: content.name,
+						nameActivity: content.id,
 						description: content.documentation,
 						implementationType: content.implementationType,
 						asynchronous: content.asynchronous,

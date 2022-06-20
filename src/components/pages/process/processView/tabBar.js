@@ -19,11 +19,6 @@ import {
 
 const useStyles = makeStyles()((theme) => {
 	return {
-		root: {
-			body: {
-				backgroundColor: theme.palette.background.default,
-			},
-		},
 		card: {
 			display: 'flex',
 			alignItems: 'center',

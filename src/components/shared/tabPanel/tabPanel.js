@@ -7,10 +7,10 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		table: {
 			display: 'flex',
-			overflow: 'scroll',
+			//overflow: 'scroll',
 		},
 		typo: {
-			overflow: 'scroll',
+			//overflow: 'scroll',
 		},
 	};
 });

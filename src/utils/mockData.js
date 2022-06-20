@@ -25,7 +25,19 @@ export const columns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '400px' },
+				style: { minWidth: '250px' },
+			}),
+		},
+	},
+	{
+		name: 'processKey',
+		label: 'ProcessKey',
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({
+				style: { minWidth: '250px' },
 			}),
 		},
 	},
@@ -36,7 +48,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '400px' } }),
+			setCellProps: () => ({ style: { minWidth: '300px' } }),
 		},
 	},
 	{
@@ -55,7 +67,7 @@ export const columns = [
 		options: {
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '100px' } }),
+			setCellProps: () => ({ style: { minWidth: '80px' } }),
 			customBodyRender: (value) =>
 				value ? (
 					<Box display='flex' alignItems='center' justifyContent='center'>
@@ -79,7 +91,7 @@ export const columns = [
 					<FiChevronRight />
 				</Link>
 			),
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
+			setCellProps: () => ({ style: { minWidth: '80px' } }),
 		},
 	},
 ];
@@ -250,7 +262,7 @@ export const processVariablesColumns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '450px' },
+				style: { minWidth: '390px' },
 			}),
 		},
 	},
@@ -261,7 +273,7 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
+			setCellProps: () => ({ style: { minWidth: '200px' } }),
 		},
 	},
 	{
@@ -271,7 +283,9 @@ export const processVariablesColumns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '450px', fontSize: '16' } }),
+			setCellProps: () => ({
+				style: { minWidth: '450px', fontSize: '16' },
+			}),
 		},
 	},
 	{
@@ -281,7 +295,7 @@ export const processVariablesColumns = [
 			empty: true,
 			draggable: true,
 			customBodyRender: (value) => <FiEdit3 />,
-			setCellProps: () => ({ style: { minWidth: '100px' } }),
+			setCellProps: () => ({ style: { minWidth: '90px' } }),
 		},
 	},
 ];
@@ -350,6 +364,18 @@ export const defaultDataManualTask = [
 
 export const processBPMNElementColumn = [
 	{
+		name: 'nameActivity',
+		label: "Nom de l'activité",
+		options: {
+			filter: true,
+			sort: true,
+			draggable: true,
+			setCellProps: () => ({
+				style: { minWidth: '175px' },
+			}),
+		},
+	},
+	{
 		name: 'name',
 		label: 'Nom',
 		options: {
@@ -357,7 +383,7 @@ export const processBPMNElementColumn = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '350px' },
+				style: { minWidth: '175px' },
 			}),
 		},
 	},
