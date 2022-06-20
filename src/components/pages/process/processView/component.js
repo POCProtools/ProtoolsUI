@@ -17,6 +17,7 @@ import { Box, Breadcrumbs, Link, Typography, Grid } from '@mui/material';
 import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
 import Loader from 'components/shared/loader/loader';
+import SideBar from 'components/shared/sidepanel/sidepanel';
 // Data retrieve functions
 import {
 	getUrlBPMNByProcessName,
@@ -152,7 +153,7 @@ const BPMNViewer = () => {
 						},
 					}}
 				/>
-
+				<SideBar />
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
@@ -166,41 +167,46 @@ const BPMNViewer = () => {
 		console.log('manualTasks', manualTasks);
 		console.log('allTasks', allTasks);
 		return (
-			<Box justifyContent='center'>
-				<GlobalStyles
-					styles={{
-						body: {
-							backgroundColor: '#F9FAFC',
-						},
-					}}
-				/>
-				<Box className={classes.TitleHeader}>
-					<Logo className={classes.logo} />
-					<span className={classes.title}>Workflows</span>
-				</Box>
-				<Breadcrumbs
-					separator='›'
-					aria-label='breadcrumb'
-					className={classes.bread}
-				>
-					<Link underline='hover' color='inherit' href='/'>
-						Home
-					</Link>
-					<Link underline='hover' color='inherit' href='/process'>
-						Processes
-					</Link>
-					<Typography color='text.primary'>Workflow : {processKey}</Typography>
-				</Breadcrumbs>
-				<div id='containerBPMN' className={classes.viewerStyle} />
+			<>
+				<SideBar page='process' />
+				<Box justifyContent='center'>
+					<GlobalStyles
+						styles={{
+							body: {
+								backgroundColor: '#F9FAFC',
+							},
+						}}
+					/>
+					<Box className={classes.TitleHeader}>
+						<Logo className={classes.logo} />
+						<span className={classes.title}>Workflows</span>
+					</Box>
+					<Breadcrumbs
+						separator='›'
+						aria-label='breadcrumb'
+						className={classes.bread}
+					>
+						<Link underline='hover' color='inherit' href='/'>
+							Home
+						</Link>
+						<Link underline='hover' color='inherit' href='/process'>
+							Processes
+						</Link>
+						<Typography color='text.primary'>
+							Workflow : {processKey}
+						</Typography>
+					</Breadcrumbs>
+					<div id='containerBPMN' className={classes.viewerStyle} />
 
-				<TabBarWorkflow
-					variables={variables.length > 0 ? variables : defaultDataVariables}
-					manualTasks={
-						manualTasks.length > 0 ? manualTasks : defaultDataManualTask
-					}
-					bpmnElement={allTasks.length > 0 ? allTasks : defaultBpmnElement}
-				/>
-			</Box>
+					<TabBarWorkflow
+						variables={variables.length > 0 ? variables : defaultDataVariables}
+						manualTasks={
+							manualTasks.length > 0 ? manualTasks : defaultDataManualTask
+						}
+						bpmnElement={allTasks.length > 0 ? allTasks : defaultBpmnElement}
+					/>
+				</Box>
+			</>
 		);
 	}
 };

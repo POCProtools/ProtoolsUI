@@ -36,6 +36,17 @@ const useStyles = makeStyles()((theme) => {
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
+		textSidebarMain: {
+			display: 'inline-block',
+			marginLeft: 10,
+			fontSize: 20,
+			fontWeight: 'bold',
+			color: theme.palette.secondary.main,
+		},
+		iconMain: {
+			marginLeft: 20,
+			color: theme.palette.secondary.main,
+		},
 		icon: {
 			marginLeft: 20,
 			color: theme.palette.primary.main,
@@ -58,9 +69,10 @@ const useStyles = makeStyles()((theme) => {
 
 const drawerWidth = 240;
 
-const SideBar = () => {
+const SideBar = (props) => {
 	const { classes } = useStyles();
 	//TODO : Gestion state page actuelle
+	const pageActuelle = props.page;
 	return (
 		<>
 			<Drawer
@@ -93,33 +105,93 @@ const SideBar = () => {
 				<Grid container direction='column' spacing={3} sx={{ marginLeft: 2 }}>
 					<Link href='/' underline='none'>
 						<Grid sx={{ marginTop: 2 }}>
-							<FiHome className={classes.icon} />
-							<span className={classes.textSidebar}>Home</span>
+							<FiHome
+								className={
+									pageActuelle === 'home' ? classes.iconMain : classes.icon
+								}
+							/>
+							<span
+								className={
+									pageActuelle === 'home'
+										? classes.textSidebarMain
+										: classes.textSidebar
+								}
+							>
+								Home
+							</span>
 						</Grid>
 					</Link>
 
 					<Link href='/process' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
-							<FiList className={classes.icon} />
-							<span className={classes.textSidebar}>Workflows</span>
+							<FiList
+								className={
+									pageActuelle === 'process' ? classes.iconMain : classes.icon
+								}
+							/>
+							<span
+								className={
+									pageActuelle === 'process'
+										? classes.textSidebarMain
+										: classes.textSidebar
+								}
+							>
+								Workflows
+							</span>
 						</Grid>
 					</Link>
 					<Link href='/logs' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
-							<FiBarChart2 className={classes.icon} />
-							<span className={classes.textSidebar}>Logs</span>
+							<FiBarChart2
+								className={
+									pageActuelle === 'logs' ? classes.iconMain : classes.icon
+								}
+							/>
+							<span
+								className={
+									pageActuelle === 'logs'
+										? classes.textSidebarMain
+										: classes.textSidebar
+								}
+							>
+								Logs
+							</span>
 						</Grid>
 					</Link>
 					<Link href='/admin' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
-							<FiCpu className={classes.icon} />
-							<span className={classes.textSidebar}>Admin</span>
+							<FiCpu
+								className={
+									pageActuelle === 'admin' ? classes.iconMain : classes.icon
+								}
+							/>
+							<span
+								className={
+									pageActuelle === 'admin'
+										? classes.textSidebarMain
+										: classes.textSidebar
+								}
+							>
+								Admin
+							</span>
 						</Grid>
 					</Link>
 					<Link href='/design' underline='none'>
 						<Grid spacing={1} sx={{ marginTop: 2 }}>
-							<FiEdit className={classes.icon} />
-							<span className={classes.textSidebar}>Design</span>
+							<FiEdit
+								className={
+									pageActuelle === 'design' ? classes.iconMain : classes.icon
+								}
+							/>
+							<span
+								className={
+									pageActuelle === 'design'
+										? classes.textSidebarMain
+										: classes.textSidebar
+								}
+							>
+								Design
+							</span>
 						</Grid>
 					</Link>
 					{/* <Grid spacing={1} sx={{ marginTop: 2 }}>

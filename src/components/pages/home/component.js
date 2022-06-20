@@ -6,6 +6,7 @@ import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
 import ProcessOverview from './processOverview';
 import TabBarDashboard from './tabBar';
+import SideBar from 'components/shared/sidepanel/sidepanel';
 import {
 	fetchProcessData,
 	fetchTaskData,
@@ -122,7 +123,7 @@ const Home = () => {
 						},
 					}}
 				/>
-
+				<SideBar page='home' />
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />

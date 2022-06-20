@@ -7,6 +7,7 @@ import { Grid, CardContent, Box } from '@mui/material';
 import SelectProcess from './selectProcess';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import Logo from 'components/shared/logo/logo';
+import SideBar from '../../shared/sidepanel/sidepanel';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -61,6 +62,7 @@ const ProcessSelect = () => {
 					},
 				}}
 			/>
+			<SideBar page='process' />
 			<Grid container justify='center'>
 				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
