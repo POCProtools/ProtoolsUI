@@ -10,8 +10,6 @@ import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import EnhancedTable from 'components/pages/home/tableGrid';
 import theme from 'theme';
 import {
-	data,
-	columns,
 	processVariablesColumns,
 	processManualTasksColumns,
 	processBPMNElementColumn,
@@ -110,11 +108,7 @@ const TabBarWorkflow = (props) => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
-						<EnhancedTable
-							className={classes.table}
-							data={data}
-							columns={columns}
-						/>
+						<span>TODO : Add global process informations</span>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						<EnhancedTable
