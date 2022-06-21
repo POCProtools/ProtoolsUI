@@ -15,7 +15,7 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			width: '25%',
-			marginLeft: '48%',
+			marginLeft: '45%',
 			marginTop: '15%',
 		},
 		titleCard: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles()((theme) => {
 		TitleHeader: {
 			position: 'absolute',
 			top: '2%',
-			left: '20%',
+			left: '19%',
 			display: 'flex',
 			alignItems: 'center',
 		},
