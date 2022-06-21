@@ -10,6 +10,7 @@ import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
+import SideBar from 'components/shared/sidepanel/sidepanel';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -18,10 +19,9 @@ const useStyles = makeStyles()((theme) => {
 			border: `1px solid ${theme.palette.primary.main}`,
 			height: '78vh',
 			width: '77vw',
-			//marginLeft: 295,
 			position: 'absolute',
 			top: '20%',
-			left: '20%',
+			left: '18%',
 			zIndex: 1,
 		},
 		title: {
@@ -32,8 +32,8 @@ const useStyles = makeStyles()((theme) => {
 		},
 		TitleHeader: {
 			position: 'absolute',
-			top: '2%',
-			left: '20%',
+			top: '5%',
+			left: '15%',
 			display: 'flex',
 			alignItems: 'center',
 		},
@@ -99,6 +99,7 @@ const Display = (props) => {
 					},
 				}}
 			/>
+			<SideBar page='design' />
 			<Box className={classes.TitleHeader}>
 				<Logo className={classes.logo} />
 				<span className={classes.title}>Designer</span>

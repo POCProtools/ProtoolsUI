@@ -29,8 +29,8 @@ const useStyles = makeStyles()((theme) => {
 		},
 		TitleHeader: {
 			position: 'absolute',
-			top: '2%',
-			left: '20%',
+			top: '3%',
+			left: '15%',
 			display: 'flex',
 			alignItems: 'center',
 		},
@@ -39,28 +39,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		gridItemProcessList: {
 			textAlign: 'center',
-		},
-		card: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			width: '75%',
-			marginLeft: '22%',
-			marginTop: '2%',
-		},
-		cardTab: {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			width: '75%',
-			marginLeft: '22%',
-			marginTop: '1%',
-		},
-		cardContent: {
-			padding: 0,
-			'&:last-child': {
-				paddingBottom: 0,
-			},
 		},
 	};
 });

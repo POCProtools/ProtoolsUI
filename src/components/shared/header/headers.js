@@ -42,7 +42,7 @@ const Header = () => {
 			<Toolbar>
 				<Grid
 					container
-					spacing={2}
+					spacing={7}
 					alignItems='baseline'
 					justifyContent='flex-end'
 				>

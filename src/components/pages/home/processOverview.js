@@ -17,7 +17,7 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			width: '75%',
-			marginLeft: '22%',
+			marginLeft: '19%',
 			marginTop: '4%',
 			//paddingLeft: '2%',
 		},

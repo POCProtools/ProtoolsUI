@@ -23,7 +23,7 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			width: '75%',
-			marginLeft: '22%',
+			marginLeft: '19%',
 			marginTop: '1%',
 		},
 		cardTab: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'left',
 			width: '75%',
-			marginLeft: '22%',
+			marginLeft: '19%',
 			marginTop: '0.5%',
 		},
 		cardContent: {
