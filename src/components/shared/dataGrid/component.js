@@ -7,7 +7,7 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const EnhancedTable = (props) => {
+const CustomDataGrid = (props) => {
 	const data = props.data;
 	const columns = props.columns;
 	const { classes } = useStyles();
@@ -33,4 +33,4 @@ const EnhancedTable = (props) => {
 	);
 };
 
-export default EnhancedTable;
+export default CustomDataGrid;

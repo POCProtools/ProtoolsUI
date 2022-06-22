@@ -7,7 +7,7 @@ import {
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
-import EnhancedTable from './tableGrid';
+import CustomDataGrid from '../../shared/dataGrid/component';
 import theme from 'theme';
 import { columns, columnsManu } from 'utils/mockData';
 
@@ -95,21 +95,21 @@ const TabBarDashboard = (props) => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataProcess}
 							columns={columns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataTask}
 							columns={columnsManu}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataProcess}
 							columns={columns}

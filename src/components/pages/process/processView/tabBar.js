@@ -7,7 +7,7 @@ import {
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
-import EnhancedTable from 'components/pages/home/tableGrid';
+import CustomDataGrid from 'components/shared/dataGrid/component';
 import theme from 'theme';
 import {
 	processVariablesColumns,
@@ -111,28 +111,28 @@ const TabBarWorkflow = (props) => {
 						<span>TODO : Add global process informations</span>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataVariables}
 							columns={processVariablesColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataManualTasks}
 							columns={processManualTasksColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={3}>
-						<EnhancedTable
+						<CustomDataGrid
 							className={classes.table}
 							data={dataBpmnElements}
 							columns={processBPMNElementColumn}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={4}>
-						<EnhancedTable className={classes.table} />
+						<CustomDataGrid className={classes.table} />
 					</TabPanel>
 				</CardContent>
 			</CustomCard>
