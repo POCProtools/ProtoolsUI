@@ -187,7 +187,7 @@ export const columnsManu = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				//style: { minWidth: '325px' },
+				style: { width: '325px' },
 			}),
 		},
 	},
@@ -198,9 +198,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({
-				//style: { minWidth: '325px' }
-			}),
+			setCellProps: () => ({ style: { minWidth: '325px' } }),
 		},
 	},
 	{
@@ -210,9 +208,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({
-				//style: { minWidth: '250px' }
-			}),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 	{
@@ -222,9 +218,7 @@ export const columnsManu = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({
-				//style: { minWidth: '250px' }
-			}),
+			setCellProps: () => ({ style: { minWidth: '250px' } }),
 		},
 	},
 
@@ -234,9 +228,7 @@ export const columnsManu = [
 			empty: true,
 			draggable: true,
 			customBodyRender: (value) => <FiChevronRight />,
-			setCellProps: () => ({
-				//style: { minWidth: '50px' }
-			}),
+			setCellProps: () => ({ style: { minWidth: '50px' } }),
 		},
 	},
 ];

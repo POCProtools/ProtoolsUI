@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CardContent, Grid, LinearProgress } from '@mui/material';
+import { CardContent, Grid, LinearProgress, Typography } from '@mui/material';
 import CustomCard from '../styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
 
@@ -28,7 +28,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		title: {
 			marginLeft: 10,
-			fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -81,7 +80,9 @@ const Loader = () => {
 							/>
 						</Grid>
 						<Grid item xs={12} className={classes.gridItemProcessList}>
-							<span className={classes.titleCard}>Chargement des données</span>
+							<Typography variant='h4' className={classes.titleCard}>
+								Chargement des données
+							</Typography>
 						</Grid>
 					</Grid>
 				</CardContent>

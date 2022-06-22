@@ -3,7 +3,7 @@ import React from 'react';
 //import Display from './bpmnDisplay';
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-import { Grid, CardContent, Box } from '@mui/material';
+import { Grid, CardContent, Box, Typography } from '@mui/material';
 import SelectProcess from './selectProcess';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import Logo from 'components/shared/logo/logo';
@@ -27,7 +27,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		title: {
 			marginLeft: 10,
-			fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -66,13 +65,15 @@ const ProcessSelect = () => {
 			<Grid container justify='center'>
 				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
-					<span className={classes.title}>Workflows</span>
+					<Typography variant='h4' className={classes.title}>
+						Workflows
+					</Typography>
 				</Box>
 				<CustomCard className={classes.card}>
 					<CardContent>
-						<span className={classes.titleCard}>
+						<Typography variant='h4' className={classes.titleCard}>
 							Selectionner un protocole:
-						</span>
+						</Typography>
 						<SelectProcess sx={{ margin: 10 }} />
 					</CardContent>
 				</CustomCard>

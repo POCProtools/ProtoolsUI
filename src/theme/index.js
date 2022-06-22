@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { responsiveFontSizes } from '@mui/material/styles';
 const PRIMARY = {
 	mainText: '#555B6E',
 	background: '#F9FAFC',
@@ -28,7 +29,7 @@ const borderWidth = 2;
 // 	};
 // }
 
-const theme = createTheme({
+const themeBase = createTheme({
 	//TODO : Fix this
 	palette: {
 		common: { black: '#343a40', white: '#fff' },
@@ -90,4 +91,5 @@ const theme = createTheme({
 		},
 	},
 });
+const theme = responsiveFontSizes(themeBase);
 export default theme;

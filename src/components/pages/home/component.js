@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GlobalStyles } from 'tss-react';
-import { Grid, Box } from '@mui/material';
+import { Grid, Box, Typography } from '@mui/material';
 
 import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
@@ -23,7 +23,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		title: {
 			marginLeft: 10,
-			fontSize: 30,
+			//fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -105,7 +105,9 @@ const Home = () => {
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
-						<span className={classes.title}>Tableau de bord</span>
+						<Typography variant='h4' className={classes.title}>
+							Tableau de bord
+						</Typography>
 					</Box>
 					<ProcessOverview
 						pieProcessdata={pieProcessdata}

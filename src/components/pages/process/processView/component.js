@@ -157,7 +157,9 @@ const BPMNViewer = () => {
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
-						<span className={classes.title}>Workflows</span>
+						<Typography variant='h4' className={classes.title}>
+							Workflows
+						</Typography>
 					</Box>
 					<Loader />
 				</Grid>

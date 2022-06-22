@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Link, Drawer } from '@mui/material';
+import { Grid, Link, Drawer, Typography } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
@@ -24,7 +24,6 @@ const useStyles = makeStyles()((theme) => {
 		titleSidebar: {
 			display: 'inline-block',
 			marginLeft: 10,
-			fontSize: 24,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -32,14 +31,12 @@ const useStyles = makeStyles()((theme) => {
 		textSidebar: {
 			display: 'inline-block',
 			marginLeft: 10,
-			fontSize: 20,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
 		textSidebarMain: {
 			display: 'inline-block',
 			marginLeft: 10,
-			fontSize: 20,
 			fontWeight: 'bold',
 			color: theme.palette.secondary.main,
 		},
@@ -94,10 +91,10 @@ const SideBar = (props) => {
 						// @ts-ignore
 						className={classes.logo}
 					/>
-					<span className={classes.titleSidebar}>
+					<Typography variant='h5' className={classes.titleSidebar}>
 						Protools <br />
 						Dashboard
-					</span>
+					</Typography>
 				</Grid>
 
 				<Grid container direction='column' spacing={3} sx={{ marginLeft: 2 }}>
@@ -108,7 +105,8 @@ const SideBar = (props) => {
 									pageActuelle === 'home' ? classes.iconMain : classes.icon
 								}
 							/>
-							<span
+							<Typography
+								variant='h6'
 								className={
 									pageActuelle === 'home'
 										? classes.textSidebarMain
@@ -116,7 +114,7 @@ const SideBar = (props) => {
 								}
 							>
 								Home
-							</span>
+							</Typography>
 						</Grid>
 					</Link>
 
@@ -127,7 +125,8 @@ const SideBar = (props) => {
 									pageActuelle === 'process' ? classes.iconMain : classes.icon
 								}
 							/>
-							<span
+							<Typography
+								variant='h6'
 								className={
 									pageActuelle === 'process'
 										? classes.textSidebarMain
@@ -135,7 +134,7 @@ const SideBar = (props) => {
 								}
 							>
 								Workflows
-							</span>
+							</Typography>
 						</Grid>
 					</Link>
 					<Link href='/logs' underline='none'>
@@ -145,7 +144,8 @@ const SideBar = (props) => {
 									pageActuelle === 'logs' ? classes.iconMain : classes.icon
 								}
 							/>
-							<span
+							<Typography
+								variant='h6'
 								className={
 									pageActuelle === 'logs'
 										? classes.textSidebarMain
@@ -153,7 +153,7 @@ const SideBar = (props) => {
 								}
 							>
 								Logs
-							</span>
+							</Typography>
 						</Grid>
 					</Link>
 					<Link href='/admin' underline='none'>
@@ -163,7 +163,8 @@ const SideBar = (props) => {
 									pageActuelle === 'admin' ? classes.iconMain : classes.icon
 								}
 							/>
-							<span
+							<Typography
+								variant='h6'
 								className={
 									pageActuelle === 'admin'
 										? classes.textSidebarMain
@@ -171,7 +172,7 @@ const SideBar = (props) => {
 								}
 							>
 								Admin
-							</span>
+							</Typography>
 						</Grid>
 					</Link>
 					<Link href='/design' underline='none'>
@@ -181,7 +182,8 @@ const SideBar = (props) => {
 									pageActuelle === 'design' ? classes.iconMain : classes.icon
 								}
 							/>
-							<span
+							<Typography
+								variant='h6'
 								className={
 									pageActuelle === 'design'
 										? classes.textSidebarMain
@@ -189,7 +191,7 @@ const SideBar = (props) => {
 								}
 							>
 								Design
-							</span>
+							</Typography>
 						</Grid>
 					</Link>
 					{/* <Grid spacing={1} sx={{ marginTop: 2 }}>
