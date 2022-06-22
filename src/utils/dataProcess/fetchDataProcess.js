@@ -22,7 +22,7 @@ export const getAvailableTasks = (processInstanceId) => {
 			const datatmp = r.data;
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
-					id: datatmp[i].id,
+					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
 					processInstance: datatmp[i].processInstance,
 					createTime: datatmp[i].createTime,
