@@ -29,7 +29,7 @@ const useStyles = makeStyles()((theme) => {
 		cardTab: {
 			display: 'flex',
 			alignItems: 'center',
-			justifyContent: 'left',
+			justifyContent: 'center',
 			width: '75%',
 			marginLeft: '19%',
 			marginTop: '0.5%',
@@ -46,9 +46,6 @@ const useStyles = makeStyles()((theme) => {
 				paddingBottom: 20,
 				paddingTop: 3,
 			},
-		},
-		table: {
-			width: '180%',
 		},
 	};
 });
@@ -95,25 +92,13 @@ const TabBarDashboard = (props) => {
 			<CustomCard className={classes.cardTab}>
 				<CardContent className={classes.cardContentTable}>
 					<TabPanel value={value} index={0}>
-						<CustomDataGrid
-							className={classes.table}
-							data={dataProcess}
-							columns={columns}
-						/>
+						<CustomDataGrid data={dataProcess} columns={columns} />
 					</TabPanel>
 					<TabPanel value={value} index={1}>
-						<CustomDataGrid
-							className={classes.table}
-							data={dataTask}
-							columns={columnsManu}
-						/>
+						<CustomDataGrid data={dataTask} columns={columnsManu} />
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<CustomDataGrid
-							className={classes.table}
-							data={dataProcess}
-							columns={columns}
-						/>
+						<CustomDataGrid data={dataProcess} columns={columns} />
 					</TabPanel>
 				</CardContent>
 			</CustomCard>

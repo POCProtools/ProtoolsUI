@@ -30,7 +30,7 @@ const useStyles = makeStyles()((theme) => {
 		cardTab: {
 			display: 'flex',
 			alignItems: 'center',
-			justifyContent: 'left',
+			justifyContent: 'center',
 			width: '75%',
 			marginLeft: '19%',
 			marginTop: '0.5%',
@@ -49,9 +49,6 @@ const useStyles = makeStyles()((theme) => {
 				paddingBottom: 20,
 				paddingTop: 3,
 			},
-		},
-		table: {
-			width: '180%',
 		},
 	};
 });
@@ -112,27 +109,24 @@ const TabBarWorkflow = (props) => {
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						<CustomDataGrid
-							className={classes.table}
 							data={dataVariables}
 							columns={processVariablesColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={2}>
 						<CustomDataGrid
-							className={classes.table}
 							data={dataManualTasks}
 							columns={processManualTasksColumns}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={3}>
 						<CustomDataGrid
-							className={classes.table}
 							data={dataBpmnElements}
 							columns={processBPMNElementColumn}
 						/>
 					</TabPanel>
 					<TabPanel value={value} index={4}>
-						<CustomDataGrid className={classes.table} />
+						<CustomDataGrid />
 					</TabPanel>
 				</CardContent>
 			</CustomCard>

@@ -20,6 +20,7 @@ const CustomDataGrid = (props) => {
 		download: false,
 		print: false,
 		viewColumns: false,
+		responsive: 'scrollMaxHeight',
 	};
 
 	return (
