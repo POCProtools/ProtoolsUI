@@ -3,7 +3,9 @@ import MUIDataTable from 'mui-datatables';
 import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()((theme) => {
 	return {
-		table: {},
+		table: {
+			width: '190%',
+		},
 	};
 });
 
@@ -20,7 +22,7 @@ const CustomDataGrid = (props) => {
 		download: false,
 		print: false,
 		viewColumns: false,
-		responsive: 'scrollMaxHeight',
+		responsive: 'stacked',
 	};
 
 	return (

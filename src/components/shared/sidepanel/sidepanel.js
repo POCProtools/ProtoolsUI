@@ -9,11 +9,11 @@ import Logo from '../logo/logo';
 const useStyles = makeStyles()((theme) => {
 	return {
 		drawer: {
-			width: drawerWidth,
+			width: '12%',
 		},
 		drawerPaper: {
 			'&&': {
-				width: drawerWidth,
+				width: '12%',
 				backgroundColor: theme.palette.background.default,
 			},
 		},
@@ -67,8 +67,6 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const drawerWidth = 240;
-
 const SideBar = (props) => {
 	const { classes } = useStyles();
 	//TODO : Gestion state page actuelle
@@ -79,7 +77,7 @@ const SideBar = (props) => {
 				sx={{
 					flexShrink: 0,
 					'& .MuiDrawer-paper': {
-						width: drawerWidth,
+						width: '12%',
 						boxSizing: 'border-box',
 					},
 				}}
