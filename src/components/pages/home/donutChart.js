@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Box } from '@mui/material';
@@ -45,7 +46,20 @@ const DoughnutChart = (props) => {
 	};
 
 	return (
-		<Box sx={{ width: '150px', marginTop: 2, marginLeft: 3, marginRight: 3 }}>
+		<Box
+			sx={{
+				width: {
+					xs: 50, // theme.breakpoints.up('xs')
+					sm: 70, // theme.breakpoints.up('sm')
+					md: 100, // theme.breakpoints.up('md')
+					lg: 120, // theme.breakpoints.up('lg')
+					xl: 150, // theme.breakpoints.up('xl')
+				},
+				marginTop: 2,
+				marginLeft: 3,
+				marginRight: 3,
+			}}
+		>
 			<Doughnut data={data} options={options} plugins={plugins} />
 		</Box>
 	);

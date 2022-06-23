@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, CardContent } from '@mui/material';
+import { Grid, CardContent, Typography } from '@mui/material';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
 import { IncidentChartdata } from 'utils/mockData';
@@ -22,8 +22,6 @@ const useStyles = makeStyles()((theme) => {
 			//paddingLeft: '2%',
 		},
 		titleCard: {
-			//marginLeft: 10,
-			fontSize: 20,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -47,15 +45,21 @@ const ProcessOverview = (props) => {
 					alignItems='baseline'
 				>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<span className={classes.titleCard}>Processus en cours</span>
+						<Typography variant='h6' className={classes.titleCard}>
+							Processus en cours
+						</Typography>
 						<DoughnutChart data={pieProcessdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<span className={classes.titleCard}>Tâches manuelles</span>
+						<Typography variant='h6' className={classes.titleCard}>
+							Tâches manuelles
+						</Typography>
 						<DoughnutChart data={pieTaskdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<span className={classes.titleCard}>Incidents en cours</span>
+						<Typography variant='h6' className={classes.titleCard}>
+							Incidents en cours
+						</Typography>
 						<DoughnutChart data={IncidentChartdata} />
 					</Grid>
 				</Grid>

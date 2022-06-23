@@ -6,7 +6,7 @@ import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import { makeStyles } from 'tss-react/mui';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
@@ -101,7 +101,9 @@ const Display = (props) => {
 			<SideBar page='design' />
 			<Box className={classes.TitleHeader}>
 				<Logo className={classes.logo} />
-				<span className={classes.title}>Designer</span>
+				<Typography variant='h4' className={classes.title}>
+					Designer
+				</Typography>
 			</Box>
 			<div id='containerBPMN' className={classes.modelerStyle} />
 		</Box>
