@@ -12,7 +12,15 @@ const SECONDARY = {
 const borderWidth = 2;
 
 const theme = createTheme({
-	//TODO : Fix this
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 700,
+			md: 1200,
+			lg: 1500,
+			xl: 1836,
+		},
+	},
 	palette: {
 		common: { black: '#343a40', white: '#fff' },
 		primary: { main: PRIMARY.mainText },

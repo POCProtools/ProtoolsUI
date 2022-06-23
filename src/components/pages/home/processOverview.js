@@ -12,6 +12,11 @@ const useStyles = makeStyles()((theme) => {
 				backgroundColor: theme.palette.background.default,
 			},
 		},
+		gridBreakpoint: {
+			[theme.breakpoints.down('sm')]: {
+				flexDirection: 'column',
+			},
+		},
 		card: {
 			display: 'flex',
 			alignItems: 'center',
@@ -24,9 +29,6 @@ const useStyles = makeStyles()((theme) => {
 		titleCard: {
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
-		},
-		gridItemProcessList: {
-			textAlign: 'center',
 		},
 	};
 });
@@ -43,10 +45,18 @@ const ProcessOverview = (props) => {
 					spacing={10}
 					justifyContent='space-between'
 					alignItems='baseline'
+					className={classes.gridBreakpoint}
 				>
-					<Grid item xs={4} className={classes.gridItemProcessList}>
+					<Grid
+						item
+						container
+						xs={4}
+						sx={{
+							flexDirection: { md: 'column', sm: 'row', textAlign: 'center' },
+						}}
+					>
 						<Typography variant='body1' className={classes.titleCard}>
-							Processus en cours
+							Processus
 						</Typography>
 						<DoughnutChart data={pieProcessdata} />
 					</Grid>

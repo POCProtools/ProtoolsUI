@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Link, Drawer, Typography } from '@mui/material';
+import { Grid, Link, Drawer, Typography, Box } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
 import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
@@ -10,11 +10,29 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		drawer: {
 			width: '12%',
+			[theme.breakpoints.down('md')]: {
+				width: '5%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				display: 'none',
+			},
 		},
 		drawerPaper: {
 			'&&': {
 				width: '12%',
 				backgroundColor: theme.palette.background.default,
+				[theme.breakpoints.down('md')]: {
+					width: '8%',
+				},
+			},
+
+			[theme.breakpoints.down('sm')]: {
+				display: 'none',
+			},
+		},
+		boxBreakpoint: {
+			[theme.breakpoints.down('md')]: {
+				display: 'none',
 			},
 		},
 		logo: {
@@ -43,10 +61,16 @@ const useStyles = makeStyles()((theme) => {
 		iconMain: {
 			marginLeft: 20,
 			color: theme.palette.secondary.main,
+			[theme.breakpoints.down('md')]: {
+				fontSize: 18,
+			},
 		},
 		icon: {
 			marginLeft: 20,
 			color: theme.palette.primary.main,
+			[theme.breakpoints.down('md')]: {
+				fontSize: 18,
+			},
 		},
 		loginButton: {
 			fontSize: '14px',
@@ -91,107 +115,126 @@ const SideBar = (props) => {
 						// @ts-ignore
 						className={classes.logo}
 					/>
-					<Typography variant='h5' className={classes.titleSidebar}>
-						Protools <br />
-						Dashboard
-					</Typography>
+					<Box className={classes.boxBreakpoint}>
+						<Typography variant='h6' className={classes.titleSidebar}>
+							Protools <br />
+							Dashboard
+						</Typography>
+					</Box>
 				</Grid>
 
-				<Grid container direction='column' spacing={3} sx={{ marginLeft: 2 }}>
+				<Grid
+					container
+					direction='column'
+					justifyContent='flex-start'
+					alignContent='flex-start'
+					spacing={3}
+					sx={{ marginLeft: 2 }}
+				>
 					<Link href='/' underline='none'>
-						<Grid sx={{ marginTop: 2 }}>
+						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
 							<FiHome
 								className={
 									pageActuelle === 'home' ? classes.iconMain : classes.icon
 								}
 							/>
-							<Typography
-								variant='h6'
-								className={
-									pageActuelle === 'home'
-										? classes.textSidebarMain
-										: classes.textSidebar
-								}
-							>
-								Home
-							</Typography>
+							<Box className={classes.boxBreakpoint}>
+								<Typography
+									variant='subtitle1'
+									className={
+										pageActuelle === 'home'
+											? classes.textSidebarMain
+											: classes.textSidebar
+									}
+								>
+									Home
+								</Typography>
+							</Box>
 						</Grid>
 					</Link>
 
 					<Link href='/process' underline='none'>
-						<Grid spacing={1} sx={{ marginTop: 2 }}>
+						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
 							<FiList
 								className={
 									pageActuelle === 'process' ? classes.iconMain : classes.icon
 								}
 							/>
-							<Typography
-								variant='h6'
-								className={
-									pageActuelle === 'process'
-										? classes.textSidebarMain
-										: classes.textSidebar
-								}
-							>
-								Workflows
-							</Typography>
+							<Box className={classes.boxBreakpoint}>
+								<Typography
+									variant='subtitle1'
+									className={
+										pageActuelle === 'process'
+											? classes.textSidebarMain
+											: classes.textSidebar
+									}
+								>
+									Workflows
+								</Typography>
+							</Box>
 						</Grid>
 					</Link>
 					<Link href='/logs' underline='none'>
-						<Grid spacing={1} sx={{ marginTop: 2 }}>
+						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
 							<FiBarChart2
 								className={
 									pageActuelle === 'logs' ? classes.iconMain : classes.icon
 								}
 							/>
-							<Typography
-								variant='h6'
-								className={
-									pageActuelle === 'logs'
-										? classes.textSidebarMain
-										: classes.textSidebar
-								}
-							>
-								Logs
-							</Typography>
+							<Box className={classes.boxBreakpoint}>
+								<Typography
+									variant='subtitle1'
+									className={
+										pageActuelle === 'logs'
+											? classes.textSidebarMain
+											: classes.textSidebar
+									}
+								>
+									Logs
+								</Typography>
+							</Box>
 						</Grid>
 					</Link>
 					<Link href='/admin' underline='none'>
-						<Grid spacing={1} sx={{ marginTop: 2 }}>
+						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
 							<FiCpu
 								className={
 									pageActuelle === 'admin' ? classes.iconMain : classes.icon
 								}
 							/>
-							<Typography
-								variant='h6'
-								className={
-									pageActuelle === 'admin'
-										? classes.textSidebarMain
-										: classes.textSidebar
-								}
-							>
-								Admin
-							</Typography>
+							<Box className={classes.boxBreakpoint}>
+								<Typography
+									variant='subtitle1'
+									className={
+										pageActuelle === 'admin'
+											? classes.textSidebarMain
+											: classes.textSidebar
+									}
+								>
+									Admin
+								</Typography>
+							</Box>
 						</Grid>
 					</Link>
 					<Link href='/design' underline='none'>
-						<Grid spacing={1} sx={{ marginTop: 2 }}>
+						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
 							<FiEdit
 								className={
 									pageActuelle === 'design' ? classes.iconMain : classes.icon
 								}
 							/>
-							<Typography
-								variant='h6'
-								className={
-									pageActuelle === 'design'
-										? classes.textSidebarMain
-										: classes.textSidebar
-								}
-							>
-								Design
-							</Typography>
+							<Box className={classes.boxBreakpoint}>
+								<Typography
+									variant='subtitle1'
+									className={
+										pageActuelle === 'design'
+											? classes.textSidebarMain
+											: classes.textSidebar
+									}
+								>
+									Design
+								</Typography>
+							</Box>
 						</Grid>
 					</Link>
 					{/* <Grid spacing={1} sx={{ marginTop: 2 }}>

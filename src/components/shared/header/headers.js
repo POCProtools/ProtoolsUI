@@ -45,11 +45,12 @@ const Header = () => {
 					spacing={7}
 					alignItems='baseline'
 					justifyContent='flex-end'
+					// sx={{ flexDirection: { sm: 'column', md: 'row' } }}
 				>
 					<Grid item xs={1}>
 						<Box className={classes.gridContainer}>
 							<FiMoon className={classes.iconsHeader} />
-							<Typography variant='body2' className={classes.textHeader}>
+							<Typography variant='caption' className={classes.textHeader}>
 								DarkMode
 							</Typography>
 						</Box>
@@ -58,7 +59,7 @@ const Header = () => {
 						<Link to='/documentation' underline='none'>
 							<Box className={classes.gridContainer}>
 								<FiBook className={classes.iconsHeader} />
-								<Typography variant='body2' className={classes.textHeader}>
+								<Typography variant='caption' className={classes.textHeader}>
 									Documentation
 								</Typography>
 							</Box>
