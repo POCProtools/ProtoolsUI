@@ -45,19 +45,19 @@ const ProcessOverview = (props) => {
 					alignItems='baseline'
 				>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<Typography variant='h6' className={classes.titleCard}>
+						<Typography variant='body1' className={classes.titleCard}>
 							Processus en cours
 						</Typography>
 						<DoughnutChart data={pieProcessdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<Typography variant='h6' className={classes.titleCard}>
+						<Typography variant='body1' className={classes.titleCard}>
 							Tâches manuelles
 						</Typography>
 						<DoughnutChart data={pieTaskdata} />
 					</Grid>
 					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<Typography variant='h6' className={classes.titleCard}>
+						<Typography variant='body1' className={classes.titleCard}>
 							Incidents en cours
 						</Typography>
 						<DoughnutChart data={IncidentChartdata} />

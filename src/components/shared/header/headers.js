@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
-import { AppBar, Toolbar, Grid, Link, Box } from '@mui/material';
+import { AppBar, Toolbar, Grid, Link, Box, Typography } from '@mui/material';
 import { FiMoon, FiBook } from 'react-icons/fi';
 
 const useStyles = makeStyles()((theme) => {
@@ -18,7 +18,7 @@ const useStyles = makeStyles()((theme) => {
 
 		textHeader: {
 			flex: 1,
-			fontSize: 14,
+
 			fontWeight: 'normal',
 			//margin: 5,
 			color: theme.palette.primary.main,
@@ -49,14 +49,18 @@ const Header = () => {
 					<Grid item xs={1}>
 						<Box className={classes.gridContainer}>
 							<FiMoon className={classes.iconsHeader} />
-							<span className={classes.textHeader}>DarkMode</span>
+							<Typography variant='body2' className={classes.textHeader}>
+								DarkMode
+							</Typography>
 						</Box>
 					</Grid>
 					<Grid item xs={1.25}>
 						<Link to='/documentation' underline='none'>
 							<Box className={classes.gridContainer}>
 								<FiBook className={classes.iconsHeader} />
-								<span className={classes.textHeader}>Documentation</span>
+								<Typography variant='body2' className={classes.textHeader}>
+									Documentation
+								</Typography>
 							</Box>
 						</Link>
 					</Grid>
