@@ -23,7 +23,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		title: {
 			marginLeft: 10,
-			//fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -85,7 +84,9 @@ const Home = () => {
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
-						<span className={classes.title}>Tableau de bord</span>
+						<Typography variant='h3' className={classes.title}>
+							Tableau de bord
+						</Typography>
 					</Box>
 					<Loader />
 				</Grid>

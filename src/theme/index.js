@@ -119,7 +119,7 @@ const theme = createTheme({
 				root: {
 					borderRadius: 20,
 					boxShadow: 3,
-					position: 'relative',
+
 					zIndex: 0,
 				},
 			},

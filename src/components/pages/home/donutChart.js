@@ -50,9 +50,9 @@ const DoughnutChart = (props) => {
 			sx={{
 				width: {
 					xs: 70, // theme.breakpoints.up('xs')
-					sm: 90, // theme.breakpoints.up('sm')
-					md: 110, // theme.breakpoints.up('md')
-					lg: 130, // theme.breakpoints.up('lg')
+					sm: 105, // theme.breakpoints.up('sm')
+					md: 120, // theme.breakpoints.up('md')
+					lg: 140, // theme.breakpoints.up('lg')
 					xl: 150, // theme.breakpoints.up('xl')
 				},
 				marginTop: 2,

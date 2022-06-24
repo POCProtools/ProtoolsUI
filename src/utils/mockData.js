@@ -15,221 +15,66 @@ export const IncidentChartdata = {
 		},
 	],
 };
-// Mock data column process list
-export const columns = [
+export const columnsProcessData = [
+	{ field: 'id', headerName: 'ID', flex: 0.6, minWidth: 150 },
+	{ field: 'processKey', headerName: 'Process Key', flex: 0.4 },
+	{ field: 'documentation', headerName: 'Description', flex: 0.5 },
+	{ field: 'date', headerName: 'Date début', flex: 0.5 },
 	{
-		name: 'documentation',
-		label: 'Description',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '100px', maxWidth: '100px' },
-			}),
-		},
-	},
-	{
-		name: 'processKey',
-		label: 'ProcessKey',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { maxWidth: '100px' },
-			}),
-		},
-	},
-	{
-		name: 'id',
-		label: 'ID',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { maxWidth: '100px' } }),
-		},
-	},
-	{
-		name: 'date',
-		label: 'Date début',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { maxWidth: '100px' } }),
-		},
-	},
-	{
-		name: 'state',
-		label: 'Statut',
-		options: {
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { maxWidth: '80px' } }),
-			customBodyRender: (value) =>
-				value ? (
-					<Box display='flex' alignItems='center' justifyContent='center'>
-						<FiCheck size={20} color='#17C3B2' />
-					</Box>
-				) : (
-					<Box display='flex' alignItems='center' justifyContent='center'>
-						<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
-					</Box>
-				),
-		},
-	},
-	{
-		name: 'action',
-		label: 'Action',
-		options: {
-			empty: true,
-			draggable: true,
-			customBodyRender: (value) => (
-				<Link href={`/process/${value}`} underline='none'>
-					<FiChevronRight />
-				</Link>
+		field: 'state',
+		headerName: 'Statut',
+		flex: 0.15,
+		renderCell: (value) =>
+			value ? (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiCheck size={20} color='#17C3B2' />
+				</Box>
+			) : (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+				</Box>
 			),
-			setCellProps: () => ({ style: { maxWidth: '80px' } }),
-		},
-	},
-];
-
-// Mock data for process list
-export const data = [
-	{
-		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
-		state: true,
-		name: 'protools-camunda-test-process',
-		date: '04/02/2022-10:20:45',
-		action: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
 	},
 	{
-		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '[IDProcessus]',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
-		state: true,
-		name: 'protools-camunda-test-process',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: 'cd97a04e-e314-11ec-ae0a-a2bafca39b64',
-		state: true,
-		name: 'protools-camunda-test-process',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '01fe0fa7-db70-11ec-9bdf-aa7f141af4d1',
-		state: false,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
-	},
-	{
-		id: '[IDProcessus]',
-		state: true,
-		name: '[NomProcessus]',
-		date: '04/02/2022-10:20:45',
-		action: 'linkProcessus',
+		field: 'action',
+		headerName: 'Action',
+		flex: 0.1,
+		renderCell: (value) => (
+			<Link href={`/process/${value}`} underline='none'>
+				<FiChevronRight />
+			</Link>
+		),
 	},
 ];
 
 // Mock column name userTask
 export const columnsManu = [
 	{
-		name: 'name',
-		label: 'Nom',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { width: '325px' },
-			}),
-		},
+		field: 'name',
+		headerName: 'Nom',
+		flex: 0.3,
 	},
 	{
-		name: 'id',
-		label: 'ID',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '325px' } }),
-		},
+		field: 'id',
+		headerName: 'ID',
+		flex: 0.5,
 	},
 	{
-		name: 'createTime',
-		label: 'Date début',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
-		},
+		field: 'createTime',
+		headerName: 'Date début',
+		flex: 0.3,
 	},
 	{
-		name: 'processInstance',
-		label: 'Process Instance',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
-		},
+		fied: 'processInstance',
+		headerName: 'Process Instance',
+		flex: 0.5,
 	},
 
 	{
-		name: 'Action',
-		options: {
-			empty: true,
-			draggable: true,
-			customBodyRender: (value) => <FiChevronRight />,
-			setCellProps: () => ({ style: { minWidth: '50px' } }),
-		},
+		field: 'action',
+		headerName: 'Action',
+		flex: 0.1,
+		renderCell: (value) => <FiChevronRight />,
 	},
 ];
 

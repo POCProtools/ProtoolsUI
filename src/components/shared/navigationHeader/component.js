@@ -1,16 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import {
-	FiMoon,
-	FiBook,
-	FiMenu,
-	FiHome,
-	FiList,
-	FiEdit,
-	FiCpu,
-	FiBarChart2,
-} from 'react-icons/fi';
+import { useScrollTrigger } from '@mui/material';
+import { FiMoon, FiBook, FiMenu } from 'react-icons/fi';
 import { makeStyles } from 'tss-react/mui';
 import {
 	Box,
@@ -20,7 +12,7 @@ import {
 	Typography,
 	Drawer,
 	Link,
-	Grid,
+	Slide,
 	List,
 	IconButton,
 	ListItem,
@@ -81,110 +73,116 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 }));
 
 const NavigationHeader = () => {
+	const trigger = useScrollTrigger();
 	const { classes } = useStyles();
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 	return (
-		<RootStyle>
-			<ToolbarStyle>
-				<IconButton
-					edge='start'
-					color='inherit'
-					aria-label='menu'
-					onClick={() => setIsDrawerOpen(true)}
-				>
-					<FiMenu className={classes.iconMenu} />
-				</IconButton>
-				<Drawer
-					open={isDrawerOpen}
-					onClose={() => setIsDrawerOpen(false)}
-					sx={{
-						flexShrink: 0,
-						'& .MuiDrawer-paper': {
-							width: '30%',
-							boxSizing: 'border-box',
-						},
-					}}
-				>
-					<List className={classes.drawer}>
-						<ListItem>
-							<Link href='/' underline='none'>
-								<Typography variant='subtitle2' className={classes.textSidebar}>
-									Home
-								</Typography>
-							</Link>
-						</ListItem>
-						<ListItem>
-							<Link href='/process' underline='none'>
-								<Box className={classes.boxBreakpoint}>
+		<Slide appear={false} direction='down' in={!trigger}>
+			<RootStyle>
+				<ToolbarStyle>
+					<IconButton
+						edge='start'
+						color='inherit'
+						aria-label='menu'
+						onClick={() => setIsDrawerOpen(true)}
+					>
+						<FiMenu className={classes.iconMenu} />
+					</IconButton>
+					<Drawer
+						open={isDrawerOpen}
+						onClose={() => setIsDrawerOpen(false)}
+						sx={{
+							flexShrink: 0,
+							'& .MuiDrawer-paper': {
+								width: '30%',
+								boxSizing: 'border-box',
+							},
+						}}
+					>
+						<List className={classes.drawer}>
+							<ListItem>
+								<Link href='/' underline='none'>
 									<Typography
 										variant='subtitle2'
 										className={classes.textSidebar}
 									>
-										Workflows
+										Home
 									</Typography>
-								</Box>
-							</Link>
-						</ListItem>
-						<ListItem>
-							<Link href='/logs' underline='none'>
-								<Box className={classes.boxBreakpoint}>
-									<Typography
-										variant='subtitle2'
-										className={classes.textSidebar}
-									>
-										Logs
-									</Typography>
-								</Box>
-							</Link>
-						</ListItem>
-						<ListItem>
-							<Link href='/admin' underline='none'>
-								<Box className={classes.boxBreakpoint}>
-									<Typography
-										variant='subtitle2'
-										className={classes.textSidebar}
-									>
-										Admin
-									</Typography>
-								</Box>
-							</Link>
-						</ListItem>
-						<ListItem>
-							<Link href='/design' underline='none'>
-								<Box className={classes.boxBreakpoint}>
-									<Typography
-										variant='subtitle2'
-										className={classes.textSidebar}
-									>
-										Design
-									</Typography>
-								</Box>
-							</Link>
-						</ListItem>
-					</List>
-				</Drawer>
-				<Box sx={{ flexGrow: 1 }} />
+								</Link>
+							</ListItem>
+							<ListItem>
+								<Link href='/process' underline='none'>
+									<Box className={classes.boxBreakpoint}>
+										<Typography
+											variant='subtitle2'
+											className={classes.textSidebar}
+										>
+											Workflows
+										</Typography>
+									</Box>
+								</Link>
+							</ListItem>
+							<ListItem>
+								<Link href='/logs' underline='none'>
+									<Box className={classes.boxBreakpoint}>
+										<Typography
+											variant='subtitle2'
+											className={classes.textSidebar}
+										>
+											Logs
+										</Typography>
+									</Box>
+								</Link>
+							</ListItem>
+							<ListItem>
+								<Link href='/admin' underline='none'>
+									<Box className={classes.boxBreakpoint}>
+										<Typography
+											variant='subtitle2'
+											className={classes.textSidebar}
+										>
+											Admin
+										</Typography>
+									</Box>
+								</Link>
+							</ListItem>
+							<ListItem>
+								<Link href='/design' underline='none'>
+									<Box className={classes.boxBreakpoint}>
+										<Typography
+											variant='subtitle2'
+											className={classes.textSidebar}
+										>
+											Design
+										</Typography>
+									</Box>
+								</Link>
+							</ListItem>
+						</List>
+					</Drawer>
+					<Box sx={{ flexGrow: 1 }} />
 
-				<Stack
-					direction='row'
-					alignItems='center'
-					spacing={{ xs: 0.5, sm: 1.5 }}
-				>
-					<Box className={classes.gridContainer}>
-						<FiMoon className={classes.iconsHeader} />
-						<Typography variant='caption' className={classes.textHeader}>
-							DarkMode
-						</Typography>
-					</Box>
-					<Box className={classes.gridContainer}>
-						<FiBook className={classes.iconsHeader} />
-						<Typography variant='caption' className={classes.textHeader}>
-							Documentation
-						</Typography>
-					</Box>
-				</Stack>
-			</ToolbarStyle>
-		</RootStyle>
+					<Stack
+						direction='row'
+						alignItems='center'
+						spacing={{ xs: 0.5, sm: 1.5 }}
+					>
+						<Box className={classes.gridContainer}>
+							<FiMoon className={classes.iconsHeader} />
+							<Typography variant='caption' className={classes.textHeader}>
+								DarkMode
+							</Typography>
+						</Box>
+						<Box className={classes.gridContainer}>
+							<FiBook className={classes.iconsHeader} />
+							<Typography variant='caption' className={classes.textHeader}>
+								Documentation
+							</Typography>
+						</Box>
+					</Stack>
+				</ToolbarStyle>
+			</RootStyle>
+		</Slide>
 	);
 };
 

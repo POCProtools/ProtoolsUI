@@ -18,7 +18,7 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 		minWidth: 0,
 	},
 	fontWeight: 'bold',
-	marginRight: theme.spacing(1),
+	marginRight: theme.spacing(0),
 	color: theme.palette.primary.main,
 	opacity: 0.5,
 	fontFamily: [

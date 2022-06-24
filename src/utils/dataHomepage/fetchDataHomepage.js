@@ -69,6 +69,7 @@ export const fetchTaskData = () => {
 					name: datatmp[i].name,
 					processInstance: datatmp[i].processInstance,
 					createTime: datatmp[i].createTime,
+					action: '',
 				});
 			}
 			pieProcessdata.datasets[0].data = [datatmp.length, 4, 2, 1];

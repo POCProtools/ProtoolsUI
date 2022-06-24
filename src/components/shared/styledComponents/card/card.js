@@ -5,8 +5,6 @@ const CustomCard = styled(Card)(({ theme }) => ({
 	color: 'primary',
 	borderRadius: 20,
 	boxShadow: 4,
-	//position: "relative",
-	//zIndex: 0,
 }));
 
 export default CustomCard;
