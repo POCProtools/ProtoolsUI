@@ -17,6 +17,10 @@ const useStyles = makeStyles()((theme) => {
 			width: '25%',
 			marginLeft: '45%',
 			marginTop: '15%',
+			[theme.breakpoints.down('md')]: {
+				width: '40%',
+				marginLeft: '30%',
+			},
 		},
 		titleCard: {
 			fontSize: 20,

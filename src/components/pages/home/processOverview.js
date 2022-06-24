@@ -12,11 +12,6 @@ const useStyles = makeStyles()((theme) => {
 				backgroundColor: theme.palette.background.default,
 			},
 		},
-		gridBreakpoint: {
-			[theme.breakpoints.down('sm')]: {
-				flexDirection: 'column',
-			},
-		},
 		card: {
 			display: 'flex',
 			alignItems: 'center',
@@ -27,6 +22,10 @@ const useStyles = makeStyles()((theme) => {
 			[theme.breakpoints.down('md')]: {
 				width: '80%',
 				marginLeft: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				marginLeft: '5%',
 			},
 		},
 		titleCard: {
@@ -48,14 +47,16 @@ const ProcessOverview = (props) => {
 					spacing={10}
 					justifyContent='space-between'
 					alignItems='baseline'
-					className={classes.gridBreakpoint}
 				>
 					<Grid
 						item
 						container
 						xs={4}
 						sx={{
-							flexDirection: { md: 'column', sm: 'row', textAlign: 'center' },
+							flexDirection: 'column',
+							textAlign: 'center',
+							alignContent: 'center',
+							alignItems: 'center',
 						}}
 					>
 						<Typography variant='body1' className={classes.titleCard}>

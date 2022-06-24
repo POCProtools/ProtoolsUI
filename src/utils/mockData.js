@@ -25,7 +25,7 @@ export const columns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { minWidth: '100px', maxWidth: '100px' },
 			}),
 		},
 	},
@@ -37,7 +37,7 @@ export const columns = [
 			sort: true,
 			draggable: true,
 			setCellProps: () => ({
-				style: { minWidth: '250px' },
+				style: { maxWidth: '100px' },
 			}),
 		},
 	},
@@ -48,7 +48,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '300px' } }),
+			setCellProps: () => ({ style: { maxWidth: '100px' } }),
 		},
 	},
 	{
@@ -58,7 +58,7 @@ export const columns = [
 			filter: false,
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '250px' } }),
+			setCellProps: () => ({ style: { maxWidth: '100px' } }),
 		},
 	},
 	{
@@ -67,7 +67,7 @@ export const columns = [
 		options: {
 			sort: true,
 			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '80px' } }),
+			setCellProps: () => ({ style: { maxWidth: '80px' } }),
 			customBodyRender: (value) =>
 				value ? (
 					<Box display='flex' alignItems='center' justifyContent='center'>
@@ -91,7 +91,7 @@ export const columns = [
 					<FiChevronRight />
 				</Link>
 			),
-			setCellProps: () => ({ style: { minWidth: '80px' } }),
+			setCellProps: () => ({ style: { maxWidth: '80px' } }),
 		},
 	},
 ];

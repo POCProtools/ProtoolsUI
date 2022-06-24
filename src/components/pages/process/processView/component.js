@@ -61,6 +61,14 @@ const useStyles = makeStyles()((theme) => {
 			top: '15%',
 			left: '19%',
 			zIndex: 1,
+			[theme.breakpoints.down('md')]: {
+				width: '80%',
+				left: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				left: '5%',
+			},
 		},
 		bread: {
 			position: 'absolute',
@@ -68,6 +76,12 @@ const useStyles = makeStyles()((theme) => {
 			left: '19%',
 			color: theme.palette.primary.main,
 			opacity: 0.8,
+			[theme.breakpoints.down('md')]: {
+				left: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				left: '5%',
+			},
 		},
 		highlight: {
 			backgroundColor: theme.palette.secondary.main,
@@ -157,7 +171,7 @@ const BPMNViewer = () => {
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
-						<Typography variant='h4' className={classes.title}>
+						<Typography variant='h3' className={classes.title}>
 							Workflows
 						</Typography>
 					</Box>

@@ -65,7 +65,7 @@ const ProcessSelect = () => {
 			<Grid container justify='center'>
 				<Box className={classes.TitleHeader}>
 					<Logo className={classes.logo} />
-					<Typography variant='h4' className={classes.title}>
+					<Typography variant='h3' className={classes.title}>
 						Workflows
 					</Typography>
 				</Box>

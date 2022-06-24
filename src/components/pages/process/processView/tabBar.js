@@ -26,6 +26,14 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: '1%',
 			position: 'absolute',
 			top: '55%',
+			[theme.breakpoints.down('md')]: {
+				width: '80%',
+				marginLeft: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				marginLeft: '5%',
+			},
 		},
 		cardTab: {
 			display: 'flex',
@@ -36,6 +44,14 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: '0.5%',
 			position: 'absolute',
 			top: '63%',
+			[theme.breakpoints.down('md')]: {
+				width: '80%',
+				marginLeft: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				marginLeft: '5%',
+			},
 		},
 		cardContent: {
 			padding: 0,

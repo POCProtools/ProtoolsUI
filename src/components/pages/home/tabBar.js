@@ -29,17 +29,25 @@ const useStyles = makeStyles()((theme) => {
 				width: '80%',
 				marginLeft: '14%',
 			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				marginLeft: '5%',
+			},
 		},
 		cardTab: {
 			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
+			//alignItems: 'center',
+			//justifyContent: 'center',
 			width: '75%',
 			marginLeft: '19%',
 			marginTop: '0.5%',
 			[theme.breakpoints.down('md')]: {
 				width: '80%',
 				marginLeft: '14%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				marginLeft: '5%',
 			},
 		},
 		cardContent: {
@@ -49,7 +57,7 @@ const useStyles = makeStyles()((theme) => {
 			},
 		},
 		cardContentTable: {
-			padding: 20,
+			padding: 15,
 			'&:last-child': {
 				paddingBottom: 20,
 				paddingTop: 3,

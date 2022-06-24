@@ -23,6 +23,10 @@ const useStyles = makeStyles()((theme) => {
 			top: '20%',
 			left: '18%',
 			zIndex: 1,
+			[theme.breakpoints.down('md')]: {
+				width: '80vw',
+				left: '14%',
+			},
 		},
 		title: {
 			marginLeft: 10,
@@ -101,7 +105,7 @@ const Display = (props) => {
 			<SideBar page='design' />
 			<Box className={classes.TitleHeader}>
 				<Logo className={classes.logo} />
-				<Typography variant='h4' className={classes.title}>
+				<Typography variant='h3' className={classes.title}>
 					Designer
 				</Typography>
 			</Box>
