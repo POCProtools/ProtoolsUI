@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, CardContent, Typography } from '@mui/material';
+import { Grid, CardContent, Typography, Stack } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
 import { IncidentChartdata } from 'utils/mockData';
@@ -39,18 +40,36 @@ const ProcessOverview = (props) => {
 	const pieProcessdata = props.pieProcessdata;
 	const pieTaskdata = props.pieTaskdata;
 	const { classes } = useStyles();
+	const small = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 	return (
 		<CustomCard className={classes.card}>
 			<CardContent>
-				<Grid
-					container
-					spacing={10}
-					justifyContent='space-between'
-					alignItems='baseline'
+				<Stack
+					direction='row'
+					alignItems='center'
+					spacing={{ xs: 5, sm: 3, md: 4, lg: 8, xl: 10 }}
 				>
 					<Grid
 						item
 						container
+						xs={3}
+						sx={{
+							flexDirection: 'column',
+							textAlign: 'center',
+							alignContent: 'center',
+							alignItems: 'center',
+						}}
+					>
+						<Typography
+							variant={small ? 'body2' : 'body1'}
+							className={classes.titleCard}
+						>
+							Processus
+						</Typography>
+						<DoughnutChart data={pieProcessdata} />
+					</Grid>
+					<Grid
+						item
 						xs={4}
 						sx={{
 							flexDirection: 'column',
@@ -59,24 +78,33 @@ const ProcessOverview = (props) => {
 							alignItems: 'center',
 						}}
 					>
-						<Typography variant='body1' className={classes.titleCard}>
-							Processus
-						</Typography>
-						<DoughnutChart data={pieProcessdata} />
-					</Grid>
-					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<Typography variant='body1' className={classes.titleCard}>
-							Tâches manuelles
+						<Typography
+							variant={small ? 'body2' : 'body1'}
+							className={classes.titleCard}
+						>
+							Tâches
 						</Typography>
 						<DoughnutChart data={pieTaskdata} />
 					</Grid>
-					<Grid item xs={4} className={classes.gridItemProcessList}>
-						<Typography variant='body1' className={classes.titleCard}>
-							Incidents en cours
+					<Grid
+						item
+						xs={4}
+						sx={{
+							flexDirection: 'column',
+							textAlign: 'center',
+							alignContent: 'center',
+							alignItems: 'center',
+						}}
+					>
+						<Typography
+							variant={small ? 'body2' : 'body1'}
+							className={classes.titleCard}
+						>
+							Incidents
 						</Typography>
 						<DoughnutChart data={IncidentChartdata} />
 					</Grid>
-				</Grid>
+				</Stack>
 			</CardContent>
 		</CustomCard>
 	);

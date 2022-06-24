@@ -45,6 +45,9 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			color: theme.palette.primary.main,
 			margin: 5,
+			[theme.breakpoints.down('sm')]: {
+				fontSize: 9,
+			},
 		},
 		iconMenu: {
 			color: theme.palette.primary.main,

@@ -87,10 +87,12 @@ const theme = createTheme({
 		body1: {
 			lineHeight: 1.5,
 			fontSize: pxToRem(16),
+			...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
 		},
 		body2: {
 			lineHeight: 22 / 14,
 			fontSize: pxToRem(14),
+			...responsiveFontSizes({ sm: 16, md: 17, lg: 17 }),
 		},
 		caption: {
 			lineHeight: 1.5,
