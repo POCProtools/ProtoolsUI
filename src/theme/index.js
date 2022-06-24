@@ -53,13 +53,13 @@ const theme = createTheme({
 		h3: {
 			fontWeight: 700,
 			lineHeight: 1.5,
-			fontSize: pxToRem(21),
-			...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+			fontSize: pxToRem(18),
+			...responsiveFontSizes({ sm: 24, md: 30, lg: 32 }),
 		},
 		h4: {
 			fontWeight: 700,
 			lineHeight: 1.5,
-			fontSize: pxToRem(20),
+			fontSize: pxToRem(16),
 			...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }),
 		},
 		h5: {
@@ -71,7 +71,7 @@ const theme = createTheme({
 		h6: {
 			fontWeight: 700,
 			lineHeight: 28 / 18,
-			fontSize: pxToRem(17),
+			fontSize: pxToRem(16),
 			...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
 		},
 		subtitle1: {
@@ -94,7 +94,8 @@ const theme = createTheme({
 		},
 		caption: {
 			lineHeight: 1.5,
-			fontSize: pxToRem(12),
+			fontSize: pxToRem(11),
+			...responsiveFontSizes({ sm: 12, md: 13, lg: 13 }),
 		},
 		overline: {
 			fontWeight: 700,

@@ -97,7 +97,7 @@ const NavigationHeader = () => {
 					sx={{
 						flexShrink: 0,
 						'& .MuiDrawer-paper': {
-							width: '20%',
+							width: '30%',
 							boxSizing: 'border-box',
 						},
 					}}
