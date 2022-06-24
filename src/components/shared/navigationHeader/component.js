@@ -5,7 +5,7 @@ import { makeStyles } from 'tss-react/mui';
 import { Box, Stack, AppBar, Toolbar, Typography } from '@mui/material';
 
 const APPBAR_MOBILE = 50;
-const APPBAR_DESKTOP = 100;
+const APPBAR_DESKTOP = 60;
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -29,6 +29,7 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
+// TODO : Refactor inside styles instead
 const RootStyle = styled(AppBar)(({ theme }) => ({
 	boxShadow: 'none',
 	backgroundColor: 'transparent',
@@ -37,7 +38,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 	minHeight: APPBAR_MOBILE,
-	[theme.breakpoints.up('lg')]: {
+	[theme.breakpoints.up('md')]: {
 		minHeight: APPBAR_DESKTOP,
 		padding: theme.spacing(0, 5),
 	},

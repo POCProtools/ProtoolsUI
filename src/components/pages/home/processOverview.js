@@ -24,7 +24,10 @@ const useStyles = makeStyles()((theme) => {
 			width: '75%',
 			marginLeft: '19%',
 			marginTop: '4%',
-			//paddingLeft: '2%',
+			[theme.breakpoints.down('md')]: {
+				width: '80%',
+				marginLeft: '14%',
+			},
 		},
 		titleCard: {
 			fontWeight: 'bold',

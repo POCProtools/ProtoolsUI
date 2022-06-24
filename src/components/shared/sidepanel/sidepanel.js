@@ -37,7 +37,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		logo: {
 			padding: 20,
-			marginLeft: 20,
 		},
 		titleSidebar: {
 			display: 'inline-block',
@@ -62,27 +61,14 @@ const useStyles = makeStyles()((theme) => {
 			marginLeft: 20,
 			color: theme.palette.secondary.main,
 			[theme.breakpoints.down('md')]: {
-				fontSize: 18,
+				fontSize: 19,
 			},
 		},
 		icon: {
 			marginLeft: 20,
 			color: theme.palette.primary.main,
 			[theme.breakpoints.down('md')]: {
-				fontSize: 18,
-			},
-		},
-		loginButton: {
-			fontSize: '14px',
-			marginTop: 10,
-			marginLeft: 20,
-			borderColor: theme.palette.primary.main,
-			color: theme.palette.primary.main,
-			fontWeight: 'bold',
-			borderRadius: 15,
-			borderWidth: 2,
-			'&:hover': {
-				borderWidth: 2,
+				fontSize: 19,
 			},
 		},
 	};
@@ -109,12 +95,13 @@ const SideBar = (props) => {
 				<Grid
 					container
 					spacing={2}
-					sx={{ marginTop: 3, marginBottom: 5, marginLeft: 2 }}
+					sx={{
+						marginTop: 3,
+						marginBottom: 5,
+						marginLeft: { sm: '28%', md: '12%' },
+					}}
 				>
-					<Logo
-						// @ts-ignore
-						className={classes.logo}
-					/>
+					<Logo className={classes.logo} />
 					<Box className={classes.boxBreakpoint}>
 						<Typography variant='h6' className={classes.titleSidebar}>
 							Protools <br />
@@ -129,7 +116,7 @@ const SideBar = (props) => {
 					justifyContent='flex-start'
 					alignContent='flex-start'
 					spacing={3}
-					sx={{ marginLeft: 2 }}
+					sx={{ marginLeft: { sm: '25%', md: '8%' } }}
 				>
 					<Link href='/' underline='none'>
 						<Grid
