@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from 'components/pages/home/component';
-import Header from 'components/shared/header/headers';
+import NavigationHeader from 'components/shared/navigationHeader';
 import Design from 'components/pages/design/component';
 import Display from '../components/pages/design/bpmnDisplay';
 import BPMNViewer from 'components/pages/process/processView/component';
@@ -9,7 +9,7 @@ import ProcessSelect from 'components/pages/process/component';
 const RoutesWeb = () => {
 	return (
 		<Router>
-			<Header />
+			<NavigationHeader />
 			<Routes>
 				<Route path={'/'} exact element={<Home />} />
 				<Route path={'/process'} element={<ProcessSelect />} />

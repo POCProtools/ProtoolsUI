@@ -9,10 +9,10 @@ export default function Logo() {
 			component='img'
 			sx={{
 				width: {
-					xs: 15, // theme.breakpoints.up('xs')
-					sm: 25, // theme.breakpoints.up('sm')
-					md: 35, // theme.breakpoints.up('md')
-					lg: 40, // theme.breakpoints.up('lg')
+					xs: 20, // theme.breakpoints.up('xs')
+					sm: 35, // theme.breakpoints.up('sm')
+					md: 40, // theme.breakpoints.up('md')
+					lg: 45, // theme.breakpoints.up('lg')
 					xl: 50, // theme.breakpoints.up('xl')
 				},
 			}}

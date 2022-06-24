@@ -132,7 +132,12 @@ const SideBar = (props) => {
 					sx={{ marginLeft: 2 }}
 				>
 					<Link href='/' underline='none'>
-						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
+						<Grid
+							container
+							direction='row'
+							spacing={1}
+							sx={{ marginTop: 2, display: 'flex', alignItems: 'center' }}
+						>
 							<FiHome
 								className={
 									pageActuelle === 'home' ? classes.iconMain : classes.icon
@@ -154,7 +159,12 @@ const SideBar = (props) => {
 					</Link>
 
 					<Link href='/process' underline='none'>
-						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
+						<Grid
+							container
+							direction='row'
+							spacing={1}
+							sx={{ marginTop: 2, display: 'flex', alignItems: 'center' }}
+						>
 							<FiList
 								className={
 									pageActuelle === 'process' ? classes.iconMain : classes.icon
@@ -175,7 +185,12 @@ const SideBar = (props) => {
 						</Grid>
 					</Link>
 					<Link href='/logs' underline='none'>
-						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
+						<Grid
+							container
+							direction='row'
+							spacing={1}
+							sx={{ marginTop: 2, display: 'flex', alignItems: 'center' }}
+						>
 							<FiBarChart2
 								className={
 									pageActuelle === 'logs' ? classes.iconMain : classes.icon
@@ -196,7 +211,12 @@ const SideBar = (props) => {
 						</Grid>
 					</Link>
 					<Link href='/admin' underline='none'>
-						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
+						<Grid
+							container
+							direction='row'
+							spacing={1}
+							sx={{ marginTop: 2, display: 'flex', alignItems: 'center' }}
+						>
 							<FiCpu
 								className={
 									pageActuelle === 'admin' ? classes.iconMain : classes.icon
@@ -217,7 +237,12 @@ const SideBar = (props) => {
 						</Grid>
 					</Link>
 					<Link href='/design' underline='none'>
-						<Grid container direction='row' spacing={1} sx={{ marginTop: 2 }}>
+						<Grid
+							container
+							direction='row'
+							spacing={1}
+							sx={{ marginTop: 2, display: 'flex', alignItems: 'center' }}
+						>
 							<FiEdit
 								className={
 									pageActuelle === 'design' ? classes.iconMain : classes.icon
