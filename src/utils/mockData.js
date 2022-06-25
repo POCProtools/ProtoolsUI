@@ -16,14 +16,39 @@ export const IncidentChartdata = {
 	],
 };
 export const columnsProcessData = [
-	{ field: 'id', headerName: 'ID', flex: 0.6, minWidth: 150 },
-	{ field: 'processKey', headerName: 'Process Key', flex: 0.4 },
-	{ field: 'documentation', headerName: 'Description', flex: 0.5 },
-	{ field: 'date', headerName: 'Date début', flex: 0.5 },
+	{
+		field: 'id',
+		headerName: 'ID',
+		headerClassName: 'columns--header',
+		flex: 0.6,
+		minWidth: 200,
+	},
+	{
+		field: 'processKey',
+		headerName: 'Process Key',
+		headerClassName: 'columns--header',
+		flex: 0.4,
+		minWidth: 150,
+	},
+	{
+		field: 'documentation',
+		headerName: 'Description',
+		headerClassName: 'columns--header',
+		flex: 0.5,
+		minWidth: 250,
+	},
+	{
+		field: 'date',
+		headerName: 'Date début',
+		headerClassName: 'columns--header',
+		flex: 0.3,
+		minWidth: 150,
+	},
 	{
 		field: 'state',
 		headerName: 'Statut',
-		flex: 0.15,
+		headerClassName: 'columns--header',
+		flex: 0.18,
 		renderCell: (value) =>
 			value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
@@ -38,7 +63,8 @@ export const columnsProcessData = [
 	{
 		field: 'action',
 		headerName: 'Action',
-		flex: 0.1,
+		headerClassName: 'columns--header',
+		flex: 0.15,
 		renderCell: (value) => (
 			<Link href={`/process/${value}`} underline='none'>
 				<FiChevronRight />
@@ -52,28 +78,38 @@ export const columnsManu = [
 	{
 		field: 'name',
 		headerName: 'Nom',
+		headerClassName: 'columns--header',
 		flex: 0.3,
+		minWidth: 200,
 	},
 	{
 		field: 'id',
 		headerName: 'ID',
+		headerClassName: 'columns--header',
 		flex: 0.5,
+		minWidth: 250,
 	},
 	{
 		field: 'createTime',
 		headerName: 'Date début',
+		headerClassName: 'columns--header',
 		flex: 0.3,
+		minWidth: 200,
 	},
 	{
 		fied: 'processInstance',
 		headerName: 'Process Instance',
+		headerClassName: 'columns--header',
 		flex: 0.5,
+		minWidth: 150,
 	},
 
 	{
 		field: 'action',
 		headerName: 'Action',
+		headerClassName: 'columns--header',
 		flex: 0.1,
+
 		renderCell: (value) => <FiChevronRight />,
 	},
 ];

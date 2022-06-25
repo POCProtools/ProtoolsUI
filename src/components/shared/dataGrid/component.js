@@ -1,38 +1,45 @@
-import React from 'react';
-import MUIDataTable from 'mui-datatables';
-import { makeStyles } from 'tss-react/mui';
-const useStyles = makeStyles()((theme) => {
-	return {
-		table: {
-			width: '190%',
-		},
-	};
-});
+import {
+	GridToolbarContainer,
+	GridToolbarExport,
+	GridToolbarFilterButton,
+} from '@mui/x-data-grid';
+import StyledDataGrid from '../styledComponents/dataGrid/component';
+import { Box } from '@mui/material';
+
+const CustomToolbar = () => {
+	return (
+		<GridToolbarContainer>
+			<GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+			<GridToolbarFilterButton />
+		</GridToolbarContainer>
+	);
+};
 
 const CustomDataGrid = (props) => {
-	const data = props.data;
+	const rows = props.rows;
 	const columns = props.columns;
-	const { classes } = useStyles();
-	const options = {
-		filterType: 'checkbox',
-		selectableRows: 'none',
-		resizableColumns: true,
-		rowsPerPageOptions: [4, 5, 10, 15],
-		rowsPerPage: 4,
-		download: false,
-		print: false,
-		viewColumns: false,
-		responsive: 'stacked',
-	};
-
 	return (
-		<MUIDataTable
-			data={data}
-			columns={columns}
-			options={options}
-			count
-			className={classes.table}
-		/>
+		<Box
+			sx={{
+				height: 500,
+				width: '100%',
+				'& .columns--header': {
+					fontWeight: '700',
+				},
+			}}
+		>
+			<StyledDataGrid
+				components={{
+					Toolbar: CustomToolbar,
+				}}
+				rows={rows}
+				columns={columns}
+				rowsPerPageOptions={[5, 10, 20]}
+				getRowHeight={() => 'auto'}
+				getRowClassName={() => 'row--style'}
+				disableSelectionOnClick
+			/>
+		</Box>
 	);
 };
 

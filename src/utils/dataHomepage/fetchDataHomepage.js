@@ -1,5 +1,6 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
 import theme from 'theme';
+import Moment from 'moment';
 
 // Retrive all process currently running
 export const fetchProcessData = () => {
@@ -29,10 +30,11 @@ export const fetchProcessData = () => {
 					state: true,
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
-					date: datatmp[i].startTime,
+					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
 					action: datatmp[i].processKey + '/' + datatmp[i].id,
 				});
 			}
+			console.log(dataUrl);
 
 			pieProcessdata.datasets[0].data = [datatmp.length, 1, 2, 3];
 		})
@@ -62,13 +64,14 @@ export const fetchTaskData = () => {
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
-			console.log(r.data);
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
 					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
 					processInstance: datatmp[i].processInstance,
-					createTime: datatmp[i].createTime,
+					createTime: Moment(datatmp[i].createTime).format(
+						'DD/MM/YYYY - HH:mm'
+					),
 					action: '',
 				});
 			}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { CardContent } from '@mui/material';
 import {
@@ -7,7 +8,6 @@ import {
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
-import CustomDataGrid from 'components/shared/dataGrid/component';
 import theme from 'theme';
 import {
 	processVariablesColumns,
@@ -123,27 +123,10 @@ const TabBarWorkflow = (props) => {
 					<TabPanel value={value} index={0}>
 						<span>TODO : Add global process informations</span>
 					</TabPanel>
-					<TabPanel value={value} index={1}>
-						<CustomDataGrid
-							data={dataVariables}
-							columns={processVariablesColumns}
-						/>
-					</TabPanel>
-					<TabPanel value={value} index={2}>
-						<CustomDataGrid
-							data={dataManualTasks}
-							columns={processManualTasksColumns}
-						/>
-					</TabPanel>
-					<TabPanel value={value} index={3}>
-						<CustomDataGrid
-							data={dataBpmnElements}
-							columns={processBPMNElementColumn}
-						/>
-					</TabPanel>
-					<TabPanel value={value} index={4}>
-						<CustomDataGrid />
-					</TabPanel>
+					<TabPanel value={value} index={1}></TabPanel>
+					<TabPanel value={value} index={2}></TabPanel>
+					<TabPanel value={value} index={3}></TabPanel>
+					<TabPanel value={value} index={4}></TabPanel>
 				</CardContent>
 			</CustomCard>
 		</>
