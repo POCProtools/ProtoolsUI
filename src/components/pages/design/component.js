@@ -24,7 +24,16 @@ const useStyles = makeStyles()((theme) => {
 			marginLeft: '45%',
 			marginTop: '10%',
 			padding: 10,
+			[theme.breakpoints.down('md')]: {
+				width: '70%',
+				marginLeft: '18%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '85%',
+				marginLeft: '5%',
+			},
 		},
+
 		title: {
 			marginLeft: 10,
 			fontWeight: 'bold',
@@ -42,7 +51,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 
 		titleCard: {
-			fontSize: 20,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
 		},
@@ -71,9 +79,9 @@ const Design = () => {
 				</Box>
 				<CustomCard className={classes.card}>
 					<CardContent>
-						<span className={classes.titleCard}>
+						<Typography value='h3' className={classes.titleCard}>
 							Selectionner un protocole:
-						</span>
+						</Typography>
 						<SelectBPMN sx={{ margin: 10 }} />
 					</CardContent>
 				</CustomCard>

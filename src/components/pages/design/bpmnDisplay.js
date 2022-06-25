@@ -105,7 +105,7 @@ const Display = (props) => {
 			<SideBar page='design' />
 			<Box className={classes.TitleHeader}>
 				<Logo className={classes.logo} />
-				<Typography variant='h3' className={classes.title}>
+				<Typography variant='h4' className={classes.title}>
 					Designer
 				</Typography>
 			</Box>

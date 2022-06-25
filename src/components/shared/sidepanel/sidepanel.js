@@ -62,6 +62,7 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.secondary.main,
 			[theme.breakpoints.down('md')]: {
 				fontSize: 19,
+				marginLeft: 15,
 			},
 		},
 		icon: {
@@ -69,6 +70,7 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 			[theme.breakpoints.down('md')]: {
 				fontSize: 19,
+				marginLeft: 15,
 			},
 		},
 	};
@@ -249,15 +251,6 @@ const SideBar = (props) => {
 							</Box>
 						</Grid>
 					</Link>
-					{/* <Grid spacing={1} sx={{ marginTop: 2 }}>
-						<Button
-							variant='outlined'
-							href='/login'
-							className={classes.loginButton}
-						>
-							Connexion
-						</Button>
-					</Grid> */}
 				</Grid>
 			</Drawer>
 		</>

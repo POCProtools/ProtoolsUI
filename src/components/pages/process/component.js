@@ -24,6 +24,14 @@ const useStyles = makeStyles()((theme) => {
 			marginLeft: '45%',
 			marginTop: '10%',
 			padding: 10,
+			[theme.breakpoints.down('md')]: {
+				width: '70%',
+				marginLeft: '18%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '85%',
+				marginLeft: '5%',
+			},
 		},
 		title: {
 			marginLeft: 10,

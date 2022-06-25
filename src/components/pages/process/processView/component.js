@@ -37,10 +37,8 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		title: {
 			marginLeft: 10,
-			fontSize: 30,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
-			verticalAlign: 'middle',
 		},
 		TitleHeader: {
 			position: 'absolute',
@@ -195,7 +193,9 @@ const BPMNViewer = () => {
 					/>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
-						<span className={classes.title}>Workflows</span>
+						<Typography variant='h3' className={classes.title}>
+							Workflows
+						</Typography>
 					</Box>
 					<Breadcrumbs
 						separator='›'

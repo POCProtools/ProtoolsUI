@@ -47,12 +47,12 @@ const ProcessOverview = (props) => {
 				<Stack
 					direction='row'
 					alignItems='center'
-					spacing={{ xs: 5, sm: 3, md: 4, lg: 8, xl: 10 }}
+					spacing={{ xs: 2, sm: 3, md: 4, lg: 8, xl: 10 }}
 				>
 					<Grid
 						item
 						container
-						xs={3}
+						xs={4}
 						sx={{
 							flexDirection: 'column',
 							textAlign: 'center',
