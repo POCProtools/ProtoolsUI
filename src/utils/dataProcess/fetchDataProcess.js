@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { fetcherGet } from 'core/fetchData/fetchData';
+import Moment from 'moment';
 export const getUrlBPMNByProcessName = (selected) => {
 	switch (selected) {
 		case 'CasUtilisationPOC':
@@ -123,9 +124,9 @@ export const getVariables = (processInstanceID) => {
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const datatmp = r.data;
-			console.log('datatmp : ', r.data);
 			for (const variable in datatmp) {
 				dataUrl.push({
+					id: processInstanceID + ':' + variable,
 					name: variable,
 					type: typeof datatmp[variable],
 					value: datatmp[variable],
@@ -151,16 +152,17 @@ export const getManualTasks = (processInstanceID) => {
 
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
-					id: datatmp[i].id,
+					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
-					createTime: datatmp[i].createTime,
+					createTime: Moment(datatmp[i].createTime).format(
+						'DD/MM/YYYY - HH:mm'
+					),
 				});
 			}
 		})
 		.catch((e) => {
 			console.log('error', e);
 		});
-	console.log('manual tasks :', dataUrl);
 	return dataUrl;
 };
 
@@ -179,16 +181,14 @@ export const getAllTasksProcess = (id) => {
 				for (const [idTaskBox, content] of Object.entries(datatmp)) {
 					dataUrl.push({
 						name: content.name,
-						nameActivity: content.id,
+						id: content.id,
 						description: content.documentation,
 						implementationType: content.implementationType,
 						asynchronous: content.asynchronous,
 					});
-
-					//TODO : Demander quelles variables récupérer pour chaque tâche
 				}
 				const response = dataUrl.filter((obj) => obj.name !== null);
-				//console.log('All element bpmn : ', response);
+
 				return response;
 			});
 			return HELPME.then((r) => {

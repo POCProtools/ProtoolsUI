@@ -21,8 +21,8 @@ const useStyles = makeStyles()((theme) => {
 			marginLeft: '19%',
 			marginTop: '4%',
 			[theme.breakpoints.down('md')]: {
-				width: '80%',
-				marginLeft: '14%',
+				width: '85%',
+				marginLeft: '11.5%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',

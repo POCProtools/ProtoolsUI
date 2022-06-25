@@ -49,6 +49,7 @@ export const columnsProcessData = [
 		headerName: 'Statut',
 		headerClassName: 'columns--header',
 		flex: 0.18,
+		align: 'center',
 		renderCell: (value) =>
 			value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
@@ -62,11 +63,12 @@ export const columnsProcessData = [
 	},
 	{
 		field: 'action',
-		headerName: 'Action',
+		headerName: ' ',
 		headerClassName: 'columns--header',
 		flex: 0.15,
-		renderCell: (value) => (
-			<Link href={`/process/${value}`} underline='none'>
+		align: 'center',
+		renderCell: (params) => (
+			<Link href={`/process/${params.value}`} underline='none'>
 				<FiChevronRight />
 			</Link>
 		),
@@ -97,7 +99,7 @@ export const columnsManu = [
 		minWidth: 200,
 	},
 	{
-		fied: 'processInstance',
+		field: 'processInstance',
 		headerName: 'Process Instance',
 		headerClassName: 'columns--header',
 		flex: 0.5,
@@ -106,10 +108,10 @@ export const columnsManu = [
 
 	{
 		field: 'action',
-		headerName: 'Action',
+		headerName: ' ',
+		align: 'center',
 		headerClassName: 'columns--header',
 		flex: 0.1,
-
 		renderCell: (value) => <FiChevronRight />,
 	},
 ];
@@ -136,53 +138,36 @@ export const emptyBPMN =
 
 export const processVariablesColumns = [
 	{
-		name: 'name',
-		label: 'Nom',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '390px' },
-			}),
-		},
+		field: 'name',
+		headerName: 'Nom',
+		flex: 0.4,
+		minWidth: 150,
 	},
 	{
-		name: 'type',
-		label: 'Type',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
-		},
+		field: 'type',
+		headerName: 'Type',
+		flex: 0.2,
+		minWidth: 100,
 	},
 	{
-		name: 'value',
-		label: 'Valeur',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '450px', fontSize: '16' },
-			}),
-		},
+		field: 'value',
+		headerName: 'Valeur',
+		flex: 0.6,
+		minWidth: 200,
 	},
 	{
-		name: 'action',
-		label: 'Action',
-		options: {
-			empty: true,
-			draggable: true,
-			customBodyRender: (value) => <FiEdit3 />,
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
-		},
+		field: 'action',
+		headerName: ' ',
+		align: 'center',
+		flex: 0.1,
+		minWidth: 90,
+		renderCell: (value) => <FiEdit3 />,
 	},
 ];
 
 export const defaultDataVariables = [
 	{
+		id: 'MockData',
 		name: '[NomVariable]',
 		type: '[TypeVariable (string, bool, etc..)]',
 		value: 'Pas de variables trouvée',
@@ -192,130 +177,91 @@ export const defaultDataVariables = [
 
 export const processManualTasksColumns = [
 	{
-		name: 'name',
-		label: 'Nom',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '400px' },
-			}),
-		},
+		field: 'name',
+		headerName: 'Nom',
+		flex: 0.3,
+		minWidth: 100,
 	},
 	{
-		name: 'id',
-		label: 'Task ID',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '420px' } }),
-		},
+		field: 'id',
+		headerName: 'Task ID',
+		flex: 0.5,
+		minWidth: 200,
 	},
 	{
-		name: 'createTime',
-		label: 'Date de création',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '350px', fontSize: '16' } }),
-		},
+		field: 'createTime',
+		headerName: 'Date de création',
+		flex: 0.3,
+		minWidth: 150,
 	},
 	{
-		name: 'action',
-		label: 'Action',
-		options: {
-			empty: true,
-			draggable: true,
-			customBodyRender: (value) => <FiEdit3 />,
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
-		},
+		field: 'action',
+		headerName: ' ',
+		align: 'center',
+		flex: 0.1,
+		minWidth: 90,
+		renderCell: (value) => <FiEdit3 />,
 	},
 ];
 export const defaultDataManualTask = [
 	{
 		name: '[NomTask]',
 		createTime: '[Ddd Mmm Jj HH:MM:SS UTC YYYY]',
-		taskId: 'Pas de taches manuelles trouvée',
+		id: 'Pas de taches manuelles trouvée',
 		action: '',
 	},
 ];
 
 export const processBPMNElementColumn = [
 	{
-		name: 'nameActivity',
-		label: "Nom de l'activité",
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '175px' },
-			}),
-		},
+		field: 'id',
+		headerName: "Nom de l'activité",
+		flex: 0.2,
+		minWidth: 100,
 	},
 	{
-		name: 'name',
-		label: 'Nom',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({
-				style: { minWidth: '175px' },
-			}),
-		},
+		field: 'name',
+		headerName: 'Nom',
+		flex: 0.4,
+		minWidth: 150,
 	},
 	{
-		name: 'description',
-		label: 'Description',
-		options: {
-			filter: true,
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '500px', fontSize: '16' } }),
-		},
+		field: 'description',
+		headerName: 'Description',
+		flex: 0.5,
+		minWidth: 200,
 	},
 	{
-		name: 'implementationType',
-		label: 'Implémentation',
-		options: {
-			sort: true,
-			draggable: true,
-			setCellProps: () => ({ style: { minWidth: '200px' } }),
-		},
+		field: 'implementationType',
+		headerName: 'Implémentation',
+		flex: 0.3,
+		minWidth: 150,
 	},
 	{
-		name: 'asynchronous',
-		label: 'Execution asynchrone',
-		options: {
-			filter: false,
-			sort: true,
-			draggable: true,
-			customBodyRender: (value) =>
-				value ? (
-					<Box display='flex' alignItems='center' justifyContent='center'>
-						<FiCheck size={20} color='#17C3B2' />
-					</Box>
-				) : (
-					<Box display='flex' alignItems='center' justifyContent='center'>
-						<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
-					</Box>
-				),
-		},
+		field: 'asynchronous',
+		headerName: 'Execution asynchrone',
+		align: 'center',
+		flex: 0.1,
+		minWidth: 90,
+		renderCell: (value) =>
+			value ? (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiCheck size={20} color='#17C3B2' />
+				</Box>
+			) : (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+				</Box>
+			),
 	},
 
 	{
-		name: 'action',
-		label: 'Action',
-		options: {
-			empty: true,
-			draggable: true,
-			customBodyRender: (value) => <FiEdit3 />,
-			setCellProps: () => ({ style: { minWidth: '90px' } }),
-		},
+		field: 'action',
+		headerName: ' ',
+		flex: 0.1,
+		minWidth: 90,
+		align: 'center',
+		renderCell: (value) => <FiEdit3 />,
 	},
 ];
 export const defaultBpmnElement = [

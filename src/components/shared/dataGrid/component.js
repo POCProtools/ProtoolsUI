@@ -9,8 +9,8 @@ import { Box } from '@mui/material';
 const CustomToolbar = () => {
 	return (
 		<GridToolbarContainer>
-			<GridToolbarExport printOptions={{ disableToolbarButton: true }} />
 			<GridToolbarFilterButton />
+			<GridToolbarExport printOptions={{ disableToolbarButton: true }} />
 		</GridToolbarContainer>
 	);
 };
@@ -32,9 +32,14 @@ const CustomDataGrid = (props) => {
 				components={{
 					Toolbar: CustomToolbar,
 				}}
+				localeText={{
+					toolbarFilters: 'Filtres',
+					toolbarExport: 'Export',
+				}}
 				rows={rows}
 				columns={columns}
-				rowsPerPageOptions={[5, 10, 20]}
+				autoPageSize
+				pagination
 				getRowHeight={() => 'auto'}
 				getRowClassName={() => 'row--style'}
 				disableSelectionOnClick

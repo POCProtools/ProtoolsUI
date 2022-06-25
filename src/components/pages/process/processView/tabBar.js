@@ -5,6 +5,7 @@ import {
 	StyledTabs,
 	StyledTab,
 } from 'components/shared/styledComponents/tabs/tabs';
+import CustomDataGrid from 'components/shared/dataGrid/component';
 import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
@@ -27,8 +28,8 @@ const useStyles = makeStyles()((theme) => {
 			position: 'absolute',
 			top: '55%',
 			[theme.breakpoints.down('md')]: {
-				width: '80%',
-				marginLeft: '14%',
+				width: '85%',
+				marginLeft: '11.5%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',
@@ -42,11 +43,12 @@ const useStyles = makeStyles()((theme) => {
 			width: '75%',
 			marginLeft: '19%',
 			marginTop: '0.5%',
+			marginBottom: '5%',
 			position: 'absolute',
 			top: '63%',
 			[theme.breakpoints.down('md')]: {
-				width: '80%',
-				marginLeft: '14%',
+				width: '85%',
+				marginLeft: '11.5%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',
@@ -60,11 +62,14 @@ const useStyles = makeStyles()((theme) => {
 			},
 		},
 		cardContentTable: {
-			padding: 20,
+			padding: 0,
 			'&:last-child': {
-				paddingBottom: 20,
-				paddingTop: 3,
+				padding: 12,
 			},
+			width: '100%',
+		},
+		tabWidth: {
+			width: '98%',
 		},
 	};
 });
@@ -119,15 +124,34 @@ const TabBarWorkflow = (props) => {
 			</CustomCard>
 
 			<CustomCard className={classes.cardTab}>
-				<CardContent className={classes.cardContentTable}>
-					<TabPanel value={value} index={0}>
-						<span>TODO : Add global process informations</span>
-					</TabPanel>
-					<TabPanel value={value} index={1}></TabPanel>
-					<TabPanel value={value} index={2}></TabPanel>
-					<TabPanel value={value} index={3}></TabPanel>
-					<TabPanel value={value} index={4}></TabPanel>
-				</CardContent>
+				<TabPanel value={value} index={0}>
+					<span>TODO : Add global process informations</span>
+				</TabPanel>
+				<TabPanel value={value} index={1} className={classes.tabWidth}>
+					<CardContent className={classes.cardContentTable}>
+						<CustomDataGrid
+							rows={dataVariables}
+							columns={processVariablesColumns}
+						/>
+					</CardContent>
+				</TabPanel>
+				<TabPanel value={value} index={2} className={classes.tabWidth}>
+					<CardContent className={classes.cardContentTable}>
+						<CustomDataGrid
+							rows={dataManualTasks}
+							columns={processManualTasksColumns}
+						/>
+					</CardContent>
+				</TabPanel>
+				<TabPanel value={value} index={3} className={classes.tabWidth}>
+					<CardContent className={classes.cardContentTable}>
+						<CustomDataGrid
+							rows={dataBpmnElements}
+							columns={processBPMNElementColumn}
+						/>
+					</CardContent>
+				</TabPanel>
+				<TabPanel value={value} index={4}></TabPanel>
 			</CustomCard>
 		</>
 	);
