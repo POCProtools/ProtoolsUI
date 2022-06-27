@@ -1,5 +1,5 @@
-import { styled } from '@mui/material/styles';
-import { Tabs, Tab } from '@material-ui/core';
+import styled from '@emotion/styled';
+import { Tab, Tabs } from '@mui/material';
 
 export const StyledTabs = styled(Tabs)(({ theme }) => ({
 	borderBottom: null,
