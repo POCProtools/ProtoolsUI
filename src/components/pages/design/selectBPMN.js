@@ -28,7 +28,6 @@ const SelectBPMN = () => {
 	const hasFinished = () => {
 		console.log('finished');
 	};
-	//const [url, setUrl] = useState(getUrl(selected));
 	const handleChange = (event) => {
 		console.log('event: ' + event.target.value);
 		setSelected(event.target.value);

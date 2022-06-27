@@ -14,3 +14,11 @@ export const fetcherGet = (url) => {
 		headers: headers,
 	});
 };
+
+// Send a GET request to the API defined in the env variable
+export const fetcherPost = (url, Jsonbody = {}) => {
+	return axios.post(url, Jsonbody, {
+		mode: 'cors',
+		headers: headers,
+	});
+};

@@ -178,8 +178,6 @@ const BPMNViewer = () => {
 			</>
 		);
 	} else {
-		console.log('manualTasks', manualTasks);
-		console.log('allTasks', allTasks);
 		return (
 			<>
 				<SideBar page='process' />

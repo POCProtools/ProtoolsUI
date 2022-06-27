@@ -66,7 +66,7 @@ const useStyles = makeStyles()((theme) => {
 			'&:last-child': {
 				padding: 12,
 			},
-			width: '100%',
+			width: '98%',
 		},
 		tabWidth: {
 			width: '98%',
@@ -92,6 +92,8 @@ const TabBarWorkflow = (props) => {
 						textColor={theme.palette.primary.main}
 						indicatorColor={theme.palette.secondary.main}
 						onChange={handleChange}
+						scrollButtons
+						allowScrollButtonsMobile
 					>
 						<StyledTab
 							label='Informations'

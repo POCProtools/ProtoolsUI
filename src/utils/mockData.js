@@ -1,6 +1,13 @@
-import { FiChevronRight, FiXCircle, FiCheck, FiEdit3 } from 'react-icons/fi';
+import {
+	FiChevronRight,
+	FiXCircle,
+	FiCheck,
+	FiEdit3,
+	FiUserPlus,
+} from 'react-icons/fi';
 import theme from 'theme';
-import { Link, Box } from '@mui/material';
+import { Link, Box, IconButton } from '@mui/material';
+import { temporaryExecuteTask } from './dataProcess/processExecution';
 
 // Mock data incident pie
 export const IncidentChartdata = {
@@ -200,7 +207,19 @@ export const processManualTasksColumns = [
 		align: 'center',
 		flex: 0.1,
 		minWidth: 90,
-		renderCell: (value) => <FiEdit3 />,
+		renderCell: (params) => (
+			<IconButton
+				aria-label='Claim & Exectute task'
+				component={Link}
+				to='/home'
+				onClick={() => {
+					temporaryExecuteTask(params.row.id, params.row.name);
+					window.location.replace('/', '_blank');
+				}}
+			>
+				<FiUserPlus />
+			</IconButton>
+		),
 	},
 ];
 export const defaultDataManualTask = [
@@ -267,6 +286,7 @@ export const processBPMNElementColumn = [
 export const defaultBpmnElement = [
 	{
 		name: '[NomElement]',
+		id: 'idBPMNElement',
 		description: 'Brief description of the task',
 		implementationType: 'Whether the task is a delegate or not',
 		asynchronous: true,
