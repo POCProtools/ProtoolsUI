@@ -1,4 +1,5 @@
 import { fetcherPost } from 'core/fetchData/fetchData';
+
 export const claimTask = (user, taskID) => {
 	const urlEndpoint = 'get-tasks/';
 	const apiUrl =
@@ -62,4 +63,19 @@ export const temporaryExecuteTask = (taskID, taskName) => {
 		.catch((e) => {
 			console.log('error', e);
 		});
+};
+
+export const startProcess = (processKey) => {
+	const urlEndpoint = 'start-process/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + processKey;
+	const dataUrl = [];
+	fetcherPost(apiUrl)
+		.then((r) => {
+			console.log('Process started : ', r.data);
+			dataUrl.push(r.data);
+		})
+		.catch((error) => {
+			console.log('error', error);
+		});
+	return dataUrl;
 };
