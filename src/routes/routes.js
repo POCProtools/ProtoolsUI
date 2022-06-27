@@ -4,8 +4,8 @@ import Home from 'components/pages/home/component';
 import NavigationHeader from 'components/shared/navigationHeader';
 import Design from 'components/pages/design/component';
 import Display from '../components/pages/design/bpmnDisplay';
-import BPMNViewer from 'components/pages/process/processView/component';
-import ProcessSelect from 'components/pages/process/component';
+import BPMNViewer from 'components/pages/processView/component';
+import ProcessSelect from 'components/pages/processStart/component';
 const RoutesWeb = () => {
 	return (
 		<Router>

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import minimapModule from 'diagram-js-minimap';
-import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 import axios from 'axios';
+// BPMN Imports
 import Modeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
+import minimapModule from 'diagram-js-minimap';
+import 'diagram-js-minimap/assets/diagram-js-minimap.css';
+
 import { makeStyles } from 'tss-react/mui';
 import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
@@ -73,6 +75,7 @@ const Display = (props) => {
 	if (diagram.length > 0) {
 		const modeler = new Modeler({
 			container: '#containerBPMN',
+
 			additionalModules: [minimapModule],
 		});
 		modeler

@@ -97,7 +97,7 @@ const BPMNViewer = () => {
 	const [activities, setActivities] = useState([]);
 	const [variables, setVariables] = useState([]);
 	const [manualTasks, setManualTasks] = useState([]);
-	const [allTasks, setAllTasks] = useState([]);
+	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
 	const [processDefinitionID, setProcessDefinitionID] = useState('');
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);

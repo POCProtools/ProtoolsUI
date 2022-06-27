@@ -89,6 +89,8 @@ const TabBarDashboard = (props) => {
 						textColor={theme.palette.primary.main}
 						indicatorColor={theme.palette.secondary.main}
 						onChange={handleChange}
+						variant='scrollable'
+						allowScrollButtonsMobile
 					>
 						<StyledTab label='Processus' {...tabPropIndex(0)} />
 

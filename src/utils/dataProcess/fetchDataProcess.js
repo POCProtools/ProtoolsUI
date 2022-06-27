@@ -99,7 +99,6 @@ export const getCurrentActivityName = (id) => {
 			const correspondingElements = fetcherGet(apiUrlBPMN)
 				.then((r) => {
 					const response = getCorrespondingBpmnElement(r.data, listName);
-					//console.log('getBPMNInfo: ', response);
 					return response;
 				})
 				.catch((e) => {

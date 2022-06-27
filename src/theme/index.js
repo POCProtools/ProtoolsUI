@@ -125,33 +125,6 @@ const theme = createTheme({
 			},
 		},
 	},
-	components: {
-		MUIDataTable: {
-			styleOverrides: {
-				paper: {
-					boxShadow: 'none',
-				},
-			},
-		},
-		MUIDataTableHeadCell: {
-			styleOverrides: {
-				sortAction: {
-					'& path': {
-						fontSize: '20px',
-					},
-				},
-				root: {
-					fontSize: '20px',
-				},
-			},
-		},
-		MUIDataTableBodyCell: {
-			styleOverrides: {
-				root: {
-					backgroundColor: SECONDARY.pressedGrey,
-				},
-			},
-		},
-	},
+	components: {},
 });
 export default theme;

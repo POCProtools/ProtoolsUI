@@ -174,6 +174,8 @@ const TabBarWorkflow = (props) => {
 						textColor={theme.palette.primary.main}
 						indicatorColor={theme.palette.secondary.main}
 						onChange={handleChange}
+						variant='scrollable'
+						allowScrollButtonsMobile
 					>
 						<StyledTab label='Informations' {...tabPropIndex(0)} />
 
