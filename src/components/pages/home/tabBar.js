@@ -9,7 +9,10 @@ import { makeStyles } from 'tss-react/mui';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import theme from 'theme';
-import { columnsManu, columnsProcessData } from 'utils/mockData';
+import {
+	columnsManu,
+	columnsProcessData,
+} from 'utils/dataHomepage/mockDataHomepage';
 import CustomDataGrid from 'components/shared/dataGrid/component';
 
 const useStyles = makeStyles()((theme) => {
@@ -86,25 +89,11 @@ const TabBarDashboard = (props) => {
 						textColor={theme.palette.primary.main}
 						indicatorColor={theme.palette.secondary.main}
 						onChange={handleChange}
-						scrollButtons
-						allowScrollButtonsMobile
 					>
-						<StyledTab
-							label='Processus'
-							{...tabPropIndex(0)}
-							className={classes.MuiTab}
-						/>
+						<StyledTab label='Processus' {...tabPropIndex(0)} />
 
-						<StyledTab
-							label='Tâches manuelles'
-							{...tabPropIndex(1)}
-							className={classes.MuiTab}
-						/>
-						<StyledTab
-							label='Incidents'
-							{...tabPropIndex(2)}
-							className={classes.MuiTab}
-						/>
+						<StyledTab label='Tâches manuelles' {...tabPropIndex(1)} />
+						<StyledTab label='Incidents' {...tabPropIndex(2)} />
 					</StyledTabs>
 				</CardContent>
 			</CustomCard>
