@@ -26,8 +26,12 @@ const useStyles = makeStyles()((theme) => {
 			left: '18%',
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
-				width: '80vw',
-				left: '14%',
+				width: '84%',
+				left: '12%',
+			},
+			[theme.breakpoints.down('sm')]: {
+				width: '90%',
+				left: '5%',
 			},
 		},
 		title: {

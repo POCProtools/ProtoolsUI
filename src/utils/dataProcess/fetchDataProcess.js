@@ -83,31 +83,14 @@ export const getBPMNInfo = (id, listName) => {
 };
 
 export const getCurrentActivityName = (id) => {
-	// List of available tasks
-	const listName = getAvailableTasks(id)[1];
-
-	// Fetch processDefinitionID
-	const urlEndpoint = 'processDefinition/';
+	// Fetch currents activities
+	const urlEndpoint = 'executionActivities/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + id;
 
 	const RAAAAAAAH = fetcherGet(apiUrl)
 		.then((r) => {
-			const urlEndpointBPMN = 'bpmnInfo/';
-			const apiUrlBPMN =
-				process.env.REACT_APP_API_URL + urlEndpointBPMN + r.data;
-			// Fetch all BPMN element of the process using processDefinitionID
-			const correspondingElements = fetcherGet(apiUrlBPMN)
-				.then((r) => {
-					const response = getCorrespondingBpmnElement(r.data, listName);
-					return response;
-				})
-				.catch((e) => {
-					console.log('error', e);
-				});
-			return correspondingElements.then((r) => {
-				//console.log('correspondingElements Value: ', r);
-				return r;
-			});
+			console.log('Current activities : ', r.data);
+			return r.data;
 		})
 		.catch((e) => {
 			console.log('error', e);

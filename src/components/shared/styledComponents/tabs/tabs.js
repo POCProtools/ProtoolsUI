@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/system';
 import { Tab, Tabs } from '@mui/material';
 
 export const StyledTabs = styled(Tabs)(({ theme }) => ({
@@ -27,12 +27,12 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 		'"Segoe UI Symbol"',
 	].join(','),
 	'&.MuiButtonBase-root': {
-		fontSize: '0.9rem',
+		fontSize: '1rem',
 		[theme.breakpoints.down('sm')]: {
-			fontSize: '0.5rem',
+			fontSize: '0.6rem',
 		},
 		[theme.breakpoints.down('md')]: {
-			fontSize: '0.8rem',
+			fontSize: '0.9rem',
 		},
 	},
 	'&.MuiTab-root': {

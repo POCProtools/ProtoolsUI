@@ -60,8 +60,8 @@ const useStyles = makeStyles()((theme) => {
 			left: '19%',
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
-				width: '80%',
-				left: '14%',
+				width: '84%',
+				left: '12%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',
@@ -138,8 +138,9 @@ const BPMNViewer = () => {
 				viewer.get('canvas').zoom('fit-viewport');
 				// add visual token to the diagram
 				const overlays = viewer.get('overlays');
-				for (let i = 0; i < Object.values(activities).length; i++) {
-					overlays.add(Object.values(activities)[i], 'note', {
+				for (let i = 0; i < activities.length; i++) {
+					console.log('activity', activities[i]);
+					overlays.add(activities[i], 'note', {
 						position: {
 							bottom: 18,
 							right: 18,
