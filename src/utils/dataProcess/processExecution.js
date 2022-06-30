@@ -25,33 +25,13 @@ export const executeTask = (user, taskID, variables) => {
 };
 
 // Temporary solution to execute task, depend on forms type
-export const temporaryExecuteTask = (taskID, taskName) => {
-	let variables = {};
-	console.log('taskName: ', taskName);
-	switch (taskName) {
-		case 'Check Final State':
-			variables = {};
-			break;
-		case 'Fill survey info':
-			variables = {
-				idSurvey: '0',
-				name: 'TestProcessExecutionViaFront',
-				dateDeb: '01-01-2022',
-				dateEnd: '01-12-2022',
-				state_survey: 'notReady',
-				sampleSize: '6',
-			};
-			break;
-		default:
-			console.log('Error : Task Not found, default variables to {}');
-	}
-	console.log('variables: ', variables);
-
+export const temporaryExecuteTask = (taskID, taskName, variables) => {
 	const urlEndpoint = 'get-tasks/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + 'user/' + taskID;
 	return fetcherPost(apiUrl)
 		.then((r) => {
 			console.log('Claim task Response :', r);
+			console.log('variables: ', variables);
 			const urlEndpointExe = 'complete-task/';
 			const apiUrlExe =
 				process.env.REACT_APP_API_URL + urlEndpointExe + 'user/' + taskID;

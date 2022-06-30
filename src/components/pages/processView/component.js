@@ -75,7 +75,7 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 			opacity: 0.8,
 			[theme.breakpoints.down('md')]: {
-				left: '14%',
+				left: '12%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				left: '5%',
@@ -98,7 +98,6 @@ const BPMNViewer = () => {
 	const [variables, setVariables] = useState([]);
 	const [manualTasks, setManualTasks] = useState([]);
 	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
-	const [processDefinitionID, setProcessDefinitionID] = useState('');
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -218,6 +217,7 @@ const BPMNViewer = () => {
 							manualTasks.length > 0 ? manualTasks : defaultDataManualTask
 						}
 						bpmnElement={allTasks.length > 0 ? allTasks : defaultBpmnElement}
+						id={id}
 					/>
 				</Box>
 			</>

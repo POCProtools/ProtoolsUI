@@ -1,16 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import {
-	CardContent,
-	IconButton,
-	Link,
-	Dialog,
-	DialogActions,
-	Button,
-	DialogTitle,
-	DialogContent,
-	DialogContentText,
-} from '@mui/material';
+import { CardContent } from '@mui/material';
+import { Link } from 'react-router-dom';
 import {
 	StyledTabs,
 	StyledTab,
@@ -26,8 +17,6 @@ import {
 	processVariablesColumns,
 	processBPMNElementColumn,
 } from 'utils/dataProcess/mockDataProcess';
-import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
-
 const useStyles = makeStyles()((theme) => {
 	return {
 		card: {
@@ -85,21 +74,14 @@ const useStyles = makeStyles()((theme) => {
 		},
 	};
 });
+
 const TabBarWorkflow = (props) => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
 	const dataVariables = props.variables;
 	const dataManualTasks = props.manualTasks;
 	const dataBpmnElements = props.bpmnElement;
-	const [open, setOpen] = useState(false);
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-		window.location.replace('/', '_blank');
-	};
+	const id = props.id;
 
 	const processManualTasksColumns = [
 		{
@@ -128,35 +110,20 @@ const TabBarWorkflow = (props) => {
 			minWidth: 90,
 			renderCell: (params) => (
 				<>
-					<IconButton
-						aria-label='Claim & Exectute task'
-						component={Link}
-						to='/home'
-						onClick={() => {
-							temporaryExecuteTask(params.row.id, params.row.name);
-							handleClickOpen();
+					<Link
+						to={{
+							pathname: `/form`,
+						}}
+						underline='none'
+						state={{
+							id: id,
+							taskName: params.row.name,
+							taskID: params.row.id,
+							variables: dataVariables,
 						}}
 					>
 						<FiUserPlus />
-					</IconButton>
-					<Dialog
-						open={open}
-						onClose={handleClose}
-						aria-labelledby='alert-dialog-title'
-						aria-describedby='alert-dialog-description'
-					>
-						<DialogTitle id='alert-dialog-title'>{'Task Service'}</DialogTitle>
-						<DialogContent>
-							<DialogContentText id='alert-dialog-description'>
-								Tâche exécutée avec succès, retour au menu principal.
-							</DialogContentText>
-						</DialogContent>
-						<DialogActions>
-							<Button onClick={handleClose} autoFocus>
-								Ok
-							</Button>
-						</DialogActions>
-					</Dialog>
+					</Link>
 				</>
 			),
 		},

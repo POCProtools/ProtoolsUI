@@ -6,6 +6,7 @@ import Design from 'components/pages/design/component';
 import Display from '../components/pages/design/bpmnDisplay';
 import BPMNViewer from 'components/pages/processView/component';
 import ProcessSelect from 'components/pages/processStart/component';
+import FormVariables from 'components/pages/formVariables/component';
 const RoutesWeb = () => {
 	return (
 		<Router>
@@ -16,6 +17,7 @@ const RoutesWeb = () => {
 				<Route path={'/process/:processKey/:id'} element={<BPMNViewer />} />
 				<Route path={'/design'} element={<Design />} />
 				<Route path={'/display'} element={<Display />} />
+				<Route path={'/form'} element={<FormVariables />} />
 			</Routes>
 		</Router>
 	);
