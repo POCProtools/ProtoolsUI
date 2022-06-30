@@ -69,13 +69,12 @@ const FormComponent = (props) => {
 			console.log('Variables submit');
 			var obj = {};
 			obj.name = name;
-			obj.dateDeb = dateDeb;
-			obj.dateEnd = dateEnd;
-			obj.sampleSize = sampleSize;
+			obj.dateDeb = dateDeb.toDateString();
+			obj.dateEnd = dateEnd.toDateString();
+			obj.sampleSize = sampleSize.toString();
 			obj.state_survey = 'notReady';
-			obj.idSurvey = 0;
-			var jsonString = JSON.stringify(obj);
-			temporaryExecuteTask(taskID, taskName, jsonString);
+			obj.idSurvey = '0';
+			temporaryExecuteTask(taskID, taskName, obj);
 			handleClickOpen();
 		} else {
 			console.log('Error on variables');

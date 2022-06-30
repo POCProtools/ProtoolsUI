@@ -75,10 +75,6 @@ const FormVariables = () => {
 
 	const taskName = state.taskName;
 	const taskID = state.taskID;
-	console.log('taskID', taskID);
-	console.log('id', id);
-	console.log('taskName', taskName);
-	console.log('state', state);
 	switch (taskName) {
 		case 'Fill survey info':
 			return (
@@ -130,6 +126,9 @@ const FormVariables = () => {
 						</Box>
 						<CustomCard className={classes.card}>
 							<CardContent>
+								<Typography value='h3' className={classes.titleCard}>
+									Variables finales:
+								</Typography>
 								<FormView
 									taskName={taskName}
 									taskID={taskID}
