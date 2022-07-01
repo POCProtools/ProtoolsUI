@@ -91,13 +91,13 @@ const FormVariables = () => {
 						<Box className={classes.TitleHeader}>
 							<Logo className={classes.logo} />
 							<Typography variant='h3' className={classes.title}>
-								Variables de processus
+								Déclaration des variables
 							</Typography>
 						</Box>
 						<CustomCard className={classes.card}>
 							<CardContent>
 								<Typography value='h3' className={classes.titleCard}>
-									Définition des variables de processus:
+									Définition des variables d'enquête:
 								</Typography>
 								<FormComponent taskName={taskName} taskID={taskID} />
 							</CardContent>

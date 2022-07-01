@@ -21,6 +21,7 @@ import { Task } from '@mui/icons-material';
 const FormComponent = (props) => {
 	const taskName = props.taskName;
 	const taskID = props.taskID;
+
 	const [dateDeb, setDateDeb] = useState(new Date('2022-01-01T21:11:54'));
 	const [dateDebError, setDateDebError] = useState('');
 	const [dateEnd, setDateEnd] = useState(new Date('2022-12-31T21:11:54'));
@@ -30,6 +31,7 @@ const FormComponent = (props) => {
 	const [sampleSize, setSampleSize] = useState(5);
 	const [sampleSizeError, setSampleSizeError] = useState('');
 	const [open, setOpen] = useState(false);
+
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
@@ -123,12 +125,13 @@ const FormComponent = (props) => {
 							helperText={sampleSizeError}
 							onChange={(event) => setSampleSize(event.target.value)}
 						/>
+						<Button sx={{ m: 2 }} onClick={handleSubmit}>
+							<Typography value='h2'>Envoyer</Typography>
+						</Button>
 					</Stack>
 				</LocalizationProvider>
-				<Button sx={{ m: 2 }} onClick={handleSubmit}>
-					<Typography value='h4'>Envoyer</Typography>
-				</Button>
 			</FormControl>
+
 			<Dialog
 				open={open}
 				onClose={handleClose}

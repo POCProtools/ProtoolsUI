@@ -8,11 +8,11 @@ export const fetchProcessData = () => {
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
 	var pieProcessdata = {
-		labels: ['Conception (Connected)', 'Collecte', 'Traitement', 'IDK'],
+		labels: ['TirageEnquête', 'TestPOC', 'UnPandaRouxDors', 'IDK'],
 		datasets: [
 			{
 				label: 'processus',
-				data: [0, 19, 3, 5],
+				data: [0, 0, 0, 0],
 				backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
 				borderColor: [theme.palette.background.default],
 				borderWidth: 2,
@@ -33,10 +33,11 @@ export const fetchProcessData = () => {
 					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
 					action: datatmp[i].processKey + '/' + datatmp[i].id,
 				});
+				const indexColor = getPieProcessColorIndex(datatmp[i].businessKey);
+				pieProcessdata.datasets[0].data[indexColor] =
+					pieProcessdata.datasets[0].data[indexColor] + 1;
 			}
 			console.log(dataUrl);
-
-			pieProcessdata.datasets[0].data = [datatmp.length, 1, 2, 3];
 		})
 		.catch((e) => {
 			console.log(e);
@@ -75,10 +76,26 @@ export const fetchTaskData = () => {
 					action: '',
 				});
 			}
+
 			pieProcessdata.datasets[0].data = [datatmp.length, 4, 2, 1];
 		})
 		.catch((e) => {
 			console.log(e);
 		});
 	return [dataUrl, pieProcessdata];
+};
+
+export const getPieProcessColorIndex = (BusinessKey) => {
+	switch (BusinessKey) {
+		case 'TirageEnquête':
+			return 0;
+		case 'TestPOC':
+			return 1;
+		case 'UnPandaRouxDors':
+			return 2;
+		case 'IDK':
+			return 3;
+		default:
+			return 4;
+	}
 };

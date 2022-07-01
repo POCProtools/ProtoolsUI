@@ -113,18 +113,7 @@ const theme = createTheme({
 			textTransform: 'capitalize',
 		},
 	},
-	overrides: {
-		MuiCard: {
-			styleOverrides: {
-				root: {
-					borderRadius: 20,
-					boxShadow: 3,
-
-					zIndex: 0,
-				},
-			},
-		},
-	},
+	overrides: {},
 	components: {},
 });
 export default theme;
