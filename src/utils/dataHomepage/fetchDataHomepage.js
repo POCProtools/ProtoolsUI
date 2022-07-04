@@ -102,11 +102,9 @@ const getPieProcessColorIndex = (BusinessKey) => {
 };
 
 export const getTaskPieColorIndex = (liste) => {
-	console.log('liste', liste);
 	const keys = Object.keys(taskDictionary).reduce((accumulator, value) => {
 		return { ...accumulator, [value]: 0 };
 	}, {});
-	console.log('keys', keys);
 
 	const obj = Object.entries(taskDictionary).reduce(
 		(accumulator, [key, value]) => [
@@ -115,6 +113,6 @@ export const getTaskPieColorIndex = (liste) => {
 		],
 		[]
 	);
-	console.log('TaskObject', obj);
+
 	return obj;
 };

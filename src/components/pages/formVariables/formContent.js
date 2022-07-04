@@ -25,7 +25,6 @@ const FormComponent = (props) => {
 	const [dateDeb, setDateDeb] = useState(new Date('2022-01-01T21:11:54'));
 	const [dateDebError, setDateDebError] = useState('');
 	const [dateEnd, setDateEnd] = useState(new Date('2022-12-31T21:11:54'));
-	const [dateEndError, setDateEndError] = useState('');
 	const [name, setName] = useState('');
 	const [nameError, setNameError] = useState('');
 	const [sampleSize, setSampleSize] = useState(5);
@@ -76,7 +75,7 @@ const FormComponent = (props) => {
 			obj.sampleSize = sampleSize.toString();
 			obj.state_survey = 'notReady';
 			obj.idSurvey = '0';
-			temporaryExecuteTask(taskID, taskName, obj);
+			temporaryExecuteTask(taskID, obj);
 			handleClickOpen();
 		} else {
 			console.log('Error on variables');
@@ -132,15 +131,10 @@ const FormComponent = (props) => {
 				</LocalizationProvider>
 			</FormControl>
 
-			<Dialog
-				open={open}
-				onClose={handleClose}
-				aria-labelledby='alert-dialog-title'
-				aria-describedby='alert-dialog-description'
-			>
-				<DialogTitle id='alert-dialog-title'>{'Task Service'}</DialogTitle>
+			<Dialog open={open} onClose={handleClose}>
+				<DialogTitle>{'Task Service'}</DialogTitle>
 				<DialogContent>
-					<DialogContentText id='alert-dialog-description'>
+					<DialogContentText>
 						Tâche exécutée avec succès, retour au menu principal.
 					</DialogContentText>
 				</DialogContent>
