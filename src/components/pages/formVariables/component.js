@@ -34,12 +34,12 @@ const useStyles = makeStyles()((theme) => {
 			marginTop: '10%',
 			padding: 10,
 			[theme.breakpoints.down('md')]: {
-				width: '70%',
-				marginLeft: '18%',
+				width: '50%',
+				marginLeft: '27%',
 			},
 			[theme.breakpoints.down('sm')]: {
-				width: '85%',
-				marginLeft: '5%',
+				width: '60%',
+				marginLeft: '20%',
 			},
 		},
 

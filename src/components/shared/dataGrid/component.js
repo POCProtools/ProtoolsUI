@@ -40,7 +40,7 @@ const CustomDataGrid = (props) => {
 				columns={columns}
 				autoPageSize
 				pagination
-				getRowHeight={() => 'auto'}
+				//getRowHeight={() => 'auto'}
 				getRowClassName={() => 'row--style'}
 				disableSelectionOnClick
 			/>

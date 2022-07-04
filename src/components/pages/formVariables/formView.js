@@ -40,7 +40,7 @@ const FormView = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		temporaryExecuteTask(taskID, taskName, {});
+		temporaryExecuteTask(taskID, {});
 		handleClickOpen();
 	};
 

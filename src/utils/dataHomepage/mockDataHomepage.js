@@ -90,15 +90,6 @@ export const columnsManu = [
 		flex: 0.5,
 		minWidth: 150,
 	},
-
-	{
-		field: 'action',
-		headerName: ' ',
-		align: 'center',
-		headerClassName: 'columns--header',
-		flex: 0.1,
-		renderCell: (value) => <FiChevronRight />,
-	},
 ];
 
 // Modck data for available usertasks

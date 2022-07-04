@@ -16,10 +16,8 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker, DesktopDatePicker } from '@mui/x-date-pickers';
 import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
-import { Task } from '@mui/icons-material';
 
 const FormComponent = (props) => {
-	const taskName = props.taskName;
 	const taskID = props.taskID;
 
 	const [dateDeb, setDateDeb] = useState(new Date('2022-01-01T21:11:54'));
