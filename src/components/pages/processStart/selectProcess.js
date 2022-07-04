@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
 	FormControl,
-	InputLabel,
 	Select,
 	MenuItem,
 	Button,
@@ -10,6 +9,8 @@ import {
 	DialogTitle,
 	DialogContent,
 	DialogContentText,
+	Stack,
+	Typography,
 } from '@mui/material';
 import { startProcess } from 'utils/dataProcess/processExecution';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 const SelectProcess = () => {
 	const navigate = useNavigate();
 	const [selected, setSelected] = useState('empty');
+	const [selectedKey, setSelectedKey] = useState('IDK');
 	const [open, setOpen] = useState(false);
 	const [processParams, setProcessParams] = useState([]);
 
@@ -45,10 +47,14 @@ const SelectProcess = () => {
 		console.log('event: ' + event.target.value);
 		setSelected(event.target.value);
 	};
+	const handleChangeKey = (event) => {
+		console.log('event: ' + event.target.value);
+		setSelectedKey(event.target.value);
+	};
 
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
-		setProcessParams(startProcess(getUrl(selected)));
+		setProcessParams(startProcess(getUrl(selected), selectedKey));
 		console.log('processParams: ' + processParams);
 		handleClickOpen();
 	};
@@ -56,17 +62,30 @@ const SelectProcess = () => {
 	return (
 		<>
 			<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-				<InputLabel id='demo-simple-select-label'>Processus :</InputLabel>
-				<Select
-					labelId='demo-simple-select-label'
-					id='demo-simple-select'
-					value={selected}
-					label='Select BPMN'
-					onChange={handleChange}
-				>
-					<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-				</Select>
-				<Button onClick={navigationHandler}>Valider</Button>
+				<Stack spacing={3}>
+					<Typography variant='body1'> Processus :</Typography>
+					<Select
+						labelId='SelectBPMN'
+						value={selected}
+						label='Select BPMN'
+						onChange={handleChange}
+					>
+						<MenuItem value={'flowable'}>Flowable POC</MenuItem>
+					</Select>
+					<Typography variant='body1'>Business Key :</Typography>
+					<Select
+						labelId='SelectBusinessKey'
+						value={selectedKey}
+						label='Select BusinessKey'
+						onChange={handleChangeKey}
+					>
+						<MenuItem value={'TirageEnquête'}>Tirage Enquête</MenuItem>
+						<MenuItem value={'TestPOC'}>TestPOC</MenuItem>
+						<MenuItem value={'UnPandaRouxDors'}>Un Panda Roux Dors</MenuItem>
+						<MenuItem value={'IDK'}>IDK</MenuItem>
+					</Select>
+					<Button onClick={navigationHandler}>Valider</Button>
+				</Stack>
 			</FormControl>
 			<Dialog
 				open={open}

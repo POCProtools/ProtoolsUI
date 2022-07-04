@@ -3,8 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 	border: 0,
-	color: 'rgba(0,0,0,.85)',
-
+	color: theme.palette.primary.main,
 	fontFamily: [
 		'-apple-system',
 		'BlinkMacSystemFont',

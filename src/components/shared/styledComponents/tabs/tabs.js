@@ -4,7 +4,7 @@ import { Tab, Tabs } from '@mui/material';
 export const StyledTabs = styled(Tabs)(({ theme }) => ({
 	borderBottom: null,
 	'& .MuiTabs-selected': {
-		backgroundColor: 'secondary',
+		backgroundColor: theme.palette.secondary.main,
 	},
 	'& .MuiTabs-indicator': {
 		backgroundColor: theme.palette.secondary.main,
@@ -40,11 +40,11 @@ export const StyledTab = styled(Tab)(({ theme }) => ({
 		minWidth: '100px',
 	},
 	'&:hover': {
-		color: 'primary',
+		color: theme.palette.primary.main,
 		opacity: 0.9,
 	},
 	'&.Mui-selected': {
-		color: 'primary',
+		color: theme.palette.primary.main,
 		fontWeight: 'bold',
 		opacity: 1,
 	},

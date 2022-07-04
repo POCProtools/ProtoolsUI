@@ -45,9 +45,14 @@ export const temporaryExecuteTask = (taskID, taskName, variables) => {
 		});
 };
 
-export const startProcess = (processKey) => {
+export const startProcess = (processKey, businessKey) => {
 	const urlEndpoint = 'start-process/';
-	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + processKey;
+	const apiUrl =
+		process.env.REACT_APP_API_URL +
+		urlEndpoint +
+		processKey +
+		'/' +
+		businessKey;
 	const dataUrl = [];
 	fetcherPost(apiUrl)
 		.then((r) => {
