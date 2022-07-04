@@ -92,9 +92,11 @@ const FormView = (props) => {
 			</Button>
 
 			<Dialog open={open} onClose={handleClose}>
-				<DialogTitle id='alert-dialog-title'>{'Task Service'}</DialogTitle>
+				<DialogTitle>
+					<Typography variant='h4'>Task Service</Typography>
+				</DialogTitle>
 				<DialogContent>
-					<DialogContentText id='alert-dialog-description'>
+					<DialogContentText>
 						Tâche exécutée avec succès, retour au menu principal.
 					</DialogContentText>
 				</DialogContent>

@@ -11,6 +11,7 @@ import {
 	DialogContentText,
 	Stack,
 	InputLabel,
+	Typography,
 } from '@mui/material';
 import { startProcess } from 'utils/dataProcess/processExecution';
 import { useNavigate } from 'react-router-dom';
@@ -63,8 +64,9 @@ const SelectProcess = () => {
 		<>
 			<Stack spacing={3}>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel> Processus :</InputLabel>
+					<InputLabel color='primary'> Processus :</InputLabel>
 					<Select
+						color='primary'
 						labelId='SelectBPMN'
 						value={selected}
 						label='Select BPMN'
@@ -74,8 +76,9 @@ const SelectProcess = () => {
 					</Select>
 				</FormControl>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel>Business Key :</InputLabel>
+					<InputLabel color='primary'>Business Key :</InputLabel>
 					<Select
+						color='primary'
 						labelId='SelectBusinessKey'
 						value={selectedKey}
 						label='Select BusinessKey'
@@ -90,15 +93,12 @@ const SelectProcess = () => {
 				<Button onClick={navigationHandler}>Valider</Button>
 			</Stack>
 
-			<Dialog
-				open={open}
-				onClose={handleClose}
-				aria-labelledby='alert-dialog-title'
-				aria-describedby='alert-dialog-description'
-			>
-				<DialogTitle id='alert-dialog-title'>{'Process Service'}</DialogTitle>
+			<Dialog open={open} onClose={handleClose}>
+				<DialogTitle>
+					<Typography variant='h4'>Process Service</Typography>
+				</DialogTitle>
 				<DialogContent>
-					<DialogContentText id='alert-dialog-description'>
+					<DialogContentText>
 						Processus lancé avec succès, redirection vers la page de suivi du
 						processus.
 					</DialogContentText>

@@ -114,6 +114,46 @@ const theme = createTheme({
 		},
 	},
 	overrides: {},
-	components: {},
+	components: {
+		MuiInputLabel: {
+			styleOverrides: {
+				label: {
+					color: PRIMARY.mainText,
+				},
+			},
+		},
+		MuiMenuItem: {
+			styleOverrides: {
+				root: {
+					color: PRIMARY.mainText,
+				},
+			},
+		},
+		MuiInputBase: {
+			styleOverrides: {
+				input: {
+					color: PRIMARY.mainText,
+					'&::before': PRIMARY.mainText,
+				},
+			},
+		},
+		MuiDialogTitle: {
+			styleOverrides: {
+				root: {
+					color: PRIMARY.mainText,
+					'& h6': {
+						color: 'red',
+					},
+				},
+			},
+		},
+		MuiDialogContentText: {
+			styleOverrides: {
+				root: {
+					color: PRIMARY.mainText,
+				},
+			},
+		},
+	},
 });
 export default theme;

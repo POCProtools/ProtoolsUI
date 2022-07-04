@@ -132,7 +132,9 @@ const FormComponent = (props) => {
 			</FormControl>
 
 			<Dialog open={open} onClose={handleClose}>
-				<DialogTitle>{'Task Service'}</DialogTitle>
+				<DialogTitle>
+					<Typography variant='h4'>Task Service</Typography>
+				</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
 						Tâche exécutée avec succès, retour au menu principal.
