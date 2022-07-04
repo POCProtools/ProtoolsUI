@@ -10,14 +10,14 @@ import {
 	DialogContent,
 	DialogContentText,
 	Stack,
-	Typography,
+	InputLabel,
 } from '@mui/material';
 import { startProcess } from 'utils/dataProcess/processExecution';
 import { useNavigate } from 'react-router-dom';
 
 const SelectProcess = () => {
 	const navigate = useNavigate();
-	const [selected, setSelected] = useState('empty');
+	const [selected, setSelected] = useState('flowable');
 	const [selectedKey, setSelectedKey] = useState('IDK');
 	const [open, setOpen] = useState(false);
 	const [processParams, setProcessParams] = useState([]);
@@ -61,9 +61,9 @@ const SelectProcess = () => {
 
 	return (
 		<>
-			<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-				<Stack spacing={3}>
-					<Typography variant='body1'> Processus :</Typography>
+			<Stack spacing={3}>
+				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
+					<InputLabel> Processus :</InputLabel>
 					<Select
 						labelId='SelectBPMN'
 						value={selected}
@@ -72,7 +72,9 @@ const SelectProcess = () => {
 					>
 						<MenuItem value={'flowable'}>Flowable POC</MenuItem>
 					</Select>
-					<Typography variant='body1'>Business Key :</Typography>
+				</FormControl>
+				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
+					<InputLabel>Business Key :</InputLabel>
 					<Select
 						labelId='SelectBusinessKey'
 						value={selectedKey}
@@ -84,9 +86,10 @@ const SelectProcess = () => {
 						<MenuItem value={'UnPandaRouxDors'}>Un Panda Roux Dors</MenuItem>
 						<MenuItem value={'IDK'}>IDK</MenuItem>
 					</Select>
-					<Button onClick={navigationHandler}>Valider</Button>
-				</Stack>
-			</FormControl>
+				</FormControl>
+				<Button onClick={navigationHandler}>Valider</Button>
+			</Stack>
+
 			<Dialog
 				open={open}
 				onClose={handleClose}

@@ -13,7 +13,7 @@ const DoughnutChart = (props) => {
 		(partialSum, a) => partialSum + a,
 		0
 	);
-	console.log('Process Number', dataNumber);
+	console.log('Pie Number', dataNumber);
 	const plugins = [
 		{
 			beforeDraw: function (chart) {

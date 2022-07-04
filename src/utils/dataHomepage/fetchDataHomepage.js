@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { fetcherGet } from 'core/fetchData/fetchData';
 import theme from 'theme';
 import Moment from 'moment';
-
+import { taskDictionary } from 'utils/mockData';
 // Retrive all process currently running
 export const fetchProcessData = () => {
 	const urlEndpoint = 'processInstances/';
@@ -51,12 +52,12 @@ export const fetchTaskData = () => {
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
 	var pieProcessdata = {
-		labels: ['Conception (Connected)', 'Collecte', 'Traitement', 'IDK'],
+		labels: ['Demande Information', 'Vérification avant Validation', 'IDK'],
 		datasets: [
 			{
 				label: 'processus',
-				data: [0, 19, 3, 5],
-				backgroundColor: ['#FEC89A', '#B56576', '#98C1D9', '#84A98C'],
+				data: [0, 0, 0],
+				backgroundColor: ['#555b6e', '#ffd6ba', '#89b0ae'],
 				borderColor: [theme.palette.background.default],
 				borderWidth: 2,
 			},
@@ -76,8 +77,8 @@ export const fetchTaskData = () => {
 					action: '',
 				});
 			}
-
-			pieProcessdata.datasets[0].data = [datatmp.length, 4, 2, 1];
+			const pieData = getTaskPieColorIndex(datatmp.map((task) => task.name));
+			pieProcessdata.datasets[0].data = pieData;
 		})
 		.catch((e) => {
 			console.log(e);
@@ -85,7 +86,7 @@ export const fetchTaskData = () => {
 	return [dataUrl, pieProcessdata];
 };
 
-export const getPieProcessColorIndex = (BusinessKey) => {
+const getPieProcessColorIndex = (BusinessKey) => {
 	switch (BusinessKey) {
 		case 'TirageEnquête':
 			return 0;
@@ -98,4 +99,22 @@ export const getPieProcessColorIndex = (BusinessKey) => {
 		default:
 			return 4;
 	}
+};
+
+export const getTaskPieColorIndex = (liste) => {
+	console.log('liste', liste);
+	const keys = Object.keys(taskDictionary).reduce((accumulator, value) => {
+		return { ...accumulator, [value]: 0 };
+	}, {});
+	console.log('keys', keys);
+
+	const obj = Object.entries(taskDictionary).reduce(
+		(accumulator, [key, value]) => [
+			...accumulator,
+			liste.filter((task) => value.includes(task)).length,
+		],
+		[]
+	);
+	console.log('TaskObject', obj);
+	return obj;
 };

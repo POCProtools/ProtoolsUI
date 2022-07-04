@@ -25,7 +25,7 @@ export const executeTask = (user, taskID, variables) => {
 };
 
 // Temporary solution to execute task, depend on forms type
-export const temporaryExecuteTask = (taskID, taskName, variables) => {
+export const temporaryExecuteTask = (taskID, variables) => {
 	const urlEndpoint = 'get-tasks/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + 'user/' + taskID;
 	return fetcherPost(apiUrl)

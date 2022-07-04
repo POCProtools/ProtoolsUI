@@ -91,12 +91,7 @@ const FormView = (props) => {
 				<Typography value='h4'>Envoyer</Typography>
 			</Button>
 
-			<Dialog
-				open={open}
-				onClose={handleClose}
-				aria-labelledby='alert-dialog-title'
-				aria-describedby='alert-dialog-description'
-			>
+			<Dialog open={open} onClose={handleClose}>
 				<DialogTitle id='alert-dialog-title'>{'Task Service'}</DialogTitle>
 				<DialogContent>
 					<DialogContentText id='alert-dialog-description'>
