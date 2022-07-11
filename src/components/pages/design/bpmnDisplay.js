@@ -8,22 +8,24 @@ import minimapModule from 'diagram-js-minimap';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 
 import { makeStyles } from 'tss-react/mui';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import CustomCard from 'components/shared/styledComponents/card/card';
 
 import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
 import SideBar from 'components/shared/sidepanel/sidepanel';
 import { emptyBPMN } from 'utils/mockData';
+import CustomModeler from './bpmnModeler';
 
 const useStyles = makeStyles()((theme) => {
 	return {
 		modelerStyle: {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
-			height: '78vh',
+			height: '85vh',
 			width: '77vw',
 			position: 'absolute',
-			top: '20%',
+			top: '12%',
 			left: '18%',
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
@@ -57,11 +59,6 @@ const Display = (props) => {
 	const { classes } = useStyles();
 	//const params = useLocation();
 	//const url = params.state.selected;
-
-	const saveBPMNDiagram = async (modeler) => {
-		const { xml } = await modeler.saveXML();
-		console.log('Save BPMN', xml);
-	};
 
 	const modelerRef = useRef(null);
 
@@ -106,16 +103,10 @@ const Display = (props) => {
 				<Typography variant='h4' className={classes.title}>
 					Designer
 				</Typography>
-
-				<Button onClick={() => saveBPMNDiagram(modelerRef.current)}>
-					SaveXML
-				</Button>
 			</Box>
-			<div
-				className={classes.modelerStyle}
-				id='bpmncontainer'
-				ref={bpmContainerRef}
-			></div>
+			<CustomCard className={classes.modelerStyle}>
+				<CustomModeler />
+			</CustomCard>
 		</Box>
 	);
 };

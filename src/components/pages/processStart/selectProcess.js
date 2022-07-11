@@ -90,7 +90,9 @@ const SelectProcess = () => {
 						<MenuItem value={'IDK'}>IDK</MenuItem>
 					</Select>
 				</FormControl>
-				<Button onClick={navigationHandler}>Valider</Button>
+				<Button variant='contained' onClick={navigationHandler}>
+					Valider
+				</Button>
 			</Stack>
 
 			<Dialog open={open} onClose={handleClose}>
@@ -104,7 +106,7 @@ const SelectProcess = () => {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose} autoFocus>
+					<Button variant='outlined' onClick={handleClose} autoFocus>
 						Ok
 					</Button>
 				</DialogActions>

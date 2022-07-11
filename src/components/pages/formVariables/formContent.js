@@ -124,7 +124,7 @@ const FormComponent = (props) => {
 							helperText={sampleSizeError}
 							onChange={(event) => setSampleSize(event.target.value)}
 						/>
-						<Button sx={{ m: 2 }} onClick={handleSubmit}>
+						<Button variant='contained' sx={{ m: 2 }} onClick={handleSubmit}>
 							<Typography value='h2'>Envoyer</Typography>
 						</Button>
 					</Stack>
