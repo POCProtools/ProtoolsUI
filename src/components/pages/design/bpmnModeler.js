@@ -12,8 +12,28 @@ const CustomModeler = () => {
 	console.log(bpmContainerRef);
 
 	const saveBPMNDiagram = async (modeler) => {
-		const { xml } = await modeler.saveXML();
-		console.log('Save BPMN', xml);
+		modeler.saveXML({ format: true }, function (error, xml) {
+			if (error) {
+				return;
+			}
+
+			var svgBlob = new Blob([xml], {
+				type: 'text/xml',
+			});
+
+			var fileName = 'BpmnFile.xml';
+
+			var downloadLink = document.createElement('a');
+			downloadLink.download = fileName;
+			downloadLink.innerHTML = 'Get BPMN XML';
+			downloadLink.href = window.URL.createObjectURL(svgBlob);
+			downloadLink.onclick = function (event) {
+				document.body.removeChild(event.target);
+			};
+			downloadLink.style.visibility = 'hidden';
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+		});
 	};
 	const saveBPMNSvg = async (modeler) => {
 		modeler.saveSVG({ format: true }, function (error, svg) {
@@ -25,7 +45,7 @@ const CustomModeler = () => {
 				type: 'image/svg+xml',
 			});
 
-			var fileName = Math.random(36).toString().substring(7) + '.svg';
+			var fileName = 'BpmnFile.svg';
 
 			var downloadLink = document.createElement('a');
 			downloadLink.download = fileName;
