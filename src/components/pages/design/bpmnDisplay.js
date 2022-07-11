@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import React, { useEffect, useRef } from 'react';
+
 // BPMN Imports
-import Modeler from 'bpmn-js/lib/Modeler';
+import BpmnModeler from 'bpmn-js/lib/Modeler';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import minimapModule from 'diagram-js-minimap';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 
 import { makeStyles } from 'tss-react/mui';
-import { Box, Typography } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { Box, Typography, Button } from '@mui/material';
+
 import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
 import SideBar from 'components/shared/sidepanel/sidepanel';
+import { emptyBPMN } from 'utils/mockData';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -54,52 +55,42 @@ const useStyles = makeStyles()((theme) => {
 //TODO : add header (save, update, etc...) + Custom flowable options
 const Display = (props) => {
 	const { classes } = useStyles();
-	const [diagram, setDiagram] = useState('');
-	const params = useLocation();
-	const url = params.state.selected;
+	//const params = useLocation();
+	//const url = params.state.selected;
 
-	const fetchDiagram = useCallback(() => {
-		console.log(params.state);
-		console.log(url);
+	const saveBPMNDiagram = async (modeler) => {
+		const { xml } = await modeler.saveXML();
+		console.log('Save BPMN', xml);
+	};
 
-		axios
-			.get(url)
-			.then((r) => {
-				setDiagram(r.data);
-			})
-			.catch((e) => {
-				console.log(e);
-			});
-	}, [params.state, url]);
+	const modelerRef = useRef(null);
 
+	const bpmContainerRef = useRef();
+	console.log(bpmContainerRef);
+
+	// import is fired only once
 	useEffect(() => {
-		fetchDiagram();
-	}, [fetchDiagram]);
-
-	if (diagram.length > 0) {
-		const modeler = new Modeler({
-			container: '#containerBPMN',
+		const modeler = (modelerRef.current = new BpmnModeler({
+			container: bpmContainerRef.current,
 
 			additionalModules: [minimapModule],
-		});
-		modeler
-			.importXML(diagram)
-			.then(({ warnings }) => {
-				if (warnings.length) {
-					console.log('Warnings', warnings);
-				}
+			keyboard: {
+				bindTo: window,
+			},
+			propertiesPanel: {
+				parent: '#propview',
+			},
+		}));
 
-				const canvas = modeler.get('modeling');
-				canvas.setColor('CalmCustomerTask', {
-					stroke: 'green',
-					fill: 'yellow',
-				});
-				modeler.get('minimap').open();
+		modeler
+			.importXML(emptyBPMN)
+			.then(() => {
+				const canvas = modeler.get('canvas');
+				canvas.zoom('fit-viewport');
 			})
-			.catch((err) => {
-				console.log('error', err);
-			});
-	}
+			.catch(console.error);
+	}, []);
+
 	return (
 		<Box>
 			<GlobalStyles
@@ -115,8 +106,16 @@ const Display = (props) => {
 				<Typography variant='h4' className={classes.title}>
 					Designer
 				</Typography>
+
+				<Button onClick={() => saveBPMNDiagram(modelerRef.current)}>
+					SaveXML
+				</Button>
 			</Box>
-			<div id='containerBPMN' className={classes.modelerStyle} />
+			<div
+				className={classes.modelerStyle}
+				id='bpmncontainer'
+				ref={bpmContainerRef}
+			></div>
 		</Box>
 	);
 };

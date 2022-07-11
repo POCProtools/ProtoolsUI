@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useParams } from 'react';
+import React, { useState } from 'react';
 import {
 	Typography,
 	FormControl,
@@ -12,14 +12,16 @@ import {
 	Stack,
 	TextField,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker, DesktopDatePicker } from '@mui/x-date-pickers';
 import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
 
 const FormComponent = (props) => {
-	const taskID = props.taskID;
+	const navigate = useNavigate();
 
+	const taskID = props.taskID;
 	const [dateDeb, setDateDeb] = useState(new Date('2022-01-01T21:11:54'));
 	const [dateDebError, setDateDebError] = useState('');
 	const [dateEnd, setDateEnd] = useState(new Date('2022-12-31T21:11:54'));
@@ -35,7 +37,7 @@ const FormComponent = (props) => {
 
 	const handleClose = () => {
 		setOpen(false);
-		window.location.replace('/ ', '_blank');
+		navigate(-1);
 	};
 
 	const handleSubmit = (e) => {
