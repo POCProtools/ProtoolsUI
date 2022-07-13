@@ -42,19 +42,15 @@ const SelectBPMN = () => {
 
 	return (
 		<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-			<InputLabel id='demo-simple-select-label'>Select BPMN</InputLabel>
-			<Select
-				labelId='demo-simple-select-label'
-				id='demo-simple-select'
-				value={selected}
-				label='Select BPMN'
-				onChange={handleChange}
-			>
+			<InputLabel>Select BPMN</InputLabel>
+			<Select value={selected} label='Select BPMN' onChange={handleChange}>
 				<MenuItem value={'camunda'}>Camunda POC</MenuItem>
 				<MenuItem value={'flowable'}>Flowable POC</MenuItem>
 				<MenuItem value={'empty'}>Empty File</MenuItem>
 			</Select>
-			<Button onClick={navigationHandler}>Let's go</Button>
+			<Button variant='contained' sx={{ m: 1 }} onClick={navigationHandler}>
+				Let's go
+			</Button>
 		</FormControl>
 	);
 };

@@ -1,11 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-
-// BPMN Imports
-import BpmnModeler from 'bpmn-js/lib/Modeler';
-import 'bpmn-js/dist/assets/diagram-js.css';
-import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
-import minimapModule from 'diagram-js-minimap';
-import 'diagram-js-minimap/assets/diagram-js-minimap.css';
+import React, { useRef } from 'react';
+//import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 import { makeStyles } from 'tss-react/mui';
 import { Box, Typography } from '@mui/material';
@@ -14,7 +9,7 @@ import CustomCard from 'components/shared/styledComponents/card/card';
 import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
 import SideBar from 'components/shared/sidepanel/sidepanel';
-import { emptyBPMN } from 'utils/mockData';
+//import { emptyBPMN } from 'utils/mockData';
 import CustomModeler from './bpmnModeler';
 
 const useStyles = makeStyles()((theme) => {
@@ -57,36 +52,13 @@ const useStyles = makeStyles()((theme) => {
 //TODO : add header (save, update, etc...) + Custom flowable options
 const Display = (props) => {
 	const { classes } = useStyles();
-	//const params = useLocation();
-	//const url = params.state.selected;
-
-	const modelerRef = useRef(null);
+	const params = useLocation();
+	const url = params.state.selected;
 
 	const bpmContainerRef = useRef();
 	console.log(bpmContainerRef);
 
 	// import is fired only once
-	useEffect(() => {
-		const modeler = (modelerRef.current = new BpmnModeler({
-			container: bpmContainerRef.current,
-
-			additionalModules: [minimapModule],
-			keyboard: {
-				bindTo: window,
-			},
-			propertiesPanel: {
-				parent: '#propview',
-			},
-		}));
-
-		modeler
-			.importXML(emptyBPMN)
-			.then(() => {
-				const canvas = modeler.get('canvas');
-				canvas.zoom('fit-viewport');
-			})
-			.catch(console.error);
-	}, []);
 
 	return (
 		<Box>
@@ -105,7 +77,7 @@ const Display = (props) => {
 				</Typography>
 			</Box>
 			<CustomCard className={classes.modelerStyle}>
-				<CustomModeler />
+				<CustomModeler url={url} />
 			</CustomCard>
 		</Box>
 	);

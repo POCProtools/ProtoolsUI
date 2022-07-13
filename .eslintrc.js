@@ -12,5 +12,5 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['react', 'mui-unused-classes'],
-	rules: {},
+	rules: { 'no-unused-vars': 'warn' },
 };

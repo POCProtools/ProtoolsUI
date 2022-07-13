@@ -1,12 +1,19 @@
 import React, { Fragment, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { Button } from '@mui/material';
+// BPMN Imports
+import 'bpmn-js/dist/assets/diagram-js.css';
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
+import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
-import { emptyBPMN } from 'utils/mockData';
+import minimapModule from 'diagram-js-minimap';
+//import { emptyBPMN } from 'utils/mockData';
 import 'bpmn-js/dist/assets/diagram-js.css';
 
-const CustomModeler = () => {
+const CustomModeler = (props) => {
 	// we use reference because modeler is a mutable object for which we need to keep reference
 	const modelerRef = useRef(null);
+	const url = props.url;
 
 	const bpmContainerRef = useRef();
 	console.log(bpmContainerRef);
@@ -67,34 +74,33 @@ const CustomModeler = () => {
 			keyboard: {
 				bindTo: window,
 			},
+			additionalModules: [minimapModule],
 			propertiesPanel: {
 				parent: '#propview',
 			},
 		}));
 
-		modeler
-			.importXML(emptyBPMN)
-			.then(() => {
-				const canvas = modeler.get('canvas');
-				canvas.zoom('fit-viewport');
+		axios
+			.get(url)
+			.then((r) => {
+				modeler
+					.importXML(r.data)
+					.then(() => {
+						const canvas = modeler.get('canvas');
+						canvas.zoom('fit-viewport');
+					})
+					.catch(console.error);
 			})
-			.catch(console.error);
-	}, []);
+			.catch((e) => {
+				console.log(e);
+			});
+	}, [url]);
 
 	return (
 		<Fragment>
 			<Button
-				sx={{ marginLeft: 3 }}
-				variant='contained'
-				onClick={() => {
-					console.log('import XML');
-				}}
-			>
-				Import BPMN File
-			</Button>
-			<Button
 				sx={{ m: 2 }}
-				variant='outlined'
+				variant='contained'
 				onClick={() => saveBPMNDiagram(modelerRef.current)}
 			>
 				Save BPMN File
