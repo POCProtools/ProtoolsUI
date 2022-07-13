@@ -12,20 +12,20 @@ const CustomModeler = () => {
 	console.log(bpmContainerRef);
 
 	const saveBPMNDiagram = async (modeler) => {
-		modeler.saveXML({ format: true }, function (error, xml) {
+		modeler.saveXML({ format: true }, function (error, bpmn) {
 			if (error) {
 				return;
 			}
 
-			var svgBlob = new Blob([xml], {
+			var svgBlob = new Blob([bpmn], {
 				type: 'text/xml',
 			});
 
-			var fileName = 'BpmnFile.xml';
+			var fileName = 'BpmnFile.bpmn';
 
 			var downloadLink = document.createElement('a');
 			downloadLink.download = fileName;
-			downloadLink.innerHTML = 'Get BPMN XML';
+			downloadLink.innerHTML = 'Get BPMN File';
 			downloadLink.href = window.URL.createObjectURL(svgBlob);
 			downloadLink.onclick = function (event) {
 				document.body.removeChild(event.target);
@@ -90,14 +90,14 @@ const CustomModeler = () => {
 					console.log('import XML');
 				}}
 			>
-				Import XML File
+				Import BPMN File
 			</Button>
 			<Button
 				sx={{ m: 2 }}
 				variant='outlined'
 				onClick={() => saveBPMNDiagram(modelerRef.current)}
 			>
-				Save XML File
+				Save BPMN File
 			</Button>
 			<Button
 				onClick={() => {
