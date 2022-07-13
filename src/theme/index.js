@@ -154,6 +154,13 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					borderRadius: 12,
+				},
+			},
+		},
 	},
 });
 export default theme;

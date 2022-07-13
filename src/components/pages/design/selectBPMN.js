@@ -5,6 +5,7 @@ import {
 	Select,
 	MenuItem,
 	Button,
+	Stack,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -41,17 +42,23 @@ const SelectBPMN = () => {
 	};
 
 	return (
-		<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-			<InputLabel>Select BPMN</InputLabel>
-			<Select value={selected} label='Select BPMN' onChange={handleChange}>
-				<MenuItem value={'camunda'}>Camunda POC</MenuItem>
-				<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-				<MenuItem value={'empty'}>Empty File</MenuItem>
-			</Select>
-			<Button variant='contained' sx={{ m: 1 }} onClick={navigationHandler}>
-				Let's go
-			</Button>
-		</FormControl>
+		<Stack spacing={3}>
+			<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
+				<InputLabel>Select BPMN</InputLabel>
+				<Select value={selected} label='Select BPMN' onChange={handleChange}>
+					<MenuItem value={'camunda'}>Camunda POC</MenuItem>
+					<MenuItem value={'flowable'}>Flowable POC</MenuItem>
+					<MenuItem value={'empty'}>Empty File</MenuItem>
+				</Select>
+				<Button
+					variant='contained'
+					sx={{ marginTop: 3 }}
+					onClick={navigationHandler}
+				>
+					Let's go
+				</Button>
+			</FormControl>
+		</Stack>
 	);
 };
 
