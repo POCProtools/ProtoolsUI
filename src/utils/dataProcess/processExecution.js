@@ -64,3 +64,15 @@ export const startProcess = (processKey, businessKey) => {
 		});
 	return dataUrl;
 };
+
+export const deleteProcess = (processID) => {
+	const urlEndpoint = 'deleteProcess/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + processID;
+	return fetcherPost(apiUrl)
+		.then((r) => {
+			console.log('Delete Process Instance :', processID);
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+};
