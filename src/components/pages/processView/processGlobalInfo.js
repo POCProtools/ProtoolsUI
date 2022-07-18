@@ -34,7 +34,7 @@ const ProcessGlobalInfo = (props) => {
 		date,
 		processID,
 		documentation,
-		tenant,
+		//tenant,
 		activeTask,
 		processKey,
 		businessKey,
