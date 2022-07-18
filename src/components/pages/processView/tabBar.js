@@ -17,6 +17,8 @@ import {
 	processVariablesColumns,
 	processBPMNElementColumn,
 } from 'utils/dataProcess/mockDataProcess';
+import ProcessGlobalInfo from './processGlobalInfo';
+
 const useStyles = makeStyles()((theme) => {
 	return {
 		card: {
@@ -47,6 +49,7 @@ const useStyles = makeStyles()((theme) => {
 			marginBottom: '5%',
 			position: 'absolute',
 			top: '63%',
+			padding: 5,
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
 				marginLeft: '11.5%',
@@ -82,6 +85,8 @@ const TabBarWorkflow = (props) => {
 	const dataManualTasks = props.manualTasks;
 	const dataBpmnElements = props.bpmnElement;
 	const id = props.id;
+	const processInformations = props.processInformations;
+	const processKey = props.processKey;
 
 	const processManualTasksColumns = [
 		{
@@ -156,7 +161,14 @@ const TabBarWorkflow = (props) => {
 
 			<CustomCard className={classes.cardTab}>
 				<TabPanel value={value} index={0}>
-					<span>TODO : Add global process informations</span>
+					<ProcessGlobalInfo
+						processID={id}
+						activeTask={dataManualTasks.length}
+						date={processInformations.date}
+						documentation={processInformations.doc}
+						processKey={processKey}
+						businessKey={processInformations.key}
+					/>
 				</TabPanel>
 				<TabPanel value={value} index={1} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>

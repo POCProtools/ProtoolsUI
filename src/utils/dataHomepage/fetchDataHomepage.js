@@ -32,7 +32,12 @@ export const fetchProcessData = () => {
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
 					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
-					action: datatmp[i].processKey + '/' + datatmp[i].id,
+					action: {
+						url: datatmp[i].processKey + '/' + datatmp[i].id,
+						doc: datatmp[i].documentation,
+						date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
+						key: datatmp[i].businessKey,
+					},
 				});
 				const indexColor = getPieProcessColorIndex(datatmp[i].businessKey);
 				pieProcessdata.datasets[0].data[indexColor] =

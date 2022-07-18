@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 // React dependencies
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 // BPMN dependencies
 import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
@@ -89,7 +89,7 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-const BPMNViewer = () => {
+const BPMNViewer = (props) => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
 	const [loading, setLoading] = useState(true);
@@ -98,6 +98,8 @@ const BPMNViewer = () => {
 	const [variables, setVariables] = useState([]);
 	const [manualTasks, setManualTasks] = useState([]);
 	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
+	const processInformations = useLocation().state;
+	console.log('processInformations', processInformations);
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -219,6 +221,8 @@ const BPMNViewer = () => {
 						}
 						bpmnElement={allTasks.length > 0 ? allTasks : defaultBpmnElement}
 						id={id}
+						processInformations={processInformations}
+						processKey={processKey}
 					/>
 				</Box>
 			</>

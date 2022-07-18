@@ -28,6 +28,7 @@ const theme = createTheme({
 		background: {
 			default: PRIMARY.background,
 		},
+		warning: { main: '#d1495b', light: '#fed9b7' },
 		border: {
 			borderColor: SECONDARY.secondGreen,
 			borderWidth: borderWidth,

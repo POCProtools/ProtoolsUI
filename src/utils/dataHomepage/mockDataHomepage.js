@@ -1,5 +1,6 @@
 import { FiChevronRight, FiCheck, FiXCircle } from 'react-icons/fi';
-import { Box, Link } from '@mui/material';
+import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 export const columnsProcessData = [
 	{
 		field: 'id',
@@ -30,6 +31,13 @@ export const columnsProcessData = [
 		minWidth: 150,
 	},
 	{
+		field: 'businessKey',
+		headerName: 'Business Key',
+		headerClassName: 'columns--header',
+		flex: 0.3,
+		minWidth: 150,
+	},
+	{
 		field: 'state',
 		headerName: 'Statut',
 		headerClassName: 'columns--header',
@@ -53,7 +61,15 @@ export const columnsProcessData = [
 		flex: 0.15,
 		align: 'center',
 		renderCell: (params) => (
-			<Link href={`/process/${params.value}`} underline='none'>
+			<Link
+				to={`/process/${params.value.url}`}
+				underline='none'
+				state={{
+					doc: params.value.doc,
+					date: params.value.date,
+					key: params.value.key,
+				}}
+			>
 				<FiChevronRight />
 			</Link>
 		),
