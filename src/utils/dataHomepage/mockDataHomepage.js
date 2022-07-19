@@ -1,4 +1,4 @@
-import { FiChevronRight, FiCheck, FiXCircle } from 'react-icons/fi';
+import { FiChevronRight, FiCheck, FiPauseCircle } from 'react-icons/fi';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 export const columnsProcessData = [
@@ -35,16 +35,17 @@ export const columnsProcessData = [
 		field: 'state',
 		headerName: 'Statut',
 		headerClassName: 'columns--header',
+		type: 'boolean',
 		flex: 0.18,
 		align: 'center',
-		renderCell: (value) =>
-			value ? (
+		renderCell: (params) =>
+			params.value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
 					<FiCheck size={20} color='#17C3B2' />
 				</Box>
 			) : (
 				<Box display='flex' alignItems='center' justifyContent='center'>
-					<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+					<FiPauseCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
 				</Box>
 			),
 	},

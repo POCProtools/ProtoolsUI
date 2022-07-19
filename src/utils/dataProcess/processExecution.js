@@ -76,3 +76,15 @@ export const deleteProcess = (processID) => {
 			console.log('error', e);
 		});
 };
+
+export const suspendProcess = (processID) => {
+	const urlEndpoint = 'suspendProcess/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + processID;
+	return fetcherPost(apiUrl)
+		.then((r) => {
+			console.log('Suspending Process Instance :', processID);
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+};

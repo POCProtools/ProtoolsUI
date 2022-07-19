@@ -16,7 +16,10 @@ import {
 	CardContent,
 } from '@mui/material';
 import { FiPause, FiTrash } from 'react-icons/fi';
-import { deleteProcess } from '../../../utils/dataProcess/processExecution';
+import {
+	deleteProcess,
+	suspendProcess,
+} from '../../../utils/dataProcess/processExecution';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -40,17 +43,31 @@ const ProcessGlobalInfo = (props) => {
 		businessKey,
 	} = props;
 
-	const [open, setOpen] = useState(false);
+	const [openDelete, setOpenDelete] = useState(false);
+	const [openSuspend, setOpenSuspend] = useState(false);
 
-	const handleClickOpen = () => {
-		setOpen(true);
+	const handleSuspendClickOpen = () => {
+		setOpenSuspend(true);
 	};
 
-	const handleCloseCancel = () => {
-		setOpen(false);
+	const handleSuspendCloseCancel = () => {
+		setOpenSuspend(false);
 	};
-	const handleCloseConfirm = () => {
-		setOpen(false);
+	const handleSuspendCloseConfirm = () => {
+		setOpenSuspend(false);
+		suspendProcess(processID);
+		navigate(-1);
+	};
+
+	const handleDeleteClickOpen = () => {
+		setOpenDelete(true);
+	};
+
+	const handleDeleteCloseCancel = () => {
+		setOpenDelete(false);
+	};
+	const handleDeleteCloseConfirm = () => {
+		setOpenDelete(false);
 		deleteProcess(processID);
 		navigate(-1);
 	};
@@ -232,6 +249,7 @@ const ProcessGlobalInfo = (props) => {
 						color='primary'
 						startIcon={<FiPause />}
 						sx={{ padding: '0.5rem 0.7rem' }}
+						onClick={handleSuspendClickOpen}
 					>
 						Suspendre
 					</Button>
@@ -239,7 +257,7 @@ const ProcessGlobalInfo = (props) => {
 						variant='contained'
 						color='warning'
 						startIcon={<FiTrash />}
-						onClick={handleClickOpen}
+						onClick={handleDeleteClickOpen}
 						sx={{
 							padding: '0.5rem',
 						}}
@@ -249,7 +267,7 @@ const ProcessGlobalInfo = (props) => {
 				</Stack>
 			</Stack>
 
-			<Dialog open={open} onClose={handleCloseCancel}>
+			<Dialog open={openDelete} onClose={handleDeleteCloseCancel}>
 				<DialogTitle>
 					<Typography variant='h4'>Supprimer un processus</Typography>
 				</DialogTitle>
@@ -260,13 +278,46 @@ const ProcessGlobalInfo = (props) => {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button variant='outlined' onClick={handleCloseCancel} autoFocus>
+					<Button
+						variant='outlined'
+						onClick={handleDeleteCloseCancel}
+						autoFocus
+					>
 						Annuler
 					</Button>
 					<Button
 						variant='contained'
 						elevation={0}
-						onClick={handleCloseConfirm}
+						onClick={handleDeleteCloseConfirm}
+						autoFocus
+					>
+						Confirmer
+					</Button>
+				</DialogActions>
+			</Dialog>
+
+			<Dialog open={openSuspend} onClose={handleSuspendCloseCancel}>
+				<DialogTitle>
+					<Typography variant='h4'>Suspendre un processus</Typography>
+				</DialogTitle>
+				<DialogContent>
+					<DialogContentText>
+						Voulez vous vraiment supprimer ce processus ? Cela suspendra
+						également les évenements associés tels que les timers
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+					<Button
+						variant='outlined'
+						onClick={handleSuspendCloseCancel}
+						autoFocus
+					>
+						Annuler
+					</Button>
+					<Button
+						variant='contained'
+						elevation={0}
+						onClick={handleSuspendCloseConfirm}
 						autoFocus
 					>
 						Confirmer

@@ -28,7 +28,7 @@ export const fetchProcessData = () => {
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
 					id: datatmp[i].id,
-					state: true,
+					state: !datatmp[i].isSuspended,
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
 					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
