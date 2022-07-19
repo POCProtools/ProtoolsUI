@@ -168,6 +168,7 @@ const TabBarWorkflow = (props) => {
 						documentation={processInformations.doc}
 						processKey={processKey}
 						businessKey={processInformations.key}
+						state={processInformations.state}
 					/>
 				</TabPanel>
 				<TabPanel value={value} index={1} className={classes.tabWidth}>

@@ -37,6 +37,7 @@ export const fetchProcessData = () => {
 						doc: datatmp[i].documentation,
 						date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
 						key: datatmp[i].businessKey,
+						state: !datatmp[i].isSuspended,
 					},
 				});
 				const indexColor = getPieProcessColorIndex(datatmp[i].businessKey);

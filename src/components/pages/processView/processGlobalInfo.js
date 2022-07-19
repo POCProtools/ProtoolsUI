@@ -15,7 +15,7 @@ import {
 	Stack,
 	CardContent,
 } from '@mui/material';
-import { FiPause, FiTrash } from 'react-icons/fi';
+import { FiPause, FiTrash, FiPlay } from 'react-icons/fi';
 import {
 	deleteProcess,
 	suspendProcess,
@@ -41,6 +41,7 @@ const ProcessGlobalInfo = (props) => {
 		activeTask,
 		processKey,
 		businessKey,
+		state,
 	} = props;
 
 	const [openDelete, setOpenDelete] = useState(false);
@@ -211,6 +212,22 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
+										État:
+									</Typography>
+									<Typography
+										color='primary'
+										variant='body2'
+										sx={{ marginLeft: 1 }}
+									>
+										{state ? 'Actif' : 'Inactif'}
+									</Typography>
+								</Grid>
+								<Grid item container xs={12} direction='row'>
+									<Typography
+										color='primary'
+										variant='h6'
+										className={classes.infoName}
+									>
 										Autre info:
 									</Typography>
 									<Typography
@@ -247,11 +264,11 @@ const ProcessGlobalInfo = (props) => {
 					<Button
 						variant='outlined'
 						color='primary'
-						startIcon={<FiPause />}
+						startIcon={state ? <FiPause /> : <FiPlay />}
 						sx={{ padding: '0.5rem 0.7rem' }}
 						onClick={handleSuspendClickOpen}
 					>
-						Suspendre
+						{state ? 'Suspendre' : 'Relancer'}
 					</Button>
 					<Button
 						variant='contained'

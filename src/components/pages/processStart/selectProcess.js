@@ -45,6 +45,7 @@ const SelectProcess = () => {
 					doc: 'Not available yet',
 					date: processParams[0].startTime,
 					key: processParams[0].processKey,
+					state: true,
 				},
 			}
 		);
