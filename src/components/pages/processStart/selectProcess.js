@@ -39,7 +39,14 @@ const SelectProcess = () => {
 	const handleClose = () => {
 		setOpen(false);
 		navigate(
-			'/process/' + processParams[0].processKey + '/' + processParams[0].id
+			'/process/' + processParams[0].processKey + '/' + processParams[0].id,
+			{
+				state: {
+					doc: 'Not available yet',
+					date: processParams[0].startTime,
+					key: processParams[0].processKey,
+				},
+			}
 		);
 	};
 
