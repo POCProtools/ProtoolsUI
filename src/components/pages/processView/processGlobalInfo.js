@@ -19,6 +19,7 @@ import { FiPause, FiTrash, FiPlay } from 'react-icons/fi';
 import {
 	deleteProcess,
 	suspendProcess,
+	relaunchProcess,
 } from '../../../utils/dataProcess/processExecution';
 
 const useStyles = makeStyles()((theme) => {
@@ -56,7 +57,7 @@ const ProcessGlobalInfo = (props) => {
 	};
 	const handleSuspendCloseConfirm = () => {
 		setOpenSuspend(false);
-		suspendProcess(processID);
+		state ? suspendProcess(processID) : relaunchProcess(processID);
 		navigate(-1);
 	};
 
@@ -82,7 +83,7 @@ const ProcessGlobalInfo = (props) => {
 						backgroundColor: 'secondary.pressed',
 						borderRadius: 7,
 						m: 1,
-						width: '90%',
+						maxWidth: '86%',
 					}}
 				>
 					<CardContent className={classes.cardContent}>
@@ -275,9 +276,7 @@ const ProcessGlobalInfo = (props) => {
 						color='warning'
 						startIcon={<FiTrash />}
 						onClick={handleDeleteClickOpen}
-						sx={{
-							padding: '0.5rem',
-						}}
+						sx={{ padding: '0.5rem 0.7rem' }}
 					>
 						Supprimer
 					</Button>
@@ -315,12 +314,15 @@ const ProcessGlobalInfo = (props) => {
 
 			<Dialog open={openSuspend} onClose={handleSuspendCloseCancel}>
 				<DialogTitle>
-					<Typography variant='h4'>Suspendre un processus</Typography>
+					<Typography variant='h4'>
+						{state ? 'Suspendre un processus' : 'Relancer un processus'}
+					</Typography>
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
-						Voulez vous vraiment supprimer ce processus ? Cela suspendra
-						également les évenements associés tels que les timers
+						{state
+							? 'Voulez vous vraiment suspendre ce processus ? Cela suspendra également les évenements associés tels que les timers'
+							: 'Voulez vous relancer ce processus suspendu ?'}
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>

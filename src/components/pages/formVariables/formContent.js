@@ -141,7 +141,7 @@ const FormComponent = (props) => {
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-					<Button onClick={handleClose} autoFocus>
+					<Button variant='contained' onClick={handleClose} autoFocus>
 						Ok
 					</Button>
 				</DialogActions>

@@ -88,3 +88,15 @@ export const suspendProcess = (processID) => {
 			console.log('error', e);
 		});
 };
+
+export const relaunchProcess = (processID) => {
+	const urlEndpoint = 'restart/';
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint + processID;
+	return fetcherPost(apiUrl)
+		.then((r) => {
+			console.log('Restart Process Instance :', processID);
+		})
+		.catch((e) => {
+			console.log('error', e);
+		});
+};

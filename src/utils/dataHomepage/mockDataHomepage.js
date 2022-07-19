@@ -63,6 +63,7 @@ export const columnsProcessData = [
 					doc: params.value.doc,
 					date: params.value.date,
 					key: params.value.key,
+					state: params.value.state,
 				}}
 			>
 				<FiChevronRight />
