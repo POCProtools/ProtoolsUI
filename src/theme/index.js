@@ -114,6 +114,12 @@ const theme = createTheme({
 			textTransform: 'capitalize',
 		},
 	},
+	props: {
+		MuiButton: {
+			disableElevation: true,
+			variant: 'contained',
+		},
+	},
 	overrides: {},
 	components: {
 		MuiInputLabel: {
@@ -159,6 +165,9 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					borderRadius: 12,
+					'&:active': {
+						boxShadow: 'inset 0px 4px 4px rgba(0, 40, 56, 0.4)',
+					},
 				},
 			},
 		},

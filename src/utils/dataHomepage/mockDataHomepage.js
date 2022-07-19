@@ -30,13 +30,7 @@ export const columnsProcessData = [
 		flex: 0.3,
 		minWidth: 150,
 	},
-	{
-		field: 'businessKey',
-		headerName: 'Business Key',
-		headerClassName: 'columns--header',
-		flex: 0.3,
-		minWidth: 150,
-	},
+
 	{
 		field: 'state',
 		headerName: 'Statut',

@@ -263,7 +263,12 @@ const ProcessGlobalInfo = (props) => {
 					<Button variant='outlined' onClick={handleCloseCancel} autoFocus>
 						Annuler
 					</Button>
-					<Button variant='contained' onClick={handleCloseConfirm} autoFocus>
+					<Button
+						variant='contained'
+						elevation={0}
+						onClick={handleCloseConfirm}
+						autoFocus
+					>
 						Confirmer
 					</Button>
 				</DialogActions>
