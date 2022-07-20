@@ -20,10 +20,14 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '30%',
+			width: '20%',
 			marginLeft: '45%',
 			marginTop: '10%',
 			padding: 10,
+			[theme.breakpoints.down('lg')]: {
+				width: '30%',
+				marginLeft: '40%',
+			},
 			[theme.breakpoints.down('md')]: {
 				width: '30%',
 				marginLeft: '38%',

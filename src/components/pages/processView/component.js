@@ -100,6 +100,7 @@ const BPMNViewer = (props) => {
 	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
 	const processInformations = useLocation().state;
 	const [count, setCount] = useState(0);
+	//const [previous, setPrevious] = useState([]);
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -110,6 +111,15 @@ const BPMNViewer = (props) => {
 		const pls2 = getAllTasksProcess(id).then((res) => {
 			setAllTasks(res);
 		});
+		// const interval = setInterval(() => {
+		// 	const pls = getCurrentActivityName(id).then((res) => {
+		// 		console.log('Updated activity: ', res);
+		// 		if (!(res === activities)) {
+		// 			setPrevious(activities);
+		// 			setActivities(res);
+		// 		}
+		// 	});
+		// }, 20000);
 
 		setTimeout(() => {
 			axios
@@ -122,10 +132,9 @@ const BPMNViewer = (props) => {
 				});
 			setLoading(false);
 		}, 1000);
-
+		// return () => clearInterval(interval);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
 	if (diagram.length > 0 && count === 0) {
 		// Define BPMN Viewer
 		const viewer = new NavigatedViewer({
