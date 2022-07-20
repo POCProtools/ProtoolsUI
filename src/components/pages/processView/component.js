@@ -99,7 +99,7 @@ const BPMNViewer = (props) => {
 	const [manualTasks, setManualTasks] = useState([]);
 	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
 	const processInformations = useLocation().state;
-	console.log('processInformations', processInformations);
+	const [count, setCount] = useState(0);
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -126,7 +126,7 @@ const BPMNViewer = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	if (diagram.length > 0) {
+	if (diagram.length > 0 && count === 0) {
 		// Define BPMN Viewer
 		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
@@ -152,6 +152,7 @@ const BPMNViewer = (props) => {
 						html: '<div class="diagram-note">🦊</div>',
 					});
 				}
+				setCount(1);
 			})
 			.catch((err) => {
 				console.log('error', err);

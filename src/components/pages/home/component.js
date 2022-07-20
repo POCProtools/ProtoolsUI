@@ -65,7 +65,7 @@ const Home = () => {
 		}
 		setTimeout(() => {
 			setLoading(false);
-		}, 500);
+		}, 800);
 		console.log('dataProcess : ', dataProcess);
 		console.log('dataTask : ', dataTask);
 		// eslint-disable-next-line react-hooks/exhaustive-deps

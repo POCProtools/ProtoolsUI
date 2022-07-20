@@ -27,6 +27,8 @@ const SelectProcess = () => {
 		switch (selected) {
 			case 'flowable':
 				return 'CasUtilisationPOC';
+			case 'sample':
+				return 'BpmnSample';
 			default:
 				console.log('Error: BPMN file not found');
 		}
@@ -81,6 +83,7 @@ const SelectProcess = () => {
 						onChange={handleChange}
 					>
 						<MenuItem value={'flowable'}>Flowable POC</MenuItem>
+						<MenuItem value={'sample'}>Cas Simple POC</MenuItem>
 					</Select>
 				</FormControl>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>

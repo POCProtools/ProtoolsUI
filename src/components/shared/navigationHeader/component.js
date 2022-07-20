@@ -173,12 +173,19 @@ const NavigationHeader = () => {
 								DarkMode
 							</Typography>
 						</Box>
-						<Box className={classes.gridContainer}>
-							<FiBook className={classes.iconsHeader} />
-							<Typography variant='caption' className={classes.textHeader}>
-								Documentation
-							</Typography>
-						</Box>
+						<a
+							href='https://protools-flowable.dev.insee.io/swagger-ui/index.html'
+							target='_blank'
+							style={{ textDecoration: 'none' }}
+							rel='noreferrer'
+						>
+							<Box className={classes.gridContainer}>
+								<FiBook className={classes.iconsHeader} />
+								<Typography variant='caption' className={classes.textHeader}>
+									Documentation
+								</Typography>
+							</Box>
+						</a>
 					</Stack>
 				</ToolbarStyle>
 			</RootStyle>

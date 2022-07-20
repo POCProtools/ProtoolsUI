@@ -1,14 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import {
-	TextField,
-	CardContent,
-	Button,
-	Grid,
-	Box,
-	Typography,
-} from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { TextField, CardContent, Grid, Box, Typography } from '@mui/material';
 import SideBar from 'components/shared/sidepanel/sidepanel';
 import CustomCard from 'components/shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
@@ -16,7 +9,9 @@ import { GlobalStyles } from 'tss-react';
 import Logo from 'components/shared/logo/logo';
 import FormComponent from './formContent';
 import { getVariables } from 'utils/dataProcess/fetchDataProcess';
+import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
 import FormView from './formView';
+import NoVariablesViews from './noVariablesView';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -29,10 +24,14 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '30%',
+			width: '20%',
 			marginLeft: '45%',
 			marginTop: '10%',
 			padding: 10,
+			[theme.breakpoints.down('lg')]: {
+				width: '30%',
+				marginLeft: '40%',
+			},
 			[theme.breakpoints.down('md')]: {
 				width: '50%',
 				marginLeft: '27%',
@@ -67,14 +66,21 @@ const useStyles = makeStyles()((theme) => {
 });
 const FormVariables = () => {
 	const { classes } = useStyles();
+	const navigate = useNavigate();
 
 	const state = useLocation().state;
+	const [open, setOpen] = useState(false);
 
 	const id = state.id;
 	const variables = state.variables;
 
 	const taskName = state.taskName;
 	const taskID = state.taskID;
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
 	switch (taskName) {
 		case 'Fill survey info':
 			return (
@@ -121,19 +127,15 @@ const FormVariables = () => {
 						<Box className={classes.TitleHeader}>
 							<Logo className={classes.logo} />
 							<Typography variant='h3' className={classes.title}>
-								Tache finale du cas d'utilisation
+								Tâche manuelle sans variables
 							</Typography>
 						</Box>
 						<CustomCard className={classes.card}>
 							<CardContent>
 								<Typography value='h3' className={classes.titleCard}>
-									Variables finales:
+									Tâche manuelle : {taskName}
 								</Typography>
-								<FormView
-									taskName={taskName}
-									taskID={taskID}
-									variables={variables}
-								/>
+								<NoVariablesViews taskID={taskID} />
 							</CardContent>
 						</CustomCard>
 					</Grid>
