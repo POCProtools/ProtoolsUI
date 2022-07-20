@@ -27,7 +27,7 @@ const useStyles = makeStyles()((theme) => {
 			justifyContent: 'center',
 			width: '75%',
 			marginLeft: '19%',
-			marginTop: '1%',
+			//marginTop: '1%',
 			position: 'absolute',
 			top: '55%',
 			[theme.breakpoints.down('md')]: {
@@ -43,12 +43,12 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '75%',
+			width: '74.5%',
 			marginLeft: '19%',
 			marginTop: '0.5%',
 			marginBottom: '5%',
 			position: 'absolute',
-			top: '63%',
+			top: '60%',
 			padding: 5,
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
