@@ -21,7 +21,7 @@ export const columnsProcessDataHistory = [
 		headerName: 'Type',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		maxWidth: 180,
+		maxWidth: 200,
 	},
 	{
 		field: 'duration',
@@ -32,7 +32,7 @@ export const columnsProcessDataHistory = [
 	},
 	{
 		field: 'revision',
-		headerName: 'Révisions',
+		headerName: 'Révision',
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 100,
@@ -42,7 +42,6 @@ export const columnsProcessDataHistory = [
 		headerName: ' ',
 		headerClassName: 'columns--header',
 		flex: 0.15,
-		maxWidth: 70,
 		align: 'center',
 		renderCell: (params) => <FiChevronRight />,
 	},
@@ -54,7 +53,7 @@ export const columnsTaskDataHistory = [
 		headerName: 'Nom',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		maxWidth: 250,
+		minWidth: 250,
 	},
 	{
 		field: 'processID',
@@ -68,14 +67,14 @@ export const columnsTaskDataHistory = [
 		headerName: 'Type',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		maxWidth: 200,
+		minWidth: 200,
 	},
 	{
 		field: 'duration',
 		headerName: 'Duration',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		maxWidth: 150,
+		minWidth: 150,
 	},
 	{
 		field: 'deleted',
