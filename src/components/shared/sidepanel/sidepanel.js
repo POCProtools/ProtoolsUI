@@ -173,7 +173,7 @@ const SideBar = (props) => {
 							</Box>
 						</Grid>
 					</Link>
-					<Link href='/logs' underline='none'>
+					<Link href='/history' underline='none'>
 						<Grid
 							container
 							direction='row'
@@ -182,19 +182,19 @@ const SideBar = (props) => {
 						>
 							<FiBarChart2
 								className={
-									pageActuelle === 'logs' ? classes.iconMain : classes.icon
+									pageActuelle === 'history' ? classes.iconMain : classes.icon
 								}
 							/>
 							<Box className={classes.boxBreakpoint}>
 								<Typography
 									variant='subtitle1'
 									className={
-										pageActuelle === 'logs'
+										pageActuelle === 'history'
 											? classes.textSidebarMain
 											: classes.textSidebar
 									}
 								>
-									Logs
+									History
 								</Typography>
 							</Box>
 						</Grid>
