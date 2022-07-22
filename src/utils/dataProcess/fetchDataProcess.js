@@ -91,7 +91,7 @@ export const getCurrentActivityName = (id) => {
 
 	const RAAAAAAAH = fetcherGet(apiUrl)
 		.then((r) => {
-			console.log('Current activities : ', r.data);
+			//console.log('Current activities : ', r.data);
 			return r.data;
 		})
 		.catch((e) => {

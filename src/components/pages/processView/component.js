@@ -12,7 +12,19 @@ import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 // Visual dependencies
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-import { Box, Breadcrumbs, Link, Typography, Grid } from '@mui/material';
+import {
+	Box,
+	Breadcrumbs,
+	Link,
+	Typography,
+	Grid,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogContentText,
+	DialogTitle,
+	Button,
+} from '@mui/material';
 // Custom Components
 import Logo from 'components/shared/logo/logo';
 import TabBarWorkflow from './tabBar';
@@ -99,8 +111,14 @@ const BPMNViewer = (props) => {
 	const [manualTasks, setManualTasks] = useState([]);
 	const [allTasks, setAllTasks] = useState(defaultBpmnElement);
 	const processInformations = useLocation().state;
-	const [count, setCount] = useState(0);
-	//const [previous, setPrevious] = useState([]);
+	const [rendered, setRendered] = useState(false);
+	const [open, setOpen] = useState(false);
+
+	const handleClose = () => {
+		setOpen(false);
+		window.location.reload(false);
+	};
+
 	useEffect(() => {
 		const url = getUrlBPMNByProcessName(processKey);
 		const pls = getCurrentActivityName(id).then((res) => {
@@ -111,15 +129,6 @@ const BPMNViewer = (props) => {
 		const pls2 = getAllTasksProcess(id).then((res) => {
 			setAllTasks(res);
 		});
-		// const interval = setInterval(() => {
-		// 	const pls = getCurrentActivityName(id).then((res) => {
-		// 		console.log('Updated activity: ', res);
-		// 		if (!(res === activities)) {
-		// 			setPrevious(activities);
-		// 			setActivities(res);
-		// 		}
-		// 	});
-		// }, 20000);
 
 		setTimeout(() => {
 			axios
@@ -132,10 +141,20 @@ const BPMNViewer = (props) => {
 				});
 			setLoading(false);
 		}, 1000);
+		// const interval = setInterval(() => {
+		// 	const pls = getCurrentActivityName(id).then((res) => {
+		// 		console.log('Current activity: ', res);
+		// 		if (!(res === activities)) {
+		// 			setActivities(res);
+		// 			setOpen(true);
+		// 		}
+		// 	});
+		// }, 20000);
 		// return () => clearInterval(interval);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	if (diagram.length > 0 && count === 0) {
+
+	if (diagram.length > 0 && !rendered) {
 		// Define BPMN Viewer
 		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
@@ -150,6 +169,7 @@ const BPMNViewer = (props) => {
 				const overlays = viewer.get('overlays');
 				for (let i = 0; i < activities.length; i++) {
 					console.log('activity', activities[i]);
+
 					overlays.add(activities[i], 'note', {
 						position: {
 							bottom: 18,
@@ -161,12 +181,14 @@ const BPMNViewer = (props) => {
 						html: '<div class="diagram-note">🦊</div>',
 					});
 				}
-				setCount(1);
+				setRendered(true);
+				//setActivities(activities);
 			})
 			.catch((err) => {
 				console.log('error', err);
 			});
 	}
+
 	if (loading) {
 		return (
 			<>
@@ -235,6 +257,23 @@ const BPMNViewer = (props) => {
 						processKey={processKey}
 					/>
 				</Box>
+				{/* <Dialog open={open} onClose={handleClose}>
+					<DialogTitle>
+						<Typography variant='h4'>
+							Solution Temporaire de suivi temps réel
+						</Typography>
+					</DialogTitle>
+					<DialogContent>
+						<DialogContentText>
+							Le processus est passé à l'étape suivante: {activities}
+						</DialogContentText>
+					</DialogContent>
+					<DialogActions>
+						<Button variant='contained' onClick={handleClose} autoFocus>
+							Recharger la page
+						</Button>
+					</DialogActions>
+				</Dialog> */}
 			</>
 		);
 	}

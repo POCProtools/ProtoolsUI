@@ -7,6 +7,10 @@ import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import minimapModule from 'diagram-js-minimap';
+import {
+	BpmnPropertiesPanelModule,
+	BpmnPropertiesProviderModule,
+} from 'bpmn-js-properties-panel';
 //import { emptyBPMN } from 'utils/mockData';
 import 'bpmn-js/dist/assets/diagram-js.css';
 
@@ -74,9 +78,13 @@ const CustomModeler = (props) => {
 			keyboard: {
 				bindTo: window,
 			},
-			additionalModules: [minimapModule],
+			additionalModules: [
+				minimapModule,
+				BpmnPropertiesPanelModule,
+				BpmnPropertiesProviderModule,
+			],
 			propertiesPanel: {
-				parent: '#propview',
+				parent: '#js-properties-panel',
 			},
 		}));
 
@@ -117,6 +125,7 @@ const CustomModeler = (props) => {
 				id='bpmncontainer'
 				ref={bpmContainerRef}
 			></div>
+			<div class='properties-panel-parent' id='js-properties-panel'></div>
 		</Fragment>
 	);
 };
