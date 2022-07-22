@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Link, Drawer, Typography, Box } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-import { FiHome, FiList, FiBarChart2, FiCpu, FiEdit } from 'react-icons/fi';
+import { FiHome, FiList, FiBarChart2, FiEdit } from 'react-icons/fi';
 
 import Logo from '../logo/logo';
 
