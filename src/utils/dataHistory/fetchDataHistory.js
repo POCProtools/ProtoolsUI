@@ -1,6 +1,4 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
-import theme from 'theme';
-import Moment from 'moment';
 
 function msToHMS(ms) {
 	// 1- Convert to seconds:
