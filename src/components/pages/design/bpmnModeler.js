@@ -11,6 +11,7 @@ import {
 	BpmnPropertiesPanelModule,
 	BpmnPropertiesProviderModule,
 } from 'bpmn-js-properties-panel';
+import 'bpmn-js-properties-panel/dist/assets/properties-panel.css';
 //import { emptyBPMN } from 'utils/mockData';
 import 'bpmn-js/dist/assets/diagram-js.css';
 
@@ -20,6 +21,7 @@ const CustomModeler = (props) => {
 	const url = props.url;
 
 	const bpmContainerRef = useRef();
+	const propertiesPanelRef = useRef();
 	console.log(bpmContainerRef);
 
 	const saveBPMNDiagram = async (modeler) => {
@@ -84,7 +86,7 @@ const CustomModeler = (props) => {
 				BpmnPropertiesProviderModule,
 			],
 			propertiesPanel: {
-				parent: '#js-properties-panel',
+				parent: propertiesPanelRef.current,
 			},
 		}));
 
@@ -125,7 +127,11 @@ const CustomModeler = (props) => {
 				id='bpmncontainer'
 				ref={bpmContainerRef}
 			></div>
-			<div class='properties-panel-parent' id='js-properties-panel'></div>
+			<div
+				style={{ height: '100vh' }}
+				id='js-properties-panel'
+				ref={propertiesPanelRef}
+			></div>
 		</Fragment>
 	);
 };

@@ -103,12 +103,20 @@ const TabBarDashboard = (props) => {
 			<CustomCard className={classes.cardTab}>
 				<TabPanel value={value} index={0} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>
-						<CustomDataGrid rows={dataProcess} columns={columnsProcessData} />
+						<CustomDataGrid
+							rows={dataProcess}
+							columns={columnsProcessData}
+							height='500'
+						/>
 					</CardContent>
 				</TabPanel>
 				<TabPanel value={value} index={1} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>
-						<CustomDataGrid rows={dataTask} columns={columnsManu} />
+						<CustomDataGrid
+							rows={dataTask}
+							columns={columnsManu}
+							height='500'
+						/>
 					</CardContent>
 				</TabPanel>
 				<TabPanel value={value} index={2} className={classes.tabWidth}>

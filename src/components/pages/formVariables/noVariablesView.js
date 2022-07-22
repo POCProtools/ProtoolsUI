@@ -12,9 +12,18 @@ import {
 	TextField,
 	Stack,
 } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
-
+const useStyles = makeStyles()((theme) => {
+	return {
+		titleCard: {
+			marginTop: 2,
+			color: theme.palette.primary.main,
+		},
+	};
+});
 const NoVariablesViews = (props) => {
+	const classes = useStyles();
 	const taskID = props.taskID;
 
 	console.log('taskID execution :', taskID);
@@ -37,7 +46,7 @@ const NoVariablesViews = (props) => {
 
 	return (
 		<>
-			<Typography value='h3' sx={{ marginTop: 1 }}>
+			<Typography value='h3' sx={{ marginTop: 1, color: 'primary.main' }}>
 				Cette tâche ne requiert pas de variables, il n'y a donc pas de
 				formulaire à remplir.
 			</Typography>

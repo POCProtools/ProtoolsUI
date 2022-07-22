@@ -58,7 +58,7 @@ export const fetchTaskData = () => {
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
 	var pieProcessdata = {
-		labels: ['Demande Information', 'Vérification avant Validation', 'IDK'],
+		labels: ['Demande Information', 'Vérification avant Validation', 'Autres'],
 		datasets: [
 			{
 				label: 'processus',

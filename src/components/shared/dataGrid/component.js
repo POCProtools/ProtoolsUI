@@ -17,11 +17,12 @@ const CustomToolbar = () => {
 
 const CustomDataGrid = (props) => {
 	const rows = props.rows;
+	const height = parseInt(props.height);
 	const columns = props.columns;
 	return (
 		<Box
 			sx={{
-				height: 500,
+				height: { height },
 				width: '100%',
 				'& .columns--header': {
 					fontWeight: '700',

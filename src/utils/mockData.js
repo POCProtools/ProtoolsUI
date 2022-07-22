@@ -50,5 +50,5 @@ export const defaultBpmnElement = [
 export const taskDictionary = {
 	DemandeInformation: ['Fill survey info'],
 	VerificationFinale: ['Check Final State', 'Dire au revoir'],
-	Autre: ['Other', 'Say Hello to Everyone'],
+	Autre: ['Other', 'Hello'],
 };

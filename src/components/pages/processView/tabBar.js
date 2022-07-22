@@ -176,6 +176,7 @@ const TabBarWorkflow = (props) => {
 						<CustomDataGrid
 							rows={dataVariables}
 							columns={processVariablesColumns}
+							height='320'
 						/>
 					</CardContent>
 				</TabPanel>
@@ -184,6 +185,7 @@ const TabBarWorkflow = (props) => {
 						<CustomDataGrid
 							rows={dataManualTasks}
 							columns={processManualTasksColumns}
+							height='320'
 						/>
 					</CardContent>
 				</TabPanel>
@@ -192,6 +194,7 @@ const TabBarWorkflow = (props) => {
 						<CustomDataGrid
 							rows={dataBpmnElements}
 							columns={processBPMNElementColumn}
+							height='320'
 						/>
 					</CardContent>
 				</TabPanel>

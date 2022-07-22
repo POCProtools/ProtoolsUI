@@ -141,16 +141,17 @@ const BPMNViewer = (props) => {
 				});
 			setLoading(false);
 		}, 1000);
-		// const interval = setInterval(() => {
-		// 	const pls = getCurrentActivityName(id).then((res) => {
-		// 		console.log('Current activity: ', res);
-		// 		if (!(res === activities)) {
-		// 			setActivities(res);
-		// 			setOpen(true);
-		// 		}
-		// 	});
-		// }, 20000);
-		// return () => clearInterval(interval);
+		const interval = setInterval(() => {
+			const pls = getCurrentActivityName(id).then((res) => {
+				console.log('Current activity: ', res);
+				console.log('Previous activity: ', activities);
+				if (!(res === activities)) {
+					setActivities(res);
+					setOpen(true);
+				}
+			});
+		}, 600000); // Update every 60 minutes
+		return () => clearInterval(interval);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
