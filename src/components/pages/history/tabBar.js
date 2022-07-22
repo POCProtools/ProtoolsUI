@@ -11,6 +11,7 @@ import { tabPropIndex, TabPanel } from 'components/shared/tabPanel/tabPanel';
 import theme from 'theme';
 import { columnsTaskDataHistory } from 'utils/dataHistory/mockDataHistory';
 import CustomDataGrid from 'components/shared/dataGrid/component';
+import { columnsProcessDataHistory } from '../../../utils/dataHistory/mockDataHistory';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -70,7 +71,7 @@ const useStyles = makeStyles()((theme) => {
 const TabBarHistory = (props) => {
 	const { classes } = useStyles();
 	const [value, setValue] = useState(0);
-	//const dataProcess = props.dataProcess;
+	const dataProcess = props.dataProcess;
 	const dataTask = props.dataTask;
 
 	const handleChange = (event, newValue) => {
@@ -101,7 +102,11 @@ const TabBarHistory = (props) => {
 				<TabPanel value={value} index={0} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>
 						<CardContent className={classes.cardContentTable}>
-							À implémenter
+							<CustomDataGrid
+								rows={dataProcess}
+								columns={columnsProcessDataHistory}
+								height='700'
+							/>
 						</CardContent>
 					</CardContent>
 				</TabPanel>

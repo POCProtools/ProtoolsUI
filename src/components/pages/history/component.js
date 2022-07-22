@@ -7,7 +7,10 @@ import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
 import SideBar from 'components/shared/sidepanel/sidepanel';
 import TabBarHistory from './tabBar';
-import { fetchTaskDataHistory } from 'utils/dataHistory/fetchDataHistory';
+import {
+	fetchProcessDataHistory,
+	fetchTaskDataHistory,
+} from 'utils/dataHistory/fetchDataHistory';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -40,13 +43,15 @@ const useStyles = makeStyles()((theme) => {
 const History = () => {
 	const { classes } = useStyles();
 	const [loading, setLoading] = useState(true);
-	//const [dataProcess, setDataProcess] = useState([]);
+	const [dataProcess, setDataProcess] = useState([]);
 	const [dataTask, setDataTask] = useState([]);
 
 	// Retrieving all data during the component's mounting -> //TODO : Remove loading screen once linked to Keyloack
 	useEffect(() => {
 		const result = fetchTaskDataHistory();
 		setDataTask(result[0]);
+		const result2 = fetchProcessDataHistory();
+		setDataProcess(result2[0]);
 		setTimeout(() => {
 			setLoading(false);
 		}, 800);
@@ -85,7 +90,7 @@ const History = () => {
 						},
 					}}
 				/>
-				<SideBar page='home' />
+				<SideBar page='history' />
 				<Grid justifyContent='center'>
 					<Box className={classes.TitleHeader}>
 						<Logo className={classes.logo} />
@@ -93,7 +98,7 @@ const History = () => {
 							Historique
 						</Typography>
 					</Box>
-					<TabBarHistory dataTask={dataTask} />
+					<TabBarHistory dataTask={dataTask} dataProcess={dataProcess} />
 				</Grid>
 			</>
 		);
