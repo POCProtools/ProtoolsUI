@@ -86,7 +86,7 @@ const Design = () => {
 						<Typography value='h3' className={classes.titleCard}>
 							Selectionner un protocole BPMN:
 						</Typography>
-						<SelectBPMN sx={{ margin: 10 }} />
+						<SelectBPMN />
 					</CardContent>
 				</CustomCard>
 			</Grid>

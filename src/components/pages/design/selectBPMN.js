@@ -55,7 +55,7 @@ const SelectBPMN = () => {
 					sx={{ marginTop: 3 }}
 					onClick={navigationHandler}
 				>
-					Let's go
+					Valider
 				</Button>
 			</FormControl>
 		</Stack>
