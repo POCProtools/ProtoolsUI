@@ -23,9 +23,9 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '75%',
-			marginLeft: '19%',
-			marginTop: '1%',
+			width: '80%',
+			marginLeft: '16%',
+			marginTop: '5%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
 				marginLeft: '11.5%',
@@ -37,8 +37,8 @@ const useStyles = makeStyles()((theme) => {
 		},
 		cardTab: {
 			display: 'flex',
-			width: '75%',
-			marginLeft: '19%',
+			width: '80%',
+			marginLeft: '16%',
 			marginTop: '0.5%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
@@ -110,7 +110,7 @@ const TabBarHistory = (props) => {
 						<CustomDataGrid
 							rows={dataTask}
 							columns={columnsTaskDataHistory}
-							height='500'
+							height='700'
 						/>
 					</CardContent>
 				</TabPanel>

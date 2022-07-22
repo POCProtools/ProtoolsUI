@@ -1,4 +1,5 @@
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiCheck, FiPauseCircle } from 'react-icons/fi';
+import { Box } from '@mui/material';
 
 export const columnsProcessDataHistory = [
 	{
@@ -41,38 +42,49 @@ export const columnsProcessDataHistory = [
 
 export const columnsTaskDataHistory = [
 	{
-		field: 'id',
-		headerName: 'ID',
+		field: 'name',
+		headerName: 'Nom',
 		headerClassName: 'columns--header',
-		flex: 0.6,
-		minWidth: 200,
+		flex: 0.5,
+		maxWidth: 250,
 	},
 	{
 		field: 'processID',
 		headerName: 'Process ID',
 		headerClassName: 'columns--header',
 		flex: 0.4,
-		minWidth: 150,
+		minWidth: 250,
 	},
 	{
 		field: 'type',
 		headerName: 'Type',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		minWidth: 250,
+		maxWidth: 200,
 	},
 	{
 		field: 'duration',
 		headerName: 'Duration',
 		headerClassName: 'columns--header',
 		flex: 0.5,
-		minWidth: 250,
+		maxWidth: 150,
 	},
 	{
-		field: 'endDate',
-		headerName: 'Date de fin',
+		field: 'deleted',
+		headerName: 'Success',
 		headerClassName: 'columns--header',
 		flex: 0.3,
-		minWidth: 150,
+		maxWidth: 100,
+		align: 'center',
+		renderCell: (params) =>
+			!params.value ? (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiCheck size={20} color='#17C3B2' />
+				</Box>
+			) : (
+				<Box display='flex' alignItems='center' justifyContent='center'>
+					<FiPauseCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+				</Box>
+			),
 	},
 ];
