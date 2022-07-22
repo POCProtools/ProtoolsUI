@@ -64,7 +64,7 @@ const useStyles = makeStyles()((theme) => {
 			width: '100%',
 		},
 		tabWidth: {
-			width: '98%',
+			width: '97%',
 		},
 	};
 });
