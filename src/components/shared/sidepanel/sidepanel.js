@@ -199,7 +199,7 @@ const SideBar = (props) => {
 							</Box>
 						</Grid>
 					</Link>
-					<Link href='/admin' underline='none'>
+					{/* <Link href='/admin' underline='none'>
 						<Grid
 							container
 							direction='row'
@@ -224,7 +224,7 @@ const SideBar = (props) => {
 								</Typography>
 							</Box>
 						</Grid>
-					</Link>
+					</Link> */}
 					<Link href='/design' underline='none'>
 						<Grid
 							container
