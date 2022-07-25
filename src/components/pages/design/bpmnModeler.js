@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Button, Box } from '@mui/material';
-import CustomCard from 'components/shared/styledComponents/card/card';
 // BPMN Imports
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
