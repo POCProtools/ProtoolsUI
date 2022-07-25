@@ -51,12 +51,14 @@ const useStyles = makeStyles()((theme) => {
 			top: '60%',
 			padding: 5,
 			[theme.breakpoints.down('md')]: {
-				width: '85%',
+				width: '84%',
 				marginLeft: '11.5%',
+				marginTop: '2%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',
 				marginLeft: '5%',
+				marginTop: '3%',
 			},
 		},
 		cardContent: {
