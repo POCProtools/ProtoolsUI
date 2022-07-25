@@ -18,13 +18,25 @@ function msToHMS(ms) {
 export const fetchTaskDataHistory = () => {
 	const urlEndpoint = 'history/activity/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
-	const dataUrl = [];
+	const dataUrlTask = [];
+	const dataUrlActivities = [];
 	fetcherGet(apiUrl)
 		.then((r) => {
 			const taskFilter = ['userTask', 'serviceTask', 'subProcess'];
+			const activitiesFilter = [
+				'startEvent',
+				'exclusiveGateway',
+				'endEvent',
+				'intermediateCatchEvent',
+				'parallelGateway',
+			];
+			const datatmpsActivites = r.data.filter((item) => {
+				return activitiesFilter.includes(item.activityType);
+			});
 			const datatmp = r.data.filter((item) => {
 				return taskFilter.includes(item.activityType);
 			});
+			console.log('datatmpsActivites', datatmpsActivites);
 			for (let i = 0; i < datatmp.length; i++) {
 				const obj = {
 					id: datatmp[i].id,
@@ -38,15 +50,31 @@ export const fetchTaskDataHistory = () => {
 							: msToHMS(0),
 				};
 
-				dataUrl.push(obj);
+				dataUrlTask.push(obj);
 			}
-			console.log('dataUrlPastActivities: ', dataUrl);
+			for (let i = 0; i < datatmpsActivites.length; i++) {
+				const obj = {
+					id: datatmpsActivites[i].id,
+					name: datatmpsActivites[i].activityName,
+					type: datatmpsActivites[i].activityType,
+					processID: datatmpsActivites[i].processDefinitionId,
+					deleted: datatmpsActivites[i].deleted,
+					duration:
+						datatmpsActivites[i].durationInMillis !== null
+							? msToHMS(datatmpsActivites[i].durationInMillis)
+							: msToHMS(0),
+				};
+
+				dataUrlActivities.push(obj);
+			}
+			//console.log('dataUrlPastTask: ', dataUrlTask);
+			console.log('dataUrlPastActivities: ', dataUrlActivities);
 		})
 		.catch((e) => {
 			console.log(e);
 		});
 
-	return [dataUrl];
+	return [dataUrlTask, dataUrlActivities];
 };
 
 export const fetchProcessDataHistory = () => {

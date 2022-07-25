@@ -45,11 +45,13 @@ const History = () => {
 	const [loading, setLoading] = useState(true);
 	const [dataProcess, setDataProcess] = useState([]);
 	const [dataTask, setDataTask] = useState([]);
+	const [dataActivities, setDataActivities] = useState([]);
 
 	// Retrieving all data during the component's mounting -> //TODO : Remove loading screen once linked to Keyloack
 	useEffect(() => {
 		const result = fetchTaskDataHistory();
 		setDataTask(result[0]);
+		setDataActivities(result[1]);
 		const result2 = fetchProcessDataHistory();
 		setDataProcess(result2[0]);
 		setTimeout(() => {
@@ -98,7 +100,11 @@ const History = () => {
 							Historique
 						</Typography>
 					</Box>
-					<TabBarHistory dataTask={dataTask} dataProcess={dataProcess} />
+					<TabBarHistory
+						dataTask={dataTask}
+						dataProcess={dataProcess}
+						dataActivities={dataActivities}
+					/>
 				</Grid>
 			</>
 		);

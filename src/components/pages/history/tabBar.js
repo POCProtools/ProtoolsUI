@@ -73,6 +73,7 @@ const TabBarHistory = (props) => {
 	const [value, setValue] = useState(0);
 	const dataProcess = props.dataProcess;
 	const dataTask = props.dataTask;
+	const dataActivities = props.dataActivities;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -121,7 +122,11 @@ const TabBarHistory = (props) => {
 				</TabPanel>
 				<TabPanel value={value} index={2} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>
-						À implémenter
+						<CustomDataGrid
+							rows={dataActivities}
+							columns={columnsTaskDataHistory}
+							height='700'
+						/>
 					</CardContent>
 				</TabPanel>
 			</CustomCard>
