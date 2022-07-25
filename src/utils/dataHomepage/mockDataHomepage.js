@@ -104,7 +104,7 @@ export const columnsManu = [
 	},
 ];
 
-// Modck data for available usertasks
+// Mock data for available usertasks
 export const dataManu = [
 	{
 		id: 'TaskID1',
@@ -117,5 +117,44 @@ export const dataManu = [
 		state: false,
 		name: '[nomTacheManu]',
 		date: '04/02/2022-10:20:45',
+	},
+];
+
+// Mock column incidents
+export const columnsIncidents = [
+	{
+		field: 'name',
+		headerName: 'Nom',
+		headerClassName: 'columns--header',
+		flex: 0.3,
+		minWidth: 150,
+	},
+	{
+		field: 'id',
+		headerName: 'ID',
+		headerClassName: 'columns--header',
+		flex: 0.5,
+		minWidth: 150,
+	},
+	{
+		field: 'type',
+		headerName: 'Type',
+		headerClassName: 'columns--header',
+		flex: 0.5,
+		maxWidth: 80,
+	},
+	{
+		field: 'processID',
+		headerName: 'Process Definition ID',
+		headerClassName: 'columns--header',
+		flex: 0.3,
+		minWidth: 500,
+	},
+	{
+		field: 'retries',
+		headerName: 'Retries	',
+		headerClassName: 'columns--header',
+		flex: 0.5,
+		maxWidth: 80,
 	},
 ];

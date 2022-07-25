@@ -3,7 +3,7 @@ import { Grid, CardContent, Typography, Stack } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
-import { IncidentChartdata } from 'utils/mockData';
+//import { IncidentChartdata } from 'utils/mockData';
 import DoughnutChart from './donutChart';
 
 const useStyles = makeStyles()((theme) => {
@@ -39,6 +39,7 @@ const useStyles = makeStyles()((theme) => {
 const ProcessOverview = (props) => {
 	const pieProcessdata = props.pieProcessdata;
 	const pieTaskdata = props.pieTaskdata;
+	const pieIncidentdata = props.pieIncidentdata;
 	const { classes } = useStyles();
 	const small = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 	return (
@@ -102,7 +103,7 @@ const ProcessOverview = (props) => {
 						>
 							Incidents
 						</Typography>
-						<DoughnutChart data={IncidentChartdata} />
+						<DoughnutChart data={pieIncidentdata} />
 					</Grid>
 				</Stack>
 			</CardContent>

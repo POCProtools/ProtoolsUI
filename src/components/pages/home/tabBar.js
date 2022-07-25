@@ -12,6 +12,7 @@ import theme from 'theme';
 import {
 	columnsManu,
 	columnsProcessData,
+	columnsIncidents,
 } from 'utils/dataHomepage/mockDataHomepage';
 import CustomDataGrid from 'components/shared/dataGrid/component';
 
@@ -75,6 +76,7 @@ const TabBarDashboard = (props) => {
 	const [value, setValue] = useState(0);
 	const dataProcess = props.dataProcess;
 	const dataTask = props.dataTask;
+	const dataIncident = props.dataIncident;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -120,7 +122,13 @@ const TabBarDashboard = (props) => {
 					</CardContent>
 				</TabPanel>
 				<TabPanel value={value} index={2} className={classes.tabWidth}>
-					<CardContent className={classes.cardContentTable}></CardContent>
+					<CardContent className={classes.cardContentTable}>
+						<CustomDataGrid
+							rows={dataIncident}
+							columns={columnsIncidents}
+							height='500'
+						/>
+					</CardContent>
 				</TabPanel>
 			</CustomCard>
 		</>

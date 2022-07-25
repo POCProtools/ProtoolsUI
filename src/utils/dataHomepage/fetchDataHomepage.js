@@ -122,3 +122,41 @@ export const getTaskPieColorIndex = (liste) => {
 
 	return obj;
 };
+
+export const fetchIncidentsData = () => {
+	const urlEndpoint = 'history/suspended'; // ATM only suspended process
+	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
+	const dataUrl = [];
+	var pieIncidentdata = {
+		labels: ['Suspended', 'Échecs', 'Externes'],
+		datasets: [
+			{
+				label: 'processus',
+				data: [0, 1, 3],
+				backgroundColor: ['#FEDC86', '#F25C54', '#F48A66', '#84A98C'],
+				borderColor: [theme.palette.background.default],
+				borderWidth: 2,
+			},
+		],
+	};
+	fetcherGet(apiUrl)
+		.then((r) => {
+			const datatmp = r.data;
+			for (let i = 0; i < datatmp.length; i++) {
+				dataUrl.push({
+					id: datatmp[i].elementId,
+					name: datatmp[i].elementName,
+					type: datatmp[i].jobType,
+					processID: datatmp[i].processDefinitionId,
+					retries: datatmp[i].retries,
+				});
+				pieIncidentdata.datasets[0].data[0] += 1;
+			}
+			console.log('pieIncidentdata', pieIncidentdata);
+		})
+		.catch((e) => {
+			console.log(e);
+		});
+
+	return [dataUrl, pieIncidentdata];
+};
