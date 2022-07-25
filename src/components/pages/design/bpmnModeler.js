@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 // BPMN Imports
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
@@ -122,16 +122,20 @@ const CustomModeler = (props) => {
 			>
 				Save SVG
 			</Button>
-			<div
-				style={{ height: '100vh' }}
-				id='bpmncontainer'
-				ref={bpmContainerRef}
-			></div>
-			<div
-				style={{ height: '100vh' }}
-				id='js-properties-panel'
-				ref={propertiesPanelRef}
-			></div>
+			<Box sx={{ display: 'flex', flexGrow: 1, width: '100%' }}>
+				<div
+					style={{ height: '100vh', width: '100%' }}
+					id='bpmncontainer'
+					ref={bpmContainerRef}
+				></div>
+				<div
+					style={{
+						height: '100vh',
+					}}
+					id='js-properties-panel'
+					ref={propertiesPanelRef}
+				></div>
+			</Box>
 		</Fragment>
 	);
 };
