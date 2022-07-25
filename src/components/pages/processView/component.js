@@ -140,7 +140,7 @@ const BPMNViewer = (props) => {
 					console.log(e);
 				});
 			setLoading(false);
-		}, 1000);
+		}, 1);
 		const interval = setInterval(() => {
 			const pls = getCurrentActivityName(id).then((res) => {
 				console.log('Current activity: ', res);
