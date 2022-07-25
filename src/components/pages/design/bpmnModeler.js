@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Button, Box } from '@mui/material';
+import CustomCard from 'components/shared/styledComponents/card/card';
 // BPMN Imports
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
@@ -95,6 +96,7 @@ const CustomModeler = (props) => {
 			.then((r) => {
 				modeler
 					.importXML(r.data)
+
 					.then(() => {
 						const canvas = modeler.get('canvas');
 						canvas.zoom('fit-viewport');
@@ -108,6 +110,14 @@ const CustomModeler = (props) => {
 
 	return (
 		<Fragment>
+			<Box sx={{ display: 'flex', flexGrow: 1, width: '100%' }}>
+				<div
+					style={{ width: '100%', height: '77vh' }}
+					id='bpmncontainer'
+					ref={bpmContainerRef}
+				></div>
+				<div style={{}} id='js-properties-panel' ref={propertiesPanelRef}></div>
+			</Box>
 			<Button
 				sx={{ m: 2 }}
 				variant='contained'
@@ -122,20 +132,6 @@ const CustomModeler = (props) => {
 			>
 				Save SVG
 			</Button>
-			<Box sx={{ display: 'flex', flexGrow: 1, width: '100%' }}>
-				<div
-					style={{ height: '100vh', width: '100%' }}
-					id='bpmncontainer'
-					ref={bpmContainerRef}
-				></div>
-				<div
-					style={{
-						height: '100vh',
-					}}
-					id='js-properties-panel'
-					ref={propertiesPanelRef}
-				></div>
-			</Box>
 		</Fragment>
 	);
 };
