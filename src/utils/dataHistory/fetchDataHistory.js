@@ -1,5 +1,5 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
-
+import { setAutoFreeze } from 'immer';
 function msToHMS(ms) {
 	// 1- Convert to seconds:
 	let seconds = ms / 1000;
@@ -16,6 +16,7 @@ function msToHMS(ms) {
 }
 
 export const fetchTaskDataHistory = () => {
+	setAutoFreeze(false);
 	const urlEndpoint = 'history/activity/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrlTask = [];
@@ -78,6 +79,7 @@ export const fetchTaskDataHistory = () => {
 };
 
 export const fetchProcessDataHistory = () => {
+	setAutoFreeze(false);
 	const urlEndpoint = 'history/process/';
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];

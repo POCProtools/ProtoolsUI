@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GlobalStyles } from 'tss-react';
 import { Grid, Box, Typography } from '@mui/material';
 import Loader from 'components/shared/loader/loader';
-
+import { setAutoFreeze } from 'immer';
 import { makeStyles } from 'tss-react/mui';
 import Logo from 'components/shared/logo/logo';
 import SideBar from 'components/shared/sidepanel/sidepanel';
@@ -41,6 +41,7 @@ const useStyles = makeStyles()((theme) => {
 });
 
 const History = () => {
+	setAutoFreeze(false);
 	const { classes } = useStyles();
 	const [loading, setLoading] = useState(true);
 	const [dataProcess, setDataProcess] = useState([]);
@@ -56,7 +57,7 @@ const History = () => {
 		setDataProcess(result2[0]);
 		setTimeout(() => {
 			setLoading(false);
-		}, 800);
+		}, 100);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

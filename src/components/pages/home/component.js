@@ -54,23 +54,19 @@ const Home = () => {
 	const [pieIncidentdata, setPieIncidentdata] = useState({});
 	// Retrieving all data during the component's mounting -> //TODO : Remove loading screen once linked to Keyloack
 	useEffect(() => {
-		if (dataTask.length === 0) {
-			const result = fetchTaskData();
-			setDataTask(result[0]);
-			setPieTaskdata(result[1]);
-		}
-		if (dataProcess.length === 0) {
-			const result = fetchProcessData();
-			setDataProcess(result[0]);
-			setPieProcessdata(result[1]);
-			console.log('loading: ', loading);
-		}
-		if (dataIncident.length === 0) {
-			const result = fetchIncidentsData();
-			setDataIncident(result[0]);
-			setPieIncidentdata(result[1]);
-			console.log('loading: ', loading);
-		}
+		const resultTask = fetchTaskData();
+		setDataTask(resultTask[0]);
+		setPieTaskdata(resultTask[1]);
+
+		const resultProcess = fetchProcessData();
+		setDataProcess(resultProcess[0]);
+		setPieProcessdata(resultProcess[1]);
+		console.log('loading: ', loading);
+
+		const resultIncident = fetchIncidentsData();
+		setDataIncident(resultIncident[0]);
+		setPieIncidentdata(resultIncident[1]);
+
 		setTimeout(() => {
 			setLoading(false);
 		}, 800);
