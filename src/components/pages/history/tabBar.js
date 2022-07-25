@@ -102,13 +102,11 @@ const TabBarHistory = (props) => {
 			<CustomCard className={classes.cardTab}>
 				<TabPanel value={value} index={0} className={classes.tabWidth}>
 					<CardContent className={classes.cardContentTable}>
-						<CardContent className={classes.cardContentTable}>
-							<CustomDataGrid
-								rows={dataProcess}
-								columns={columnsProcessDataHistory}
-								height='700'
-							/>
-						</CardContent>
+						<CustomDataGrid
+							rows={dataProcess}
+							columns={columnsProcessDataHistory}
+							height='700'
+						/>
 					</CardContent>
 				</TabPanel>
 				<TabPanel value={value} index={1} className={classes.tabWidth}>

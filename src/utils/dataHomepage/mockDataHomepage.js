@@ -93,7 +93,7 @@ export const columnsManu = [
 		headerName: 'Date début',
 		headerClassName: 'columns--header',
 		flex: 0.3,
-		minWidth: 200,
+		minWidth: 170,
 	},
 	{
 		field: 'processInstance',
