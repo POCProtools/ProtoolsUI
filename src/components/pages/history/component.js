@@ -57,7 +57,7 @@ const History = () => {
 		setDataProcess(result2[0]);
 		setTimeout(() => {
 			setLoading(false);
-		}, 200);
+		}, 250);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
