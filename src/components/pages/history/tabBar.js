@@ -26,7 +26,7 @@ const useStyles = makeStyles()((theme) => {
 			justifyContent: 'center',
 			width: '80%',
 			marginLeft: '16%',
-			marginTop: '5%',
+			marginTop: '2%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
 				marginLeft: '11.5%',
