@@ -46,23 +46,23 @@ export const processBPMNElementColumn = [
 	{
 		field: 'description',
 		headerName: 'Description',
-		flex: 0.5,
+		flex: 0.7,
 		minWidth: 200,
 	},
 	{
 		field: 'implementationType',
 		headerName: 'Implémentation',
-		flex: 0.3,
+		flex: 0.2,
 		minWidth: 150,
 	},
 	{
 		field: 'asynchronous',
-		headerName: 'Execution asynchrone',
+		headerName: 'Async ?',
 		align: 'center',
 		flex: 0.1,
 		minWidth: 90,
 		renderCell: (value) =>
-			value ? (
+			!value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
 					<FiCheck size={20} color='#17C3B2' />
 				</Box>

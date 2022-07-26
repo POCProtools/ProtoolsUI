@@ -17,8 +17,8 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '75%',
-			marginLeft: '19%',
+			width: '80%',
+			marginLeft: '16%',
 			marginTop: '4%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',

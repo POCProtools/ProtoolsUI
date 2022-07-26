@@ -83,14 +83,14 @@ const ProcessGlobalInfo = (props) => {
 						backgroundColor: 'secondary.pressed',
 						borderRadius: 7,
 						m: 1,
-						maxWidth: '86%',
+						width: '90%',
 					}}
 				>
 					<CardContent className={classes.cardContent}>
 						<Stack
 							direction='row'
 							alignItems='flex-start'
-							spacing={{ xl: 10, md: 4, lg: 5, xs: 0.5, sm: 1.5 }}
+							spacing={{ xl: 10, md: 6, lg: 5, xs: 0.5, sm: 1.5 }}
 						>
 							<Stack spacing={1}>
 								<Grid item container xs={12} direction='row'>
@@ -253,7 +253,7 @@ const ProcessGlobalInfo = (props) => {
 						</Stack>
 					</CardContent>
 				</Card>
-				<Stack spacing={1.5} sx={{ padding: '0.2rem 0.7rem', minwidth: '10%' }}>
+				<Stack spacing={1.5} sx={{ padding: '0.2rem 2.8rem', minwidth: '15%' }}>
 					<Typography
 						color='primary'
 						variant='h6'

@@ -27,8 +27,8 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '75%',
-			marginLeft: '19%',
+			width: '80%',
+			marginLeft: '16%',
 			marginTop: '1%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
@@ -41,8 +41,8 @@ const useStyles = makeStyles()((theme) => {
 		},
 		cardTab: {
 			display: 'flex',
-			width: '75%',
-			marginLeft: '19%',
+			width: '80%',
+			marginLeft: '16%',
 			marginTop: '0.5%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',

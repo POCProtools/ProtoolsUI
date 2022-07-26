@@ -66,10 +66,11 @@ const useStyles = makeStyles()((theme) => {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
 			height: '40%',
-			width: '75%',
+			width: '80%',
+			marginLeft: '16%',
 			position: 'absolute',
 			top: '13%',
-			left: '19%',
+
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
 				width: '84%',
@@ -83,7 +84,7 @@ const useStyles = makeStyles()((theme) => {
 		bread: {
 			position: 'absolute',
 			top: '10%',
-			left: '19%',
+			left: '16%',
 			color: theme.palette.primary.main,
 			opacity: 0.8,
 			[theme.breakpoints.down('md')]: {

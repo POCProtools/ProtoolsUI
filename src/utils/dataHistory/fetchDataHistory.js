@@ -1,4 +1,5 @@
 import { fetcherGet } from 'core/fetchData/fetchData';
+import Moment from 'moment';
 import { setAutoFreeze } from 'immer';
 function msToHMS(ms) {
 	// 1- Convert to seconds:
@@ -49,6 +50,13 @@ export const fetchTaskDataHistory = () => {
 						datatmp[i].durationInMillis !== null
 							? msToHMS(datatmp[i].durationInMillis)
 							: msToHMS(0),
+					endDate:
+						datatmp[i].endTime !== null
+							? Moment(datatmp[i].endTime.split('.')[0]).format(
+									'DD/MM/YYYY - HH:mm'
+									// eslint-disable-next-line no-mixed-spaces-and-tabs
+							  )
+							: 'null',
 				};
 
 				dataUrlTask.push(obj);
@@ -64,6 +72,13 @@ export const fetchTaskDataHistory = () => {
 						datatmpsActivites[i].durationInMillis !== null
 							? msToHMS(datatmpsActivites[i].durationInMillis)
 							: msToHMS(0),
+					endDate:
+						datatmp[i].endTime !== null
+							? Moment(datatmp[i].endTime.split('.')[0]).format(
+									'DD/MM/YYYY - HH:mm'
+									// eslint-disable-next-line no-mixed-spaces-and-tabs
+							  )
+							: 'null',
 				};
 
 				dataUrlActivities.push(obj);

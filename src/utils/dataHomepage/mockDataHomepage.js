@@ -6,21 +6,21 @@ export const columnsProcessData = [
 		field: 'id',
 		headerName: 'ID',
 		headerClassName: 'columns--header',
-		flex: 0.6,
+		flex: 0.5,
 		minWidth: 200,
 	},
 	{
 		field: 'processKey',
 		headerName: 'Process Key',
 		headerClassName: 'columns--header',
-		flex: 0.4,
+		flex: 0.3,
 		minWidth: 150,
 	},
 	{
 		field: 'documentation',
 		headerName: 'Description',
 		headerClassName: 'columns--header',
-		flex: 0.5,
+		flex: 0.6,
 		minWidth: 250,
 	},
 	{
@@ -58,7 +58,7 @@ export const columnsProcessData = [
 		renderCell: (params) => (
 			<Link
 				to={`/process/${params.value.url}`}
-				underline='none'
+				style={{ textDecoration: 'none' }}
 				state={{
 					doc: params.value.doc,
 					date: params.value.date,

@@ -18,10 +18,10 @@ const useStyles = makeStyles()((theme) => {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
 			height: '85vh',
-			width: '77vw',
+			width: '82vw',
 			position: 'absolute',
 			top: '12%',
-			left: '18%',
+			left: '15%',
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
 				width: '84%',

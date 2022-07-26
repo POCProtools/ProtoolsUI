@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { createTheme } from '@mui/material/styles';
 import { responsiveFontSizes, pxToRem } from './typography';
+import shadows from './shadows';
+
 const PRIMARY = {
 	mainText: '#555B6E',
 	background: '#F9FAFC',
@@ -9,6 +11,7 @@ const SECONDARY = {
 	secondGreen: '#89B0AE',
 	pressedGrey: '#F8FAF8',
 };
+
 const borderWidth = 2;
 
 const theme = createTheme({
@@ -38,6 +41,7 @@ const theme = createTheme({
 
 		tonalOffset: 0.2,
 	},
+	shadows,
 	typography: {
 		h1: {
 			fontWeight: 700,
@@ -161,12 +165,19 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiCard: {
+			styleOverrides: {
+				root: {
+					boxShadow: shadows[2],
+				},
+			},
+		},
 		MuiButton: {
 			styleOverrides: {
 				root: {
 					borderRadius: 12,
 					'&:active': {
-						boxShadow: 'inset 0px 4px 4px rgba(0, 40, 56, 0.4)',
+						boxShadow: 'inset 0px 4px 4px rgba(0, 40, 56, 0.30)',
 					},
 				},
 			},
