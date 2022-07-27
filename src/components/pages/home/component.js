@@ -69,7 +69,7 @@ const Home = () => {
 
 		setTimeout(() => {
 			setLoading(false);
-		}, 300);
+		}, 350);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

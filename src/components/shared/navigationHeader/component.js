@@ -32,19 +32,22 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
+			[theme.breakpoints.down('sm')]: {
+				display: 'none',
+			},
 		},
 		iconsHeader: {
 			flex: 1,
 			color: theme.palette.primary.main,
 			margin: 5,
 			[theme.breakpoints.down('sm')]: {
-				fontSize: 9,
+				fontSize: 17,
 			},
 		},
 		iconMenu: {
 			color: theme.palette.primary.main,
 			[theme.breakpoints.down('md')]: {
-				fontSize: 19,
+				fontSize: 17,
 			},
 		},
 		drawer: {
