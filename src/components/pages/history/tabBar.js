@@ -85,8 +85,8 @@ const TabBarHistory = (props) => {
 				<CardContent className={classes.cardContent}>
 					<StyledTabs
 						value={value}
-						textColor={theme.palette.primary.main}
-						indicatorColor={theme.palette.secondary.main}
+						textColor='primary'
+						indicatorColor='secondary'
 						onChange={handleChange}
 						variant='scrollable'
 						allowScrollButtonsMobile

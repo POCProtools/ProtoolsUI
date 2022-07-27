@@ -39,6 +39,7 @@ const CustomDataGrid = (props) => {
 				}}
 				rows={rows}
 				columns={columns}
+				height={height}
 				autoPageSize
 				pagination
 				//getRowHeight={() => 'auto'}
