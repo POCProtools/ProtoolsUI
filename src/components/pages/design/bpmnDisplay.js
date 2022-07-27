@@ -39,7 +39,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		TitleHeader: {
 			position: 'absolute',
-			top: '5%',
+			top: '3%',
 			left: '15%',
 			display: 'flex',
 			alignItems: 'center',
