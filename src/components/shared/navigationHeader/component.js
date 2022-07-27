@@ -126,25 +126,13 @@ const NavigationHeader = () => {
 								</Link>
 							</ListItem>
 							<ListItem>
-								<Link href='/logs' underline='none'>
+								<Link href='/history' underline='none'>
 									<Box className={classes.boxBreakpoint}>
 										<Typography
 											variant='subtitle2'
 											className={classes.textSidebar}
 										>
-											Logs
-										</Typography>
-									</Box>
-								</Link>
-							</ListItem>
-							<ListItem>
-								<Link href='/admin' underline='none'>
-									<Box className={classes.boxBreakpoint}>
-										<Typography
-											variant='subtitle2'
-											className={classes.textSidebar}
-										>
-											Admin
+											History
 										</Typography>
 									</Box>
 								</Link>
