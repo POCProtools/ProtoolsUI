@@ -32,11 +32,7 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
-<<<<<<< HEAD
-			[theme.breakpoints.down('md')]: {
-=======
 			[theme.breakpoints.down('sm')]: {
->>>>>>> develop
 				display: 'none',
 			},
 		},
@@ -125,6 +121,18 @@ const NavigationHeader = () => {
 											className={classes.textSidebar}
 										>
 											Workflows
+										</Typography>
+									</Box>
+								</Link>
+							</ListItem>
+							<ListItem>
+								<Link href='/history' underline='none'>
+									<Box className={classes.boxBreakpoint}>
+										<Typography
+											variant='subtitle2'
+											className={classes.textSidebar}
+										>
+											History
 										</Typography>
 									</Box>
 								</Link>
