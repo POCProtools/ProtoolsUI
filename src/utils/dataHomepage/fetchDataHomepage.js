@@ -26,25 +26,27 @@ export const fetchProcessData = () => {
 			const datatmp = r.data.processes;
 
 			for (let i = 0; i < datatmp.length; i++) {
+				console.log(datatmp[i].deadLetterList === 0);
 				dataUrl.push({
 					id: datatmp[i].id,
-					state: !datatmp[i].isSuspended,
+					state: !datatmp[i].isSuspended && datatmp[i].deadLetterList === 0,
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
 					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
+
 					action: {
 						url: datatmp[i].processKey + '/' + datatmp[i].id,
 						doc: datatmp[i].documentation,
 						date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),
 						key: datatmp[i].businessKey,
-						state: !datatmp[i].isSuspended,
+						state: !datatmp[i].isSuspended && datatmp[i].deadLetterList === 0,
 					},
 				});
 				const indexColor = getPieProcessColorIndex(datatmp[i].businessKey);
 				pieProcessdata.datasets[0].data[indexColor] =
 					pieProcessdata.datasets[0].data[indexColor] + 1;
 			}
-			//console.log(dataUrl);
+			console.log(dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);
@@ -157,7 +159,7 @@ export const fetchIncidentsData = () => {
 				});
 				pieIncidentdata.datasets[0].data[0] += 1;
 			}
-			console.log('dataUrlSuspended', dataUrl);
+			//console.log('dataUrlSuspended', dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);
@@ -167,7 +169,6 @@ export const fetchIncidentsData = () => {
 		.then((r) => {
 			const datatmp = r.data;
 			for (let i = 0; i < datatmp.length; i++) {
-				console.log(datatmp[i]);
 				dataUrl.push({
 					typeIncident: 'Deadletter',
 					id: datatmp[i].correlationId,
@@ -178,7 +179,7 @@ export const fetchIncidentsData = () => {
 				});
 				pieIncidentdata.datasets[0].data[1] += 1;
 			}
-			console.log('dataUrlDead', dataUrl);
+			//console.log('dataUrlDead', dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);
