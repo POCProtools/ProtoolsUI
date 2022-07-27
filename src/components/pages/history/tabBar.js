@@ -105,7 +105,7 @@ const TabBarHistory = (props) => {
 						<CustomDataGrid
 							rows={dataProcess}
 							columns={columnsProcessDataHistory}
-							height='700'
+							height='770'
 						/>
 					</CardContent>
 				</TabPanel>
@@ -114,7 +114,7 @@ const TabBarHistory = (props) => {
 						<CustomDataGrid
 							rows={dataTask}
 							columns={columnsTaskDataHistory}
-							height='700'
+							height='770'
 						/>
 					</CardContent>
 				</TabPanel>
@@ -123,7 +123,7 @@ const TabBarHistory = (props) => {
 						<CustomDataGrid
 							rows={dataActivities}
 							columns={columnsTaskDataHistory}
-							height='700'
+							height='770'
 						/>
 					</CardContent>
 				</TabPanel>
