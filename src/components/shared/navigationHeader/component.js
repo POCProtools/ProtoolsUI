@@ -32,7 +32,7 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
-			[theme.breakpoints.down('sm')]: {
+			[theme.breakpoints.down('md')]: {
 				display: 'none',
 			},
 		},
