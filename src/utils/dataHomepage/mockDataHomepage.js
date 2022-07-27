@@ -123,6 +123,13 @@ export const dataManu = [
 // Mock column incidents
 export const columnsIncidents = [
 	{
+		field: 'typeIncident',
+		headerName: 'Type Incident',
+		headerClassName: 'columns--header',
+		flex: 0.3,
+		maxWidth: 160,
+	},
+	{
 		field: 'name',
 		headerName: 'Nom',
 		headerClassName: 'columns--header',
@@ -133,16 +140,17 @@ export const columnsIncidents = [
 		field: 'id',
 		headerName: 'ID',
 		headerClassName: 'columns--header',
-		flex: 0.5,
+		flex: 0.3,
 		minWidth: 150,
 	},
 	{
 		field: 'type',
-		headerName: 'Type',
+		headerName: 'Type Task',
 		headerClassName: 'columns--header',
-		flex: 0.5,
-		maxWidth: 80,
+		flex: 0.3,
+		maxWidth: 100,
 	},
+
 	{
 		field: 'processID',
 		headerName: 'Process Definition ID',
@@ -154,7 +162,7 @@ export const columnsIncidents = [
 		field: 'retries',
 		headerName: 'Retries	',
 		headerClassName: 'columns--header',
-		flex: 0.5,
+		flex: 0.2,
 		maxWidth: 80,
 	},
 ];

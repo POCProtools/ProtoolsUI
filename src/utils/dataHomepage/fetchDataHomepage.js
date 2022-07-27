@@ -44,7 +44,7 @@ export const fetchProcessData = () => {
 				pieProcessdata.datasets[0].data[indexColor] =
 					pieProcessdata.datasets[0].data[indexColor] + 1;
 			}
-			console.log(dataUrl);
+			//console.log(dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);
@@ -127,12 +127,16 @@ export const fetchIncidentsData = () => {
 	const urlEndpoint = 'history/suspended'; // ATM only suspended process
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
+
+	const urlEndpointDead = 'history/deadLetter'; // Deadletter jobs process
+	const apiUrlDead = process.env.REACT_APP_API_URL + urlEndpointDead;
+
 	var pieIncidentdata = {
 		labels: ['Suspended', 'Échecs', 'Externes'],
 		datasets: [
 			{
 				label: 'processus',
-				data: [0, 1, 3],
+				data: [0, 0, 3],
 				backgroundColor: ['#FEDC86', '#F25C54', '#F48A66', '#84A98C'],
 				borderColor: [theme.palette.background.default],
 				borderWidth: 2,
@@ -144,6 +148,7 @@ export const fetchIncidentsData = () => {
 			const datatmp = r.data;
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
+					typeIncident: 'Suspended',
 					id: datatmp[i].elementId,
 					name: datatmp[i].elementName,
 					type: datatmp[i].jobType,
@@ -152,7 +157,28 @@ export const fetchIncidentsData = () => {
 				});
 				pieIncidentdata.datasets[0].data[0] += 1;
 			}
-			console.log('pieIncidentdata', pieIncidentdata);
+			console.log('dataUrlSuspended', dataUrl);
+		})
+		.catch((e) => {
+			console.log(e);
+		});
+
+	fetcherGet(apiUrlDead)
+		.then((r) => {
+			const datatmp = r.data;
+			for (let i = 0; i < datatmp.length; i++) {
+				console.log(datatmp[i]);
+				dataUrl.push({
+					typeIncident: 'Deadletter',
+					id: datatmp[i].correlationId,
+					name: datatmp[i].elementName,
+					type: datatmp[i].jobType,
+					processID: datatmp[i].processDefinitionId,
+					retries: datatmp[i].retries,
+				});
+				pieIncidentdata.datasets[0].data[1] += 1;
+			}
+			console.log('dataUrlDead', dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);
