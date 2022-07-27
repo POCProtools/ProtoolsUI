@@ -32,6 +32,9 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
+			[theme.breakpoints.down('sm')]: {
+				display: 'none',
+			},
 		},
 		iconsHeader: {
 			flex: 1,
@@ -118,30 +121,6 @@ const NavigationHeader = () => {
 											className={classes.textSidebar}
 										>
 											Workflows
-										</Typography>
-									</Box>
-								</Link>
-							</ListItem>
-							<ListItem>
-								<Link href='/logs' underline='none'>
-									<Box className={classes.boxBreakpoint}>
-										<Typography
-											variant='subtitle2'
-											className={classes.textSidebar}
-										>
-											Logs
-										</Typography>
-									</Box>
-								</Link>
-							</ListItem>
-							<ListItem>
-								<Link href='/admin' underline='none'>
-									<Box className={classes.boxBreakpoint}>
-										<Typography
-											variant='subtitle2'
-											className={classes.textSidebar}
-										>
-											Admin
 										</Typography>
 									</Box>
 								</Link>
