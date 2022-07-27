@@ -3,6 +3,7 @@ import { Grid, CardContent, Typography, Stack } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CustomCard from '../../shared/styledComponents/card/card';
 import { makeStyles } from 'tss-react/mui';
+import { ErrorBoundary } from 'react-error-boundary';
 //import { IncidentChartdata } from 'utils/mockData';
 import DoughnutChart from './donutChart';
 
@@ -44,69 +45,75 @@ const ProcessOverview = (props) => {
 	const small = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 	return (
 		<CustomCard className={classes.card}>
-			<CardContent>
-				<Stack
-					direction='row'
-					alignItems='center'
-					spacing={{ xs: 2, sm: 3, md: 4, lg: 8, xl: 10 }}
-				>
-					<Grid
-						item
-						container
-						xs={4}
-						sx={{
-							flexDirection: 'column',
-							textAlign: 'center',
-							alignContent: 'center',
-							alignItems: 'center',
-						}}
+			<ErrorBoundary
+				fallback={
+					<Typography variant={'body1'}>Could not fetch data</Typography>
+				}
+			>
+				<CardContent>
+					<Stack
+						direction='row'
+						alignItems='center'
+						spacing={{ xs: 2, sm: 3, md: 4, lg: 8, xl: 10 }}
 					>
-						<Typography
-							variant={small ? 'body2' : 'body1'}
-							className={classes.titleCard}
+						<Grid
+							item
+							container
+							xs={4}
+							sx={{
+								flexDirection: 'column',
+								textAlign: 'center',
+								alignContent: 'center',
+								alignItems: 'center',
+							}}
 						>
-							Processus
-						</Typography>
-						<DoughnutChart data={pieProcessdata} redraw />
-					</Grid>
-					<Grid
-						item
-						xs={4}
-						sx={{
-							flexDirection: 'column',
-							textAlign: 'center',
-							alignContent: 'center',
-							alignItems: 'center',
-						}}
-					>
-						<Typography
-							variant={small ? 'body2' : 'body1'}
-							className={classes.titleCard}
+							<Typography
+								variant={small ? 'body2' : 'body1'}
+								className={classes.titleCard}
+							>
+								Processus
+							</Typography>
+							<DoughnutChart data={pieProcessdata} redraw />
+						</Grid>
+						<Grid
+							item
+							xs={4}
+							sx={{
+								flexDirection: 'column',
+								textAlign: 'center',
+								alignContent: 'center',
+								alignItems: 'center',
+							}}
 						>
-							Tâches
-						</Typography>
-						<DoughnutChart data={pieTaskdata} redraw />
-					</Grid>
-					<Grid
-						item
-						xs={4}
-						sx={{
-							flexDirection: 'column',
-							textAlign: 'center',
-							alignContent: 'center',
-							alignItems: 'center',
-						}}
-					>
-						<Typography
-							variant={small ? 'body2' : 'body1'}
-							className={classes.titleCard}
+							<Typography
+								variant={small ? 'body2' : 'body1'}
+								className={classes.titleCard}
+							>
+								Tâches
+							</Typography>
+							<DoughnutChart data={pieTaskdata} redraw />
+						</Grid>
+						<Grid
+							item
+							xs={4}
+							sx={{
+								flexDirection: 'column',
+								textAlign: 'center',
+								alignContent: 'center',
+								alignItems: 'center',
+							}}
 						>
-							Incidents
-						</Typography>
-						<DoughnutChart data={pieIncidentdata} redraw />
-					</Grid>
-				</Stack>
-			</CardContent>
+							<Typography
+								variant={small ? 'body2' : 'body1'}
+								className={classes.titleCard}
+							>
+								Incidents
+							</Typography>
+							<DoughnutChart data={pieIncidentdata} redraw />
+						</Grid>
+					</Stack>
+				</CardContent>
+			</ErrorBoundary>
 		</CustomCard>
 	);
 };

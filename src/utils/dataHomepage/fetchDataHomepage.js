@@ -26,7 +26,6 @@ export const fetchProcessData = () => {
 			const datatmp = r.data.processes;
 
 			for (let i = 0; i < datatmp.length; i++) {
-				console.log(datatmp[i].deadLetterList === 0);
 				dataUrl.push({
 					id: datatmp[i].id,
 					state: !datatmp[i].isSuspended && datatmp[i].deadLetterList === 0,
@@ -46,7 +45,6 @@ export const fetchProcessData = () => {
 				pieProcessdata.datasets[0].data[indexColor] =
 					pieProcessdata.datasets[0].data[indexColor] + 1;
 			}
-			console.log(dataUrl);
 		})
 		.catch((e) => {
 			console.log(e);

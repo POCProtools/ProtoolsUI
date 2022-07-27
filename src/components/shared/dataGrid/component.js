@@ -45,7 +45,7 @@ const CustomDataGrid = (props) => {
 				//getRowHeight={() => 'auto'}
 				initialState={{
 					pagination: {
-						page: 1,
+						page: 0,
 					},
 				}}
 				getRowClassName={() => 'row--style'}

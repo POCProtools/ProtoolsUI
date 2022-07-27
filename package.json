@@ -35,6 +35,7 @@
 		"react-date-fns-hooks": "^0.9.4",
 		"react-dom": "^18.2.0",
 		"react-donut-chart": "^1.3.0",
+		"react-error-boundary": "^3.1.4",
 		"react-hook-form": "^7.33.0",
 		"react-hook-form-mui": "^3.9.0",
 		"react-icons": "^4.4.0",
