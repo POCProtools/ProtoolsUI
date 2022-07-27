@@ -74,11 +74,13 @@ const useStyles = makeStyles()((theme) => {
 			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
 				width: '84%',
-				left: '12%',
+				marginLeft: '11.5%',
+				//marginTop: '2%',
 			},
 			[theme.breakpoints.down('sm')]: {
 				width: '90%',
-				left: '5%',
+				marginLeft: '5%',
+				//marginTop: '3%',
 			},
 		},
 		bread: {

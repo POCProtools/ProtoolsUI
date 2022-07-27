@@ -32,7 +32,11 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
+<<<<<<< HEAD
 			[theme.breakpoints.down('md')]: {
+=======
+			[theme.breakpoints.down('sm')]: {
+>>>>>>> develop
 				display: 'none',
 			},
 		},
@@ -41,13 +45,13 @@ const useStyles = makeStyles()((theme) => {
 			color: theme.palette.primary.main,
 			margin: 5,
 			[theme.breakpoints.down('sm')]: {
-				fontSize: 9,
+				fontSize: 17,
 			},
 		},
 		iconMenu: {
 			color: theme.palette.primary.main,
 			[theme.breakpoints.down('md')]: {
-				fontSize: 19,
+				fontSize: 17,
 			},
 		},
 		drawer: {

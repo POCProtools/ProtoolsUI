@@ -67,7 +67,7 @@ const ProcessOverview = (props) => {
 						>
 							Processus
 						</Typography>
-						<DoughnutChart data={pieProcessdata} />
+						<DoughnutChart data={pieProcessdata} redraw />
 					</Grid>
 					<Grid
 						item
@@ -85,7 +85,7 @@ const ProcessOverview = (props) => {
 						>
 							Tâches
 						</Typography>
-						<DoughnutChart data={pieTaskdata} />
+						<DoughnutChart data={pieTaskdata} redraw />
 					</Grid>
 					<Grid
 						item
@@ -103,7 +103,7 @@ const ProcessOverview = (props) => {
 						>
 							Incidents
 						</Typography>
-						<DoughnutChart data={pieIncidentdata} />
+						<DoughnutChart data={pieIncidentdata} redraw />
 					</Grid>
 				</Stack>
 			</CardContent>
