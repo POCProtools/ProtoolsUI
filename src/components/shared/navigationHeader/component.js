@@ -32,19 +32,22 @@ const useStyles = makeStyles()((theme) => {
 			flex: 1,
 			fontWeight: 'normal', //margin: 5,
 			color: theme.palette.primary.main,
+			[theme.breakpoints.down('sm')]: {
+				display: 'none',
+			},
 		},
 		iconsHeader: {
 			flex: 1,
 			color: theme.palette.primary.main,
 			margin: 5,
 			[theme.breakpoints.down('sm')]: {
-				fontSize: 9,
+				fontSize: 17,
 			},
 		},
 		iconMenu: {
 			color: theme.palette.primary.main,
 			[theme.breakpoints.down('md')]: {
-				fontSize: 19,
+				fontSize: 17,
 			},
 		},
 		drawer: {
@@ -123,25 +126,13 @@ const NavigationHeader = () => {
 								</Link>
 							</ListItem>
 							<ListItem>
-								<Link href='/logs' underline='none'>
+								<Link href='/history' underline='none'>
 									<Box className={classes.boxBreakpoint}>
 										<Typography
 											variant='subtitle2'
 											className={classes.textSidebar}
 										>
-											Logs
-										</Typography>
-									</Box>
-								</Link>
-							</ListItem>
-							<ListItem>
-								<Link href='/admin' underline='none'>
-									<Box className={classes.boxBreakpoint}>
-										<Typography
-											variant='subtitle2'
-											className={classes.textSidebar}
-										>
-											Admin
+											History
 										</Typography>
 									</Box>
 								</Link>
