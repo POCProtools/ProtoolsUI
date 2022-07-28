@@ -3,6 +3,17 @@ import { fetcherGet } from 'core/fetchData/fetchData';
 import theme from 'theme';
 import Moment from 'moment';
 import { taskDictionary } from 'utils/mockData';
+
+const getProcessState = (datatmp, i) => {
+	if (datatmp[i].isSuspended) {
+		return 'suspended';
+	}
+	if (datatmp[i].deadLetterList > 0) {
+		return 'deadLetter';
+	} else {
+		return 'ok';
+	}
+};
 // Retrive all process currently running
 export const fetchProcessData = () => {
 	const urlEndpoint = 'processInstances/';
@@ -28,7 +39,7 @@ export const fetchProcessData = () => {
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
 					id: datatmp[i].id,
-					state: !datatmp[i].isSuspended && datatmp[i].deadLetterList === 0,
+					state: getProcessState(datatmp, i),
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
 					date: Moment(datatmp[i].startTime).format('DD/MM/YYYY - HH:mm'),

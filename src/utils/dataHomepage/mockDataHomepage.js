@@ -1,4 +1,9 @@
-import { FiChevronRight, FiCheck, FiPauseCircle } from 'react-icons/fi';
+import {
+	FiChevronRight,
+	FiCheck,
+	FiPauseCircle,
+	FiSlash,
+} from 'react-icons/fi';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 export const columnsProcessData = [
@@ -35,19 +40,30 @@ export const columnsProcessData = [
 		field: 'state',
 		headerName: 'Statut',
 		headerClassName: 'columns--header',
-		type: 'boolean',
 		flex: 0.18,
 		align: 'center',
-		renderCell: (params) =>
-			params.value ? (
-				<Box display='flex' alignItems='center' justifyContent='center'>
-					<FiCheck size={20} color='#17C3B2' />
-				</Box>
-			) : (
-				<Box display='flex' alignItems='center' justifyContent='center'>
-					<FiPauseCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
-				</Box>
-			),
+		renderCell: (params) => {
+			switch (params.value) {
+				case 'suspended':
+					return (
+						<Box display='flex' alignItems='center' justifyContent='center'>
+							<FiPauseCircle size={20} color='#F25C54' />
+						</Box>
+					);
+				case 'deadLetter':
+					return (
+						<Box display='flex' alignItems='center' justifyContent='center'>
+							<FiSlash size={20} color='#F25C54' />
+						</Box>
+					);
+				default:
+					return (
+						<Box display='flex' alignItems='center' justifyContent='center'>
+							<FiCheck size={20} color='#17C3B2' />
+						</Box>
+					);
+			}
+		},
 	},
 	{
 		field: 'action',
