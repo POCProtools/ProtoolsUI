@@ -241,9 +241,6 @@ const BPMNViewer = (props) => {
 						<Link underline='hover' color='inherit' href='/'>
 							Home
 						</Link>
-						<Link underline='hover' color='inherit' href='/process'>
-							Processes
-						</Link>
 						<Typography color='text.primary'>
 							Workflow : {processKey}
 						</Typography>
