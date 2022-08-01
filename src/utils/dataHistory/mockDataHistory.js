@@ -1,5 +1,5 @@
 import { FiChevronRight, FiCheck, FiPauseCircle } from 'react-icons/fi';
-import { Box, Tooltip } from '@mui/material';
+import { Box } from '@mui/material';
 
 export const columnsProcessDataHistory = [
 	{
