@@ -141,7 +141,7 @@ const SideBar = (props) => {
 											: classes.textSidebar
 									}
 								>
-									Home
+									Accueil
 								</Typography>
 							</Box>
 						</Grid>
@@ -194,7 +194,7 @@ const SideBar = (props) => {
 											: classes.textSidebar
 									}
 								>
-									History
+									Historique
 								</Typography>
 							</Box>
 						</Grid>
@@ -246,7 +246,7 @@ const SideBar = (props) => {
 											: classes.textSidebar
 									}
 								>
-									Design
+									Modélisation
 								</Typography>
 							</Box>
 						</Grid>

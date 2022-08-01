@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 export const columnsProcessDataHistory = [
 	{
 		field: 'id',
-		headerName: 'ID',
+		headerName: 'Identifiant',
 		headerClassName: 'columns--header',
 		flex: 0.5,
 		minWidth: 200,
@@ -12,7 +12,7 @@ export const columnsProcessDataHistory = [
 	},
 	{
 		field: 'name',
-		headerName: 'Process Key',
+		headerName: 'Nom',
 		headerClassName: 'columns--header',
 		flex: 0.4,
 		minWidth: 100,
@@ -28,7 +28,7 @@ export const columnsProcessDataHistory = [
 	},
 	{
 		field: 'duration',
-		headerName: 'Duration',
+		headerName: 'Durée',
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
@@ -64,7 +64,7 @@ export const columnsTaskDataHistory = [
 	},
 	{
 		field: 'processID',
-		headerName: 'Process ID',
+		headerName: 'Identifiant Processus',
 		headerClassName: 'columns--header',
 		flex: 0.6,
 		minWidth: 450,
@@ -80,7 +80,7 @@ export const columnsTaskDataHistory = [
 	},
 	{
 		field: 'duration',
-		headerName: 'Duration',
+		headerName: 'Durée',
 		headerClassName: 'columns--header',
 		flex: 0.2,
 		minWidth: 150,
@@ -96,7 +96,7 @@ export const columnsTaskDataHistory = [
 	},
 	{
 		field: 'deleted',
-		headerName: 'Success',
+		headerName: 'Réalisé',
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 100,

@@ -109,7 +109,7 @@ const NavigationHeader = () => {
 										variant='subtitle2'
 										className={classes.textSidebar}
 									>
-										Home
+										Accueil
 									</Typography>
 								</Link>
 							</ListItem>
@@ -132,7 +132,7 @@ const NavigationHeader = () => {
 											variant='subtitle2'
 											className={classes.textSidebar}
 										>
-											History
+											Historique
 										</Typography>
 									</Box>
 								</Link>
@@ -144,7 +144,7 @@ const NavigationHeader = () => {
 											variant='subtitle2'
 											className={classes.textSidebar}
 										>
-											Design
+											Modélisation
 										</Typography>
 									</Box>
 								</Link>
@@ -158,12 +158,12 @@ const NavigationHeader = () => {
 						alignItems='center'
 						spacing={{ xs: 0.5, sm: 1.5 }}
 					>
-						<Box className={classes.gridContainer}>
+						{/* <Box className={classes.gridContainer}>
 							<FiMoon className={classes.iconsHeader} />
 							<Typography variant='caption' className={classes.textHeader}>
 								DarkMode
 							</Typography>
-						</Box>
+						</Box> */}
 						<a
 							href='https://protools-flowable.dev.insee.io/swagger-ui/index.html'
 							target='_blank'

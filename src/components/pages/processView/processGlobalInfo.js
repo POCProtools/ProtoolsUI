@@ -131,7 +131,7 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										ProcessKey:
+										Nom:
 									</Typography>
 									<Typography
 										color='primary'
@@ -163,14 +163,14 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Tenant:
+										Groupe abilité:
 									</Typography>
 									<Typography
 										color='primary'
 										variant='body2'
 										sx={{ marginLeft: 1 }}
 									>
-										On met le tenant ici
+										...
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>

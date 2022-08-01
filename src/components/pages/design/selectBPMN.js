@@ -44,7 +44,7 @@ const SelectBPMN = () => {
 	return (
 		<Stack spacing={3}>
 			<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-				<InputLabel>Select BPMN</InputLabel>
+				<InputLabel>Fichier BPMN</InputLabel>
 				<Select value={selected} label='Select BPMN' onChange={handleChange}>
 					<MenuItem value={'camunda'}>Camunda POC</MenuItem>
 					<MenuItem value={'flowable'}>Flowable POC</MenuItem>
