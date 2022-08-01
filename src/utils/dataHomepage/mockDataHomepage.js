@@ -13,6 +13,7 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.5,
 		minWidth: 200,
+		description: 'Identifiant du processus',
 	},
 	{
 		field: 'processKey',
@@ -20,6 +21,7 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: 'Npm du processus défini par BPMN',
 	},
 	{
 		field: 'documentation',
@@ -27,6 +29,7 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.6,
 		minWidth: 250,
+		description: 'Description du processus',
 	},
 	{
 		field: 'date',
@@ -34,6 +37,7 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: "Date de début de l'exécution du processus",
 	},
 
 	{
@@ -42,6 +46,8 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.18,
 		align: 'center',
+		description:
+			"Indique si le processus est en cours d'exécution, en erreur ou suspendu",
 		renderCell: (params) => {
 			switch (params.value) {
 				case 'suspended':
@@ -71,6 +77,7 @@ export const columnsProcessData = [
 		headerClassName: 'columns--header',
 		flex: 0.15,
 		align: 'center',
+		description: "Accès à l'exécution du processus",
 		renderCell: (params) => (
 			<Link
 				to={`/process/${params.value.url}`}
@@ -96,6 +103,7 @@ export const columnsManu = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 200,
+		description: 'Nom de la tâche manuelle',
 	},
 	{
 		field: 'id',
@@ -103,6 +111,7 @@ export const columnsManu = [
 		headerClassName: 'columns--header',
 		flex: 0.5,
 		minWidth: 250,
+		description: 'Identifiant de la tâche manuelle',
 	},
 	{
 		field: 'createTime',
@@ -110,6 +119,7 @@ export const columnsManu = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 170,
+		description: 'Date de début de la tâche manuelle',
 	},
 	{
 		field: 'processInstance',
@@ -117,6 +127,7 @@ export const columnsManu = [
 		headerClassName: 'columns--header',
 		flex: 0.5,
 		minWidth: 150,
+		description: 'Processus pour lequel la tâche manuelle est associée',
 	},
 ];
 
@@ -144,6 +155,7 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 160,
+		description: "Type d'incident",
 	},
 	{
 		field: 'name',
@@ -151,6 +163,7 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: "Nom de la tâche associée à l'incident",
 	},
 	{
 		field: 'id',
@@ -158,6 +171,7 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: "Identifiant de la tâche associée à l'incident",
 	},
 	{
 		field: 'type',
@@ -165,6 +179,7 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 100,
+		description: "Type de la tâche associée à l'incident",
 	},
 
 	{
@@ -173,6 +188,7 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 500,
+		description: "Identifiant du processus associé à l'incident",
 	},
 	{
 		field: 'retries',
@@ -180,5 +196,6 @@ export const columnsIncidents = [
 		headerClassName: 'columns--header',
 		flex: 0.2,
 		maxWidth: 80,
+		description: "Nombre d'essais exectués pour l'incident",
 	},
 ];

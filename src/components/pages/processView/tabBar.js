@@ -95,18 +95,21 @@ const TabBarWorkflow = (props) => {
 			headerName: 'Nom',
 			flex: 0.3,
 			minWidth: 100,
+			description: 'Nom de la tâche',
 		},
 		{
 			field: 'id',
 			headerName: 'Task ID',
 			flex: 0.5,
 			minWidth: 200,
+			description: 'Identifiant de la tâche',
 		},
 		{
 			field: 'createTime',
 			headerName: 'Date de création',
 			flex: 0.3,
 			minWidth: 150,
+			description: 'Date de création de la tâche',
 		},
 		{
 			field: 'action',
@@ -114,6 +117,7 @@ const TabBarWorkflow = (props) => {
 			align: 'center',
 			flex: 0.1,
 			minWidth: 90,
+			description: 'Exécuter cett tâche',
 			renderCell: (params) => (
 				<>
 					<Link

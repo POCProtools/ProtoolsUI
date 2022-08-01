@@ -8,7 +8,6 @@ import NavigatedViewer from 'bpmn-js/lib/NavigatedViewer';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import minimapModule from 'diagram-js-minimap';
-import CollapseSubprocessModule from 'bpmn-js-collapse-subprocess';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 // Visual dependencies
 import { makeStyles } from 'tss-react/mui';
@@ -144,7 +143,7 @@ const BPMNViewer = (props) => {
 					console.log(e);
 				});
 			setLoading(false);
-		}, 100);
+		}, 200);
 		const interval = setInterval(() => {
 			const pls = getCurrentActivityName(id).then((res) => {
 				console.log('Current activity: ', res);
@@ -163,7 +162,7 @@ const BPMNViewer = (props) => {
 		// Define BPMN Viewer
 		const viewer = new NavigatedViewer({
 			container: '#containerBPMN',
-			additionalModules: [minimapModule, CollapseSubprocessModule],
+			additionalModules: [minimapModule],
 		});
 		// Import BPMN diagram into the viewer
 		viewer

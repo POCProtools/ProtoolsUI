@@ -1,5 +1,5 @@
 import { FiChevronRight, FiCheck, FiPauseCircle } from 'react-icons/fi';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 
 export const columnsProcessDataHistory = [
 	{
@@ -8,6 +8,7 @@ export const columnsProcessDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.5,
 		minWidth: 200,
+		description: 'Identifiant du processus',
 	},
 	{
 		field: 'name',
@@ -15,6 +16,7 @@ export const columnsProcessDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.4,
 		minWidth: 100,
+		description: 'Nom du processus',
 	},
 	{
 		field: 'businessKey',
@@ -22,6 +24,7 @@ export const columnsProcessDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 220,
+		description: 'Type de processus',
 	},
 	{
 		field: 'duration',
@@ -29,6 +32,7 @@ export const columnsProcessDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: "Durée d'exécution du processus",
 	},
 	{
 		field: 'revision',
@@ -36,6 +40,7 @@ export const columnsProcessDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		maxWidth: 100,
+		description: "Nombre de révision du processus pendant l'exécution",
 	},
 	{
 		field: 'action',
@@ -55,6 +60,7 @@ export const columnsTaskDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 100,
+		description: 'Nom de la tâche',
 	},
 	{
 		field: 'processID',
@@ -62,6 +68,7 @@ export const columnsTaskDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.6,
 		minWidth: 450,
+		description: 'Processus associé à la tâche',
 	},
 	{
 		field: 'type',
@@ -69,6 +76,7 @@ export const columnsTaskDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.2,
 		minWidth: 100,
+		description: 'Type de tâche',
 	},
 	{
 		field: 'duration',
@@ -76,6 +84,7 @@ export const columnsTaskDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.2,
 		minWidth: 150,
+		description: "Durée d'exécution de la tâche",
 	},
 	{
 		field: 'endDate',
@@ -83,6 +92,7 @@ export const columnsTaskDataHistory = [
 		headerClassName: 'columns--header',
 		flex: 0.3,
 		minWidth: 150,
+		description: 'Date de complétion',
 	},
 	{
 		field: 'deleted',
@@ -91,6 +101,7 @@ export const columnsTaskDataHistory = [
 		flex: 0.3,
 		maxWidth: 100,
 		align: 'center',
+		description: 'Si la tâche a été supprimée ou non',
 		renderCell: (params) =>
 			!params.value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
