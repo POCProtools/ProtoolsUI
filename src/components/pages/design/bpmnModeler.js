@@ -5,6 +5,7 @@ import { Button, Box } from '@mui/material';
 import 'bpmn-js/dist/assets/diagram-js.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 import 'diagram-js-minimap/assets/diagram-js-minimap.css';
+import CollapseSubprocessModule from 'bpmn-js-collapse-subprocess';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import minimapModule from 'diagram-js-minimap';
 import {
@@ -84,6 +85,7 @@ const CustomModeler = (props) => {
 				minimapModule,
 				BpmnPropertiesPanelModule,
 				BpmnPropertiesProviderModule,
+				CollapseSubprocessModule,
 			],
 			propertiesPanel: {
 				parent: propertiesPanelRef.current,

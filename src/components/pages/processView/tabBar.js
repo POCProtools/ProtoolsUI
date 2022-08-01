@@ -152,10 +152,9 @@ const TabBarWorkflow = (props) => {
 					>
 						<StyledTab label='Informations' {...tabPropIndex(0)} />
 
-						<StyledTab label='Variables' {...tabPropIndex(1)} />
+						<StyledTab label='Variables de Contexte' {...tabPropIndex(1)} />
 						<StyledTab label='Taches manuelles' {...tabPropIndex(2)} />
 						<StyledTab label='Éléments BPMN' {...tabPropIndex(3)} />
-						<StyledTab label='Incidents' {...tabPropIndex(4)} />
 					</StyledTabs>
 				</CardContent>
 			</CustomCard>
@@ -199,7 +198,6 @@ const TabBarWorkflow = (props) => {
 						/>
 					</CardContent>
 				</TabPanel>
-				<TabPanel value={value} index={4}></TabPanel>
 			</CustomCard>
 		</>
 	);
