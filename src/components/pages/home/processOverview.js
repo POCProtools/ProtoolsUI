@@ -54,7 +54,7 @@ const ProcessOverview = (props) => {
 					<Stack
 						direction='row'
 						alignItems='center'
-						spacing={{ xs: 2, sm: 3, md: 4, lg: 8, xl: 10 }}
+						spacing={{ xs: 2, sm: 6, md: 12, lg: 15, xl: 20 }}
 					>
 						<Grid
 							item
