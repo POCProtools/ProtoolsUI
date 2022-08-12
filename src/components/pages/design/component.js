@@ -84,7 +84,7 @@ const Design = () => {
 				<CustomCard className={classes.card}>
 					<CardContent>
 						<Typography value='h3' className={classes.titleCard}>
-							Selectionner un protocole BPMN:
+							Sélectionner un protocole BPMN:
 						</Typography>
 						<SelectBPMN />
 					</CardContent>
