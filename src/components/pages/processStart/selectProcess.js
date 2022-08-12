@@ -77,7 +77,7 @@ const SelectProcess = () => {
 					</Select>
 				</FormControl>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel color='primary'>Business Key :</InputLabel>
+					<InputLabel color='primary'>Catégorie protocole :</InputLabel>
 					<Select
 						color='primary'
 						labelId='SelectBusinessKey'

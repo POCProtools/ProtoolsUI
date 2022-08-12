@@ -124,14 +124,14 @@ const CustomModeler = (props) => {
 				variant='contained'
 				onClick={() => saveBPMNDiagram(modelerRef.current)}
 			>
-				Save BPMN File
+				Sauvegarder le fichier BPMN
 			</Button>
 			<Button
 				onClick={() => {
 					saveBPMNSvg(modelerRef.current);
 				}}
 			>
-				Save SVG
+				Exporter l'image
 			</Button>
 		</Fragment>
 	);
