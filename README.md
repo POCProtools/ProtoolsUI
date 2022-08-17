@@ -6,11 +6,11 @@ Web UI application to demonstrate functionalities provided by the Protools proje
 
 ## About
 
-WIP... Please be patient 😉
+WIP... Please be patient 🦊
 
 ## Demo link
 
-To be added
+[Here it is 😉](https://protools.dev.insee.io/)
 
 ## Installation
 
