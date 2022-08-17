@@ -19,8 +19,8 @@ const useStyles = makeStyles()((theme) => {
 			alignItems: 'center',
 			justifyContent: 'center',
 			width: '80%',
-			marginLeft: '16%',
-			marginTop: '2%',
+			marginLeft: '17%',
+			marginTop: '2.5%',
 			[theme.breakpoints.down('md')]: {
 				width: '85%',
 				marginLeft: '11.5%',

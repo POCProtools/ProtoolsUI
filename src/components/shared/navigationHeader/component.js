@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { useScrollTrigger } from '@mui/material';
-import { FiMoon, FiBook, FiMenu } from 'react-icons/fi';
+import { FiUser, FiBook, FiMenu } from 'react-icons/fi';
 import { makeStyles } from 'tss-react/mui';
 import {
 	Box,
@@ -60,7 +60,6 @@ const useStyles = makeStyles()((theme) => {
 	};
 });
 
-// TODO : Refactor inside styles instead
 const RootStyle = styled(AppBar)(({ theme }) => ({
 	boxShadow: 'none',
 	backgroundColor: 'transparent',
@@ -158,12 +157,12 @@ const NavigationHeader = () => {
 						alignItems='center'
 						spacing={{ xs: 0.5, sm: 1.5 }}
 					>
-						{/* <Box className={classes.gridContainer}>
-							<FiMoon className={classes.iconsHeader} />
+						<Box className={classes.gridContainer}>
+							<FiUser className={classes.iconsHeader} />
 							<Typography variant='caption' className={classes.textHeader}>
-								DarkMode
+								FakeUser
 							</Typography>
-						</Box> */}
+						</Box>
 						<a
 							href='https://protools-flowable.dev.insee.io/swagger-ui/index.html'
 							target='_blank'

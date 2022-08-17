@@ -9,7 +9,7 @@ import Logo from '../logo/logo';
 const useStyles = makeStyles()((theme) => {
 	return {
 		drawer: {
-			width: '12%',
+			width: '14%',
 			[theme.breakpoints.down('md')]: {
 				width: '5%',
 			},
@@ -19,7 +19,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		drawerPaper: {
 			'&&': {
-				width: '12%',
+				width: '14%',
 				backgroundColor: theme.palette.background.default,
 				[theme.breakpoints.down('md')]: {
 					width: '8%',
@@ -39,7 +39,13 @@ const useStyles = makeStyles()((theme) => {
 			padding: 20,
 		},
 		titleSidebar: {
-			display: 'inline-block',
+			//display: 'inline-block',
+			marginLeft: 10,
+			fontWeight: 'bold',
+			color: theme.palette.primary.main,
+		},
+		subTitleSidebar: {
+			//display: 'inline-block',
 			marginLeft: 10,
 			fontWeight: 'bold',
 			color: theme.palette.primary.main,
@@ -78,7 +84,7 @@ const useStyles = makeStyles()((theme) => {
 
 const SideBar = (props) => {
 	const { classes } = useStyles();
-	//TODO : Gestion state page actuelle
+
 	const pageActuelle = props.page;
 	return (
 		<>
@@ -105,9 +111,11 @@ const SideBar = (props) => {
 				>
 					<Logo className={classes.logo} />
 					<Box className={classes.boxBreakpoint}>
-						<Typography variant='h6' className={classes.titleSidebar}>
-							Protools <br />
-							Dashboard
+						<Typography variant='h5' className={classes.titleSidebar}>
+							Protools
+						</Typography>
+						<Typography variant='subtitle2' className={classes.subTitleSidebar}>
+							Suivi & orchestration <br /> des enquêtes
 						</Typography>
 					</Box>
 				</Grid>
@@ -168,7 +176,7 @@ const SideBar = (props) => {
 											: classes.textSidebar
 									}
 								>
-									Workflows
+									Lancer une enquête
 								</Typography>
 							</Box>
 						</Grid>
@@ -246,7 +254,7 @@ const SideBar = (props) => {
 											: classes.textSidebar
 									}
 								>
-									Modélisation
+									Visualisation protocoles
 								</Typography>
 							</Box>
 						</Grid>
