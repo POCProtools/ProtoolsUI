@@ -13,6 +13,6 @@ spec:
         app: protools
     spec:
       containers:
-        - name: maquette-protools
-          image: mailinenguyen/maquette-protools:latest
+        - name: protools
+          image: mailinenguyen/protools:latest
           imagePullPolicy: Always
