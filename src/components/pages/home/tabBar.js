@@ -94,10 +94,13 @@ const TabBarDashboard = (props) => {
 						variant='scrollable'
 						allowScrollButtonsMobile
 					>
-						<StyledTab label='Processus' {...tabPropIndex(0)} />
+						<StyledTab label='Enquêtes en cours' {...tabPropIndex(0)} />
 
-						<StyledTab label='Tâches manuelles' {...tabPropIndex(1)} />
-						<StyledTab label='Incidents' {...tabPropIndex(2)} />
+						<StyledTab
+							label='Tâches manuelles en attente'
+							{...tabPropIndex(1)}
+						/>
+						<StyledTab label='Incidents en cours' {...tabPropIndex(2)} />
 					</StyledTabs>
 				</CardContent>
 			</CustomCard>
