@@ -1,16 +1,16 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: maquette-protools
+  name: protools
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: maquette-protools
+      app: protools
   template:
     metadata:
       labels:
-        app: maquette-protools
+        app: protools
     spec:
       containers:
         - name: maquette-protools
