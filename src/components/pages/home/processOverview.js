@@ -59,7 +59,7 @@ const ProcessOverview = (props) => {
 						<Grid
 							item
 							container
-							xs={4}
+							xs={3}
 							sx={{
 								flexDirection: 'column',
 								textAlign: 'center',
@@ -71,13 +71,13 @@ const ProcessOverview = (props) => {
 								variant={small ? 'body2' : 'body1'}
 								className={classes.titleCard}
 							>
-								Processus
+								Enquêtes en cours
 							</Typography>
 							<DoughnutChart data={pieProcessdata} redraw />
 						</Grid>
 						<Grid
 							item
-							xs={4}
+							xs={6}
 							sx={{
 								flexDirection: 'column',
 								textAlign: 'center',
@@ -89,13 +89,13 @@ const ProcessOverview = (props) => {
 								variant={small ? 'body2' : 'body1'}
 								className={classes.titleCard}
 							>
-								Tâches
+								Tâches manuelles
 							</Typography>
 							<DoughnutChart data={pieTaskdata} redraw />
 						</Grid>
 						<Grid
 							item
-							xs={4}
+							xs={3}
 							sx={{
 								flexDirection: 'column',
 								textAlign: 'center',
@@ -107,7 +107,7 @@ const ProcessOverview = (props) => {
 								variant={small ? 'body2' : 'body1'}
 								className={classes.titleCard}
 							>
-								Incidents
+								Incidents en cours
 							</Typography>
 							<DoughnutChart data={pieIncidentdata} redraw />
 						</Grid>
