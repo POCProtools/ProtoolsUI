@@ -45,7 +45,7 @@ export const temporaryExecuteTask = (taskID, variables) => {
 		});
 };
 
-export const startProcess = (processKey, businessKey) => {
+export const startProcess = (processKey, businessKey, variables) => {
 	const urlEndpoint = 'start-process/';
 	const apiUrl =
 		process.env.REACT_APP_API_URL +
@@ -54,7 +54,7 @@ export const startProcess = (processKey, businessKey) => {
 		'/' +
 		businessKey;
 	const dataUrl = [];
-	fetcherPost(apiUrl)
+	fetcherPost(apiUrl, variables)
 		.then((r) => {
 			console.log('Process started : ', r.data);
 			dataUrl.push(r.data);

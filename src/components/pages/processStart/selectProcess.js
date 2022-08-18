@@ -26,9 +26,9 @@ const SelectProcess = () => {
 	const getUrl = (selected, callback) => {
 		switch (selected) {
 			case 'flowable':
-				return 'CasUtilisationPOC';
+				return ['CasUtilisationPOC', {}];
 			case 'sample':
-				return 'BpmnSample';
+				return ['BpmnSample', {}];
 			default:
 				console.log('Error: BPMN file not found');
 		}
@@ -55,7 +55,8 @@ const SelectProcess = () => {
 
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
-		setProcessParams(startProcess(getUrl(selected), selectedKey));
+		const processInfo = getUrl(selected);
+		setProcessParams(startProcess(processInfo[0], selectedKey, processInfo[1]));
 		console.log('processParams: ' + processParams);
 		handleClickOpen();
 	};

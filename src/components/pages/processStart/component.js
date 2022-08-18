@@ -59,7 +59,7 @@ const useStyles = makeStyles()((theme) => {
 
 const ProcessSelect = () => {
 	const { classes } = useStyles();
-	// TODO : add remplacer par les processus disponibles
+
 	return (
 		<>
 			<GlobalStyles
