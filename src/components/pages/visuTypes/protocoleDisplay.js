@@ -12,38 +12,13 @@ import 'diagram-js-minimap/assets/diagram-js-minimap.css';
 // Visual dependencies
 import { makeStyles } from 'tss-react/mui';
 import { GlobalStyles } from 'tss-react';
-import {
-	Box,
-	Breadcrumbs,
-	Link,
-	Typography,
-	Grid,
-	Dialog,
-	DialogActions,
-	DialogContent,
-	DialogContentText,
-	DialogTitle,
-	Button,
-} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 // Custom Components
 import Logo from 'components/shared/logo/logo';
-import TabBarWorkflow from './tabBar';
-import Loader from 'components/shared/loader/loader';
 import SideBar from 'components/shared/sidepanel/sidepanel';
+import CustomCard from 'components/shared/styledComponents/card/card';
 // Data retrieve functions
-import {
-	getUrlBPMNByProcessName,
-	getCurrentActivityName,
-	getVariables,
-	getManualTasks,
-	getAllTasksProcess,
-	getProcessDefinitionID,
-} from 'utils/dataProcess/fetchDataProcess';
-import {
-	defaultDataVariables,
-	defaultDataManualTask,
-	defaultBpmnElement,
-} from 'utils/mockData';
+
 import ProtocolInfo from './protocolInfo';
 
 const useStyles = makeStyles()((theme) => {
@@ -66,13 +41,12 @@ const useStyles = makeStyles()((theme) => {
 		viewerStyle: {
 			backgroundColor: '#FFFF',
 			border: `1px solid ${theme.palette.primary.main}`,
-			height: '40%',
+			height: '53%',
 			width: '80%',
 			marginLeft: '16%',
 			position: 'absolute',
-			top: '13%',
+			top: '10%',
 
-			zIndex: 1,
 			[theme.breakpoints.down('md')]: {
 				width: '84%',
 				marginLeft: '11.5%',
@@ -84,19 +58,29 @@ const useStyles = makeStyles()((theme) => {
 				//marginTop: '3%',
 			},
 		},
-		bread: {
+		cardTab: {
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			width: '79.5%',
+			marginLeft: '16%',
+			marginTop: '0.5%',
+			marginBottom: '5%',
 			position: 'absolute',
-			top: '10%',
-			left: '16%',
-			color: theme.palette.primary.main,
-			opacity: 0.8,
+			top: '65%',
+			padding: 5,
 			[theme.breakpoints.down('md')]: {
-				left: '12%',
+				width: '84%',
+				marginLeft: '11.5%',
+				marginTop: '2.5%',
 			},
 			[theme.breakpoints.down('sm')]: {
-				left: '5%',
+				width: '90%',
+				marginLeft: '5%',
+				marginTop: '3%',
 			},
 		},
+
 		highlight: {
 			backgroundColor: theme.palette.secondary.main,
 			opacity: 0.8,
@@ -109,7 +93,8 @@ const ProtocolTypeViwer = (props) => {
 	const { classes } = useStyles();
 	const [diagram, setDiagram] = useState('');
 	const [rendered, setRendered] = useState(false);
-	const url = props.url;
+	const params = useLocation();
+	const url = params.state.selected;
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -145,7 +130,7 @@ const ProtocolTypeViwer = (props) => {
 
 	return (
 		<>
-			<SideBar page='process' />
+			<SideBar page='design' />
 			<Box justifyContent='center'>
 				<GlobalStyles
 					styles={{
@@ -161,7 +146,9 @@ const ProtocolTypeViwer = (props) => {
 					</Typography>
 				</Box>
 				<div id='containerBPMN' className={classes.viewerStyle} />
-				<ProtocolInfo />
+				<CustomCard className={classes.cardTab}>
+					<ProtocolInfo />
+				</CustomCard>
 			</Box>
 		</>
 	);

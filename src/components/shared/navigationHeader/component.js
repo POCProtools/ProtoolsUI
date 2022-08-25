@@ -137,7 +137,7 @@ const NavigationHeader = () => {
 								</Link>
 							</ListItem>
 							<ListItem>
-								<Link href='/design' underline='none'>
+								<Link href='/protocol-types' underline='none'>
 									<Box className={classes.boxBreakpoint}>
 										<Typography
 											variant='subtitle2'

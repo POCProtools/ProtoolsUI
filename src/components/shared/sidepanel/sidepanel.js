@@ -233,7 +233,7 @@ const SideBar = (props) => {
 							</Box>
 						</Grid>
 					</Link> */}
-					<Link href='/design' underline='none'>
+					<Link href='/protocol-types' underline='none'>
 						<Grid
 							container
 							direction='row'
