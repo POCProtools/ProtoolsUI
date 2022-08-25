@@ -9,7 +9,7 @@ import {
 	Stack,
 	CardContent,
 } from '@mui/material';
-import { FiPause, FiActivity, FiCodesandbox } from 'react-icons/fi';
+import { FiActivity, FiCodesandbox } from 'react-icons/fi';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -72,7 +72,7 @@ const ProtocolInfo = (props) => {
 										variant='body2'
 										sx={{ marginLeft: 1 }}
 									>
-										Content
+										Specs à faire parce que je sais pas quoi mettre
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
