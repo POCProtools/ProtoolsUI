@@ -22,6 +22,7 @@ const RoutesWeb = () => {
 				<Route path={'/form'} element={<FormVariables />} />
 				<Route path={'/history'} element={<History />} />
 				<Route path={'/protocol-types'} element={<Visualizer />} />
+				<Route path={'/protocol-display'} element={<Visualizer />} />
 			</Routes>
 		</Router>
 	);
