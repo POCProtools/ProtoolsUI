@@ -242,7 +242,7 @@ const BPMNViewer = (props) => {
 							Home
 						</Link>
 						<Typography color='text.primary'>
-							Workflow : {processKey}
+							Workflow : {processInformations.key}
 						</Typography>
 					</Breadcrumbs>
 					<div id='containerBPMN' className={classes.viewerStyle} />

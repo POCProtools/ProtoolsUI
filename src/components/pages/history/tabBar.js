@@ -93,8 +93,11 @@ const TabBarHistory = (props) => {
 					>
 						<StyledTab label='Processus' {...tabPropIndex(0)} />
 
-						<StyledTab label='Tâches' {...tabPropIndex(1)} />
-						<StyledTab label='Éléments génériques' {...tabPropIndex(2)} />
+						<StyledTab
+							label='Tâches manuelles et automatisées'
+							{...tabPropIndex(1)}
+						/>
+						<StyledTab label='Évènements' {...tabPropIndex(2)} />
 					</StyledTabs>
 				</CardContent>
 			</CustomCard>

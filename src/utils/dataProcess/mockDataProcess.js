@@ -56,13 +56,7 @@ export const processBPMNElementColumn = [
 		minWidth: 200,
 		description: "Description de l'activité",
 	},
-	{
-		field: 'implementationType',
-		headerName: 'Implémentation',
-		flex: 0.2,
-		minWidth: 150,
-		description: "Type d'implémentation (si existant)",
-	},
+
 	{
 		field: 'asynchronous',
 		headerName: 'Async ?',
@@ -73,21 +67,12 @@ export const processBPMNElementColumn = [
 		renderCell: (value) =>
 			!value ? (
 				<Box display='flex' alignItems='center' justifyContent='center'>
-					<FiCheck size={20} color='#17C3B2' />
+					<FiCheck size={20} sx={{ align: 'center' }} />
 				</Box>
 			) : (
 				<Box display='flex' alignItems='center' justifyContent='center'>
-					<FiXCircle size={20} color='#F25C54' sx={{ align: 'center' }} />
+					<FiXCircle size={20} sx={{ align: 'center' }} />
 				</Box>
 			),
-	},
-
-	{
-		field: 'action',
-		headerName: ' ',
-		flex: 0.1,
-		minWidth: 90,
-		align: 'center',
-		renderCell: (value) => <FiEdit3 />,
 	},
 ];

@@ -86,10 +86,9 @@ const SelectProcess = () => {
 						label='Select BusinessKey'
 						onChange={handleChangeKey}
 					>
-						<MenuItem value={'TirageEnquête'}>Tirage Enquête</MenuItem>
-						<MenuItem value={'TestPOC'}>TestPOC</MenuItem>
-						<MenuItem value={'UnPandaRouxDors'}>Un Panda Roux Dors</MenuItem>
-						<MenuItem value={'IDK'}>IDK</MenuItem>
+						<MenuItem value={'Famille'}>Famille</MenuItem>
+						<MenuItem value={'PQV'}>Qualité Volaille</MenuItem>
+						<MenuItem value={'Test'}>Test</MenuItem>
 					</Select>
 				</FormControl>
 				<Button variant='contained' onClick={navigationHandler}>

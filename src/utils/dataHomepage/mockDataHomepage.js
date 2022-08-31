@@ -8,12 +8,12 @@ import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 export const columnsProcessData = [
 	{
-		field: 'id',
-		headerName: 'ID',
+		field: 'tag',
+		headerName: 'Type Enquête',
 		headerClassName: 'columns--header',
-		flex: 0.5,
+		flex: 0.3,
 		minWidth: 200,
-		description: 'Identifiant du processus',
+		description: "Type d'enquête",
 	},
 	{
 		field: 'processKey',
@@ -104,14 +104,6 @@ export const columnsManu = [
 		flex: 0.3,
 		minWidth: 200,
 		description: 'Nom de la tâche manuelle',
-	},
-	{
-		field: 'id',
-		headerName: 'ID Tâche',
-		headerClassName: 'columns--header',
-		flex: 0.5,
-		minWidth: 250,
-		description: 'Identifiant de la tâche manuelle',
 	},
 	{
 		field: 'createTime',

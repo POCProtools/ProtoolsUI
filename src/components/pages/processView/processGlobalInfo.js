@@ -163,7 +163,7 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Groupe abilité:
+										Groupe habilité:
 									</Typography>
 									<Typography
 										color='primary'
@@ -179,7 +179,7 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Nombre de tâches manuelles actives:
+										Tâches manuelles en attente:
 									</Typography>
 									<Typography
 										color='primary'
