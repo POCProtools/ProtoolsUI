@@ -12,6 +12,7 @@ import { getVariables } from 'utils/dataProcess/fetchDataProcess';
 import { temporaryExecuteTask } from 'utils/dataProcess/processExecution';
 import FormView from './formView';
 import NoVariablesViews from './noVariablesView';
+import FormContentPQV from './fromContentPQV';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -24,8 +25,8 @@ const useStyles = makeStyles()((theme) => {
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'center',
-			width: '20%',
-			marginLeft: '45%',
+			width: '28%',
+			marginLeft: '40%',
 			marginTop: '10%',
 			padding: 10,
 			[theme.breakpoints.down('lg')]: {
@@ -73,6 +74,7 @@ const FormVariables = () => {
 
 	const id = state.id;
 	const variables = state.variables;
+	console.log('Manual task variables ', variables);
 
 	const taskName = state.taskName;
 	const taskID = state.taskID;
@@ -106,6 +108,39 @@ const FormVariables = () => {
 									Définition des variables d'enquête:
 								</Typography>
 								<FormComponent taskName={taskName} taskID={taskID} />
+							</CardContent>
+						</CustomCard>
+					</Grid>
+				</>
+			);
+		case 'Entrées Informations (contrôle)':
+			return (
+				<>
+					<GlobalStyles
+						styles={{
+							body: {
+								backgroundColor: '#F9FAFC',
+							},
+						}}
+					/>
+					<SideBar page='form' />
+					<Grid container justify='center'>
+						<Box className={classes.TitleHeader}>
+							<Logo className={classes.logo} />
+							<Typography variant='h3' className={classes.title}>
+								Vérification des variables
+							</Typography>
+						</Box>
+						<CustomCard className={classes.card}>
+							<CardContent>
+								<Typography value='h3' className={classes.titleCard}>
+									Les informations rentrées sont elles correctes ?
+								</Typography>
+								<FormContentPQV
+									taskName={taskName}
+									taskID={taskID}
+									variables={variables}
+								/>
 							</CardContent>
 						</CustomCard>
 					</Grid>
