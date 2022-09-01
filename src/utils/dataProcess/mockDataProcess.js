@@ -38,14 +38,14 @@ export const processBPMNElementColumn = [
 	{
 		field: 'id',
 		headerName: "ID de l'activité",
-		flex: 0.3,
+		flex: 0.2,
 		minWidth: 100,
 		description: "Identifiant de l'activité (Notation BPMN)",
 	},
 	{
 		field: 'name',
 		headerName: 'Nom',
-		flex: 0.4,
+		flex: 0.3,
 		minWidth: 150,
 		description: "Nom de l'activité (Notation BPMN)",
 	},

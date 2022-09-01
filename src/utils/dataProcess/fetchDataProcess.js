@@ -3,12 +3,12 @@ import { fetcherGet } from 'core/fetchData/fetchData';
 import Moment from 'moment';
 export const getUrlBPMNByProcessName = (selected) => {
 	switch (selected) {
-		case 'EnquêteTest':
+		case 'EnqueteTest':
 			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/casUsageTest.bpmn20.xml';
 		case 'EnqueteWeb2':
-			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestFamilleWithMessages.bpmn20.xml';
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestPQVWithMessages.bpmn20.xml';
 		case 'EnqueteWeb':
-			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestFamilleWoMessages.bpmn20.xml';
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestPQVWoMessages.bpmn20.xml';
 		default:
 			console.log('Error: BPMN file not found');
 			return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';
@@ -29,6 +29,7 @@ export const getAvailableTasks = (processInstanceId) => {
 				dataUrl.push({
 					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
+					description: datatmp[i].description,
 					processInstance: datatmp[i].processInstance,
 					createTime: datatmp[i].createTime,
 					processDefinitionID: datatmp[i].processDefinitionID,

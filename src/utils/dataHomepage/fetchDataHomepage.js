@@ -88,6 +88,7 @@ export const fetchTaskData = () => {
 				dataUrl.push({
 					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
+					description: datatmp[i].description,
 					processInstance: datatmp[i].processInstance,
 					createTime: Moment(datatmp[i].createTime).format(
 						'DD/MM/YYYY - HH:mm'

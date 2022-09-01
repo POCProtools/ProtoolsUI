@@ -25,10 +25,14 @@ const SelectProcess = () => {
 
 	const getUrl = (selected, callback) => {
 		switch (selected) {
-			case 'test':
+			case 'EnquêteTest':
 				return ['EnqueteTest', {}];
-			case 'sample':
-				return ['BpmnSample', {}];
+			case 'EnqueteWebContinue':
+				return ['EnqueteWebContinue', {}];
+			case 'EnqueteWeb':
+				return ['EnqueteWeb', {}];
+			case 'EnqueteWebContinue2':
+				return ['EnqueteWeb2', {}];
 			default:
 				console.log('Error: BPMN file not found');
 		}
@@ -54,7 +58,7 @@ const SelectProcess = () => {
 	};
 
 	const navigationHandler = () => {
-		console.log('Navigate to bpmn file');
+		console.log('Selected survey: ' + selected);
 		const processInfo = getUrl(selected);
 		setProcessParams(startProcess(processInfo[0], selectedKey, processInfo[1]));
 		console.log('processParams: ' + processParams);
@@ -74,11 +78,9 @@ const SelectProcess = () => {
 						onChange={handleChange}
 					>
 						<MenuItem value={'EnquêteTest'}>Enquête de Test</MenuItem>
-						<MenuItem value={'EnqueteWebContinue'}>
-							Enquête Web Sans Message
-						</MenuItem>
+						<MenuItem value={'EnqueteWeb'}>Enquête Web Sans Message</MenuItem>
 						<MenuItem value={'EnqueteWeb2'}>Enquête Web Avec Message</MenuItem>
-						<MenuItem value={'EnqueteWebContinue2'}>
+						<MenuItem value={'EnqueteWebContinue'}>
 							Enquête Web Continue (Pas là)
 						</MenuItem>
 					</Select>
@@ -108,7 +110,7 @@ const SelectProcess = () => {
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
-						Processus lancé avec succès, redirection vers la page d'accueil.
+						Commande lancée avec succès, redirection vers la page d'accueil.
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
