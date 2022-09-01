@@ -9,6 +9,8 @@ export const getUrlBPMNByProcessName = (selected) => {
 			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestPQVWithMessages.bpmn20.xml';
 		case 'EnqueteWeb':
 			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestPQVWoMessages.bpmn20.xml';
+		case 'EnqueteWebContinue':
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/EnqueteFamille.bpmn20.xml';
 		default:
 			console.log('Error: BPMN file not found');
 			return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';
