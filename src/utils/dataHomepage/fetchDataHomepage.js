@@ -38,6 +38,7 @@ export const fetchProcessData = () => {
 
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
+					id: datatmp[i].id,
 					tag: datatmp[i].businessKey,
 					state: getProcessState(datatmp, i),
 					processKey: datatmp[i].processKey,

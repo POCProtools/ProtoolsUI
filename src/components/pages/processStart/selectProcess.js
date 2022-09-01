@@ -18,15 +18,15 @@ import { useNavigate } from 'react-router-dom';
 
 const SelectProcess = () => {
 	const navigate = useNavigate();
-	const [selected, setSelected] = useState('flowable');
-	const [selectedKey, setSelectedKey] = useState('IDK');
+	const [selected, setSelected] = useState('EnquêteTest');
+	const [selectedKey, setSelectedKey] = useState('Test');
 	const [open, setOpen] = useState(false);
 	const [processParams, setProcessParams] = useState([]);
 
 	const getUrl = (selected, callback) => {
 		switch (selected) {
-			case 'flowable':
-				return ['CasUtilisationPOC', {}];
+			case 'test':
+				return ['EnqueteTest', {}];
 			case 'sample':
 				return ['BpmnSample', {}];
 			default:
@@ -73,12 +73,18 @@ const SelectProcess = () => {
 						label='Select BPMN'
 						onChange={handleChange}
 					>
-						<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-						<MenuItem value={'sample'}>Cas Simple POC</MenuItem>
+						<MenuItem value={'EnquêteTest'}>Enquête de Test</MenuItem>
+						<MenuItem value={'EnqueteWebContinue'}>
+							Enquête Web Sans Message
+						</MenuItem>
+						<MenuItem value={'EnqueteWeb2'}>Enquête Web Avec Message</MenuItem>
+						<MenuItem value={'EnqueteWebContinue2'}>
+							Enquête Web Continue (Pas là)
+						</MenuItem>
 					</Select>
 				</FormControl>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel color='primary'>Catégorie protocole :</InputLabel>
+					<InputLabel color='primary'>Catégorie enquête :</InputLabel>
 					<Select
 						color='primary'
 						labelId='SelectBusinessKey'

@@ -3,14 +3,12 @@ import { fetcherGet } from 'core/fetchData/fetchData';
 import Moment from 'moment';
 export const getUrlBPMNByProcessName = (selected) => {
 	switch (selected) {
-		case 'CasUtilisationPOC':
-			return 'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml';
-		case 'BpmnSample':
-			return 'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/Example_de_BPMN_simple.bpmn20.xml';
-		case 'TestFamille':
-			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/main/src/main/resources/processes/TestFamilleWoMessages.bpmn20.xml';
-		case 'TestFamilleMessage':
-			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/main/src/main/resources/processes/TestFamilleWithMessages.bpmn20.xml';
+		case 'EnquêteTest':
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/casUsageTest.bpmn20.xml';
+		case 'EnqueteWeb2':
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestFamilleWithMessages.bpmn20.xml';
+		case 'EnqueteWeb':
+			return 'https://raw.githubusercontent.com/POCProtools/Protools-Flowable/protools-demo/src/main/resources/processes/TestFamilleWoMessages.bpmn20.xml';
 		default:
 			console.log('Error: BPMN file not found');
 			return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';

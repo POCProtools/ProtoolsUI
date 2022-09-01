@@ -80,7 +80,7 @@ const ProcessSelect = () => {
 				<CustomCard className={classes.card}>
 					<CardContent>
 						<Typography variant='h4' className={classes.titleCard}>
-							Sélectionner le processus à lancer :
+							Sélectionner l'enquête à lancer :
 						</Typography>
 						<SelectProcess />
 					</CardContent>
