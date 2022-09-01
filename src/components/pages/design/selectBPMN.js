@@ -8,24 +8,12 @@ import {
 	Stack,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { getUrlBPMNByProcessName } from 'utils/dataProcess/fetchDataProcess';
 
 const SelectBPMN = () => {
 	//const classes = useStyles();
-	const [selected, setSelected] = useState('empty');
+	const [selected, setSelected] = useState('EnqueteTest');
 	const navigate = useNavigate();
-	const getUrl = (selected, callback) => {
-		switch (selected) {
-			case 'empty':
-				return 'https://raw.githubusercontent.com/bpmn-io/bpmn-js-examples/master/modeler/resources/newDiagram.bpmn';
-			case 'camunda':
-				return 'https://raw.githubusercontent.com/Stage2022/ProtoolsCamundaTest/main/src/main/resources/process.bpmn';
-			case 'flowable':
-				return 'https://raw.githubusercontent.com/Stage2022/Protools-Flowable/main/src/main/resources/processes/casUsageTest.bpmn20.xml';
-			default:
-				console.log('Error: BPMN file not found');
-		}
-		callback();
-	};
 	const hasFinished = () => {
 		console.log('finished');
 	};
@@ -37,7 +25,7 @@ const SelectBPMN = () => {
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
 		navigate('/display', {
-			state: { selected: getUrl(selected, hasFinished) },
+			state: { selected: getUrlBPMNByProcessName(selected, hasFinished) },
 		});
 	};
 
@@ -46,9 +34,12 @@ const SelectBPMN = () => {
 			<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
 				<InputLabel>Fichier BPMN</InputLabel>
 				<Select value={selected} label='Select BPMN' onChange={handleChange}>
-					<MenuItem value={'camunda'}>Camunda POC</MenuItem>
-					<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-					<MenuItem value={'empty'}>Empty File</MenuItem>
+					<MenuItem value={'EnqueteTest'}>Enquête de Test</MenuItem>
+					<MenuItem value={'EnqueteWeb'}>Enquête Web Sans Message</MenuItem>
+					<MenuItem value={'EnqueteWeb2'}>Enquête Web Avec Message</MenuItem>
+					<MenuItem value={'EnqueteWebContinue'}>
+						Enquête Web Continue (Pas là)
+					</MenuItem>
 				</Select>
 				<Button
 					variant='contained'

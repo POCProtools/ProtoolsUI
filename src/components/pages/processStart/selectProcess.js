@@ -23,16 +23,16 @@ const SelectProcess = () => {
 	const [open, setOpen] = useState(false);
 	const [processParams, setProcessParams] = useState([]);
 
-	const getUrl = (selected, callback) => {
+	const getProcessKey = (selected, callback) => {
 		switch (selected) {
 			case 'EnquêteTest':
 				return ['EnqueteTest', {}];
-			case 'EnqueteWebContinue':
-				return ['EnqueteWebContinue', {}];
+			case 'EnqueteWeb2':
+				return ['EnqueteWeb2', {}];
 			case 'EnqueteWeb':
 				return ['EnqueteWeb', {}];
-			case 'EnqueteWebContinue2':
-				return ['EnqueteWeb2', {}];
+			case 'EnqueteWebContinue':
+				return ['EnqueteWebContinue', {}];
 			default:
 				console.log('Error: BPMN file not found');
 		}
@@ -59,7 +59,7 @@ const SelectProcess = () => {
 
 	const navigationHandler = () => {
 		console.log('Selected survey: ' + selected);
-		const processInfo = getUrl(selected);
+		const processInfo = getProcessKey(selected);
 		setProcessParams(startProcess(processInfo[0], selectedKey, processInfo[1]));
 		console.log('processParams: ' + processParams);
 		handleClickOpen();
