@@ -81,7 +81,7 @@ const SelectProcess = () => {
 						<MenuItem value={'EnqueteWeb'}>Enquête Web Sans Message</MenuItem>
 						<MenuItem value={'EnqueteWeb2'}>Enquête Web Avec Message</MenuItem>
 						<MenuItem value={'EnqueteWebContinue'}>
-							Enquête Web Continue (Pas là)
+							Enquête Web Continue
 						</MenuItem>
 					</Select>
 				</FormControl>

@@ -38,9 +38,7 @@ const SelectProtocole = () => {
 					<MenuItem value={'EnqueteTest'}>Enquête de Test</MenuItem>
 					<MenuItem value={'EnqueteWeb'}>Enquête Web Sans Message</MenuItem>
 					<MenuItem value={'EnqueteWeb2'}>Enquête Web Avec Message</MenuItem>
-					<MenuItem value={'EnqueteWebContinue'}>
-						Enquête Web Continue (Pas là)
-					</MenuItem>
+					<MenuItem value={'EnqueteWebContinue'}>Enquête Web Continue</MenuItem>
 				</Select>
 				<Button
 					variant='contained'
