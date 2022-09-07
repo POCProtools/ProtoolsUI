@@ -54,5 +54,5 @@ export const taskDictionary = {
 		'Dire au revoir',
 		'Clore la campagne',
 	],
-	Autre: ['Other', 'Hello'],
+	Autre: ['Other', 'Hello', 'initialisation du contexte dans Protools'],
 };
