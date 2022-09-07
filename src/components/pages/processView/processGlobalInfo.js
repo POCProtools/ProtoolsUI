@@ -105,6 +105,7 @@ const ProcessGlobalInfo = (props) => {
 										color='primary'
 										variant='body2'
 										sx={{ marginLeft: 1 }}
+										align='left'
 									>
 										{documentation}
 									</Typography>
@@ -234,6 +235,7 @@ const ProcessGlobalInfo = (props) => {
 									<Typography
 										color='primary'
 										variant='body2'
+										align='left'
 										sx={{ marginLeft: 1 }}
 									>
 										Autres informations potentiellement utiles potentiellement

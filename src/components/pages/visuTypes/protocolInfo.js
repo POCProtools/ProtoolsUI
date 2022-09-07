@@ -8,8 +8,13 @@ import {
 	Grid,
 	Stack,
 	CardContent,
+	List,
+	ListItem,
+	ListItemText,
+	ListItemIcon,
 } from '@mui/material';
-import { FiActivity, FiCodesandbox } from 'react-icons/fi';
+
+import { FiActivity, FiCodesandbox, FiCircle } from 'react-icons/fi';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -22,6 +27,7 @@ const useStyles = makeStyles()((theme) => {
 
 const ProtocolInfo = (props) => {
 	const classes = useStyles();
+	const data = props.processInfo;
 
 	return (
 		<>
@@ -49,14 +55,14 @@ const ProtocolInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Title:
+										Clé de l'enquête:
 									</Typography>
 									<Typography
 										color='primary'
 										variant='body2'
 										sx={{ marginLeft: 1 }}
 									>
-										Content Content Content Content Content Content
+										{Object.keys(data)[0]}
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
@@ -65,14 +71,14 @@ const ProtocolInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Title:
+										Nom de l'enquête:
 									</Typography>
 									<Typography
 										color='primary'
 										variant='body2'
 										sx={{ marginLeft: 1 }}
 									>
-										Specs à faire parce que je sais pas quoi mettre
+										{Object.entries(data)[0][1].title}
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
@@ -81,14 +87,15 @@ const ProtocolInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Title:
+										Description:
 									</Typography>
 									<Typography
 										color='primary'
 										variant='body2'
+										align='left'
 										sx={{ marginLeft: 1 }}
 									>
-										Content
+										{Object.entries(data)[0][1].description}
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
@@ -97,63 +104,51 @@ const ProtocolInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Title:
-									</Typography>
-									<Typography
-										color='primary'
-										variant='body2'
-										sx={{ marginLeft: 1 }}
-									>
-										Content
+										Variables de Contexte:
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
-									<Typography
-										color='primary'
-										variant='h6'
-										className={classes.infoName}
+									<List
+										key={Object.entries(data)[0][1].variables}
+										disablePadding
 									>
-										Title:
-									</Typography>
-									<Typography
-										color='primary'
-										variant='body2'
-										sx={{ marginLeft: 1 }}
-									>
-										Content
-									</Typography>
-								</Grid>
-								<Grid item container xs={12} direction='row'>
-									<Typography
-										color='primary'
-										variant='h6'
-										className={classes.infoName}
-									>
-										Title:
-									</Typography>
-									<Typography
-										color='primary'
-										variant='body2'
-										sx={{ marginLeft: 1 }}
-									>
-										Content
-									</Typography>
-								</Grid>
-								<Grid item container xs={12} direction='row'>
-									<Typography
-										color='primary'
-										variant='h6'
-										className={classes.infoName}
-									>
-										Title:
-									</Typography>
-									<Typography
-										color='primary'
-										variant='body2'
-										sx={{ marginLeft: 1 }}
-									>
-										Content
-									</Typography>
+										{Object.entries(data)[0][1].variables.map((item) => (
+											<ListItem
+												key={item.nom}
+												sx={{
+													paddingTop: '0',
+													paddingBottom: '0',
+													display: 'list-item',
+												}}
+											>
+												<ListItemIcon>
+													<FiCircle />
+												</ListItemIcon>
+												<ListItemText
+													primary={
+														<Typography
+															color='primary'
+															variant='subtitle1'
+															fontWeight='bold'
+															className={classes.infoName}
+														>
+															{'\u2022'}
+															{' ' + item.nom + ':'}
+														</Typography>
+													}
+													secondary={
+														<Typography
+															color='primary'
+															variant='body2'
+															className={classes.infoName}
+														>
+															{item.description}
+														</Typography>
+													}
+												/>
+											</ListItem>
+										))}
+									</List>
 								</Grid>
 							</Stack>
 							<Stack spacing={1}>
@@ -163,14 +158,14 @@ const ProtocolInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Title:
+										Nombre de tâches manuelles:
 									</Typography>
 									<Typography
 										color='primary'
 										variant='body2'
 										sx={{ marginLeft: 1 }}
 									>
-										Content
+										.{Object.entries(data)[0][1].tachesManu}
 									</Typography>
 								</Grid>
 								<Grid item container xs={12} direction='row'>
@@ -184,6 +179,7 @@ const ProtocolInfo = (props) => {
 									<Typography
 										color='primary'
 										variant='body2'
+										align='left'
 										sx={{ marginLeft: 1 }}
 									>
 										Autres informations potentiellement utiles potentiellement

@@ -95,6 +95,7 @@ const ProtocolTypeViwer = (props) => {
 	const [rendered, setRendered] = useState(false);
 	const params = useLocation();
 	const url = params.state.selected;
+	const processInfo = params.state.processInfo;
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -102,6 +103,7 @@ const ProtocolTypeViwer = (props) => {
 				.get(url)
 				.then((r) => {
 					setDiagram(r.data);
+					console.log('processInformationsDoc : ', processInfo);
 				})
 				.catch((e) => {
 					console.log(e);
@@ -147,7 +149,7 @@ const ProtocolTypeViwer = (props) => {
 				</Box>
 				<div id='containerBPMN' className={classes.viewerStyle} />
 				<CustomCard className={classes.cardTab}>
-					<ProtocolInfo />
+					<ProtocolInfo processInfo={processInfo} />
 				</CustomCard>
 			</Box>
 		</>

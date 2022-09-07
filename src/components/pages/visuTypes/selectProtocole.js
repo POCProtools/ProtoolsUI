@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getUrlBPMNByProcessName } from 'utils/dataProcess/fetchDataProcess';
+import { getProcessDataVisuTypes } from '../../../utils/dataVisuTypes/fetchDataVisuTypes';
 
 const SelectProtocole = () => {
 	//const classes = useStyles();
@@ -26,7 +27,10 @@ const SelectProtocole = () => {
 	const navigationHandler = () => {
 		console.log('Navigate to bpmn file');
 		navigate('/protocol-display', {
-			state: { selected: getUrlBPMNByProcessName(selected, hasFinished) },
+			state: {
+				selected: getUrlBPMNByProcessName(selected, hasFinished),
+				processInfo: getProcessDataVisuTypes(selected),
+			},
 		});
 	};
 
