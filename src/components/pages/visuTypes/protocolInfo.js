@@ -11,10 +11,9 @@ import {
 	List,
 	ListItem,
 	ListItemText,
-	ListItemIcon,
 } from '@mui/material';
 
-import { FiActivity, FiCodesandbox, FiCircle } from 'react-icons/fi';
+import { FiActivity, FiCodesandbox } from 'react-icons/fi';
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -121,9 +120,6 @@ const ProtocolInfo = (props) => {
 													display: 'list-item',
 												}}
 											>
-												<ListItemIcon>
-													<FiCircle />
-												</ListItemIcon>
 												<ListItemText
 													primary={
 														<Typography
