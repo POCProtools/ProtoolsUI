@@ -89,7 +89,21 @@ const SelectProcess = () => {
 		<>
 			<Stack spacing={3}>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel color='primary'> Processus :</InputLabel>
+					<InputLabel color='primary'>Nom d'enquête :</InputLabel>
+					<Select
+						color='primary'
+						labelId='SelectBusinessKey'
+						value={selectedKey}
+						label='Select BusinessKey'
+						onChange={handleChangeKey}
+					>
+						<MenuItem value={'Famille'}>Famille</MenuItem>
+						<MenuItem value={'PQV'}>Qualité Volaille</MenuItem>
+						<MenuItem value={'Test'}>Test</MenuItem>
+					</Select>
+				</FormControl>
+				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
+					<InputLabel color='primary'> Type d'enquête :</InputLabel>
 					<Select
 						color='primary'
 						labelId='SelectBPMN'
@@ -103,20 +117,6 @@ const SelectProcess = () => {
 						<MenuItem value={'EnqueteWebContinue'}>
 							Enquête Web Continue
 						</MenuItem>
-					</Select>
-				</FormControl>
-				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
-					<InputLabel color='primary'>Catégorie enquête :</InputLabel>
-					<Select
-						color='primary'
-						labelId='SelectBusinessKey'
-						value={selectedKey}
-						label='Select BusinessKey'
-						onChange={handleChangeKey}
-					>
-						<MenuItem value={'Famille'}>Famille</MenuItem>
-						<MenuItem value={'PQV'}>Qualité Volaille</MenuItem>
-						<MenuItem value={'Test'}>Test</MenuItem>
 					</Select>
 				</FormControl>
 				<Button variant='contained' onClick={navigationHandler}>

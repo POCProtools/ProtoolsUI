@@ -9,18 +9,18 @@ import { Link } from 'react-router-dom';
 export const columnsProcessData = [
 	{
 		field: 'tag',
-		headerName: 'Type Enquête',
+		headerName: "Nom de l'enquête",
 		headerClassName: 'columns--header',
 		flex: 0.2,
-		description: "Type d'enquête",
+		description: 'Nom du processus défini par BPMN',
 	},
 	{
 		field: 'processKey',
-		headerName: 'Nom',
+		headerName: "Type d'enquête",
 		headerClassName: 'columns--header',
 		flex: 0.2,
 		minWidth: 150,
-		description: 'Npm du processus défini par BPMN',
+		description: "Type d'enquête",
 	},
 	{
 		field: 'documentation',
@@ -100,7 +100,7 @@ export const columnsManu = [
 		field: 'name',
 		headerName: 'Nom',
 		headerClassName: 'columns--header',
-		flex: 0.2,
+		flex: 0.3,
 
 		description: 'Nom de la tâche manuelle',
 	},

@@ -116,7 +116,7 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Type de processus:
+										Nom de l'enquête:
 									</Typography>
 									<Typography
 										color='primary'
@@ -132,7 +132,7 @@ const ProcessGlobalInfo = (props) => {
 										variant='h6'
 										className={classes.infoName}
 									>
-										Nom:
+										Type d'enquête:
 									</Typography>
 									<Typography
 										color='primary'
