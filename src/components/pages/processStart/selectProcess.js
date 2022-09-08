@@ -48,7 +48,7 @@ const SelectProcess = () => {
 						dateDeb: '01-01-2022',
 						dateEnd: '01-12-2022',
 						state_survey: 'notReady',
-						sampleSize: '500',
+						sampleSize: '600',
 					},
 				];
 			case 'EnqueteWebContinue':
