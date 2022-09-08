@@ -28,9 +28,29 @@ const SelectProcess = () => {
 			case 'EnquêteTest':
 				return ['EnqueteTest', {}];
 			case 'EnqueteWeb2':
-				return ['EnqueteWeb2', {}];
+				return [
+					'EnqueteWeb2',
+					{
+						idSurvey: '0',
+						name: 'SurveyQualitéVolaille',
+						dateDeb: '01-01-2022',
+						dateEnd: '01-12-2022',
+						state_survey: 'notReady',
+						sampleSize: '800',
+					},
+				];
 			case 'EnqueteWeb':
-				return ['EnqueteWeb', {}];
+				return [
+					'EnqueteWeb',
+					{
+						idSurvey: '0',
+						name: 'SurveyQualitéVolaille',
+						dateDeb: '01-01-2022',
+						dateEnd: '01-12-2022',
+						state_survey: 'notReady',
+						sampleSize: '500',
+					},
+				];
 			case 'EnqueteWebContinue':
 				return ['EnqueteWebContinue', {}];
 			default:
