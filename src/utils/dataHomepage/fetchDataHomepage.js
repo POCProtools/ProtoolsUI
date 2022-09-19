@@ -20,7 +20,7 @@ export const fetchProcessData = () => {
 	const apiUrl = process.env.REACT_APP_API_URL + urlEndpoint;
 	const dataUrl = [];
 	var pieProcessdata = {
-		labels: ['TirageEnquête', 'TestPOC', 'UnPandaRouxDors', 'IDK'],
+		labels: ['Enquête Famille', 'Qualité Poulet', 'Test'],
 		datasets: [
 			{
 				label: 'processus',
@@ -39,6 +39,7 @@ export const fetchProcessData = () => {
 			for (let i = 0; i < datatmp.length; i++) {
 				dataUrl.push({
 					id: datatmp[i].id,
+					tag: datatmp[i].businessKey,
 					state: getProcessState(datatmp, i),
 					processKey: datatmp[i].processKey,
 					documentation: datatmp[i].documentation,
@@ -87,6 +88,7 @@ export const fetchTaskData = () => {
 				dataUrl.push({
 					id: datatmp[i].TaskId,
 					name: datatmp[i].name,
+					description: datatmp[i].description,
 					processInstance: datatmp[i].processInstance,
 					createTime: Moment(datatmp[i].createTime).format(
 						'DD/MM/YYYY - HH:mm'
@@ -105,14 +107,13 @@ export const fetchTaskData = () => {
 
 const getPieProcessColorIndex = (BusinessKey) => {
 	switch (BusinessKey) {
-		case 'TirageEnquête':
+		case 'Famille':
 			return 0;
-		case 'TestPOC':
+		case 'PQV':
 			return 1;
-		case 'UnPandaRouxDors':
+		case 'Test':
 			return 2;
-		case 'IDK':
-			return 3;
+
 		default:
 			return 4;
 	}
@@ -143,7 +144,7 @@ export const fetchIncidentsData = () => {
 	const apiUrlDead = process.env.REACT_APP_API_URL + urlEndpointDead;
 
 	var pieIncidentdata = {
-		labels: ['Suspended', 'Échecs', 'Externes'],
+		labels: ['Suspendu', 'Échecs', 'Externes'],
 		datasets: [
 			{
 				label: 'processus',

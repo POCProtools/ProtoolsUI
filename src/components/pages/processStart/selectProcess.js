@@ -73,7 +73,6 @@ const SelectProcess = () => {
 						onChange={handleChange}
 					>
 						<MenuItem value={'flowable'}>Flowable POC</MenuItem>
-						<MenuItem value={'sample'}>Cas Simple POC</MenuItem>
 					</Select>
 				</FormControl>
 				<FormControl size='small' fullWidth sx={{ marginTop: 3 }}>
